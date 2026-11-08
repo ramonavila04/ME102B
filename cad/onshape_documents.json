@@ -1,0 +1,10 @@
+{
+  "_help": "List each Onshape Part Studio or Assembly tab to export. Paste the browser URL with that tab open. 'name' becomes the file name; 'formats' is optional (STEP and STL by default; assemblies export STEP only).",
+  "documents": [
+    {
+      "name": "EXAMPLE_replace_me",
+      "url": "https://cad.onshape.com/documents/000000000000000000000000/w/000000000000000000000000/e/000000000000000000000000",
+      "formats": ["STEP", "STL"]
+    }
+  ]
+}

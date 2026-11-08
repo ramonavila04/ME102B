@@ -1,0 +1,17 @@
+name: Firmware build
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [dispenser, beam-break, load-cell, motor-drv8833, motor-tb6612]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements-dev.txt
+      - run: pio run -e ${{ matrix.environment }}

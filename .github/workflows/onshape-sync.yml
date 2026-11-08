@@ -1,0 +1,38 @@
+name: Onshape CAD sync
+# Exports the Onshape tabs listed in cad/onshape_documents.json to STEP/STL
+# and commits any changes to cad/onshape/. Run it by hand from the Actions tab,
+# or let the nightly schedule pick up the team's latest edits.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 10 * * *"   # daily, 02:17 Pacific (standard time)
+permissions:
+  contents: write
+concurrency:
+  group: onshape-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests==2.32.3
+      - name: Export from Onshape
+        env:
+          ONSHAPE_ACCESS_KEY: ${{ secrets.ONSHAPE_ACCESS_KEY }}
+          ONSHAPE_SECRET_KEY: ${{ secrets.ONSHAPE_SECRET_KEY }}
+        run: python tools/onshape_sync.py
+      - name: Commit changed CAD exports
+        run: |
+          git config user.name "onshape-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cad/onshape
+          if git diff --cached --quiet; then
+            echo "No CAD changes."
+          else
+            git commit -m "Sync CAD exports from Onshape"
+            git push
+          fi

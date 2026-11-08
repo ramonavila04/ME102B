@@ -1,0 +1,46 @@
+#include "pins.h"
+/*
+ Adafruit 2167 IR break-beam sensor + original Adafruit HUZZAH32.
+ USB power only. Unplug USB before changing wiring.
+ Both red wires -> Feather 3V; both black wires -> GND.
+ Receiver white/yellow signal -> GPIO16 / RX on original HUZZAH32.
+ Keep the external 10k resistor from signal to 3V; internal pull-up is also on.
+ No extra libraries, calibration, or Serial Monitor commands required.
+ Serial Monitor: 115200 baud.
+
+ This is a hand-blocking/alignment test, not a counter for fast falling pills.
+ CLEAR can also mean a disconnected signal: verify BOTH states by hand.
+*/
+
+#include <Arduino.h>
+
+constexpr uint8_t BEAM_PIN = Pins::BEAM;
+bool lastBlocked = false;
+unsigned long lastReportMs = 0;
+
+void reportBeam(bool blocked) {
+ Serial.println(blocked ? "BEAM BLOCKED" : "BEAM CLEAR");
+ lastReportMs = millis();
+}
+
+void setup() {
+ Serial.begin(115200);
+ pinMode(BEAM_PIN, INPUT_PULLUP);
+ delay(2000);
+ Serial.println("\nBeam sensor test ready (see shared pin configuration).");
+ Serial.print("Receiver signal: RX / GPIO");
+ Serial.println(BEAM_PIN);
+ Serial.println("Aim the two lenses at each other, then block/unblock by hand.");
+ Serial.println("No t or c needed. Status repeats every second.");
+ lastBlocked = digitalRead(BEAM_PIN) == LOW;
+ reportBeam(lastBlocked);
+}
+
+void loop() {
+ const bool blocked = digitalRead(BEAM_PIN) == LOW;
+ if (blocked != lastBlocked || millis() - lastReportMs >= 1000UL) {
+   reportBeam(blocked);
+   lastBlocked = blocked;
+ }
+ delay(1);
+}

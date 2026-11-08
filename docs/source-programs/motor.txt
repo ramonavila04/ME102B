@@ -1,0 +1,168 @@
+#include <Arduino.h>
+#include <stdio.h>
+
+constexpr uint8_t PIN_BUTTON = 19;  // MI on ORIGINAL HUZZAH32, not Feather V2.
+constexpr uint8_t PIN_LED = 13;
+constexpr uint8_t PIN_AIN1 = 27;
+constexpr uint8_t PIN_AIN2 = 33;
+constexpr uint8_t PIN_ENCODER_A = 34;  // A2, yellow wire, input-only GPIO.
+constexpr uint8_t PIN_ENCODER_B = 14;  // Pin labeled 14, white wire.
+constexpr uint32_t DEBOUNCE_MS = 50;
+constexpr uint32_t REPORT_MS = 1000;
+
+// Exact gearbox ratio for Pololu #5229, marketed as 1000:1.
+constexpr double GEAR_RATIO =
+   (25.0 * 34 * 35 * 34 * 34 * 34 * 27) /
+   (12.0 * 9 * 12 * 14 * 14 * 14 * 9);
+constexpr double COUNTS_PER_OUTPUT_REV = 12.0 * GEAR_RATIO;  // ~11836.8764
+
+// Keep the decoder table in RAM for the interrupt handler.
+DRAM_ATTR const int8_t QUADRATURE[16] = {
+    0, -1,  1,  0,
+    1,  0,  0, -1,
+   -1,  0,  0,  1,
+    0,  1, -1,  0
+};
+portMUX_TYPE encoderMux = portMUX_INITIALIZER_UNLOCKED;
+volatile int64_t encoderCount = 0;
+volatile uint32_t invalidTransitions = 0;
+volatile uint8_t previousAB = 0;
+
+bool motorOn = false;
+// Electrical contact state is separate from a physical push of this button.
+bool rawClosed = false;
+bool stableClosed = false;
+bool buttonArmed = false;
+uint32_t changedAt = 0;
+uint32_t lastReportAt = 0;
+int64_t lastReportCount = 0;
+
+void ARDUINO_ISR_ATTR encoderISR() {
+ portENTER_CRITICAL_ISR(&encoderMux);
+ const uint8_t ab = (digitalRead(PIN_ENCODER_A) << 1) |
+                   digitalRead(PIN_ENCODER_B);
+ // Both bits changing at once suggests a missed edge or electrical noise.
+ if ((previousAB ^ ab) == 3) invalidTransitions = invalidTransitions + 1;
+ encoderCount = encoderCount + QUADRATURE[(previousAB << 2) | ab];
+ previousAB = ab;
+ portEXIT_CRITICAL_ISR(&encoderMux);
+}
+
+void setMotor(bool turnOn) {
+ digitalWrite(PIN_AIN2, LOW);
+ digitalWrite(PIN_AIN1, turnOn ? HIGH : LOW);
+ digitalWrite(PIN_LED, turnOn ? HIGH : LOW);
+ motorOn = turnOn;
+}
+
+void printButtonPress() {
+ Serial.print(motorOn ? "MOTOR ON" : "MOTOR OFF");
+ Serial.println(" | button: PRESSED");
+}
+
+void reportEncoder() {
+ // A 64-bit value needs a protected snapshot on this 32-bit ESP32.
+ portENTER_CRITICAL(&encoderMux);
+ const int64_t count = encoderCount;
+ const uint32_t errors = invalidTransitions;
+ const uint8_t ab = previousAB;
+ const uint32_t sampleAt = millis();
+ portEXIT_CRITICAL(&encoderMux);
+
+ const uint32_t elapsedMs = sampleAt - lastReportAt;
+ if (elapsedMs == 0) return;
+ const double rpm = static_cast<double>(count - lastReportCount) * 60000.0 /
+                    (COUNTS_PER_OUTPUT_REV * elapsedMs);
+ lastReportCount = count;
+ lastReportAt = sampleAt;
+
+ char line[200];
+ snprintf(line, sizeof(line),
+          "%s | count: %lld | output RPM: %.2f | A:%u B:%u | invalid: %lu",
+          motorOn ? "MOTOR ON" : "MOTOR OFF", static_cast<long long>(count),
+          rpm, static_cast<unsigned>((ab >> 1) & 1),
+          static_cast<unsigned>(ab & 1), static_cast<unsigned long>(errors));
+ Serial.println(line);
+}
+
+void setup() {
+ // Carrier input pull-downs keep outputs off during boot. Register GPIO
+ // before digitalWrite: required by the installed Arduino-ESP32 3.x core.
+ pinMode(PIN_AIN2, OUTPUT);
+ digitalWrite(PIN_AIN2, LOW);
+ pinMode(PIN_AIN1, OUTPUT);
+ digitalWrite(PIN_AIN1, LOW);
+ pinMode(PIN_LED, OUTPUT);
+ digitalWrite(PIN_LED, LOW);
+ setMotor(false);
+
+ pinMode(PIN_BUTTON, INPUT_PULLUP);
+ rawClosed = stableClosed = (digitalRead(PIN_BUTTON) == LOW);
+ buttonArmed = false;
+ changedAt = millis();
+
+ // GPIO34 has no internal pull-up. The powered Pololu encoder provides
+ // its own pull-ups on BOTH channels, so use INPUT for both pins.
+ pinMode(PIN_ENCODER_A, INPUT);
+ pinMode(PIN_ENCODER_B, INPUT);
+ previousAB = (digitalRead(PIN_ENCODER_A) << 1) | digitalRead(PIN_ENCODER_B);
+ attachInterrupt(digitalPinToInterrupt(PIN_ENCODER_A), encoderISR, CHANGE);
+ attachInterrupt(digitalPinToInterrupt(PIN_ENCODER_B), encoderISR, CHANGE);
+
+ portENTER_CRITICAL(&encoderMux);
+ lastReportCount = encoderCount;
+ lastReportAt = millis();
+ portEXIT_CRITICAL(&encoderMux);
+
+ Serial.begin(9600);
+ Serial.println("\nDRV8833 + original HUZZAH32: 8 V motor/encoder test.");
+ Serial.println("LATCHING button mode: each contact change is one push.");
+ Serial.println("Press once = ON; next press = OFF. Serial x = stop.");
+ Serial.println("Encoder: yellow=A2, white=14, blue=3V, green=GND.");
+ Serial.println("RPM is gearbox output speed; its sign indicates direction.");
+ Serial.println("Encoder monitoring only: no automatic jam stop or speed control.");
+ Serial.println("MOTOR OFF | ready after button contacts settle.");
+}
+
+void loop() {
+ const uint32_t now = millis();
+ const bool closedNow = (digitalRead(PIN_BUTTON) == LOW);
+ if (closedNow != rawClosed) {
+   rawClosed = closedNow;
+   changedAt = now;
+ }
+
+ // Stop takes priority over a button edge during this loop iteration.
+ bool serialStop = false;
+ for (uint8_t i = 0; i < 16 && Serial.available(); ++i) {
+   const char command = Serial.read();
+   if (command == 'x' || command == 'X') {
+     setMotor(false);
+     // Absorb any contact change already in progress when stopping.
+     // Require 50 ms of settling, then a NEW change to restart.
+     buttonArmed = false;
+     changedAt = now;
+     serialStop = true;
+   }
+ }
+ if (serialStop) {
+   Serial.println("STOP: motor OFF. A new button press is required to run.");
+ }
+
+ if (!serialStop && now - changedAt >= DEBOUNCE_MS) {
+   if (!buttonArmed) {
+     stableClosed = rawClosed;
+     buttonArmed = true;
+   } else if (rawClosed != stableClosed) {
+     stableClosed = rawClosed;
+     // A latching switch changes state on EVERY physical push.
+     // Treat OPEN->CLOSED and CLOSED->OPEN identically.
+     setMotor(!motorOn);
+     printButtonPress();
+   }
+   // Do not reset the encoder sampling timer when button status changes.
+ }
+
+ // Repeated telemetry makes opening Serial Monitor after boot useful.
+ if (now - lastReportAt >= REPORT_MS) reportEncoder();
+ delay(1);

@@ -65,8 +65,10 @@ def pocket_params(pill_id: str) -> dict:
     if p.kind == "tablet":
         d_max = p.length + p.tol
         t_min = p.thickness - p.tol
-        t_max = p.thickness + p.tol
-        w = math.hypot(d_max, t_max) + 2 * FDM  # notch diameter
+        # rev 5: round tablets go back to a tight notch (Ø + 2×FDM). The wider tilt-sized
+        # notch let two iron tablets (T ≈ Ø/2) stand on edge side by side (doubles); the
+        # exit relief (rev 3) already removes the tilt wedge at the exit.
+        w = d_max + 2 * FDM                     # notch diameter
         r_c = R_WALL - w / 2                    # centre of the pill when against the wall
         r_in = r_c - w / 2
         half_ang = math.asin((w / 2) / r_c)

@@ -47,7 +47,9 @@ COMMON = dict(
     fdm_clear=0.35,          # pocket clearance per side beyond the largest pill
     seat_margin=0.25,        # thickest pill's top sits this far below the rotor top
     track_r=15.0,            # pocket pitch radius (same for all pills -> common chute)
-    r_open=22.0,             # fill opening outer radius (inside the Ø52 rotor)
+    r_open=22.0,             # rev 1-3: fill opening outer radius (inside the Ø52 rotor)
+    slot=True,               # rev 4: fill opening is an annular slot over the pocket track only
+    slot_margin=0.75,        # rev 4: slot = pocket footprint + this per side
     edge_face=2.0,           # vertical stripping-face height above the deck underside
     cone_deg=50.0,           # hopper cone slope (above the 31° friction angle of mu=0.6)
     baffle_deg=50.0,         # ridge-baffle slope over the covered sector
@@ -110,6 +112,12 @@ def params_for(pill_id: str, **over) -> dict:
     p["floor_top"] = -T - p["run_gap"]
     p["deck_z0"] = p["run_gap"]
     p["deck_z1"] = p["run_gap"] + p["edge_face"]
+    if p["slot"]:
+        a = (p["pocket_L"] - p["pocket_W"]) / 2
+        p["r_in"] = round(p["track_r"] - p["pocket_W"] / 2 - p["slot_margin"], 3)
+        p["r_open"] = round(math.hypot(p["track_r"], a) + p["pocket_W"] / 2 + p["slot_margin"], 3)
+    else:
+        p["r_in"] = 0.0
     p["wall_top"] = p["deck_z1"] + (p["deck_bore_r"] - p["r_open"]) * math.tan(math.radians(p["cone_deg"]))
     _edges(p)
     return p
@@ -173,7 +181,7 @@ def _edges(p):
 
 def covered(p, x, y):
     """True where the deck covers the rotor (outside the fill opening)."""
-    if math.hypot(x, y) > p["r_open"]:
+    if not p["r_in"] <= math.hypot(x, y) <= p["r_open"]:
         return True
     s1 = (x - p["e1_q"][0]) * p["e1_n"][0] + (y - p["e1_q"][1]) * p["e1_n"][1]
     s2 = (x - p["e2_q"][0]) * p["e2_n"][0] + (y - p["e2_q"][1]) * p["e2_n"][1]
@@ -246,6 +254,13 @@ def deck(p):
     prof = (cq.Workplane("XZ").moveTo(p["r_open"], z0).lineTo(R_out, z0).lineTo(R_out, zt)
             .lineTo(p["deck_bore_r"], zt).lineTo(p["r_open"], z1).close())
     body = prof.revolve(360, (0, 0, 0), (0, 1, 0))
+    if p["r_in"] > 0:
+        # rev 4: hub cone covers the rotor inside the pocket track and sheds pills onto it
+        tc = math.tan(math.radians(p["cone_deg"]))
+        hc = min((p["r_in"] - 0.3) * tc, zt - z1)   # 0.3 mm flat tip (clean tessellation)
+        cone = cq.Solid.makeCone(p["r_in"], p["r_in"] - hc / tc, hc, pnt=cq.Vector(0, 0, z1 - 0.01))
+        hub = _cyl(p["r_in"], z0, z1).union(cq.Workplane().add(cone))
+        body = body.union(hub)
     # covered wedge: plate + roof rising from both edges at baffle_deg
     tb = math.tan(math.radians(p["baffle_deg"]))
     wedge = _cyl(p["deck_bore_r"] + 0.5, z0, zt)

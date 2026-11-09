@@ -56,8 +56,10 @@ def spec(pill_id: str) -> dict:
             s1 = (x - e1q[0]) * e1n[0] + (y - e1q[1]) * e1n[1]
             if abs(s1) < 6 and rad < p["r_open"] + 2:
                 return "deck stripping edge (fill -> covered)"
-            if rad > p["r_open"] - 6:
-                return "deck opening rim (outer)"
+            if rad > p["r_open"] - 3:
+                return "deck slot rim (outer)"
+            if rad < p.get("r_in", 0) + 3:
+                return "deck slot rim (hub cone)"
             return "deck re-entry edge / baffle"
         if part == "floor":
             if x > 5 and abs(y) < p["pocket_L"] / 2 + 3 and z < p["floor_top"] + 3:
@@ -80,11 +82,11 @@ def spec(pill_id: str) -> dict:
         drive=dict(index_deg=p["pitch_deg"], rpm=p.get("rpm", 20.0), dir=1, accel_s=0.15,
                    settle_s=0.6, start_deg=0.0, max_steps=p["pockets"]),
         spawn=dict(x=(-bore, bore), y=(-bore, bore),
-                   z=(z_spawn, z_spawn + (130 if big else 55)), accept=accept),
+                   z=(z_spawn, z_spawn + (200 if big else 55)), accept=accept),
         fill=fills[pill_id],
         exit=dict(z=p["floor_bottom"] - 12.0, x=(ch["cx"] - ch["hx"], ch["cx"] + ch["hx"]),
                   y=(-ch["hy"], ch["hy"])),
         loss_z=p["floor_bottom"] - 2.0,
-        fill_s=1.8 if big else 1.2, settle_s=0.6,
+        fill_s=2.4 if big else 1.2, settle_s=0.6,
         site_namer=site_namer,
     )

@@ -35,8 +35,8 @@ A variant is two files:
 - Run: `python -m sim.campaign <variant> --trials 200` (all four pills). A variant
   **passes only with zero jam, double, miss, lost and leak outcomes in every cycle
   of every trial**, and no crashed trials.
-- `anomaly_trials` counts trials where a pill exceeded 2.5 m/s (a soft-contact
-  blow-up). A passing variant must also have zero anomalies; if it has any,
+- `unstable_trials` counts trials where MuJoCo hit a NaN and reset (outcome meaningless). `anomaly_trials` counts trials where a pill exceeded 2.5 m/s (a soft-contact
+  blow-up). A passing variant must have zero of both; if it has any,
   investigate, don't ignore.
 - Don't change `sim/engine.py` thresholds, friction ranges, tolerances or the
   motor model to make a variant pass. Change the geometry.

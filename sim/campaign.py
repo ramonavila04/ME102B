@@ -55,6 +55,7 @@ def summarize(trials: list) -> dict:
                 outcomes=dict(out), jam_sites=dict(sites),
                 jam_rate_per_trial=jam_trials / max(len(trials), 1),
                 anomaly_trials=sum(1 for t in trials if t.get("anomalies")),
+                unstable_trials=sum(1 for t in trials if t.get("sim_unstable")),
                 errors=sum(1 for t in trials if "error" in t))
 
 

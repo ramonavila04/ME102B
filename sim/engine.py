@@ -60,12 +60,13 @@ class TrialResult:
     cycles: list = field(default_factory=list)
     leak: int = 0
     wall_s: float = 0.0
+    sim_unstable: int = 0
     max_contact_depth_mm: float = 0.0  # deepest pill contact seen (mm); large values flag soft-contact artefacts
     frames: list | None = None
 
     @property
     def passed(self) -> bool:
-        return self.leak == 0 and all(c.outcome == "ok" for c in self.cycles)
+        return self.leak == 0 and self.sim_unstable == 0 and all(c.outcome == "ok" for c in self.cycles)
 
 
 # ---------------------------------------------------------------- scene build
@@ -550,5 +551,7 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
         res.cycles.insert(0, CycleResult("lost", 0, 0.0, lost=lost_fill))
     res.frames = frames
     res.max_contact_depth_mm = round(pen_stats["max_free"], 3)
+    # MuJoCo resets the state after a NaN/instability; such a trial's outcome is meaningless.
+    res.sim_unstable = int(data.warning[mujoco.mjtWarning.mjWARN_BADQACC].number)
     res.wall_s = time.time() - t_wall
     return res

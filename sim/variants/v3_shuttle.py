@@ -61,17 +61,19 @@ def spec(pill_id: str) -> dict:
     z_top = gap + P["hopper_h"]
     z_ext = z_top + P["hopper_ext"]
 
+    x0t = P["throat_x0"]
+    yin = P["slide_w"] / 2 + gap
     parts = [
         # the cover plate / throat edges are where pills are stripped: exact (0.05 mm) hulls
         dict(name="hopper", stl=d / "hopper.stl", body="static", tol=0.05,
-             crop=((-50, -31, 0), (42, 31, 8))),
+             crop=((x0t - 30, -yin - 8, 0), (P["base_x1"] + 1, yin + 8, 8))),
         dict(name="hopper_upper", stl=d / "hopper.stl", body="static", tol=0.25,
-             crop=((-60, -40, 8), (40, 40, z_ext + 1))),
+             crop=((x0t - 60, -60, 8), (P["base_x1"] + 1, 60, z_ext + 1))),
         dict(name="guide_base", stl=d / "guide_base.stl", body="static", tol=0.05,
-             crop=((-40, -22.3, zfb - 1), (35, 22.3, -D + 0.05))),
+             crop=((x0t - 3, -yin + 0.1, zfb - 1), (R + P["seat_x"] / 2 + 6, yin - 0.1, -D + 0.05))),
         dict(name="chute", stl=d / "chute.stl", body="static", tol=0.1, crop=None),
         dict(name="slide", stl=d / "slide.stl", body="rotor", tol=0.05, rgba="0.95 0.75 0.2 1",
-             crop=((-46, -23, -D - 1), (25, 23, 1))),
+             crop=((x0t - R - 4, -yin, -D - 1), (P["slide_x1"] + 1, yin, 1))),
     ]
 
     def half_widths(z):
@@ -102,8 +104,8 @@ def spec(pill_id: str) -> dict:
             return "chute"
         return part
 
-    ex_hx = P["drop_x"] / 2 + 1.0
-    ex_hy = P["drop_y"] / 2 + 1.0
+    ex_hx = P["seat_x"] / 2 + P["drop_e"] + P["chute_e"]
+    ex_hy = P["seat_y"] / 2 + P["drop_e"] + P["chute_e"]
     return dict(
         name="V3 shuttle (scotch-yoke slide)",
         parts=parts,

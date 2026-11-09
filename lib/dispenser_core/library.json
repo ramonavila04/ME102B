@@ -1,0 +1,10 @@
+{
+  "name": "dispenser_core",
+  "version": "0.1.0",
+  "description": "Hardware-independent dispenser logic: state machine, motion profile, stall detector, verification, schedule, menu. Unit-tested on the host (pio test -e native). Includes mechanism.h from the project include/ directory.",
+  "frameworks": "*",
+  "platforms": "*",
+  "build": {
+    "flags": "-I$PROJECT_INCLUDE_DIR"
+  }
+}

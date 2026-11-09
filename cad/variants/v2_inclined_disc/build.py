@@ -41,22 +41,32 @@ WALL = 2.4             # hopper wall thickness (≥1.2 mm; 6 perimeters at 0.4 m
 HOPPER_DEPTH = 40.0    # hopper wall height in front of the disc (along the axis)
 BP_T = 3.0             # back plate thickness
 EXIT_MARGIN = 1.2      # exit hole larger than the pocket on every side
-DUCT_LEN = 14.0        # exit duct length behind the back plate
+DUCT_LEN = 50.0        # exit duct behind the plate; runs parallel to the motor, 25 mm above it,
+                       # and slopes 40° below horizontal (tan 40° = 0.84 > μmax 0.6)
+BEAM_Z = 8.0           # beam-break pair (Adafruit 2167, 3 mm LEDs) this far into the duct
 WEB_MIN = 4.0          # minimum solid between neighbouring notches at their inner end
-EXIT_ANGLE = 0.0       # local angle of the exit (0 = 3 o'clock); fill pool is at 270°
+EXIT_ANGLE = 90.0      # exit at the top (12 o'clock), far above the pool at 270°; N is a
+                       # multiple of 4 so the top is always a rest position
 SHAFT_D, SHAFT_FLAT = 3.0, 2.5  # Pololu micro-gearmotor D shaft (Ø3, 2.5 across flat)
 GEARBOX = (12.0, 10.0)          # micro-gearmotor gearbox cross-section (w × h)
 FLANGE_R = 40.0        # back plate / hopper flange radius
 BOLT_R = 36.0          # M3 bolt circle for hopper → back plate
 DEPTH_BELOW_T = 0.3    # pocket depth = min pill thickness − this (2nd pill can't nest)
+RELIEF = 2.5           # hopper bore widened this much over the exit notch (rev 3): a pill
+                       # standing on edge can't hang by friction between notch end and wall
+RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
 
 
 def pocket_params(pill_id: str) -> dict:
     p = PILLS[pill_id]
+    # Notch spans are sized to the pill's TILTED diagonal (+ clearance), so a pill that
+    # tips while dropping out can never wedge across the notch (rev 2: a 9.5×5 tablet
+    # tilted ~28° spans 10.7 mm and wedged between the notch end and the hopper wall).
     if p.kind == "tablet":
         d_max = p.length + p.tol
         t_min = p.thickness - p.tol
-        w = d_max + 2 * FDM                     # notch width (tangential)
+        t_max = p.thickness + p.tol
+        w = math.hypot(d_max, t_max) + 2 * FDM  # notch diameter
         r_c = R_WALL - w / 2                    # centre of the pill when against the wall
         r_in = r_c - w / 2
         half_ang = math.asin((w / 2) / r_c)
@@ -65,13 +75,18 @@ def pocket_params(pill_id: str) -> dict:
     else:
         L = p.length + p.tol_length
         W = p.width + p.tol
+        T = p.thickness + p.tol
         t_min = (p.thickness - p.tol) if p.kind == "caplet" else (p.width - p.tol)
-        length = L + 2 * FDM
-        w = W + 2 * FDM
+        if p.kind == "caplet":       # box-like side profile: tilting grows the span
+            length = math.hypot(L, T) + 2 * FDM
+            w = math.hypot(W, T) + 2 * FDM
+        else:                        # capsule: round section and ends, tilt never grows it
+            length = L + 2 * FDM
+            w = W + 2 * FDM
         # pill lying tangentially against the curved wall: end-cap centres touch R_WALL
         d_c = math.sqrt((R_WALL - W / 2) ** 2 - ((L - W) / 2) ** 2)
         r_c = d_c
-        r_in = d_c - W / 2 - FDM
+        r_in = d_c - W / 2 - (w - W) + FDM
         half_ang = math.atan((length / 2) / r_in)
         shape = "oblong"
     depth = round(t_min - DEPTH_BELOW_T, 2)
@@ -81,12 +96,37 @@ def pocket_params(pill_id: str) -> dict:
         web = r_in * (2 * math.pi / cand - 2 * half_ang)
         if web >= WEB_MIN + 2 * EXIT_MARGIN:
             n = cand
+    chamfer = 0.0 if shape == "round" else round(min(2.5, 0.35 * depth), 2)
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
-                pitch_deg=360.0 / n)
+                pitch_deg=360.0 / n, chamfer=chamfer)
 
 
 # --------------------------------------------------------------- 2-D outlines
+def relief_outline(pp: dict, grow: float = 0.0, pts: int = 48):
+    """Closed local-XY outline of the exit relief region (bore + RELIEF over the exit
+    notch, ramped back to the bore), from radius R_DISC−1 outward."""
+    half = math.degrees((pp["length"] / 2 + EXIT_MARGIN) / R_WALL) + 1.0
+    ramp = math.degrees((RELIEF / math.tan(math.radians(RELIEF_RAMP))) / R_WALL)
+    a0, a1 = EXIT_ANGLE - half - ramp, EXIT_ANGLE + half + ramp
+    outer = []
+    for k in range(pts + 1):
+        a = a0 + (a1 - a0) * k / pts
+        d = abs(a - EXIT_ANGLE)
+        r = R_WALL + RELIEF if d <= half else R_WALL + RELIEF * max(0.0, 1 - (d - half) / ramp)
+        r += grow
+        outer.append((r * math.cos(math.radians(a)), r * math.sin(math.radians(a))))
+    r_i = R_DISC - 1.0
+    inner = [(r_i * math.cos(math.radians(a)), r_i * math.sin(math.radians(a)))
+             for a in (a1, (a0 + a1) / 2, a0)]
+    return outer + inner
+
+
+def _relief_prism(pp: dict, z0: float, h: float, grow: float = 0.0) -> cq.Workplane:
+    return (cq.Workplane("XY").workplane(offset=z0).polyline(relief_outline(pp, grow)).close()
+            .extrude(h))
+
+
 def _rot_world(shape: cq.Workplane) -> cq.Workplane:
     return shape.rotate((0, 0, 0), (1, 0, 0), BETA)
 
@@ -100,9 +140,17 @@ def make_disc(pp: dict) -> cq.Workplane:
     if boss_h > 0:
         boss = cq.Workplane("XY").circle(7.0).workplane(offset=boss_h).circle(3.5).loft()
         disc = disc.union(boss)
+    chamfer = pp.get("chamfer", 0.0)
     for k in range(pp["n"]):
-        disc = disc.cut(_extruded_notch(pp, -t - 1, t + 2).rotate((0, 0, 0), (0, 0, 1),
-                                                                  k * pp["pitch_deg"]))
+        tool = _extruded_notch(pp, -t - 1, t + 2)
+        # rev 4: 45° lead-in on the notch's top edges for long pills (stepped in 0.25 mm
+        # layers so it prints as an upward-facing stair) — a misaligned pill is guided in
+        # or lifted off instead of being shoved along the wall
+        steps = int(round(chamfer / 0.25))
+        for i in range(1, steps + 1):
+            g = chamfer * i / steps
+            tool = tool.union(_extruded_notch(pp, -g, g + 1, grow=g))
+        disc = disc.cut(tool.rotate((0, 0, 0), (0, 0, 1), k * pp["pitch_deg"]))
     # D-bore through boss and disc
     h_tot = t + boss_h
     bore = (cq.Workplane("XY").workplane(offset=-t - 1).circle(SHAFT_D / 2 + 0.05)
@@ -163,11 +211,16 @@ def make_backplate(pp: dict) -> cq.Workplane:
     plate = plate.cut(cq.Workplane("XY").workplane(offset=zb - 1).circle(2.2).extrude(BP_T + 2))
     # exit hole = notch grown by EXIT_MARGIN, bounded by the hopper bore, continued as a
     # duct straight back (perpendicular to the plate: vertical walls when printed)
-    hole = _extruded_notch(pp, zb - DUCT_LEN - 1, BP_T + DUCT_LEN + 2, grow=EXIT_MARGIN,
-                           outer=R_WALL).rotate((0, 0, 0), (0, 0, 1), EXIT_ANGLE)
-    duct = _extruded_notch(pp, zb - DUCT_LEN, DUCT_LEN, grow=EXIT_MARGIN + 1.6,
-                           outer=R_WALL + 1.6).rotate((0, 0, 0), (0, 0, 1), EXIT_ANGLE)
+    hole = (_extruded_notch(pp, zb - DUCT_LEN - 1, BP_T + DUCT_LEN + 2, grow=EXIT_MARGIN,
+                            outer=R_WALL).rotate((0, 0, 0), (0, 0, 1), EXIT_ANGLE)
+            .union(_relief_prism(pp, zb - DUCT_LEN - 1, BP_T + DUCT_LEN + 2)))
+    duct = (_extruded_notch(pp, zb - DUCT_LEN, DUCT_LEN, grow=EXIT_MARGIN + 1.6,
+                            outer=R_WALL + 1.6).rotate((0, 0, 0), (0, 0, 1), EXIT_ANGLE)
+            .union(_relief_prism(pp, zb - DUCT_LEN, DUCT_LEN + BP_T, grow=1.6)))
     plate = plate.union(duct).cut(hole)
+    # beam-break LED holes across the duct (along local x), teardrop roof toward −z
+    hw = (pp["length"] if pp["shape"] == "oblong" else pp["width"]) / 2 + EXIT_MARGIN + 1.6
+    plate = plate.cut(_teardrop_x(-hw - 2, hw + 2, pp["r_center"], zb - BEAM_Z, 1.6))
     # gearbox socket behind the plate + clamp ears (2× M2)
     gw, gh = GEARBOX
     sock_d = 8.0
@@ -205,7 +258,17 @@ def make_hopper(pp: dict) -> cq.Workplane:
               .extrude(3.0)
               .cut(cq.Workplane("XY").workplane(offset=z0 - 1)
                    .polarArray(BOLT_R, 45, 360, 4).circle(1.7).extrude(5)))
-    return wall.union(flange)
+    # exit relief: from the back plate up to 6 mm above the disc face
+    z_full = 3.5                      # full relief up to 3.5 mm above the disc face,
+    taper_h = RELIEF * 1.2            # then a 50° self-supporting ceiling back to the bore
+    relief = _relief_prism(pp, z0 - 1, (-z0) + 1 + z_full)
+    lo = relief_outline(pp)
+    hi = relief_outline(pp, grow=-RELIEF)
+    cap = (cq.Workplane("XY").workplane(offset=z_full).polyline(lo).close()
+           .workplane(offset=taper_h).polyline(hi).close().loft(ruled=True))
+    relief = relief.union(cap)
+    boss = _relief_prism(pp, z0, (-z0) + 9.0, grow=WALL).cut(_relief_prism(pp, z0 - 1, 20, grow=0))
+    return wall.union(flange).union(boss).cut(relief)
 
 
 def make_cover() -> cq.Workplane:
@@ -270,14 +333,13 @@ def make_base(pp_ref: dict) -> cq.Workplane:
 
 
 def make_cup(pp_ref: dict) -> cq.Workplane:
-    """Pill cup under the exit duct (world). Ø36 × 22 mm, 1.6 mm walls."""
+    """Pill cup under the end of the exit duct (world). Ø44 × 18 mm, 1.6 mm walls."""
     zb, _ = backplate_z(pp_ref)
-    duct_end = _world((pp_ref["r_center"], 0, zb - DUCT_LEN))
-    cup = (cq.Workplane("XY").workplane(offset=BASE_Z).center(duct_end[0], duct_end[1] + 4)
-           .circle(18).extrude(22)
-           .cut(cq.Workplane("XY").workplane(offset=BASE_Z + 1.6).center(duct_end[0], duct_end[1] + 4)
-                .circle(16.4).extrude(22)))
-    return cup
+    mouth = _world((0.0, pp_ref["r_center"], zb - DUCT_LEN))
+    cx, cy = mouth[0], mouth[1] + 4
+    return (cq.Workplane("XY").workplane(offset=BASE_Z).center(cx, cy).circle(22).extrude(18)
+            .cut(cq.Workplane("XY").workplane(offset=BASE_Z + 1.6).center(cx, cy).circle(20.4)
+                 .extrude(18)))
 
 
 # ------------------------------------------------------------------ export

@@ -67,7 +67,8 @@ def spec(pill_id: str) -> dict:
         u = math.cos(ang0) * xl + math.sin(ang0) * yl
         v = -math.sin(ang0) * xl + math.cos(ang0) * yl
         inside = (r_in - 4 <= u <= build.R_WALL + 3) and abs(v) <= L / 2 + 4
-        return inside, zl < zb - 6.0
+        # counted only once the pill has slid out of the end of the duct
+        return inside, zl < zb - build.DUCT_LEN - 2.0
 
     from sim.pills import PILLS
     pill_r = PILLS[pill_id].bounding_radius
@@ -87,7 +88,7 @@ def spec(pill_id: str) -> dict:
 
     corners = [to_world(xx, yy, zz) for xx in (-31, 31) for yy in (-31, 0) for zz in (0, H)]
     xs, ys, zs = zip(*corners)
-    zs = list(zs) + [max(zs) + 70]
+    zs = list(zs) + [max(zs) + (70 if pill_id in ('iron', 'small') else 450)]
     fills = {"iron": (3, 20), "small": (3, 30), "caplet": (3, 12), "cap0": (3, 12)}
     return dict(
         name="V2 inclined pocket disc",
@@ -95,11 +96,11 @@ def spec(pill_id: str) -> dict:
         joint=dict(type="hinge", axis=(0.0, -SB, CB), pos=(0, 0, 0)),
         rotor_mass_kg=0.015,
         drive=dict(index_deg=pp["pitch_deg"], rpm=25.0, dir=1, accel_s=0.12, settle_s=0.6,
-                   start_deg=0.0, max_steps=pp["n"]),
+                   start_deg=0.0, max_steps=2 * pp["n"]),   # up to two revolutions per dispense
         spawn=dict(x=(min(xs), max(xs)), y=(min(ys), max(ys)), z=(min(zs), max(zs)), accept=accept),
         fill=fills[pill_id],
         exit=dict(fn=exit_fn),
         loss_z=-45.0,
-        fill_s=1.8, settle_s=0.6,
+        fill_s=1.8 if pill_id in ('iron', 'small') else 3.8, settle_s=0.6,
         site_namer=site_namer,
     )

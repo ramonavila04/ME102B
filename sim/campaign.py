@@ -82,12 +82,16 @@ def main():
                 trials.append(r)
                 if (k + 1) % 25 == 0:
                     s = summarize(trials)
+                    json.dump(dict(variant=a.variant, pill=pill, partial=True, summary=s,
+                                   trials=sorted(trials, key=lambda t: t["seed"])),
+                              open(outdir / f"{pill}.partial.json", "w"), indent=1, default=float)
                     print(f"[{a.variant}/{pill}] {k + 1}/{a.trials} {s['outcomes']} "
                           f"{time.time() - t0:.0f}s", flush=True)
             trials.sort(key=lambda t: t["seed"])
             s = summarize(trials)
             json.dump(dict(variant=a.variant, pill=pill, summary=s, trials=trials),
                       open(outdir / f"{pill}.json", "w"), indent=1, default=float)
+            (outdir / f"{pill}.partial.json").unlink(missing_ok=True)
             print(f"== {a.variant}/{pill}: {json.dumps(s)}", flush=True)
 
 

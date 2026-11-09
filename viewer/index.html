@@ -1,0 +1,307 @@
+<title>Pill Dispenser Sim Replays</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab-bench tool — trial picker strip, 3-D stage with scrubber, cycle log beside it, results table below. */
+:root {
+  --bg: #eef0f2;        /* bench grey with a cool bias */
+  --panel: #ffffff;
+  --ink: #1d2530;
+  --muted: #5d6877;
+  --line: #d3d8de;
+  --accent: #c2781a;    /* PLA-amber: moving parts */
+  --pill: #b23a2a;      /* iron-tablet red */
+  --ok: #2f7d4f;
+  --warn: #a86a00;
+  --bad: #b3261e;
+  --stage: #dfe4e9;
+  --f-display: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181d; --panel: #1c2229; --ink: #e6eaef; --muted: #9aa5b2; --line: #2e3742;
+    --accent: #e09a3e; --pill: #e0614d; --ok: #5cb883; --warn: #e0a640; --bad: #f07067; --stage: #20272f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14181d; --panel: #1c2229; --ink: #e6eaef; --muted: #9aa5b2; --line: #2e3742;
+  --accent: #e09a3e; --pill: #e0614d; --ok: #5cb883; --warn: #e0a640; --bad: #f07067; --stage: #20272f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--f-body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px; }
+header h1 { font: 600 clamp(26px, 4vw, 34px)/1.1 var(--f-display); margin: 0; letter-spacing: .01em; text-wrap: balance; }
+header p { margin: 6px 0 0; color: var(--muted); max-width: 70ch; }
+.eyebrow { font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.picker { display: flex; flex-wrap: wrap; gap: 8px; }
+.picker button { font: 500 13px/1.2 var(--f-body); color: var(--ink); background: var(--panel); border: 1px solid var(--line);
+  border-radius: 6px; padding: 8px 10px; cursor: pointer; display: grid; gap: 3px; text-align: left; }
+.picker button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.picker button:focus-visible, .controls button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.picker .meta { font: 400 12px/1.2 var(--f-mono); color: var(--muted); }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; align-items: start; }
+@media (max-width: 860px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.stage { background: var(--stage); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: grid; }
+#view { width: 100%; aspect-ratio: 4 / 3; max-width: 100%; display: block; touch-action: none; }
+.controls { display: flex; gap: 10px; align-items: center; padding: 10px 12px; background: var(--panel); border-top: 1px solid var(--line); flex-wrap: wrap; }
+.controls button { font: 500 13px var(--f-body); background: var(--ink); color: var(--panel); border: 0; border-radius: 5px; padding: 7px 12px; cursor: pointer; min-width: 64px; }
+.controls input[type=range] { flex: 1 1 160px; accent-color: var(--accent); }
+.controls select { font: 13px var(--f-body); background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 5px; }
+.clock { font: 500 13px var(--f-mono); font-variant-numeric: tabular-nums; min-width: 9ch; }
+aside { display: grid; gap: 12px; min-width: 0; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.card h2 { font: 600 18px/1.2 var(--f-display); margin: 0; }
+dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 13px; }
+dt { color: var(--muted); }
+dd { margin: 0; font-family: var(--f-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+ol.cycles { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+ol.cycles li { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; align-items: center; font-size: 13px; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--line); cursor: pointer; }
+ol.cycles li.now { border-color: var(--accent); }
+.chip { font: 500 11px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; padding: 4px 6px; border-radius: 4px; color: var(--panel); }
+.chip.ok { background: var(--ok); } .chip.jam, .chip.lost, .chip.double, .chip.leak { background: var(--bad); } .chip.miss { background: var(--warn); }
+.cyc-detail { grid-column: 2; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--sw); }
+.note { font-size: 13px; color: var(--muted); margin: 0; }
+section.results { display: grid; gap: 10px; }
+section.results h2 { font: 600 24px/1.2 var(--f-display); margin: 0; }
+.tablebox { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 720px; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+th { font: 500 12px var(--f-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
+td.zero { color: var(--ok); font-weight: 600; } td.bad { color: var(--bad); font-weight: 600; }
+td.verdict span { font: 500 11px var(--f-mono); padding: 3px 6px; border-radius: 4px; color: var(--panel); }
+.status { font: 13px var(--f-mono); color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">ME102B · MuJoCo replay · real trial output</div>
+    <h1>Pill Dispenser Sim Replays</h1>
+    <p>Each replay is a recorded trial from the same simulator that ran the 200-trial campaigns: pill poses and rotor angle at 60 frames per second, drawn on the exported CAD meshes. Nothing here is keyframed by hand.</p>
+  </header>
+
+  <div class="picker" id="picker" role="group" aria-label="Recorded trials"><span class="status">Loading trials…</span></div>
+
+  <div class="main">
+    <div class="stage">
+      <canvas id="view" aria-label="3-D replay of the selected trial"></canvas>
+      <div class="controls">
+        <button id="play" type="button">Play</button>
+        <input id="scrub" type="range" min="0" max="0" value="0" step="1" aria-label="Replay time">
+        <span class="clock" id="clock">0.00 s</span>
+        <label class="note" for="speed">Speed</label>
+        <select id="speed"><option value="0.25">¼×</option><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+      </div>
+    </div>
+    <aside>
+      <div class="card">
+        <h2 id="t-title">—</h2>
+        <dl id="t-meta"></dl>
+        <div class="legend">
+          <span style="--sw: var(--accent)">moving part</span>
+          <span style="--sw: var(--line)">fixed part</span>
+          <span style="--sw: var(--pill)">pill</span>
+          <span style="--sw: var(--bad)">jam point</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Dispense cycles</h2>
+        <ol class="cycles" id="cycles"></ol>
+        <p class="note">Click a cycle to jump to it. Drag to orbit, scroll or pinch to zoom.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="results">
+    <div class="eyebrow">Campaign results</div>
+    <h2>Jam, double and miss rates by variant</h2>
+    <p class="note" id="res-note">Per pill type: randomised trials of three dispense commands each (pill size within tolerance, friction 0.2–0.6, fill count and start pose). A variant passes only with zero failures of any kind.</p>
+    <div class="tablebox"><table id="results"><thead><tr>
+      <th>Variant</th><th>Pill</th><th>Trials</th><th>Cycles</th><th>OK</th><th>Jam</th><th>Double</th><th>Miss</th><th>Lost</th><th>Trials with jam</th><th>Verdict</th>
+    </tr></thead><tbody><tr><td colspan="11" class="status">Loading results…</td></tr></tbody></table></div>
+    <p class="note" id="sites"></p>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(() => {
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const canvas = document.getElementById("view");
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(35, 4 / 3, 1, 4000);
+  const controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8899aa, 0.85));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.7); sun.position.set(120, -160, 260); scene.add(sun);
+  // MuJoCo is z-up, millimetres
+  camera.up.set(0, 0, 1);
+
+  let trial = null, frame = 0, playing = false, last = 0, acc = 0;
+  let rotorGroup = null, pills = [], jamMarker = null, root = null;
+  const mats = {};
+
+  function themeMats() {
+    const c = n => new THREE.Color(css(n));
+    scene.background = c("--stage");
+    mats.fixed = new THREE.MeshStandardMaterial({ color: c("--line"), transparent: true, opacity: 0.38, roughness: .8, side: THREE.DoubleSide, depthWrite: false });
+    mats.rotor = new THREE.MeshStandardMaterial({ color: c("--accent"), roughness: .6, metalness: .05 });
+    mats.pill = new THREE.MeshStandardMaterial({ color: c("--pill"), roughness: .5 });
+    mats.jam = new THREE.MeshBasicMaterial({ color: c("--bad"), wireframe: true });
+  }
+  function geom(m) {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(m.v, 3));
+    g.setIndex(m.f); g.computeVertexNormals(); return g;
+  }
+  function build(d) {
+    if (root) scene.remove(root);
+    themeMats();
+    root = new THREE.Group(); scene.add(root);
+    rotorGroup = new THREE.Group(); root.add(rotorGroup);
+    const j = d.joint;
+    rotorGroup.userData.axis = new THREE.Vector3(...j.axis).normalize();
+    rotorGroup.userData.pos = new THREE.Vector3(...j.pos);
+    const box = new THREE.Box3();
+    for (const p of d.parts) {
+      const mesh = new THREE.Mesh(geom(p), p.body === "rotor" ? mats.rotor : mats.fixed);
+      (p.body === "rotor" ? rotorGroup : root).add(mesh);
+      mesh.geometry.computeBoundingBox(); box.union(mesh.geometry.boundingBox);
+    }
+    const pg = geom(d.pill_mesh);
+    pills = d.frames[0][2].map(() => { const m = new THREE.Mesh(pg, mats.pill); root.add(m); return m; });
+    jamMarker = null;
+    const jc = d.cycles.find(c => c.jam_pos_mm);
+    if (jc) { jamMarker = new THREE.Mesh(new THREE.SphereGeometry(7, 12, 8), mats.jam); jamMarker.position.set(...jc.jam_pos_mm); root.add(jamMarker); }
+    const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3()).length();
+    controls.target.copy(c);
+    camera.position.copy(c).add(new THREE.Vector3(0.9, -1.25, 0.75).multiplyScalar(s * 0.85));
+    controls.update();
+  }
+  function apply(k) {
+    const f = trial.frames[k];
+    const q = f[1], j = trial.joint, ud = rotorGroup.userData;
+    rotorGroup.position.set(0, 0, 0); rotorGroup.quaternion.identity();
+    if (j.type === "hinge") {
+      const rq = new THREE.Quaternion().setFromAxisAngle(ud.axis, q);
+      rotorGroup.quaternion.copy(rq);
+      rotorGroup.position.copy(ud.pos).sub(ud.pos.clone().applyQuaternion(rq));
+    } else {
+      rotorGroup.position.set(j.crank_r * Math.sin(q), 0, 0);
+    }
+    f[2].forEach((p, i) => {
+      const m = pills[i];
+      if (!p) { m.visible = false; return; }
+      m.visible = true; m.position.set(p[0], p[1], p[2]);
+      m.quaternion.set(p[4], p[5], p[6], p[3]); // MuJoCo w,x,y,z -> three x,y,z,w
+    });
+    scrub.value = k; clock.textContent = f[0].toFixed(2) + " s";
+    highlightCycle(f[0]);
+  }
+  const scrub = document.getElementById("scrub"), clock = document.getElementById("clock");
+  const playBtn = document.getElementById("play"), speed = document.getElementById("speed");
+  let cycleStarts = [];
+  function highlightCycle(t) {
+    const lis = document.querySelectorAll("#cycles li");
+    let idx = -1; cycleStarts.forEach((s, i) => { if (t >= s) idx = i; });
+    lis.forEach((li, i) => li.classList.toggle("now", i === idx));
+  }
+  function fillMeta(d) {
+    document.getElementById("t-title").textContent = d.variant_name;
+    const rows = [["Pill", d.pill_label], ["Seed", d.seed], ["Pills in hopper", d.fill],
+      ["Friction pill–part", d.mu_part], ["Friction pill–pill", d.mu_pill],
+      ["Trial result", d.passed ? "pass" : "fail"]];
+    document.getElementById("t-meta").innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+    // cycle start times: after fill+settle, consecutive durations
+    const t0 = d.frames.length ? d.frames[d.frames.length - 1][0] - d.cycles.reduce((a, c) => a + c.duration_s, 0) : 0;
+    cycleStarts = []; let t = t0;
+    const ol = document.getElementById("cycles"); ol.innerHTML = "";
+    d.cycles.forEach((c, i) => {
+      cycleStarts.push(t);
+      const li = document.createElement("li");
+      const detail = c.outcome === "jam" ? `jammed at: ${c.jam_site}` :
+        `${c.count} pill${c.count === 1 ? "" : "s"} in ${c.steps} index step${c.steps === 1 ? "" : "s"}, ${c.duration_s.toFixed(2)} s`;
+      li.innerHTML = `<span class="chip ${c.outcome}">${c.outcome}</span><span>Dispense ${i + 1}</span><span class="cyc-detail">${detail}</span>`;
+      const ts = t; li.addEventListener("click", () => seekTime(ts));
+      ol.appendChild(li); t += c.duration_s;
+    });
+  }
+  function seekTime(ts) {
+    let k = trial.frames.findIndex(f => f[0] >= ts); if (k < 0) k = trial.frames.length - 1;
+    frame = k; apply(k);
+  }
+  async function load(file, btn) {
+    document.querySelectorAll("#picker button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    const r = await fetch("trials/" + file); trial = await r.json();
+    build(trial); fillMeta(trial);
+    scrub.max = trial.frames.length - 1; frame = 0; apply(0);
+  }
+  playBtn.addEventListener("click", () => { playing = !playing; playBtn.textContent = playing ? "Pause" : "Play"; });
+  scrub.addEventListener("input", () => { frame = +scrub.value; apply(frame); });
+  function resize() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    if (canvas.width !== Math.round(w * renderer.getPixelRatio()) || canvas.height !== Math.round(h * renderer.getPixelRatio())) {
+      renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+    }
+  }
+  function tick(now) {
+    resize();
+    if (trial && playing) {
+      acc += (now - last) / 1000 * +speed.value;
+      while (acc > 1 / 60 && frame < trial.frames.length - 1) { acc -= 1 / 60; frame++; }
+      if (frame >= trial.frames.length - 1) { playing = false; playBtn.textContent = "Play"; }
+      apply(frame);
+    }
+    last = now; controls.update(); renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(t => { last = t; tick(t); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => trial && (build(trial), apply(frame)));
+  new MutationObserver(() => trial && (build(trial), apply(frame))).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  fetch("trials/index.json").then(r => r.json()).then(items => {
+    const pk = document.getElementById("picker"); pk.innerHTML = "";
+    items.forEach((it, i) => {
+      const b = document.createElement("button"); b.type = "button";
+      const bad = it.outcomes.filter(o => o !== "ok").length;
+      b.innerHTML = `<span>${it.variant.split(" (")[0]} · ${it.pill}</span><span class="meta">seed ${it.seed} · ${bad ? it.outcomes.join(" ") : "3 × ok"}</span>`;
+      b.addEventListener("click", () => load(it.file, b));
+      pk.appendChild(b);
+    });
+    const first = items.findIndex(it => it.outcomes.every(o => o === "ok"));
+    pk.children[Math.max(0, first)].click();
+  }).catch(() => { document.getElementById("picker").innerHTML = '<span class="status">Trial files missing: run python -m sim.record_viewer first.</span>'; });
+
+  fetch("summary.json").then(r => r.json()).then(s => {
+    const tb = document.querySelector("#results tbody"); tb.innerHTML = "";
+    const allSites = {};
+    s.rows.forEach(r => {
+      const o = r.outcomes, cell = (v, good) => `<td class="${v ? "bad" : (good ? "zero" : "")}">${v || 0}</td>`;
+      const fail = (o.jam || 0) + (o.double || 0) + (o.miss || 0) + (o.lost || 0) + (o.leak || 0) + (r.errors || 0) + (r.unstable_trials || 0);
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${r.variant}</td><td>${r.pill}</td><td>${r.trials}</td><td>${r.cycles}</td><td>${o.ok || 0}</td>` +
+        cell(o.jam, 1) + cell(o.double, 1) + cell(o.miss, 1) + cell(o.lost, 1) +
+        `<td>${(100 * r.jam_rate_per_trial).toFixed(1)} %</td>` +
+        `<td class="verdict"><span style="background: var(${fail ? "--bad" : "--ok"})">${fail ? "fail" : "pass"}</span></td>`;
+      tb.appendChild(tr);
+      for (const [k, v] of Object.entries(r.jam_sites || {})) { const key = r.variant + " — " + k; allSites[key] = (allSites[key] || 0) + v; }
+    });
+    const top = Object.entries(allSites).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    document.getElementById("sites").textContent = top.length ? "Most frequent jam sites: " + top.map(([k, v]) => `${k} (${v})`).join("; ") + "." : "";
+    if (s.note) document.getElementById("res-note").textContent = s.note;
+  }).catch(() => { document.querySelector("#results tbody").innerHTML = '<tr><td colspan="11" class="status">summary.json missing: run python -m sim.summarize.</td></tr>'; });
+})();
+</script>

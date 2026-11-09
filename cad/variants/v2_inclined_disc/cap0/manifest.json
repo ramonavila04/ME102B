@@ -1,0 +1,69 @@
+{
+  "variant": "v2_inclined_disc",
+  "pill": "cap0",
+  "params": {
+    "pill": "cap0",
+    "shape": "oblong",
+    "width": 8.43,
+    "length": 22.7,
+    "r_center": 25.558,
+    "r_inner": 21.343,
+    "depth": 7.27,
+    "n": 4,
+    "pitch_deg": 90.0,
+    "chamfer": 2.5,
+    "beta": 50.0,
+    "fdm": 0.35,
+    "run": 0.4,
+    "r_disc": 30.0,
+    "r_wall": 30.4,
+    "exit_margin": 1.2,
+    "exit_angle": 90.0
+  },
+  "parts": [
+    {
+      "name": "disc",
+      "stl": "disc.stl",
+      "step": "disc.step",
+      "print_rotation": [
+        -50.0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "backplate",
+      "stl": "backplate.stl",
+      "step": "backplate.step",
+      "print_rotation": [
+        130.0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "hopper",
+      "stl": "hopper.stl",
+      "step": "hopper.step",
+      "print_rotation": [
+        -50.0,
+        0,
+        0
+      ]
+    }
+  ],
+  "clearances": [
+    {
+      "a": "disc",
+      "b": "backplate",
+      "min": 0.3,
+      "what": "disc back face over back plate"
+    },
+    {
+      "a": "disc",
+      "b": "hopper",
+      "min": 0.3,
+      "what": "disc rim inside hopper bore"
+    }
+  ]
+}

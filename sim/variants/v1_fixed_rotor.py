@@ -29,7 +29,7 @@ def spec(pill_id: str) -> dict:
     p = man["params"]
     d = CAD / pill_id
     stl = lambda n: str(d / f"{n}.stl")
-    z_low = p["deck_z0"] + 3.6        # deck below this keeps the 0.05 mm hull tolerance
+    z_low = p.get("relief_h", p["deck_z0"]) + 3.6   # deck below this keeps the 0.05 mm hull tolerance
     parts = [
         dict(name="rotor", stl=stl("rotor"), body="rotor", rgba="0.95 0.75 0.2 1", crop=None, tol=0.05),
         dict(name="floor", stl=stl("floor"), body="static", crop=None, tol=0.05),

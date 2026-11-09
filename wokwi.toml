@@ -1,0 +1,8 @@
+# Wokwi simulation of the dispenser firmware (VS Code "Wokwi Simulator"
+# extension or wokwi-cli). Build first:  pio run -e dispenser-wokwi
+# The motor/encoder/home switch are simulated inside the firmware; see
+# docs/wiring.md "Wokwi simulation" for the part substitutions.
+[wokwi]
+version = 1
+firmware = '.pio/build/dispenser-wokwi/firmware.bin'
+elf = '.pio/build/dispenser-wokwi/firmware.elf'

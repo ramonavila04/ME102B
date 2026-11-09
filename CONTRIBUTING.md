@@ -6,8 +6,9 @@
 3. Keep changes focused. Coordinate edits to `include/pins.h`; document wiring
    changes in the same pull request. Never assume a Feather V2 pin label matches
    the original HUZZAH32.
-4. Compile the affected environment. For shared changes compile all five:
-   `pio run -e dispenser -e beam-break -e load-cell -e motor-drv8833 -e motor-tb6612`.
+4. Compile the affected environment. For shared changes compile all of them:
+   `pio run -e dispenser -e dispenser-wokwi -e beam-break -e load-cell -e ui-panel -e motor-drv8833 -e motor-tb6612`
+   and run the host tests: `pio test -e native`.
 5. Commit and push your branch; open a pull request. State which checks compiled
    and which actually ran on hardware. Include serial observations where useful.
 6. Ask a teammate to review. Merge after review and relevant bench checks, then

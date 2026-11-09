@@ -425,8 +425,12 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
                     debug.append(dict(t=round(data.time, 4), pill=i, v=round(v, 2),
                                       pos=[round(a, 1) for a in (x, y, z)], contacts=cs[:6],
                                       rotor_w=round(float(data.qvel[dadr]), 3), tau=round(float(data.ctrl[0]), 3)))
-            inside = ex["x"][0] <= x <= ex["x"][1] and ex["y"][0] <= y <= ex["y"][1]
-            if z < ex["z"] and inside:
+            if "fn" in ex:   # variant-defined sensor region (e.g. in a tilted local frame)
+                inside, past = ex["fn"](x, y, z)
+            else:
+                inside = ex["x"][0] <= x <= ex["x"][1] and ex["y"][0] <= y <= ex["y"][1]
+                past = z < ex["z"]
+            if past and inside:
                 counted += 1; park(i)
             elif (z < spec["loss_z"] and not inside) or z < ex["z"] - 40 or abs(x) > 200 or abs(y) > 200:
                 lost += 1; park(i)

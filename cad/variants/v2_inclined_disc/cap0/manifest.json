@@ -12,7 +12,7 @@
     "n": 4,
     "pitch_deg": 90.0,
     "chamfer": 2.5,
-    "closed": false,
+    "pocket": "flat notch",
     "beta": 50.0,
     "fdm": 0.35,
     "run": 0.4,

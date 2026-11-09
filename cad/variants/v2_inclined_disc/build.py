@@ -55,8 +55,8 @@ DEPTH_BELOW_T = 0.3    # pocket depth = min pill thickness − this (2nd pill ca
 RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 3): a pill
                        # standing on edge can't hang by friction between notch end and wall
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
-RIM_WEB = 1.2          # rev 7: round-tablet pockets are closed, with this much disc between
-                       # pocket and rim, so a tablet against the wall cannot stand up on edge
+STANDING_T_OVER_D = 0.5  # rev 8: tablets at least this thick (T/Ø) settle standing on edge
+                         # against the hopper wall (iron) and get a standing slot
 
 
 def pocket_params(pill_id: str) -> dict:
@@ -64,22 +64,30 @@ def pocket_params(pill_id: str) -> dict:
     # Notch spans are sized to the pill's TILTED diagonal (+ clearance), so a pill that
     # tips while dropping out can never wedge across the notch (rev 2: a 9.5×5 tablet
     # tilted ~28° spans 10.7 mm and wedged between the notch end and the hopper wall).
-    if p.kind == "tablet":
+    if p.kind == "tablet" and p.thickness / p.length >= STANDING_T_OVER_D:
+        # rev 8 (iron): the sim shows thick tablets settle STANDING on edge against the
+        # hopper wall, plane tangential. The slot is built for that pose: open to the wall,
+        # radially one thickness + clearance (two standing tablets would need 2T = 9.7 mm),
+        # tangentially longer than the tilted diagonal so it can't wedge between the slot
+        # walls (rev 5/6 failures). A flat tablet can't seat and slides back out.
+        d_max, t_max, t_min = p.length + p.tol, p.thickness + p.tol, p.thickness - p.tol
+        length = math.hypot(d_max, t_max) + 2 * FDM           # tangential
+        w = round(min(2 * t_min - 2.0, t_max + 2 * FDM + 1.6), 2)  # radial: 7.5 for iron
+        r_in = R_WALL - w
+        r_c = R_WALL - t_max / 2 - FDM
+        half_ang = math.atan((length / 2) / r_in)
+        shape = "oblong"
+        pocket = "standing slot"
+    elif p.kind == "tablet":
         d_max = p.length + p.tol
         t_min = p.thickness - p.tol
-        # rev 5: round tablets go back to a tight notch (Ø + 2×FDM). The wider tilt-sized
-        # notch let two iron tablets (T ≈ Ø/2) stand on edge side by side (doubles); the
-        # exit relief (rev 3) already removes the tilt wedge at the exit.
-        w = d_max + 2 * FDM                     # pocket diameter
-        # rev 7: closed pocket next to the rim (web RIM_WEB). A tablet lying against the
-        # wall still overhangs the pocket by most of its width and drops in, but its outer
-        # edge rests on the web, so it can't rotate up and stand against the wall (rev 5/6:
-        # standing tablets wedged between the notch walls and hung over the exit).
-        r_c = R_DISC - RIM_WEB - w / 2
+        w = d_max + 2 * FDM                     # notch diameter (open to the wall)
+        r_c = R_WALL - w / 2                    # centre of the pill when against the wall
         r_in = r_c - w / 2
         half_ang = math.asin((w / 2) / r_c)
         shape = "round"
         length = w
+        pocket = "flat notch"
     else:
         L = p.length + p.tol_length
         W = p.width + p.tol
@@ -91,12 +99,14 @@ def pocket_params(pill_id: str) -> dict:
         else:                        # capsule: round section and ends, tilt never grows it
             length = L + 2 * FDM
             w = W + 2 * FDM
+        pocket = "flat notch"
         # pill lying tangentially against the curved wall: end-cap centres touch R_WALL
         d_c = math.sqrt((R_WALL - W / 2) ** 2 - ((L - W) / 2) ** 2)
         r_c = d_c
         r_in = d_c - W / 2 - (w - W) + FDM
         half_ang = math.atan((length / 2) / r_in)
         shape = "oblong"
+    t_min = p.thickness - p.tol if p.kind != "capsule" else p.width - p.tol
     depth = round(t_min - DEPTH_BELOW_T, 2)
     # number of notches: largest even N leaving WEB_MIN of solid at r_in, multiple of 4
     n = 4
@@ -104,10 +114,10 @@ def pocket_params(pill_id: str) -> dict:
         web = r_in * (2 * math.pi / cand - 2 * half_ang)
         if web >= WEB_MIN + 2 * EXIT_MARGIN:
             n = cand
-    chamfer = 0.0 if shape == "round" else round(min(2.5, 0.35 * depth), 2)
+    chamfer = round(min(2.5, 0.35 * depth), 2) if p.kind in ("caplet", "capsule") else 0.0
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
-                pitch_deg=360.0 / n, chamfer=chamfer, closed=(shape == "round"))
+                pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket)
 
 
 # --------------------------------------------------------------- 2-D outlines

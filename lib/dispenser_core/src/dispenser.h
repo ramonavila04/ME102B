@@ -6,10 +6,11 @@
 //   BOOT -> HOMING -> IDLE <-> MENU
 //                      |  (dose due / "dispense now")
 //                      v
-//                 DISPENSING (baseline weigh -> forward index -> [jam: brake,
-//                      |      reverse, retry] -> settle / drop window)
+//                 DISPENSING: baseline weigh, then up to MECH_MAX_INDEX_STEPS x
+//                      |  { index one pocket [jam: brake, reverse, retry];
+//                      |    settle counting beam edges; stop once >= 1 pill }
 //                      v
-//                    VERIFY --miss, retries left--> DISPENSING
+//                    VERIFY (beam count, load-cell delta as confirmation)
 //                      |  ok
 //                      v
 //                 WAIT_PICKUP -> REMINDER -> IDLE
@@ -32,12 +33,12 @@ enum class FaultCode : uint8_t {
   HomeNotFound,      // home switch not seen within cfg::kHomeMaxDeg
   EncoderDirection,  // encoder counts opposite to the commanded direction
   Double,            // 2+ beam events in one dispense
-  Miss,              // no pill after 1 + MECH_MAX_RETRIES pockets (canister empty?)
+  Miss,              // no pill after MECH_MAX_INDEX_STEPS pockets (canister empty: refill)
   BeamBlocked,       // chute beam blocked before the move started
   SensorMismatch,    // beam and load cell disagree
   HomingDrop,        // a pill fell while homing
 };
-enum class DispensePhase : uint8_t { Baseline, Forward, JamBrake, Reverse, ReverseBrake, Settle };
+enum class DispensePhase : uint8_t { Baseline, Forward, JamBrake, Reverse, ReverseBrake, Settle, DropWait };
 enum class HomePhase : uint8_t { Seek, Brake, Offset, Finish };
 enum class MenuPage : uint8_t { Main, EditDose, ClockHour, ClockMinute };
 
@@ -108,7 +109,7 @@ class Dispenser {
   uint32_t lastForwardMoveMs() const { return lastFwdMs_; }
   uint32_t jamEvents() const { return jamEvents_; }
   uint32_t reverseMoves() const { return reverseMoves_; }
-  uint8_t missRetries() const { return missRetries_; }
+  int indexSteps() const { return indexSteps_; }  // index steps used by the last dispense
   uint32_t lastBeamCount() const { return lastBeams_; }
   float lastMassDeltaG() const { return lastDelta_; }
   float speedCpms() const { return vel_; }
@@ -133,6 +134,7 @@ class Dispenser {
   bool brakeDone(uint32_t now) const;
   void startDose(const Inputs& in, bool scheduled, uint32_t when);
   void startBaseline(const Inputs& in);
+  void startStep(const Inputs& in);
   void startForward(const Inputs& in);
   bool checkSchedule(uint32_t& when);
   void onScaleSample(float grams, bool ok);
@@ -186,7 +188,8 @@ class Dispenser {
   DispensePhase dispPhase_ = DispensePhase::Baseline;
   int32_t dispTarget_ = 0;
   uint32_t fwdStartMs_ = 0, moveDoneMs_ = 0, lastFwdMs_ = 0;
-  uint8_t jamRetries_ = 0, missRetries_ = 0;
+  uint8_t jamRetries_ = 0;
+  int indexSteps_ = 0;
   uint32_t jamEvents_ = 0, reverseMoves_ = 0;
   uint32_t beamStart_ = 0, lastBeams_ = 0;
   Collector collector_;

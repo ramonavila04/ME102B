@@ -41,7 +41,7 @@ const char* faultName(FaultCode f) {
     case FaultCode::HomeNotFound: return "HOME NOT FOUND";
     case FaultCode::EncoderDirection: return "ENCODER DIRECTION";
     case FaultCode::Double: return "DOUBLE";
-    case FaultCode::Miss: return "MISS";
+    case FaultCode::Miss: return "MISS / EMPTY";
     case FaultCode::BeamBlocked: return "BEAM BLOCKED";
     case FaultCode::SensorMismatch: return "SENSOR MISMATCH";
     case FaultCode::HomingDrop: return "HOMING DROP";
@@ -451,13 +451,20 @@ void Dispenser::startDose(const Inputs& in, bool scheduled, uint32_t when) {
     lastDoseUnix_ = when;
     saveLastDose_ = true;  // persisted before the motor moves (baseline phase)
   }
-  missRetries_ = 0;
+  indexSteps_ = 0;
   enter(State::Dispensing, in);
 }
 
 void Dispenser::startBaseline(const Inputs& in) {
   dispPhase_ = DispensePhase::Baseline;
   collector_.begin(in.nowMs);
+}
+
+void Dispenser::startStep(const Inputs& in) {
+  ++indexSteps_;
+  jamRetries_ = 0;  // MECH_MAX_RETRIES applies to each index move
+  dispTarget_ = indexPos_ + degToCounts(MECH_INDEX_DEG);
+  startForward(in);
 }
 
 void Dispenser::startForward(const Inputs& in) {
@@ -479,9 +486,7 @@ void Dispenser::handleDispensing(const Inputs& in) {
       baseValid_ = collector_.valid();
       baseMean_ = collector_.mean();
       beamStart_ = in.beamEvents;
-      jamRetries_ = 0;
-      dispTarget_ = indexPos_ + degToCounts(MECH_INDEX_DEG);
-      startForward(in);
+      startStep(in);
       break;
     case DispensePhase::Forward:
       if (move_.active()) break;
@@ -529,9 +534,21 @@ void Dispenser::handleDispensing(const Inputs& in) {
       if (brakeDone(now)) startForward(in);  // retry to the same absolute target
       break;
     case DispensePhase::Settle:
-      if (brakeDone(now) && now - moveDoneMs_ >= MECH_SETTLE_MS &&
-          now - fwdStartMs_ >= MECH_DROP_WINDOW_MS)
-        enter(State::Verify, in);
+      if (!brakeDone(now) || now - moveDoneMs_ < MECH_SETTLE_MS) break;
+      if (in.beamEvents != beamStart_) {
+        // Pill seen: stop indexing. Keep counting (no motion) until
+        // MECH_DROP_WINDOW_MS after this move started so a trailing second
+        // pill is still classified as DOUBLE.
+        dispPhase_ = DispensePhase::DropWait;
+      } else if (indexSteps_ < MECH_MAX_INDEX_STEPS) {
+        log("step %d: no pill, indexing next pocket", indexSteps_);
+        startStep(in);
+      } else {
+        enter(State::Verify, in);  // 0 pills after all steps -> MISS
+      }
+      break;
+    case DispensePhase::DropWait:
+      if (now - fwdStartMs_ >= MECH_DROP_WINDOW_MS) enter(State::Verify, in);
       break;
   }
 }
@@ -551,14 +568,7 @@ void Dispenser::handleVerify(const Inputs& in) {
       enter(State::WaitPickup, in);
       break;
     case Verdict::Miss:
-      if (missRetries_ < MECH_MAX_RETRIES) {
-        ++missRetries_;
-        log("empty pocket, trying next (%u/%u)", static_cast<unsigned>(missRetries_),
-            static_cast<unsigned>(MECH_MAX_RETRIES));
-        enter(State::Dispensing, in);
-      } else {
-        raise(FaultCode::Miss, in);
-      }
+      raise(FaultCode::Miss, in);
       break;
     case Verdict::Double:
       raise(FaultCode::Double, in);
@@ -720,9 +730,10 @@ void Dispenser::render(const Inputs& in) {
           L(0, "Jam: backing off %u/%u", static_cast<unsigned>(jamRetries_),
             static_cast<unsigned>(MECH_MAX_RETRIES));
           break;
-        case DispensePhase::Settle: L(0, "Waiting for drop"); break;
+        case DispensePhase::Settle:
+        case DispensePhase::DropWait: L(0, "Waiting for drop"); break;
       }
-      L(1, "Pocket try %u", static_cast<unsigned>(missRetries_ + 1));
+      L(1, "Pocket %d of %d", indexSteps_, MECH_MAX_INDEX_STEPS);
       break;
     case State::Verify:
       snprintf(v.title, sizeof v.title, "Checking");
@@ -749,8 +760,8 @@ void Dispenser::render(const Inputs& in) {
         case FaultCode::HomeNotFound: L(1, "Home switch not found"); L(2, "Check switch/wiring"); break;
         case FaultCode::EncoderDirection: L(1, "Motor/encoder reversed"); L(2, "Swap motor leads"); break;
         case FaultCode::Double: L(1, "2+ pills dropped!"); L(2, "Remove extras first"); break;
-        case FaultCode::Miss: L(1, "No pill after %u tries", static_cast<unsigned>(MECH_MAX_RETRIES + 1));
-          L(2, "Canister empty?"); break;
+        case FaultCode::Miss: L(1, "No pill in %d pockets", MECH_MAX_INDEX_STEPS);
+          L(2, "Canister empty: REFILL"); break;
         case FaultCode::BeamBlocked: L(1, "Chute sensor blocked"); L(2, "Clear chute/align beam"); break;
         case FaultCode::SensorMismatch: L(1, "Beam/scale disagree"); L(2, "Check cup by hand"); break;
         case FaultCode::HomingDrop: L(1, "Pill fell while homing"); L(2, "Check cup by hand"); break;

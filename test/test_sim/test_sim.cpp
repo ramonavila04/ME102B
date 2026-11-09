@@ -1,7 +1,10 @@
 // Host-side simulation of the whole dispenser: the real state machine
 // (lib/dispenser_core) drives a first-order gearmotor model with an encoder,
 // a home switch, pills falling through the beam and an HX711 load cell.
-// Scenarios: normal dispense, jam then recovery, double, miss, schedule.
+// Scenarios follow the mechanism contract's index loop: up to
+// MECH_MAX_INDEX_STEPS pocket moves, stop at the first step that drops a pill.
+// Covered: pill on step 1 / step 3, none after max steps, double on one
+// step, stall mid-loop (recovered and not), schedule, reboot, menu.
 #include <math.h>
 #include <stdio.h>
 #include <unity.h>
@@ -50,6 +53,7 @@ void test_normal_dispense_timing() {
   // baseline (4 samples @10 SPS) + drop window + after-weigh (4 samples).
   TEST_ASSERT_UINT32_WITHIN(700, 400 + MECH_DROP_WINDOW_MS + 400, total);
   TEST_ASSERT_EQUAL(int(Verdict::Ok), int(p.disp.lastVerdict()));
+  TEST_ASSERT_EQUAL(1, p.disp.indexSteps());  // pill found on step 1
   TEST_ASSERT_EQUAL_UINT32(1, p.disp.lastBeamCount());
   TEST_ASSERT_FLOAT_WITHIN(0.05f, p.pillGrams, p.disp.lastMassDeltaG());
   TEST_ASSERT_EQUAL_INT32(start + degToCounts(MECH_INDEX_DEG), p.disp.indexPosition());
@@ -86,41 +90,93 @@ void test_jam_then_recovery() {
   TEST_ASSERT_FLOAT_WITHIN(0.15f * retryMs, retryMs, float(p.disp.lastForwardMoveMs()));
 }
 
-void test_double_dispense_faults() {
+void test_double_on_one_step_faults() {
   simt::Plant p;
-  p.pillsPerPocket = {2};
+  p.pillsPerPocket = {0, 2};  // step 1 empty, step 2 drops two pills
   homeAndIdle(p);
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 8000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 12000));
   TEST_ASSERT_EQUAL(int(FaultCode::Double), int(p.disp.fault()));
+  TEST_ASSERT_EQUAL(2, p.disp.indexSteps());  // stopped after the step that dropped pills
   TEST_ASSERT_EQUAL_UINT32(2, p.disp.lastBeamCount());
   for (int i = 0; i < 300; ++i) p.step();
+  TEST_ASSERT_FALSE(p.out.motorEnable);
   TEST_ASSERT_EQUAL_STRING("DOUBLE", p.disp.view().line[0]);
   p.pressSelect();  // acknowledge -> idle (no re-home needed)
   TEST_ASSERT_EQUAL(int(State::Idle), int(p.disp.state()));
 }
 
-void test_miss_retries_then_fault() {
+// Time of one empty index step: move + settle (the brake overlaps the settle).
+static float emptyStepMs() {
+  return expectedMoveMs() + MECH_SETTLE_MS;
+}
+
+void test_none_after_max_steps_is_miss_refill() {
   simt::Plant p;
-  p.pillsPerPocket = {0, 0, 0, 0};
+  p.pillsPerPocket.assign(MECH_MAX_INDEX_STEPS + 2, 0);
+  homeAndIdle(p);
+  const int32_t start = p.disp.indexPosition();
+  const uint32_t t0 = p.nowMs;
+  dispenseNow(p);
+  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 30000));
+  const uint32_t total = p.nowMs - t0;
+  printf("miss: %d steps in %u ms (expected ~%.0f)\n", p.disp.indexSteps(), total,
+         400 + MECH_MAX_INDEX_STEPS * emptyStepMs() + 400);
+  TEST_ASSERT_EQUAL(int(FaultCode::Miss), int(p.disp.fault()));
+  TEST_ASSERT_EQUAL(MECH_MAX_INDEX_STEPS, p.disp.indexSteps());
+  TEST_ASSERT_EQUAL_UINT32(0, p.disp.lastBeamCount());
+  TEST_ASSERT_EQUAL_INT32(start + MECH_MAX_INDEX_STEPS * degToCounts(MECH_INDEX_DEG),
+                          p.disp.indexPosition());
+  TEST_ASSERT_FLOAT_WITHIN(0.1f * MECH_MAX_INDEX_STEPS * emptyStepMs() + 300,
+                           400 + MECH_MAX_INDEX_STEPS * emptyStepMs() + 400, float(total));
+  for (int i = 0; i < 300; ++i) p.step();
+  TEST_ASSERT_EQUAL_STRING("Canister empty: REFILL", p.disp.view().line[2]);
+}
+
+void test_pill_found_on_step_3() {
+  simt::Plant p;
+  p.pillsPerPocket = {0, 0, 1};
   homeAndIdle(p);
   const int32_t start = p.disp.indexPosition();
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 20000));
-  TEST_ASSERT_EQUAL(int(FaultCode::Miss), int(p.disp.fault()));
-  TEST_ASSERT_EQUAL(MECH_MAX_RETRIES, p.disp.missRetries());
-  TEST_ASSERT_EQUAL_INT32(start + (1 + MECH_MAX_RETRIES) * degToCounts(MECH_INDEX_DEG),
-                          p.disp.indexPosition());
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 15000));
+  TEST_ASSERT_EQUAL(3, p.disp.indexSteps());
+  TEST_ASSERT_EQUAL(int(Verdict::Ok), int(p.disp.lastVerdict()));
+  TEST_ASSERT_EQUAL_UINT32(1, p.disp.lastBeamCount());
+  TEST_ASSERT_EQUAL_INT32(start + 3 * degToCounts(MECH_INDEX_DEG), p.disp.indexPosition());
 }
 
-void test_miss_then_next_pocket_ok() {
+void test_stall_mid_loop_recovers() {
   simt::Plant p;
-  p.pillsPerPocket = {0, 1};
+  p.pillsPerPocket = {0, 0, 1};
   homeAndIdle(p);
+  const int32_t start = p.disp.indexPosition();
+  p.jamArmed = true;  // obstruction during the second index move
+  p.clearAfterReverses = 1;
+  p.jamAtPos = start + 1.4 * degToCounts(MECH_INDEX_DEG);
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 12000));
-  TEST_ASSERT_EQUAL(1, p.disp.missRetries());
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 20000));
+  TEST_ASSERT_EQUAL(3, p.disp.indexSteps());
+  TEST_ASSERT_EQUAL_UINT32(1, p.disp.jamEvents());
+  TEST_ASSERT_EQUAL_UINT32(1, p.disp.reverseMoves());
   TEST_ASSERT_EQUAL(int(Verdict::Ok), int(p.disp.lastVerdict()));
+  TEST_ASSERT_EQUAL_INT32(start + 3 * degToCounts(MECH_INDEX_DEG), p.disp.indexPosition());
+}
+
+void test_stall_mid_loop_persistent_faults() {
+  simt::Plant p;
+  p.pillsPerPocket = {0, 0, 1};
+  homeAndIdle(p);
+  const int32_t start = p.disp.indexPosition();
+  p.jamArmed = true;
+  p.clearAfterReverses = -1;
+  p.jamAtPos = start + 1.4 * degToCounts(MECH_INDEX_DEG);
+  dispenseNow(p);
+  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 25000));
+  TEST_ASSERT_EQUAL(int(FaultCode::Jam), int(p.disp.fault()));
+  TEST_ASSERT_EQUAL(2, p.disp.indexSteps());
+  TEST_ASSERT_EQUAL_UINT32(1u + MECH_MAX_RETRIES, p.disp.jamEvents());  // retries are per move
+  TEST_ASSERT_EQUAL_UINT32(MECH_MAX_RETRIES, p.disp.reverseMoves());
 }
 
 void test_beam_only_when_scale_uncalibrated() {
@@ -207,9 +263,11 @@ int main() {
   UNITY_BEGIN();
   RUN_TEST(test_normal_dispense_timing);
   RUN_TEST(test_jam_then_recovery);
-  RUN_TEST(test_double_dispense_faults);
-  RUN_TEST(test_miss_retries_then_fault);
-  RUN_TEST(test_miss_then_next_pocket_ok);
+  RUN_TEST(test_double_on_one_step_faults);
+  RUN_TEST(test_none_after_max_steps_is_miss_refill);
+  RUN_TEST(test_pill_found_on_step_3);
+  RUN_TEST(test_stall_mid_loop_recovers);
+  RUN_TEST(test_stall_mid_loop_persistent_faults);
   RUN_TEST(test_beam_only_when_scale_uncalibrated);
   RUN_TEST(test_scheduled_dose_past_midnight);
   RUN_TEST(test_reboot_does_not_repeat_given_dose);

@@ -41,6 +41,7 @@ class Plant {
   double jamAtPos = 0;
   int clearAfterReverses = 1;
   int reversesSeen = 0;
+  bool jamHit = false;
   bool wasReversing = false;
 
   int encoderSign = 1;   // -1 simulates swapped encoder channels
@@ -104,7 +105,8 @@ class Plant {
 
     // --- plant dynamics (1 ms)
     const bool reversing = out.motorEnable && !out.brake && out.duty < -0.05f;
-    if (reversing && !wasReversing) ++reversesSeen;
+    if (jamArmed && motor.pos >= jamAtPos - 1) jamHit = true;
+    if (reversing && !wasReversing && jamHit) ++reversesSeen;  // only back-offs after hitting the jam
     wasReversing = reversing;
     if (jamArmed && clearAfterReverses >= 0 && reversesSeen >= clearAfterReverses) jamArmed = false;
     const bool forwardDrive = out.motorEnable && !out.brake && out.duty > 0;

@@ -6,6 +6,8 @@ RTC. The `dispenser` environment contains the integrated firmware:
 
 - It homes the drum and shows the clock and next dose.
 - It dispenses on schedule (up to 3 times a day, stored in NVS) or on demand.
+- Each dispense indexes one pocket at a time, up to `MECH_MAX_INDEX_STEPS`
+  pockets, and stops at the first pocket that drops a pill.
 - It verifies each pill with the beam-break and load cell, then reminds the
   user to take it.
 - It handles jams, double drops and misses.

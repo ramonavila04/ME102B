@@ -14,6 +14,37 @@
 
 namespace simt {
 
+// ---- Expectations derived ONLY from include/mechanism.h and dc_config.h, so
+// the same tests hold for every generated pill block (-DMECH_PILL_*).
+namespace expect {
+constexpr uint32_t kScalePeriodMs = 100;  // simulated HX711 at 10 SPS
+// Nominal pill mass: the generator sets MECH_PILL_MASS_G_MIN = 0.8 x nominal.
+constexpr float pillGrams() { return MECH_PILL_MASS_G_MIN / 0.8f; }
+// Trapezoid: distance / cruise speed + one ramp time (deg/s = 6 * rpm).
+inline float moveMs(float deg) {
+  return deg / (6.0f * MECH_TARGET_RPM) * 1000.0f + static_cast<float>(MECH_ACCEL_MS);
+}
+inline float indexMoveMs() { return moveMs(MECH_INDEX_DEG); }
+inline float baselineMs() { return dc::cfg::kScaleSamples * kScalePeriodMs; }
+inline float verifyMs() { return dc::cfg::kScaleSamples * kScalePeriodMs; }
+// Empty step: move, then settle (the post-move brake overlaps the settle).
+inline float emptyStepMs() { return indexMoveMs() + MECH_SETTLE_MS; }
+// Step that drops a pill: settle, then wait out the drop window from move start.
+inline float pillStepMs() {
+  const float a = indexMoveMs() + MECH_SETTLE_MS;
+  const float b = static_cast<float>(MECH_DROP_WINDOW_MS);
+  return a > b ? a : b;
+}
+// Dispense command -> VERIFY done, pill found on step `n`.
+inline float dispenseMs(int n) {
+  return baselineMs() + (n - 1) * emptyStepMs() + pillStepMs() + verifyMs();
+}
+inline float missMs() { return baselineMs() + MECH_MAX_INDEX_STEPS * emptyStepMs() + verifyMs(); }
+// Generous run limit for runUntil(): 2x the expectation plus 2 s.
+inline uint32_t limit(float ms) { return static_cast<uint32_t>(2.0f * ms + 2000.0f); }
+}  // namespace expect
+
+
 struct PillEvent {
   uint32_t beamAtMs;   // block start
   uint32_t landAtMs;   // mass appears on the scale
@@ -46,10 +77,10 @@ class Plant {
 
   int encoderSign = 1;   // -1 simulates swapped encoder channels
   float cupGrams = 5.0f;  // empty cup on the cell (tare is not needed: deltas are used)
-  float pillGrams = 0.25f;
+  float pillGrams = expect::pillGrams();
   bool scaleCalibrated = true;
   uint32_t nowMs = 0;
-  uint32_t nextScaleMs = 100;
+  uint32_t nextScaleMs = expect::kScalePeriodMs;
   std::vector<PillEvent> pending;
   std::vector<uint32_t> beamBlockStarts;  // for timing checks
   uint32_t beamCount = 0;
@@ -90,9 +121,11 @@ class Plant {
       }
     }
     if (nowMs >= nextScaleMs) {  // HX711 at 10 SPS with small noise
-      nextScaleMs += 100;
+      nextScaleMs += expect::kScalePeriodMs;
       ++in.scaleSeq;
-      in.scaleGrams = cupGrams + 0.01f * static_cast<float>((in.scaleSeq * 7919u) % 5u) - 0.02f;
+      // Noise of +/- 5 % of the smallest pill mass.
+      in.scaleGrams = cupGrams + 0.025f * MECH_PILL_MASS_G_MIN *
+                                     (static_cast<float>((in.scaleSeq * 7919u) % 5u) - 2.0f);
       in.scaleOk = scaleCalibrated;
     }
     in.clockValid = clockBase != 0;

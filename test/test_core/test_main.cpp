@@ -126,8 +126,10 @@ void test_move_controller_detects_stall() {
   uint32_t tEnd = 0;
   TEST_ASSERT_EQUAL(static_cast<int>(MoveResult::Stalled),
                     static_cast<int>(runMove(m, mc, degToCounts(MECH_INDEX_DEG), tEnd)));
-  // Armed once the reference passes 10 % of target speed (~15 ms), then 300 ms.
-  TEST_ASSERT_UINT32_WITHIN(30, MECH_JAM_STALL_MS + 15, tEnd);
+  // Armed once the reference passes MECH_JAM_MIN_SPEED_FRAC of target speed
+  // (FRAC x ACCEL ms into the ramp), then MECH_JAM_STALL_MS.
+  const float armMs = MECH_JAM_MIN_SPEED_FRAC * MECH_ACCEL_MS;
+  TEST_ASSERT_UINT32_WITHIN(30, MECH_JAM_STALL_MS + static_cast<uint32_t>(armMs), tEnd);
 }
 
 void test_move_controller_wrong_direction() {
@@ -197,15 +199,16 @@ void test_jam_reverse_retry_then_fault() {
 // ------------------------------------------------------------ verification
 void test_classify_ok_double_miss() {
   const float m = MECH_PILL_MASS_G_MIN;
+  const float nominal = simt::expect::pillGrams();
   TEST_ASSERT_EQUAL(int(Verdict::Ok), int(classifyDispense(1, true, m, m)));
-  TEST_ASSERT_EQUAL(int(Verdict::Ok), int(classifyDispense(1, true, 0.3f, m)));
+  TEST_ASSERT_EQUAL(int(Verdict::Ok), int(classifyDispense(1, true, nominal, m)));
   TEST_ASSERT_EQUAL(int(Verdict::OkBeamOnly), int(classifyDispense(1, false, 0.0f, m)));
-  TEST_ASSERT_EQUAL(int(Verdict::Double), int(classifyDispense(2, true, 0.5f, m)));
+  TEST_ASSERT_EQUAL(int(Verdict::Double), int(classifyDispense(2, true, 2 * nominal, m)));
   TEST_ASSERT_EQUAL(int(Verdict::Double), int(classifyDispense(3, false, 0.0f, m)));
-  TEST_ASSERT_EQUAL(int(Verdict::Miss), int(classifyDispense(0, true, 0.01f, m)));
+  TEST_ASSERT_EQUAL(int(Verdict::Miss), int(classifyDispense(0, true, 0.1f * m, m)));
   TEST_ASSERT_EQUAL(int(Verdict::Miss), int(classifyDispense(0, false, 0.0f, m)));
-  TEST_ASSERT_EQUAL(int(Verdict::SensorMismatch), int(classifyDispense(0, true, 0.2f, m)));
-  TEST_ASSERT_EQUAL(int(Verdict::SensorMismatch), int(classifyDispense(1, true, 0.02f, m)));
+  TEST_ASSERT_EQUAL(int(Verdict::SensorMismatch), int(classifyDispense(0, true, nominal, m)));
+  TEST_ASSERT_EQUAL(int(Verdict::SensorMismatch), int(classifyDispense(1, true, 0.25f * m, m)));
 }
 
 // ------------------------------------------------------------ schedule

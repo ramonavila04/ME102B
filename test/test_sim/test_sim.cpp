@@ -16,11 +16,8 @@ using namespace dc;
 void setUp() {}
 void tearDown() {}
 
-// Expected index move time: MECH_INDEX_DEG / (6 * rpm) seconds + one ramp
-// (accel and decel together add MECH_ACCEL_MS to a trapezoid).
-static float expectedMoveMs() {
-  return MECH_INDEX_DEG / (6.0f * MECH_TARGET_RPM) * 1000.0f + MECH_ACCEL_MS;
-}
+namespace ex = simt::expect;
+static float expectedMoveMs() { return ex::indexMoveMs(); }
 
 static void homeAndIdle(simt::Plant& p) {
   p.begin();
@@ -44,18 +41,18 @@ void test_normal_dispense_timing() {
   const int32_t start = p.disp.indexPosition();
   const uint32_t t0 = p.nowMs;
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 8000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, ex::limit(ex::dispenseMs(1))));
   const uint32_t total = p.nowMs - t0;
   const float move = float(p.disp.lastForwardMoveMs());
   printf("normal: move %.0f ms (expected %.0f), dispense->pickup %u ms\n", move, expectedMoveMs(),
          total);
   TEST_ASSERT_FLOAT_WITHIN(0.10f * expectedMoveMs(), expectedMoveMs(), move);
-  // baseline (4 samples @10 SPS) + drop window + after-weigh (4 samples).
-  TEST_ASSERT_UINT32_WITHIN(700, 400 + MECH_DROP_WINDOW_MS + 400, total);
+  // baseline weigh + max(move + settle, drop window) + after-weigh.
+  TEST_ASSERT_FLOAT_WITHIN(0.1f * ex::dispenseMs(1) + 150, ex::dispenseMs(1), float(total));
   TEST_ASSERT_EQUAL(int(Verdict::Ok), int(p.disp.lastVerdict()));
   TEST_ASSERT_EQUAL(1, p.disp.indexSteps());  // pill found on step 1
   TEST_ASSERT_EQUAL_UINT32(1, p.disp.lastBeamCount());
-  TEST_ASSERT_FLOAT_WITHIN(0.05f, p.pillGrams, p.disp.lastMassDeltaG());
+  TEST_ASSERT_FLOAT_WITHIN(0.2f * p.pillGrams, p.pillGrams, p.disp.lastMassDeltaG());
   TEST_ASSERT_EQUAL_INT32(start + degToCounts(MECH_INDEX_DEG), p.disp.indexPosition());
   TEST_ASSERT_INT32_WITHIN(degToCounts(1.5f), p.disp.indexPosition(), p.motor.count());
   // Pill was seen within the drop window measured from move start.
@@ -64,7 +61,7 @@ void test_normal_dispense_timing() {
   for (int i = 0; i < 300; ++i) p.step();
   TEST_ASSERT_FALSE(p.out.motorEnable);
   p.cupGrams -= p.pillGrams;
-  TEST_ASSERT_TRUE(p.runUntilState(State::Idle, 1000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::Idle, 4 * ex::kScalePeriodMs + 500));
 }
 
 void test_jam_then_recovery() {
@@ -76,7 +73,9 @@ void test_jam_then_recovery() {
   const int32_t start = p.disp.indexPosition();
   const uint32_t t0 = p.nowMs;
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 12000));
+  const float jamMs = 0.3f * ex::indexMoveMs() + MECH_JAM_STALL_MS + ex::moveMs(MECH_REVERSE_DEG) +
+                      ex::moveMs(0.7f * MECH_INDEX_DEG + MECH_REVERSE_DEG);
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, ex::limit(ex::dispenseMs(1) + jamMs)));
   printf("jam+recovery: dispense->pickup %u ms, last move %u ms\n", p.nowMs - t0,
          p.disp.lastForwardMoveMs());
   TEST_ASSERT_EQUAL_UINT32(1, p.disp.jamEvents());
@@ -85,8 +84,7 @@ void test_jam_then_recovery() {
   TEST_ASSERT_EQUAL_INT32(start + degToCounts(MECH_INDEX_DEG), p.disp.indexPosition());
   // Retry moves from (jam - reverse) back to the same absolute target:
   // (0.7 * index + reverse) at target speed + ramp.
-  const float retryMs = (0.7f * MECH_INDEX_DEG + MECH_REVERSE_DEG) / (6.0f * MECH_TARGET_RPM) * 1000.0f +
-                        MECH_ACCEL_MS;
+  const float retryMs = ex::moveMs(0.7f * MECH_INDEX_DEG + MECH_REVERSE_DEG);
   TEST_ASSERT_FLOAT_WITHIN(0.15f * retryMs, retryMs, float(p.disp.lastForwardMoveMs()));
 }
 
@@ -95,7 +93,7 @@ void test_double_on_one_step_faults() {
   p.pillsPerPocket = {0, 2};  // step 1 empty, step 2 drops two pills
   homeAndIdle(p);
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 12000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, ex::limit(ex::dispenseMs(2))));
   TEST_ASSERT_EQUAL(int(FaultCode::Double), int(p.disp.fault()));
   TEST_ASSERT_EQUAL(2, p.disp.indexSteps());  // stopped after the step that dropped pills
   TEST_ASSERT_EQUAL_UINT32(2, p.disp.lastBeamCount());
@@ -106,10 +104,6 @@ void test_double_on_one_step_faults() {
   TEST_ASSERT_EQUAL(int(State::Idle), int(p.disp.state()));
 }
 
-// Time of one empty index step: move + settle (the brake overlaps the settle).
-static float emptyStepMs() {
-  return expectedMoveMs() + MECH_SETTLE_MS;
-}
 
 void test_none_after_max_steps_is_miss_refill() {
   simt::Plant p;
@@ -118,17 +112,16 @@ void test_none_after_max_steps_is_miss_refill() {
   const int32_t start = p.disp.indexPosition();
   const uint32_t t0 = p.nowMs;
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 30000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, ex::limit(ex::missMs())));
   const uint32_t total = p.nowMs - t0;
   printf("miss: %d steps in %u ms (expected ~%.0f)\n", p.disp.indexSteps(), total,
-         400 + MECH_MAX_INDEX_STEPS * emptyStepMs() + 400);
+         ex::missMs());
   TEST_ASSERT_EQUAL(int(FaultCode::Miss), int(p.disp.fault()));
   TEST_ASSERT_EQUAL(MECH_MAX_INDEX_STEPS, p.disp.indexSteps());
   TEST_ASSERT_EQUAL_UINT32(0, p.disp.lastBeamCount());
   TEST_ASSERT_EQUAL_INT32(start + MECH_MAX_INDEX_STEPS * degToCounts(MECH_INDEX_DEG),
                           p.disp.indexPosition());
-  TEST_ASSERT_FLOAT_WITHIN(0.1f * MECH_MAX_INDEX_STEPS * emptyStepMs() + 300,
-                           400 + MECH_MAX_INDEX_STEPS * emptyStepMs() + 400, float(total));
+  TEST_ASSERT_FLOAT_WITHIN(0.1f * ex::missMs() + 150, ex::missMs(), float(total));
   for (int i = 0; i < 300; ++i) p.step();
   TEST_ASSERT_EQUAL_STRING("Canister empty: REFILL", p.disp.view().line[2]);
 }
@@ -139,7 +132,7 @@ void test_pill_found_on_step_3() {
   homeAndIdle(p);
   const int32_t start = p.disp.indexPosition();
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 15000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, ex::limit(ex::dispenseMs(3))));
   TEST_ASSERT_EQUAL(3, p.disp.indexSteps());
   TEST_ASSERT_EQUAL(int(Verdict::Ok), int(p.disp.lastVerdict()));
   TEST_ASSERT_EQUAL_UINT32(1, p.disp.lastBeamCount());
@@ -155,7 +148,7 @@ void test_stall_mid_loop_recovers() {
   p.clearAfterReverses = 1;
   p.jamAtPos = start + 1.4 * degToCounts(MECH_INDEX_DEG);
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 20000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, ex::limit(ex::dispenseMs(3) + 3000)));
   TEST_ASSERT_EQUAL(3, p.disp.indexSteps());
   TEST_ASSERT_EQUAL_UINT32(1, p.disp.jamEvents());
   TEST_ASSERT_EQUAL_UINT32(1, p.disp.reverseMoves());
@@ -172,7 +165,7 @@ void test_stall_mid_loop_persistent_faults() {
   p.clearAfterReverses = -1;
   p.jamAtPos = start + 1.4 * degToCounts(MECH_INDEX_DEG);
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, 25000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::Fault, ex::limit(ex::dispenseMs(2) + 6000)));
   TEST_ASSERT_EQUAL(int(FaultCode::Jam), int(p.disp.fault()));
   TEST_ASSERT_EQUAL(2, p.disp.indexSteps());
   TEST_ASSERT_EQUAL_UINT32(1u + MECH_MAX_RETRIES, p.disp.jamEvents());  // retries are per move
@@ -184,7 +177,7 @@ void test_beam_only_when_scale_uncalibrated() {
   p.scaleCalibrated = false;
   homeAndIdle(p);
   dispenseNow(p);
-  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 8000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, ex::limit(ex::dispenseMs(1))));
   TEST_ASSERT_EQUAL(int(Verdict::OkBeamOnly), int(p.disp.lastVerdict()));
   // No load cell: pickup must be acknowledged; after 60 s a reminder starts.
   TEST_ASSERT_TRUE(p.runUntilState(State::Reminder, cfg::kPickupRemindMs + 100));
@@ -205,7 +198,7 @@ void test_scheduled_dose_past_midnight() {
   const uint32_t due = 20001UL * 86400UL;
   TEST_ASSERT_UINT32_WITHIN(1, due, p.in.unixLocal);
   TEST_ASSERT_EQUAL_UINT32(due, p.disp.lastDoseUnix());
-  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, 8000));
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, ex::limit(ex::dispenseMs(1))));
   p.pressSelect();
   // Not repeated a second later.
   TEST_ASSERT_FALSE(p.runUntilState(State::Dispensing, 5000));

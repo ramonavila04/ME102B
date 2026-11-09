@@ -17,6 +17,10 @@ jobs:
       - run: pio run -e ${{ matrix.environment }}
   native-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # One env per generated pill block in include/mechanism.h (native = iron).
+        environment: [native, native_small, native_caplet, native_cap0]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,4 +28,19 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements-dev.txt
       # Unit tests + host simulation of lib/dispenser_core (no hardware).
-      - run: pio test -e native -v
+      - run: pio test -e ${{ matrix.environment }} -v
+  dispenser-pills:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pill_flag: [-DMECH_PILL_SMALL, -DMECH_PILL_CAPLET, -DMECH_PILL_CAP0]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements-dev.txt
+      # The default (iron) block is built by the build job above.
+      - run: pio run -e dispenser
+        env:
+          PLATFORMIO_BUILD_FLAGS: ${{ matrix.pill_flag }}

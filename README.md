@@ -30,6 +30,8 @@ source .venv/bin/activate
 pip install -r requirements-dev.txt
 
 pio test -e native              # host unit tests + dispenser simulation (no board needed)
+pio test -e native_small -e native_caplet -e native_cap0   # same suite per pill block in mechanism.h
+PLATFORMIO_BUILD_FLAGS=-DMECH_PILL_SMALL pio run -e dispenser   # firmware for another pill (default: iron)
 pio run                         # integrated dispenser firmware (default env)
 pio run -e dispenser -e beam-break -e load-cell -e ui-panel -e motor-drv8833 -e motor-tb6612
 pio run -e dispenser-wokwi      # simulated-motor build for Wokwi (never flash on the real dispenser)

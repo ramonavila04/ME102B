@@ -44,12 +44,12 @@ COMMON = dict(
     od=67.5,                 # module outer diameter (team footprint)
     rotor_r=26.0,            # same rotor diameter as the team's (Ø52)
     run_gap=0.4,             # rotor-floor, rotor-deck and rotor-rim running clearance
-    fdm_clear=0.35,          # pocket clearance per side beyond the largest pill
+    fdm_clear=0.9,           # pocket clearance per side beyond the largest pill (rev 1-4: 0.35)
     seat_margin=0.25,        # thickest pill's top sits this far below the rotor top
     track_r=15.0,            # pocket pitch radius (same for all pills -> common chute)
     r_open=22.0,             # rev 1-3: fill opening outer radius (inside the Ø52 rotor)
     slot=True,               # rev 4: fill opening is an annular slot over the pocket track only
-    slot_margin=0.75,        # rev 4: slot = pocket footprint + this per side
+    slot_margin=0.0,         # slot = pocket footprint + this per side (rev 4: 0.75)
     edge_face=2.0,           # vertical stripping-face height above the deck underside
     cone_deg=50.0,           # hopper cone slope (above the 31° friction angle of mu=0.6)
     baffle_deg=50.0,         # ridge-baffle slope over the covered sector

@@ -46,6 +46,7 @@ class CycleResult:
     jam_site: str | None = None
     jam_pos_mm: list | None = None
     lost: int = 0
+    steps: int = 1
 
 
 @dataclass
@@ -490,20 +491,39 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
     c, l, _ = step(fill_s + spec.get("settle_s", 0.6), moving=False)
     res.leak = c
     lost_fill = l
+    max_steps = int(spec["drive"].get("max_steps", 1))
     for _ in range(cycles):
+        # One dispense command, exactly as the firmware runs it: index one pocket pitch,
+        # wait for the drop window, stop as soon as the chute sensor has seen a pill,
+        # otherwise index again (up to max_steps). Any stall is a jam (no retry credit).
         t0 = data.time
-        drive.start_move(t0)
-        T = drive.move_time()
-        c1, l1, jam = step(t0 + T, moving=True)
-        if not jam:
-            # allow up to 3x nominal time for the move to really finish
-            err_deadline = t0 + 3 * T
-            while abs(drive.crank_state(data.qpos[qadr], data.qvel[dadr], drive.target)[0] - drive.target) > math.radians(3) \
-                    and data.time < err_deadline:
-                cx, lx, _ = step(data.time + 0.02, moving=False); c1 += cx; l1 += lx
-            if abs(drive.crank_state(data.qpos[qadr], data.qvel[dadr], drive.target)[0] - drive.target) > math.radians(3):
-                jam = True
-        site = pos = None
+        cnt = lost = 0
+        jam = False
+        steps = 0
+        while steps < max_steps and cnt == 0 and not jam:
+            steps += 1
+            ts = data.time
+            drive.start_move(ts)
+            T = drive.move_time()
+            c1, l1, jam = step(ts + T, moving=True)
+            if not jam:
+                deadline = ts + 3 * T
+                while abs(drive.crank_state(data.qpos[qadr], data.qvel[dadr], drive.target)[0] - drive.target) \
+                        > math.radians(3) and data.time < deadline:
+                    cx, lx, jx = step(data.time + 0.02, moving=True)
+                    c1 += cx; l1 += lx
+                    if jx:
+                        jam = True
+                        break
+                if not jam and abs(drive.crank_state(data.qpos[qadr], data.qvel[dadr], drive.target)[0]
+                                   - drive.target) > math.radians(3):
+                    jam = True
+            cnt += c1; lost += l1
+            if jam:
+                break
+            drive.finish()
+            c2, l2, _ = step(data.time + spec["drive"].get("settle_s", 0.6), moving=False)
+            cnt += c2; lost += l2
         if jam:
             pc = pinch()
             if pc is not None:
@@ -513,12 +533,10 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
                 site = namer(gname, pos) if namer else gname
             else:
                 site, pos = _jam_site(spec, model, data, pill_set, rotor_body)
-            res.cycles.append(CycleResult("jam", c1, data.time - t0, site,
-                                          None if pos is None else [round(float(v), 2) for v in pos], l1))
+            res.cycles.append(CycleResult("jam", cnt, data.time - t0, site,
+                                          None if pos is None else [round(float(v), 2) for v in pos],
+                                          lost, steps))
             break
-        drive.finish()
-        c2, l2, _ = step(data.time + spec["drive"].get("settle_s", 0.6), moving=False)
-        cnt, lost = c1 + c2, l1 + l2
         if lost:
             out = "lost"
         elif cnt == 1:
@@ -527,7 +545,7 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
             out = "double"
         else:
             out = "miss"
-        res.cycles.append(CycleResult(out, cnt, data.time - t0, lost=lost))
+        res.cycles.append(CycleResult(out, cnt, data.time - t0, lost=lost, steps=steps))
     if lost_fill:
         res.cycles.insert(0, CycleResult("lost", 0, 0.0, lost=lost_fill))
     res.frames = frames

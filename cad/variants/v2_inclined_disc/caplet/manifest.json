@@ -12,6 +12,7 @@
     "n": 4,
     "pitch_deg": 90.0,
     "chamfer": 2.1,
+    "closed": false,
     "beta": 50.0,
     "fdm": 0.35,
     "run": 0.4,

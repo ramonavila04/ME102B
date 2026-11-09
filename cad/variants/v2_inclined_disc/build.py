@@ -55,7 +55,8 @@ DEPTH_BELOW_T = 0.3    # pocket depth = min pill thickness − this (2nd pill ca
 RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 3): a pill
                        # standing on edge can't hang by friction between notch end and wall
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
-EDGE_SLOT = {"iron"}   # rev 6: thick tablets that ride on edge get an edge slot (see pocket_params)
+RIM_WEB = 1.2          # rev 7: round-tablet pockets are closed, with this much disc between
+                       # pocket and rim, so a tablet against the wall cannot stand up on edge
 
 
 def pocket_params(pill_id: str) -> dict:
@@ -63,35 +64,18 @@ def pocket_params(pill_id: str) -> dict:
     # Notch spans are sized to the pill's TILTED diagonal (+ clearance), so a pill that
     # tips while dropping out can never wedge across the notch (rev 2: a 9.5×5 tablet
     # tilted ~28° spans 10.7 mm and wedged between the notch end and the hopper wall).
-    if p.kind == "tablet" and pill_id in EDGE_SLOT:
-        # rev 6: thick tablet (iron, T ≈ Ø/2) rides in an EDGE slot: one thickness wide,
-        # one diameter long radially. Exactly one fits; inside it the tablet can tilt only
-        # a few degrees, so it can't wedge between the walls and drops straight out.
-        d_max, d_min = p.length + p.tol, p.length - p.tol
-        t_max = p.thickness + p.tol
-        length = t_max + 2 * FDM                 # tangential slot width
-        w = d_max + 2 * FDM                      # radial slot length
-        r_in = R_WALL - d_max - FDM
-        r_c = R_WALL - d_max / 2
-        half_ang = math.atan((length / 2) / r_in)
-        shape = "oblong"
-        depth = round(d_min - 3.0, 2)            # standing tablet protrudes ~3 mm
-        chamfer = 1.5                            # top stays narrower (8.85) than a flat tablet
-        n = 4
-        for cand in range(4, 40, 4):
-            if r_in * (2 * math.pi / cand - 2 * half_ang) >= WEB_MIN + 2 * EXIT_MARGIN:
-                n = cand
-        return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
-                    r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
-                    pitch_deg=360.0 / n, chamfer=chamfer, pocket="edge slot")
     if p.kind == "tablet":
         d_max = p.length + p.tol
         t_min = p.thickness - p.tol
         # rev 5: round tablets go back to a tight notch (Ø + 2×FDM). The wider tilt-sized
         # notch let two iron tablets (T ≈ Ø/2) stand on edge side by side (doubles); the
         # exit relief (rev 3) already removes the tilt wedge at the exit.
-        w = d_max + 2 * FDM                     # notch diameter
-        r_c = R_WALL - w / 2                    # centre of the pill when against the wall
+        w = d_max + 2 * FDM                     # pocket diameter
+        # rev 7: closed pocket next to the rim (web RIM_WEB). A tablet lying against the
+        # wall still overhangs the pocket by most of its width and drops in, but its outer
+        # edge rests on the web, so it can't rotate up and stand against the wall (rev 5/6:
+        # standing tablets wedged between the notch walls and hung over the exit).
+        r_c = R_DISC - RIM_WEB - w / 2
         r_in = r_c - w / 2
         half_ang = math.asin((w / 2) / r_c)
         shape = "round"
@@ -123,7 +107,7 @@ def pocket_params(pill_id: str) -> dict:
     chamfer = 0.0 if shape == "round" else round(min(2.5, 0.35 * depth), 2)
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
-                pitch_deg=360.0 / n, chamfer=chamfer)
+                pitch_deg=360.0 / n, chamfer=chamfer, closed=(shape == "round"))
 
 
 # --------------------------------------------------------------- 2-D outlines
@@ -193,6 +177,8 @@ def _extruded_notch(pp: dict, z0: float, h: float, grow: float = 0.0,
         w = pp["width"] + 2 * grow
         rc = pp["r_center"]
         circ = cq.Workplane("XY").workplane(offset=z0).center(rc, 0).circle(w / 2).extrude(h)
+        if pp.get("closed"):
+            return circ
         rect = (cq.Workplane("XY").workplane(offset=z0).center((rc + outer) / 2, 0)
                 .rect(outer - rc, w).extrude(h))
         return circ.union(rect)
@@ -231,6 +217,7 @@ def tab_holes_local(pp: dict):
 
 def make_backplate(pp: dict) -> cq.Workplane:
     zb, z_front = backplate_z(pp)
+    pp = dict(pp, closed=False)   # the exit hole is open to the bore even for closed pockets
     plate = cq.Workplane("XY").workplane(offset=zb).circle(FLANGE_R).extrude(BP_T)
     plate = plate.cut(cq.Workplane("XY").workplane(offset=zb - 1).circle(2.2).extrude(BP_T + 2))
     # exit hole = notch grown by EXIT_MARGIN, bounded by the hopper bore, continued as a

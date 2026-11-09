@@ -3,3 +3,5 @@
 .vscode/
 __pycache__/
 .DS_Store
+sim/.cache/
+results/**/trace_*.json

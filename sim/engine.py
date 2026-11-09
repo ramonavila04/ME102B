@@ -576,6 +576,10 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
             out = "ok"
         elif cnt >= 2:
             out = "double"
+        elif len(gone) >= n_max:
+            # nothing left in the machine (only after an earlier double or loss; the fill is
+            # always >= the number of cycles): the firmware reports EMPTY. Still not "ok".
+            out = "empty"
         else:
             out = "miss"
         res.cycles.append(CycleResult(out, cnt, data.time - t0, lost=lost, steps=steps))

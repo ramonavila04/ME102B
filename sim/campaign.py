@@ -51,7 +51,7 @@ def summarize(trials: list) -> dict:
                 sites[c["jam_site"]] += 1
     ok_trials = sum(1 for t in trials if t.get("passed"))
     jam_trials = sum(1 for t in trials if any(c["outcome"] == "jam" for c in t.get("cycles", [])))
-    return dict(trials=len(trials), passed_trials=ok_trials, cycles=n_cycles,
+    return dict(trials=len(trials), passed_trials=ok_trials, cycles=n_cycles,  # "empty" = hopper already empty (after a double/loss)
                 outcomes=dict(out), jam_sites=dict(sites),
                 jam_rate_per_trial=jam_trials / max(len(trials), 1),
                 anomaly_trials=sum(1 for t in trials if t.get("anomalies")),

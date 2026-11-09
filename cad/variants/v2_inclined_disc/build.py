@@ -52,9 +52,10 @@ GEARBOX = (12.0, 10.0)          # micro-gearmotor gearbox cross-section (w × h)
 FLANGE_R = 40.0        # back plate / hopper flange radius
 BOLT_R = 36.0          # M3 bolt circle for hopper → back plate
 DEPTH_BELOW_T = 0.3    # pocket depth = min pill thickness − this (2nd pill can't nest)
-RELIEF = 2.5           # hopper bore widened this much over the exit notch (rev 3): a pill
+RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 3): a pill
                        # standing on edge can't hang by friction between notch end and wall
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
+EDGE_SLOT = {"iron"}   # rev 6: thick tablets that ride on edge get an edge slot (see pocket_params)
 
 
 def pocket_params(pill_id: str) -> dict:
@@ -62,6 +63,27 @@ def pocket_params(pill_id: str) -> dict:
     # Notch spans are sized to the pill's TILTED diagonal (+ clearance), so a pill that
     # tips while dropping out can never wedge across the notch (rev 2: a 9.5×5 tablet
     # tilted ~28° spans 10.7 mm and wedged between the notch end and the hopper wall).
+    if p.kind == "tablet" and pill_id in EDGE_SLOT:
+        # rev 6: thick tablet (iron, T ≈ Ø/2) rides in an EDGE slot: one thickness wide,
+        # one diameter long radially. Exactly one fits; inside it the tablet can tilt only
+        # a few degrees, so it can't wedge between the walls and drops straight out.
+        d_max, d_min = p.length + p.tol, p.length - p.tol
+        t_max = p.thickness + p.tol
+        length = t_max + 2 * FDM                 # tangential slot width
+        w = d_max + 2 * FDM                      # radial slot length
+        r_in = R_WALL - d_max - FDM
+        r_c = R_WALL - d_max / 2
+        half_ang = math.atan((length / 2) / r_in)
+        shape = "oblong"
+        depth = round(d_min - 3.0, 2)            # standing tablet protrudes ~3 mm
+        chamfer = 1.5                            # top stays narrower (8.85) than a flat tablet
+        n = 4
+        for cand in range(4, 40, 4):
+            if r_in * (2 * math.pi / cand - 2 * half_ang) >= WEB_MIN + 2 * EXIT_MARGIN:
+                n = cand
+        return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
+                    r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
+                    pitch_deg=360.0 / n, chamfer=chamfer, pocket="edge slot")
     if p.kind == "tablet":
         d_max = p.length + p.tol
         t_min = p.thickness - p.tol
@@ -260,16 +282,12 @@ def make_hopper(pp: dict) -> cq.Workplane:
               .extrude(3.0)
               .cut(cq.Workplane("XY").workplane(offset=z0 - 1)
                    .polarArray(BOLT_R, 45, 360, 4).circle(1.7).extrude(5)))
-    # exit relief: from the back plate up to 6 mm above the disc face
-    z_full = 3.5                      # full relief up to 3.5 mm above the disc face,
-    taper_h = RELIEF * 1.2            # then a 50° self-supporting ceiling back to the bore
-    relief = _relief_prism(pp, z0 - 1, (-z0) + 1 + z_full)
-    lo = relief_outline(pp)
-    hi = relief_outline(pp, grow=-RELIEF)
-    cap = (cq.Workplane("XY").workplane(offset=z_full).polyline(lo).close()
-           .workplane(offset=taper_h).polyline(hi).close().loft(ruled=True))
-    relief = relief.union(cap)
-    boss = _relief_prism(pp, z0, (-z0) + 9.0, grow=WALL).cut(_relief_prism(pp, z0 - 1, 20, grow=0))
+    # exit relief (rev 3/6): a groove in the bore over the exit, the full height of the
+    # hopper (it sits under the cover, where no pills go). A pill at the exit, flat or
+    # standing, has no wall to lean on. Full height = vertical walls, nothing to support.
+    relief = _relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)
+    boss = (_relief_prism(pp, z0, HOPPER_DEPTH - z0, grow=WALL)
+            .cut(_relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)))
     return wall.union(flange).union(boss).cut(relief)
 
 

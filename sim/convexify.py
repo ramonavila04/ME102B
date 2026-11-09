@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -109,9 +110,12 @@ def decompose_file(stl_path: str | Path, tol: float = 0.05, min_cell: float = 0.
         return [Piece(v, f, e) for v, f, e in zip(d["v"], d["f"], d["e"])]
     mesh = trimesh.load(stl_path, force="mesh")
     pieces = decompose(mesh, tol=tol, min_cell=min_cell, crop=crop)
-    np.savez_compressed(cf, v=np.array([p.vertices for p in pieces], dtype=object),
+    # write atomically: parallel campaign workers may read the cache at the same time
+    tmp = cf.with_name(f"{cf.stem}.{os.getpid()}.tmp.npz")
+    np.savez_compressed(tmp, v=np.array([p.vertices for p in pieces], dtype=object),
                         f=np.array([p.faces for p in pieces], dtype=object),
                         e=np.array([p.excess_mm for p in pieces]))
+    os.replace(tmp, cf)
     return pieces
 
 

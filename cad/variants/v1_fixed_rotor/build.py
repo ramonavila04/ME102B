@@ -102,7 +102,15 @@ def params_for(pill_id: str, **over) -> dict:
         # can always tip out; the covered sector is relieved to just clear a seated pill
         hw = max(p["grip"] * tnom, p["min_rotor_t"] + p["run_gap"])
         T = hw - p["run_gap"]
-        p["relief_h"] = round(tmax - hw + p["relief_clear"], 3)
+        # rev 6: roof midway between the highest seated pill and the lowest pill lying on the
+        # rotor top (more leverage to tip a standing pill), but below a capsule's axis so a
+        # lying capsule is pushed up-and-back, never down
+        tmin = (pill.width - pill.tol) if pill.kind == "capsule" else (pill.thickness - pill.tol)
+        seated = tmax - hw
+        rh = max(seated + p["relief_clear"], 0.5 * (seated + tmin))
+        if pill.kind == "capsule":
+            rh = min(rh, tmin / 2 - 0.2)
+        p["relief_h"] = round(rh, 3)
     else:
         T = tmax - p["run_gap"] + p["seat_margin"]      # rotor (= pocket) thickness
         p["relief_h"] = p["run_gap"]

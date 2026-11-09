@@ -47,6 +47,8 @@ def session() -> requests.Session:
 
 
 def slug(text: str) -> str:
+    # Drop a CAD extension typed into the name so files don't end in .step.step.
+    text = re.sub(r"\.(step|stp|stl)$", "", text.strip(), flags=re.IGNORECASE)
     return re.sub(r"[^A-Za-z0-9._-]+", "_", text).strip("_") or "unnamed"
 
 

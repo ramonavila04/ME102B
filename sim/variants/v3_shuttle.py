@@ -63,18 +63,39 @@ def spec(pill_id: str) -> dict:
 
     x0t = P["throat_x0"]
     yin = P["slide_w"] / 2 + gap
-    parts = [
+    # Crops are tiled: the decomposer accepts a hull whose added volume / hull area < tol,
+    # which lets one hull of a large plate swallow a hole in it (the drop hole vanished when
+    # the floor was a single crop). Tiles no wider than ~TILE mm keep every hole open.
+    TILE = 6.0
+
+    def tiles(name, stl, lo, hi, tol, body="static", tile=TILE, **kw):
+        nx = max(1, math.ceil((hi[0] - lo[0]) / tile))
+        ny = max(1, math.ceil((hi[1] - lo[1]) / tile))
+        xs = [lo[0] + (hi[0] - lo[0]) * k / nx for k in range(nx + 1)]
+        ys = [lo[1] + (hi[1] - lo[1]) * k / ny for k in range(ny + 1)]
+        return [dict(name=f"{name}_{i * ny + j}", stl=stl, body=body, tol=tol,
+                     crop=((xs[i], ys[j], lo[2]), (xs[i + 1], ys[j + 1], hi[2])), **kw)
+                for i in range(nx) for j in range(ny)]
+
+    x0t = P["throat_x0"]
+    yin = P["slide_w"] / 2 + gap
+    y_pp = P["seat_y"] / 2 + P["drop_e"] + P["chute_e"] + P["hopper_wall"] + 4   # pill-path half width
+    hx_ch = P["seat_x"] / 2 + P["drop_e"] + P["chute_e"] + P["hopper_wall"] + 1
+    parts = (
         # the cover plate / throat edges are where pills are stripped: exact (0.05 mm) hulls
-        dict(name="hopper", stl=d / "hopper.stl", body="static", tol=0.05,
-             crop=((x0t - 30, -yin - 8, 0), (P["base_x1"] + 1, yin + 8, 8))),
-        dict(name="hopper_upper", stl=d / "hopper.stl", body="static", tol=0.25,
-             crop=((x0t - 60, -60, 8), (P["base_x1"] + 1, 60, z_ext + 1))),
-        dict(name="guide_base", stl=d / "guide_base.stl", body="static", tol=0.05,
-             crop=((x0t - 3, -yin + 0.1, zfb - 1), (R + P["seat_x"] / 2 + 6, yin - 0.1, -D + 0.05))),
-        dict(name="chute", stl=d / "chute.stl", body="static", tol=0.1, crop=None),
-        dict(name="slide", stl=d / "slide.stl", body="rotor", tol=0.05, rgba="0.95 0.75 0.2 1",
-             crop=((x0t - R - 4, -yin, -D - 1), (P["slide_x1"] + 1, yin, 1))),
-    ]
+        tiles("hopper", d / "hopper.stl", (x0t - 30, -yin - 8, 0), (P["base_x1"] + 1, yin + 8, 8), 0.05,
+              tile=12.0)
+        + [dict(name="hopper_upper", stl=d / "hopper.stl", body="static", tol=0.25,
+                crop=((x0t - 60, -60, 8), (P["base_x1"] + 1, 60, z_ext + 1)))]
+        + tiles("guide_base", d / "guide_base.stl", (x0t - 3, -y_pp, zfb - 1),
+                (R + P["seat_x"] / 2 + 6, y_pp, -D + 0.05), 0.05)
+        + tiles("chute", d / "chute.stl", (R - hx_ch - 6, -y_pp, zfb - 40), (R + hx_ch + 6, y_pp, zfb + 0.1), 0.1)
+        + tiles("slide", d / "slide.stl", (-P["seat_x"] / 2 - P["ramp_len"] - 3, -y_pp, -D - 1),
+                (P["seat_x"] / 2 + 3, y_pp, 1), 0.05, body="rotor", rgba="0.95 0.75 0.2 1")
+        + tiles("slide_far", d / "slide.stl", (x0t - R - 4, -yin, -D - 1),
+                (-P["seat_x"] / 2 - P["ramp_len"] - 3, yin, 1), 0.05, body="rotor", rgba="0.95 0.75 0.2 1",
+                tile=40.0)
+    )
 
     def half_widths(z):
         h = min(max(z - gap, 0.0), P["hopper_h"])
@@ -94,6 +115,7 @@ def spec(pill_id: str) -> dict:
 
     def site_namer(part: str, pos):
         x, y, z = pos
+        part = part.rsplit("_", 1)[0] if part.rsplit("_", 1)[-1].isdigit() else part
         if part.startswith("hopper"):
             if z < 6:
                 return "throat exit edge (stripper)" if x > xc else "throat entry edge"

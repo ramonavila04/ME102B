@@ -100,10 +100,21 @@ def build_model(spec: dict, pill_samples: list, mu_part: float, mu_pill: float):
         joint = (f'<joint name="drive" type="hinge" axis="{" ".join(map(str, j["axis"]))}" '
                  f'pos="{" ".join(str(x * MM) for x in j["pos"])}" armature="{MOTOR_REFLECTED_J}" '
                  f'damping="0.001"/>')
-    else:  # slide driven through a crank of radius crank_r (scotch yoke)
+    else:
+        # Scotch yoke, modelled kinematically: the motor turns a crank (hinge "drive");
+        # its pin is pinned (equality connect) to a block that slides along a slot (y)
+        # inside the slide, and the slide moves on x. Slide x = r·sin θ exactly, the
+        # pin carries the load at the dead centres, and the encoder reads θ directly.
+        if tuple(j["axis"]) != (1, 0, 0):
+            raise ValueError("slide joints must run along +x (rotate the variant geometry)")
+        joint = '<joint name="slide" type="slide" axis="1 0 0" damping="0.01"/>'
+    yoke_xml = ""
+    if j["type"] == "slide":
         r = j["crank_r"] * MM
-        joint = (f'<joint name="drive" type="slide" axis="{" ".join(map(str, j["axis"]))}" '
-                 f'armature="{MOTOR_REFLECTED_J / r ** 2:.6g}" damping="0.01"/>')
+        yoke_xml = (
+            f'<body name="crank"><joint name="drive" type="hinge" axis="0 0 1" '
+            f'armature="{MOTOR_REFLECTED_J}" damping="0.001"/>'
+            f'<inertial pos="0 0 0" mass="0.002" diaginertia="1e-7 1e-7 1e-7"/></body>')
     rotor_mass = spec.get("rotor_mass_kg", 0.02)
 
     flaps_xml = []
@@ -124,6 +135,15 @@ def build_model(spec: dict, pill_samples: list, mu_part: float, mu_pill: float):
             f'contype="0" conaffinity="1" priority="1" friction="{mu_part} 0.005 0.0001" '
             f'rgba="0.2 0.2 0.2 1" mass="0.0002"/>'
             f'</body>')
+
+    yoke_block = ""
+    equality = ""
+    if j["type"] == "slide":
+        r = j["crank_r"] * MM
+        yoke_block = (f'<body name="yoke" pos="0 {-r:.6g} 0"><joint name="slot" type="slide" axis="0 1 0" '
+                      f'damping="0.001"/><inertial pos="0 0 0" mass="0.001" diaginertia="1e-8 1e-8 1e-8"/></body>')
+        equality = (f'<equality><connect body1="crank" body2="yoke" anchor="0 {-r:.6g} 0" '
+                    f'solref="0.001 1"/></equality>')
 
     pill_xml = []
     for i, p in enumerate(pill_samples):
@@ -148,13 +168,16 @@ def build_model(spec: dict, pill_samples: list, mu_part: float, mu_pill: float):
   <worldbody>
     {"".join(static_xml)}
     {"".join(flaps_xml)}
+    {yoke_xml}
     <body name="rotor">
       {joint}
       <inertial pos="0 0 0" mass="{rotor_mass}" diaginertia="1e-5 1e-5 1e-5"/>
       {"".join(rotor_xml)}
+      {yoke_block}
     </body>
     {"".join(pill_xml)}
   </worldbody>
+  {equality}
   <actuator><motor name="drive" joint="drive" ctrllimited="false"/></actuator>
 </mujoco>"""
     return mujoco.MjModel.from_xml_string(xml)
@@ -169,7 +192,7 @@ class Drive:
         self.index = math.radians(d["index_deg"]) * d.get("dir", 1)
         self.w_max = d["rpm"] * 2 * math.pi / 60
         self.t_acc = d.get("accel_s", 0.15)
-        self.slide = spec["joint"]["type"] == "slide"
+        self.slide = False   # the yoke is kinematic now; the drive joint is the crank hinge
         self.r = spec["joint"].get("crank_r", 1.0) * MM
         self.theta0 = math.radians(d.get("start_deg", 0.0))
         self.target = self.theta0
@@ -334,7 +357,11 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
     drive = Drive(spec, model)
     jid = model.joint("drive").id
     qadr, dadr = model.jnt_qposadr[jid], model.jnt_dofadr[jid]
-    data.qpos[qadr] = drive.to_joint(drive.theta0)
+    data.qpos[qadr] = drive.theta0
+    if spec["joint"]["type"] == "slide":   # put slide and yoke block where the crank angle says
+        r_ = spec["joint"]["crank_r"] * MM
+        data.qpos[model.jnt_qposadr[model.joint("slide").id]] = r_ * math.sin(drive.theta0)
+        data.qpos[model.jnt_qposadr[model.joint("slot").id]] = r_ - r_ * math.cos(drive.theta0)
     _spawn(spec, model, data, samples, n, rng)
     mujoco.mj_forward(model, data)
 

@@ -432,7 +432,8 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
                 past = z < ex["z"]
             if past and inside:
                 counted += 1; park(i)
-            elif (z < spec["loss_z"] and not inside) or z < ex["z"] - 40 or abs(x) > 200 or abs(y) > 200:
+            elif (z < spec["loss_z"] and not inside) or ("z" in ex and z < ex["z"] - 40) \
+                    or abs(x) > 200 or abs(y) > 200:
                 lost += 1; park(i)
         return counted, lost
 

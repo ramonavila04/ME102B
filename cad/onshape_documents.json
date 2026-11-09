@@ -2,8 +2,8 @@
   "_help": "List each Onshape Part Studio or Assembly tab to export. Paste the browser URL with that tab open. 'name' becomes the file name; 'formats' is optional (STEP and STL by default; assemblies export STEP only).",
   "documents": [
     {
-      "name": "EXAMPLE_replace_me",
-      "url": "https://cad.onshape.com/documents/000000000000000000000000/w/000000000000000000000000/e/000000000000000000000000",
+      "name": "Pill_Dispenser_Clip_On_Canister_67p5mm.step",
+      "url": "https://cad.onshape.com/documents/af38040e3e800b03c23b70ec/w/9e97484416ed11a0e7c1ba66/e/c160e4954aac463b768113a3",
       "formats": ["STEP", "STL"]
     }
   ]

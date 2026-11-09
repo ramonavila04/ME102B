@@ -49,6 +49,7 @@ class MoveController {
     float kff;  // duty per count/ms (1 / no-load speed)
     float kp;   // duty per count
     float kv;   // duty per count/ms
+    float ki;   // duty per count*ms
   };
   void start(uint32_t nowMs, int32_t from, int32_t to, float vmaxCpms, float accelMs,
              float jamSpeedFrac, uint32_t jamStallMs);
@@ -72,7 +73,8 @@ class MoveController {
   MoveResult result_ = MoveResult::None;
   int32_t from_ = 0, target_ = 0;
   uint32_t startMs_ = 0, endMs_ = 0;
-  float refVel_ = 0, armSpeed_ = 0;
+  float refVel_ = 0, armSpeed_ = 0, integ_ = 0;
+  uint32_t lastMs_ = 0;
 };
 
 }  // namespace dc

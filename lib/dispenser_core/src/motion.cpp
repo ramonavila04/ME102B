@@ -75,6 +75,7 @@ void MoveController::start(uint32_t nowMs, int32_t from, int32_t to, float vmaxC
     gains_.kff = 1.0f / rpmToCountsPerMs(kNoLoadRpm);
     gains_.kp = cfg::kKp;
     gains_.kv = cfg::kKv;
+    gains_.ki = cfg::kKi;
   }
   from_ = from;
   target_ = to;
@@ -83,6 +84,8 @@ void MoveController::start(uint32_t nowMs, int32_t from, int32_t to, float vmaxC
   armSpeed_ = jamSpeedFrac * vmaxCpms;
   stall_.configure(armSpeed_, jamStallMs);
   refVel_ = 0.0f;
+  integ_ = 0.0f;
+  lastMs_ = nowMs;
   active_ = true;
   result_ = MoveResult::Running;
 }
@@ -115,8 +118,15 @@ float MoveController::update(uint32_t nowMs, int32_t pos, float vel) {
     return finish(fabsf(finalErr) <= cfg::kFinalTolDeg * kCountsPerDeg ? MoveResult::Done
                                                                        : MoveResult::PositionError);
 
-  float u = gains_.kff * refVel_ + gains_.kp * (ref - static_cast<float>(pos)) +
-            gains_.kv * (refVel_ - vel);
+  const float err = ref - static_cast<float>(pos);
+  if (gains_.ki > 0.0f) {
+    integ_ += err * static_cast<float>(nowMs - lastMs_);
+    const float lim = cfg::kIntegralMaxDuty / gains_.ki;
+    if (integ_ > lim) integ_ = lim;
+    if (integ_ < -lim) integ_ = -lim;
+  }
+  lastMs_ = nowMs;
+  float u = gains_.ki * integ_ + gains_.kff * refVel_ + gains_.kp * err + gains_.kv * (refVel_ - vel);
   if (u > 1.0f) u = 1.0f;
   if (u < -1.0f) u = -1.0f;
   return u;

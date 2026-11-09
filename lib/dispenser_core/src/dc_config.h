@@ -29,6 +29,10 @@ constexpr uint32_t kControlPeriodMs = 5;
 constexpr float kVelFilterAlpha = 0.35f;   // IIR on encoder speed estimate
 constexpr float kKp = 0.004f;              // duty per count of position error
 constexpr float kKv = 0.08f;               // duty per count/ms of velocity error
+// Integral of position error: absorbs static friction / load the feed-forward
+// does not model, so the drum does not trail the profile and finish late.
+constexpr float kKi = 0.00006f;           // duty per count*ms
+constexpr float kIntegralMaxDuty = 0.4f;  // anti-windup clamp on the integral term
 constexpr float kPosTolDeg = 1.0f;         // move "done" tolerance
 constexpr float kFinalTolDeg = 4.0f;       // worst error accepted after timeout
 constexpr uint32_t kMoveExtraMs = 800;     // time allowed past the profile end

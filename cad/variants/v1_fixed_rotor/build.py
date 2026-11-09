@@ -77,10 +77,14 @@ COMMON = dict(
 
 # Pockets per revolution: as many as fit with >= 4.5 mm webs.
 POCKETS = {"iron": 6, "small": 8, "caplet": 3, "cap0": 3}
+# Per-pill overrides. Rev 7 tried {"edge_oblique_deg": 40, "rpm": 10} for caplet and cap0 and
+# rev 7b dropped the capsule relief cap; neither changed the long-pill jams, so both reverted.
+PER_PILL: dict = {}
 
 
 def params_for(pill_id: str, **over) -> dict:
-    p = dict(COMMON)
+    p = dict(COMMON, rpm=20.0)
+    p.update(PER_PILL.get(pill_id, {}))
     p.update(over)
     pill = PILLS[pill_id]
     c = p["fdm_clear"]
@@ -108,7 +112,7 @@ def params_for(pill_id: str, **over) -> dict:
         tmin = (pill.width - pill.tol) if pill.kind == "capsule" else (pill.thickness - pill.tol)
         seated = tmax - hw
         rh = max(seated + p["relief_clear"], 0.5 * (seated + tmin))
-        if pill.kind == "capsule":
+        if pill.kind == "capsule" and p.get("capsule_relief_cap", True):
             rh = min(rh, tmin / 2 - 0.2)
         p["relief_h"] = round(rh, 3)
     else:

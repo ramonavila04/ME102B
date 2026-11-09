@@ -54,8 +54,8 @@ def spec(pill_id: str) -> dict:
     zb, _ = build.backplate_z(pp)
     parts = [
         dict(name="disc", stl=d / "disc.stl", body="rotor", tol=0.05, rgba="0.95 0.75 0.2 1"),
-        dict(name="backplate", stl=d / "backplate.stl", body="static", tol=0.05),
-        dict(name="hopper", stl=d / "hopper.stl", body="static", tol=0.05),
+        dict(name="backplate", stl=d / "backplate.stl", body="static", tol=0.1),
+        dict(name="hopper", stl=d / "hopper.stl", body="static", tol=0.1),
         dict(name="cover", stl=c / "cover.stl", body="static", tol=0.2),
     ]
     r_in, L = pp["r_inner"], pp["length"]

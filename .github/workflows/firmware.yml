@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        environment: [dispenser, dispenser-wokwi, beam-break, load-cell, motor-drv8833, motor-tb6612]
+        environment: [dispenser, dispenser-wokwi, beam-break, load-cell, motor-drv8833, motor-tb6612, ui-panel]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

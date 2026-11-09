@@ -11,3 +11,4 @@ results/*.log
 results/*_dbg/
 results/*_dev/
 results/**/*.partial.json
+cad/variants/*/.build.lock

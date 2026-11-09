@@ -92,7 +92,7 @@ def spec(pill_id: str) -> dict:
         + tiles("chute", d / "chute.stl", (R - hx_ch - 6, -y_pp, zfb - 40), (R + hx_ch + 6, y_pp, zfb + 0.1), 0.1)
         + tiles("slide", d / "slide.stl", (-P["seat_x"] / 2 - P["ramp_len"] - 3, -y_pp, -D - 1),
                 (P["seat_x"] / 2 + 3, y_pp, 1), 0.05, body="rotor", rgba="0.95 0.75 0.2 1")
-        + tiles("slide_far", d / "slide.stl", (x0t - R - 4, -yin, -D - 1),
+        + tiles("slide_far", d / "slide.stl", (min(x0t - R - 4, P["x_crank"] + 6), -yin, -D - 1),
                 (-P["seat_x"] / 2 - P["ramp_len"] - 3, yin, 1), 0.05, body="rotor", rgba="0.95 0.75 0.2 1",
                 tile=40.0)
     )

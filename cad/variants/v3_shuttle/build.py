@@ -43,6 +43,7 @@ GAP = 0.4            # running clearance slide <-> cover / floor / rails (per si
 CL = 0.4             # seat clearance per side beyond the largest pill
 DEPTH_MARGIN = 0.35  # seated (largest) pill top sits this far below the slide top
 RAMP_ANG = 20.0      # trailing ramp, deg from horizontal
+RAMP_FOOT_MARGIN = 0.3  # the knife edge meets a pill on the ramp this far below the pill's mid-height
 RAIL_W = 7.0
 FLOOR_T = 3.0
 COVER_T = 3.0
@@ -54,8 +55,8 @@ HOPPER_EXT = 20.0    # vertical extension above the slope
 DROP_E = 1.5         # drop hole = seat outline grown by this
 CHUTE_E = 1.0        # chute bore = drop hole grown by this (no ledge to catch a pill)
 CHUTE_L = 25.0
-THROAT_G_ENTRY = 0.8  # throat margin behind the top of the ramp at fill
-THROAT_G_EXIT = 0.8   # throat margin ahead of the seat's leading wall at fill
+THROAT_G_ENTRY = 0.8  # throat margin behind the seat's trailing edge at fill (the ramp is under the cover)
+THROAT_G_EXIT = 3.0   # throat margin ahead of the seat's leading wall at fill
 SEAL_MARGIN = 3.0     # pocket never open to throat and drop hole together, by this much
 PIN_D = 5.0
 PIN_CL = 0.35
@@ -76,6 +77,7 @@ class Params:
     seat_y: float       # seat size across the stroke (y)
     depth: float        # D: slide top to floor top
     ramp_len: float     # horizontal length of the trailing ramp
+    z_ramp_foot: float  # the ramp starts here, on top of a vertical step up from the floor
     slide_t: float
     crank_r: float
     throat_x0: float
@@ -116,21 +118,28 @@ def params(pill_id: str) -> Params:
         sx = p.width + p.tol + 2 * CL
         sy = p.length + p.tol_length + 2 * CL
         depth = max(tmax, p.width + p.tol) + DEPTH_MARGIN
-    ramp = depth / math.tan(math.radians(RAMP_ANG))
+    # r3: a pill lying on the ramp must meet the knife edge (z = GAP) below its own mid-height,
+    # so the edge pushes it up; the ramp therefore starts on a step, not at the floor.
+    tmin = p.thickness - p.tol
+    z_foot = max(-depth, GAP - tmin / 2 + RAMP_FOOT_MARGIN)
+    ramp = -z_foot / math.tan(math.radians(RAMP_ANG))
     # stroke: the pocket mouth (ramp + seat) must be closed by the cover before the seat
     # opens onto the drop hole:  2R >= 2*sx + ramp + g_exit + e + margin
     R = math.ceil((2 * sx + ramp + THROAT_G_EXIT + DROP_E + SEAL_MARGIN) / 2)
-    throat_x0 = -R - sx / 2 - ramp - THROAT_G_ENTRY
+    # r2: the throat exposes only the seat; at fill the ramp lies under the entry-side cover, so
+    # pills pushed against the entry wall on the return stroke drop straight into the seat.
+    throat_x0 = -R - sx / 2 - THROAT_G_ENTRY
     throat_x1 = -R + sx / 2 + THROAT_G_EXIT
     throat_y = sy + (6.0 if shape == "round" else 2.0)
     disc_r = R + PIN_D / 2 + 2.0
-    x_crank = throat_x0 - R - PIN_D - 6.0
+    # yoke: clear of the pocket in the slide, and never under the throat
+    x_crank = min(throat_x0 - R - PIN_D - 6.0, -sx / 2 - ramp - PIN_D - 8.0)
     slide_x0 = x_crank - PIN_D - 6.0
     slide_x1 = sx / 2 + 6.0
     slide_w = max(44.0, 2 * R + PIN_D + 2 * PIN_CL + 10.0, sy + 2 * DROP_E + 2 * CHUTE_E + 10.0)
     base_x0 = slide_x0 - R - 2.0
     base_x1 = slide_x1 + R + 2.0
-    return Params(pill_id, shape, sx, sy, depth, ramp, depth - GAP, R, throat_x0, throat_x1,
+    return Params(pill_id, shape, sx, sy, depth, ramp, z_foot, depth - GAP, R, throat_x0, throat_x1,
                   throat_y, -depth - FLOOR_T, x_crank, slide_x0, slide_x1, slide_w,
                   base_x0, base_x1, disc_r)
 
@@ -198,8 +207,8 @@ def slide(P: Params) -> cq.Workplane:
     L = P.ramp_len + 2.0
     a = math.radians(RAMP_ANG)
     wedge = (cq.Workplane("XZ")
-             .polyline([(x_foot, -P.depth), (x_foot - L, -P.depth + L * math.tan(a)),
-                        (x_foot - L, 2.0), (x_foot + 0.01, 2.0), (x_foot + 0.01, -P.depth)]).close()
+             .polyline([(x_foot, P.z_ramp_foot), (x_foot - L, P.z_ramp_foot + L * math.tan(a)),
+                        (x_foot - L, 2.0), (x_foot + 0.01, 2.0), (x_foot + 0.01, P.z_ramp_foot)]).close()
              .extrude(y_half, both=True))
     s = s.cut(wedge)
     # yoke slot across the stroke for the crank pin

@@ -112,10 +112,10 @@ def spec(pill_id: str) -> dict:
         drive=dict(index_deg=360.0, rpm=30.0, dir=1, accel_s=0.15, settle_s=0.6,
                    start_deg=-90.0, max_steps=3),
         spawn=dict(x=(xc - hx_top, xc + hx_top), y=(-hy_top, hy_top),
-                   z=(gap + 3, 150.0 if long_pill else z_ext), accept=accept),
+                   z=(gap + 3, 150.0), accept=accept),
         fill=fills[pill_id],
         exit=dict(z=zfb - 12.0, x=(R - ex_hx, R + ex_hx), y=(-ex_hy, ex_hy)),
         loss_z=zfb - 2.0,
-        fill_s=2.2 if long_pill else 1.5, settle_s=0.6,
+        fill_s=2.2, settle_s=0.6,
         site_namer=site_namer,
     )

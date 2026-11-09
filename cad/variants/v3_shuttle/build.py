@@ -44,6 +44,7 @@ CL = 0.4             # seat clearance per side beyond the largest pill
 DEPTH_MARGIN = 0.35  # seated (largest) pill top sits this far below the slide top
 RAMP_ANG = 20.0      # trailing ramp, deg from horizontal
 RAMP_FOOT_MARGIN = 0.3  # the knife edge meets a pill on the ramp this far below the pill's mid-height
+RAMP_ON_STEP = False     # r3 (True): ramp starts on a step; r2 (False): ramp starts at the floor
 RAIL_W = 7.0
 FLOOR_T = 3.0
 COVER_T = 3.0
@@ -121,7 +122,7 @@ def params(pill_id: str) -> Params:
     # r3: a pill lying on the ramp must meet the knife edge (z = GAP) below its own mid-height,
     # so the edge pushes it up; the ramp therefore starts on a step, not at the floor.
     tmin = p.thickness - p.tol
-    z_foot = max(-depth, GAP - tmin / 2 + RAMP_FOOT_MARGIN)
+    z_foot = max(-depth, GAP - tmin / 2 + RAMP_FOOT_MARGIN) if RAMP_ON_STEP else -depth
     ramp = -z_foot / math.tan(math.radians(RAMP_ANG))
     # stroke: the pocket mouth (ramp + seat) must be closed by the cover before the seat
     # opens onto the drop hole:  2R >= 2*sx + ramp + g_exit + e + margin

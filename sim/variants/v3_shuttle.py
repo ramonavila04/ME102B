@@ -134,7 +134,7 @@ def spec(pill_id: str) -> dict:
         joint=dict(type="slide", axis=(1, 0, 0), crank_r=R),
         rotor_mass_kg=P["slide_mass_g"] / 1000,
         drive=dict(index_deg=360.0, rpm=30.0, dir=1, accel_s=0.15, settle_s=0.6,
-                   start_deg=-90.0, max_steps=3),
+                   start_deg=-90.0, max_steps=6),
         spawn=dict(x=(xc - hx_top, xc + hx_top), y=(-hy_top, hy_top),
                    z=(gap + 3, 150.0), accept=accept),
         fill=fills[pill_id],

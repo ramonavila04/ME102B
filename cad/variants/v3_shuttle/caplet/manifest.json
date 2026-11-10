@@ -1,0 +1,166 @@
+{
+ "variant": "v3_shuttle",
+ "pill": "caplet",
+ "parts": [
+  {
+   "name": "slide",
+   "stl": "slide.stl",
+   "step": "slide.step",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ],
+   "print_note": "flat, underside on the bed",
+   "min_wall": 1.2
+  },
+  {
+   "name": "guide_base",
+   "stl": "guide_base.stl",
+   "step": "guide_base.step",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ],
+   "print_note": "floor underside on the bed",
+   "min_wall": 1.2
+  },
+  {
+   "name": "hopper",
+   "stl": "hopper.stl",
+   "step": "hopper.step",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ],
+   "print_note": "cover-plate underside on the bed",
+   "min_wall": 1.2
+  },
+  {
+   "name": "chute",
+   "stl": "chute.stl",
+   "step": "chute.step",
+   "print_rotation": [
+    180,
+    0,
+    0
+   ],
+   "print_note": "flange on the bed",
+   "min_wall": 1.2
+  },
+  {
+   "name": "crank",
+   "stl": "crank.stl",
+   "step": "crank.step",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ],
+   "print_note": "disc on the bed, pin and hub up",
+   "min_wall": 1.2
+  },
+  {
+   "name": "motor_mount",
+   "stl": "motor_mount.stl",
+   "step": "motor_mount.step",
+   "print_rotation": [
+    90,
+    0,
+    0
+   ],
+   "print_note": "back wall (-y face) on the bed",
+   "min_wall": 1.2
+  },
+  {
+   "name": "motor_clamp",
+   "stl": "motor_clamp.stl",
+   "step": "motor_clamp.step",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ],
+   "print_note": "flat",
+   "min_wall": 1.2
+  }
+ ],
+ "clearances": [
+  {
+   "a": "slide",
+   "b": "guide_base",
+   "min": 0.3,
+   "what": "slide in the guide channel (floor + rails), 0.4 mm modelled"
+  },
+  {
+   "a": "slide",
+   "b": "hopper",
+   "min": 0.3,
+   "what": "slide top under the cover plate / throat edges, 0.4 mm modelled"
+  },
+  {
+   "a": "slide",
+   "b": "crank",
+   "min": 0.3,
+   "what": "crank pin in the yoke slot; hub under the slide"
+  },
+  {
+   "a": "crank",
+   "b": "guide_base",
+   "min": 0.3,
+   "what": "crank disc under the floor; pin and hub in the floor opening"
+  },
+  {
+   "a": "crank",
+   "b": "motor_mount",
+   "min": 0.3,
+   "what": "crank disc inside the mount's top plate"
+  },
+  {
+   "a": "crank",
+   "b": "motor_clamp",
+   "min": 0.3,
+   "what": "crank disc above the clamp bar"
+  }
+ ],
+ "params": {
+  "pill": "caplet",
+  "shape": "slot",
+  "seat_x": 9.5,
+  "seat_y": 20.0,
+  "depth": 9.049999999999999,
+  "ramp_len": 24.86467064606433,
+  "z_ramp_foot": -9.049999999999999,
+  "slide_t": 8.649999999999999,
+  "crank_r": 26,
+  "throat_x0": -31.55,
+  "throat_x1": -18.25,
+  "throat_y": 22.0,
+  "z_floor_bot": -12.049999999999999,
+  "x_crank": -68.55,
+  "slide_x0": -79.55,
+  "slide_x1": 10.75,
+  "slide_w": 67.7,
+  "base_x0": -107.55,
+  "base_x1": 38.75,
+  "disc_r": 30.5,
+  "gap": 0.4,
+  "seat_clearance": 0.4,
+  "ramp_angle": 20.0,
+  "slide_mass_g": 57.4,
+  "wall_angle_x": 60.0,
+  "wall_angle_y": 70.0,
+  "hopper_h": 40.0,
+  "hopper_ext": 20.0,
+  "hopper_wall": 2.0,
+  "drop_e": 1.5,
+  "chute_e": 1.0,
+  "z_crank": [
+   -15.649999999999999,
+   -12.649999999999999
+  ],
+  "z_gearbox_face": -19.35
+ }
+}

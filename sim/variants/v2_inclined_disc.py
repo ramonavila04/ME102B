@@ -73,7 +73,7 @@ def spec(pill_id: str) -> dict:
     from sim.pills import PILLS
     pill_r = PILLS[pill_id].bounding_radius
 
-    H = build.HOPPER_DEPTH + build.FILL_EXT      # the pour opening (lower half) is at this height
+    H = build.HOPPER_TOP                           # the pour opening (lower half) is at this height
 
     def accept(x, y, z, r):
         """Inside the lower half of the hopper, or above the fill opening so that the

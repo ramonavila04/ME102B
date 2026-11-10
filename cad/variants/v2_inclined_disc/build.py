@@ -84,9 +84,19 @@ BASE_FLARE_Z, BASE_FLARE_DEG = 8.0, 10.0
 # wall the push into the wall has a component toward the disc, so it tips into the slot.
 
 
+LIP_H, LIP_DEG = 10.0, 40.0
+# rev 13: the top LIP_H mm of the pool-side wall leans inward LIP_DEG (in the assembled,
+# tilted position that is within 10° of vertical). A pill poured just inside the lip then
+# falls clear of the wall below it; before, a pill dropped at the rim clipped the rim's
+# flat top, which slopes outward at the low side, and rolled out (4 lost in 125 trials).
+HOPPER_TOP = HOPPER_DEPTH + LIP_H
+
+
 def bore_r(theta: float, z: float, extra: float = 0.0) -> float:
     """Hopper bore radius at local angle theta (rad) and height z above the disc face."""
     f = lean_factor(theta)
+    lip = max(0.0, min(z, HOPPER_TOP) - HOPPER_DEPTH) * math.tan(math.radians(LIP_DEG)) * f
+    extra = extra - lip
     base = max(0.0, min(z, BASE_FLARE_Z)) * math.tan(math.radians(BASE_FLARE_DEG)) * f
     dz = max(0.0, min(z, ANTI_ARCH_Z1) - ANTI_ARCH_Z0)
     return R_WALL + extra + base - dz * math.tan(math.radians(ANTI_ARCH_DEG)) * f
@@ -103,7 +113,7 @@ def _bore_pts(z: float, extra: float, n: int = 96):
 
 def _bore_solid(z_start: float, z_end: float, extra: float) -> cq.Workplane:
     """Volume inside bore_r(+extra) from z_start to z_end (ruled lofts between breakpoints)."""
-    levels = [z_start] + [z for z in (0.0, BASE_FLARE_Z, ANTI_ARCH_Z0, ANTI_ARCH_Z1)
+    levels = [z_start] + [z for z in (0.0, BASE_FLARE_Z, ANTI_ARCH_Z0, ANTI_ARCH_Z1, HOPPER_DEPTH)
                           if z_start < z < z_end] + [z_end]
     solid = None
     for lo, hi in zip(levels[:-1], levels[1:]):
@@ -132,7 +142,9 @@ def pocket_params(pill_id: str) -> dict:
         half_ang = math.atan((length / 2) / r_in)
         shape = "oblong"
         pocket = "standing slot"
+        inner_chamfer = round(d_max + 0.5 - w, 2)   # top opening = Ø + 0.5
     elif p.kind == "tablet":
+        inner_chamfer = 0.0
         d_max = p.length + p.tol
         t_min = p.thickness - p.tol
         w = d_max + 2 * FDM                     # notch diameter (open to the wall)
@@ -171,7 +183,8 @@ def pocket_params(pill_id: str) -> dict:
     chamfer = round(min(2.5, 0.35 * depth), 2) if p.kind in ("caplet", "capsule") else 0.0
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
-                pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket)
+                pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
+                inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0)
 
 
 # --------------------------------------------------------------- 2-D outlines
@@ -222,6 +235,17 @@ def make_disc(pp: dict) -> cq.Workplane:
         for i in range(1, steps + 1):
             g = chamfer * i / steps
             tool = tool.union(_extruded_notch(pp, -g, g + 1, grow=g))
+        # rev 13 (standing slot): 45° chamfer on the INNER radial wall only, as a stair.
+        # The top opening becomes wider than a flat tablet, so a tablet lying flat across
+        # the slot slides down the chamfer and stands up in it (before, it bridged the
+        # 7.45 mm gap like a manhole cover: 4 misses in 125 trials).
+        ic = pp.get("inner_chamfer", 0.0)
+        isteps = int(round(ic / 0.25))
+        for i in range(1, isteps + 1):
+            g = ic * i / isteps
+            # step i: slot widened inward by g, from the top face down to depth (ic − g)
+            tool = tool.union(_extruded_notch(dict(pp, r_inner=pp["r_inner"] - g),
+                                              -(ic - g), (ic - g) + 1, grow=0))
         disc = disc.cut(tool.rotate((0, 0, 0), (0, 0, 1), k * pp["pitch_deg"]))
     # D-bore through boss and disc
     h_tot = t + boss_h
@@ -327,7 +351,7 @@ def make_backplate(pp: dict) -> cq.Workplane:
 def make_hopper(pp: dict) -> cq.Workplane:
     """Bore + flange; printed flange-down. The upper-half cover is a separate part."""
     z0 = -pp["depth"] - RUN
-    wall = _bore_solid(z0, HOPPER_DEPTH, WALL).cut(_bore_solid(z0 - 1, HOPPER_DEPTH + 1, 0.0))
+    wall = _bore_solid(z0, HOPPER_TOP, WALL).cut(_bore_solid(z0 - 1, HOPPER_TOP + 1, 0.0))
     flange = (cq.Workplane("XY").workplane(offset=z0).circle(FLANGE_R).circle(R_WALL)
               .extrude(3.0)
               .cut(cq.Workplane("XY").workplane(offset=z0 - 1)
@@ -335,25 +359,20 @@ def make_hopper(pp: dict) -> cq.Workplane:
     # exit relief (rev 3/6): a groove in the bore over the exit, the full height of the
     # hopper (it sits under the cover, where no pills go). A pill at the exit, flat or
     # standing, has no wall to lean on. Full height = vertical walls, nothing to support.
-    relief = _relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)
-    boss = (_relief_prism(pp, z0, HOPPER_DEPTH - z0, grow=WALL)
-            .cut(_relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)))
-    # rev 10: chamfer the rim's inner top edge so a pill landing on the rim slides inward
-    ch = RIM_CHAMFER
-    rim = (cq.Workplane("XY").workplane(offset=HOPPER_DEPTH - ch).polyline(_bore_pts(HOPPER_DEPTH, 0.0)).close()
-           .workplane(offset=ch + 0.01).polyline(_bore_pts(HOPPER_DEPTH, ch + 0.01)).close()
-           .loft(ruled=True))
-    return wall.union(flange).union(boss).cut(relief).cut(rim)
+    relief = _relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)
+    boss = (_relief_prism(pp, z0, HOPPER_TOP - z0, grow=WALL)
+            .cut(_relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)))
+    return wall.union(flange).union(boss).cut(relief)
 
 
 def make_cover() -> cq.Workplane:
-    """Half-lid over the upper half of the hopper (y > −2): pills can only be poured into
+    """Half-lid over the upper half of the hopper (y > +1): pills can only be poured into
     the lower half, so nothing lands on the exit side. A 3 mm lip locates it in the bore."""
-    plate = (cq.Workplane("XY").workplane(offset=HOPPER_DEPTH).circle(R_WALL + WALL).extrude(2.4))
-    lip = (cq.Workplane("XY").workplane(offset=HOPPER_DEPTH - 3).circle(R_WALL - 0.15)
+    plate = (cq.Workplane("XY").workplane(offset=HOPPER_TOP).circle(R_WALL + WALL).extrude(2.4))
+    lip = (cq.Workplane("XY").workplane(offset=HOPPER_TOP - 3).circle(R_WALL - 0.15)
            .circle(R_WALL - 1.75).extrude(3))
-    half = (cq.Workplane("XY").workplane(offset=HOPPER_DEPTH - 4)
-            .center(0, (R_WALL + WALL + 2) / 2 - 2).rect(2 * (R_WALL + WALL) + 2, R_WALL + WALL + 2)
+    half = (cq.Workplane("XY").workplane(offset=HOPPER_TOP - 4)
+            .center(0, (R_WALL + WALL + 2) / 2 + 1).rect(2 * (R_WALL + WALL) + 2, R_WALL + WALL + 2)
             .extrude(8))
     return plate.union(lip).intersect(half)
 

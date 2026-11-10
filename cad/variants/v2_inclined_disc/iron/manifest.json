@@ -13,6 +13,7 @@
     "pitch_deg": 45.0,
     "chamfer": 0.0,
     "pocket": "standing slot",
+    "inner_chamfer": 2.7,
     "beta": 50.0,
     "fdm": 0.35,
     "run": 0.4,

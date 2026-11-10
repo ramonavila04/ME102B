@@ -87,8 +87,7 @@ def spec(pill_id: str) -> dict:
         if zl <= H - r - 1.0:
             r_lim = build.bore_r(math.atan2(yl, xl), zl + r)   # leaning pool-side wall
             if pp.get("pocket") == "standing slot":            # keep clear of the disc cone
-                cone_z = min(build.CONE_H, max(0.0, pp["r_inner"] - math.hypot(xl, yl) + r + 1)
-                             * math.tan(math.radians(build.CONE_DEG)))
+                cone_z = build.CONE_H if math.hypot(xl, yl) < pp["r_inner"] + r + 1 else 0.0
                 if zl < cone_z + r + 1.0:
                     return False
             return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > r + 1.0)

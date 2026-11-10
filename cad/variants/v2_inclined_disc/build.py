@@ -68,7 +68,11 @@ RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
 STANDING_T_OVER_D = 0.5  # tablets at least this thick (T/Ø) settle standing on edge
                          # against the hopper wall (iron) and get a standing slot
-CONE_DEG, CONE_H = 60.0, 25.0
+CONE_DEG, CONE_H, HUB_H = 60.0, 3.0, 0.0
+# rev 18: only a 3 mm high ramp ring, then a flat raised face. Rev 16's full cone cradled a
+# second tablet in the V above a seated one (1 double in 10 trials); rev 17's 12 mm hub made
+# a channel that conveyed stacked tablets (doubles in 10 of 16). A 3 mm ramp still tilts a
+# flat tablet at the wall so it slides into the slot, and stays below a seated tablet's top.
 # rev 16 (standing-slot discs): inboard of the slots the disc rises as a 60° cone, so the
 # pool is a V-channel between cone and wall. Nothing can lie flat: a tablet at the wall is
 # tipped onto its edge and slides into the slot. (Rev 14: a lone flat tablet bridged the
@@ -222,6 +226,26 @@ def _relief_prism(pp: dict, z0: float, h: float, grow: float = 0.0) -> cq.Workpl
             .extrude(h))
 
 
+UNDERCUT_DEG = 12.0
+# rev 19: every pocket wall is undercut (pocket wider at the back plate than at the face).
+# At the exit the pill is pressed against the pocket's inner wall (0.77 g) while only 0.64 g
+# pulls it out the back, so on a straight wall it sticks when friction exceeds ~0.84 or the
+# wall has any ledge (seen: a seated last tablet parked at the exit). With 12° of undercut
+# it slides out up to friction ~1.3. The entry size at the face is unchanged.
+
+
+UNDERCUT_LAND = 1.2   # top of each pocket wall stays straight (no feather edge at the face)
+
+
+def undercut_land(pp: dict) -> float:
+    """Straight part at the top of the pocket wall: below any lead-in chamfer."""
+    return UNDERCUT_LAND + pp.get("chamfer", 0.0)
+
+
+def undercut_at_back(pp: dict) -> float:
+    return max(0.0, pp["depth"] - undercut_land(pp)) * math.tan(math.radians(UNDERCUT_DEG))
+
+
 def _rot_world(shape: cq.Workplane) -> cq.Workplane:
     return shape.rotate((0, 0, 0), (1, 0, 0), BETA)
 
@@ -231,17 +255,19 @@ def make_disc(pp: dict) -> cq.Workplane:
     t = pp["depth"]
     disc = cq.Workplane("XY").circle(R_DISC).extrude(-t)          # z ∈ [-t, 0]
     # hub boss on the front: cone so pills slide off; carries the D-bore
-    boss_h = max(0.0, 8.0 - t)
+    boss_h = max(0.0, 8.0 - t) + (CONE_H if pp.get("pocket") == "standing slot" else 0.0)
     if boss_h > 0:
         boss = cq.Workplane("XY").circle(7.0).workplane(offset=boss_h).circle(3.5).loft()
         disc = disc.union(boss)
     if pp.get("pocket") == "standing slot":
         r_top = pp["r_inner"] - CONE_H / math.tan(math.radians(CONE_DEG))
-        cone = (cq.Workplane("XY").circle(pp["r_inner"]).workplane(offset=CONE_H).circle(r_top).loft())
-        disc = disc.union(cone)
+        ramp = (cq.Workplane("XY").circle(pp["r_inner"]).workplane(offset=CONE_H).circle(r_top).loft())
+        disc = disc.union(ramp)
     chamfer = pp.get("chamfer", 0.0)
     for k in range(pp["n"]):
         tool = _extruded_notch(pp, -t - 1, t + 2)
+        if t > undercut_land(pp) + 0.2:
+            tool = tool.union(_tapered_notch(pp, -t, t - undercut_land(pp), undercut_at_back(pp), UNDERCUT_DEG))
         # rev 4: 45° lead-in on the notch's top edges for long pills (stepped in 0.25 mm
         # layers so it prints as an upward-facing stair) — a misaligned pill is guided in
         # or lifted off instead of being shoved along the wall
@@ -262,7 +288,7 @@ def make_disc(pp: dict) -> cq.Workplane:
                                               -(ic - g), (ic - g) + 1, grow=0))
         disc = disc.cut(tool.rotate((0, 0, 0), (0, 0, 1), k * pp["pitch_deg"]))
     # D-bore through boss and disc (through the cone too: no blind ceiling to bridge)
-    h_tot = t + max(boss_h, CONE_H if pp.get("pocket") == "standing slot" else 0.0)
+    h_tot = t + boss_h
     bore = (cq.Workplane("XY").workplane(offset=-t - 1).circle(SHAFT_D / 2 + 0.05)
             .extrude(h_tot + 2))
     flat_cut = (cq.Workplane("XY").workplane(offset=-t - 1)
@@ -287,8 +313,25 @@ def _extruded_notch(pp: dict, z0: float, h: float, grow: float = 0.0,
     L = pp["length"] + 2 * grow
     r_in = pp["r_inner"] - grow
     return (cq.Workplane("XY").workplane(offset=z0).center((r_in + outer) / 2, 0)
-            .rect(outer - r_in, L).extrude(h)
-            .edges("|Z").edges("<X").fillet(min(2.0, pp["width"] / 2 - 0.1)))
+            .rect(outer - r_in, L).extrude(h))
+
+
+def _tapered_notch(pp: dict, z0: float, h: float, grow: float, taper: float) -> cq.Workplane:
+    """Pocket outline grown by `grow` at z0, tapering inward by `taper` degrees over height h
+    (so it meets the nominal outline at z0 + h). Used for the wall undercut."""
+    outer = R_WALL + 3
+    if pp["shape"] == "round":
+        w = pp["width"] + 2 * grow
+        rc = pp["r_center"]
+        circ = (cq.Workplane("XY").workplane(offset=z0).center(rc, 0).circle(w / 2)
+                .extrude(h, taper=taper))
+        rect = (cq.Workplane("XY").workplane(offset=z0).center((rc + outer) / 2, 0)
+                .rect(outer - rc, w).extrude(h, taper=taper))
+        return circ.union(rect)
+    L = pp["length"] + 2 * grow
+    r_in = pp["r_inner"] - grow
+    return (cq.Workplane("XY").workplane(offset=z0).center((r_in + outer) / 2, 0)
+            .rect(outer - r_in, L).extrude(h, taper=taper))
 
 
 def _teardrop_x(x0: float, x1: float, y: float, z: float, r: float) -> cq.Workplane:
@@ -324,10 +367,11 @@ def make_backplate(pp: dict) -> cq.Workplane:
     plate = plate.cut(cq.Workplane("XY").workplane(offset=zb - 1).circle(2.2).extrude(BP_T + 2))
     # exit hole = notch grown by EXIT_MARGIN, bounded by the hopper bore, continued as a
     # duct straight back (perpendicular to the plate: vertical walls when printed)
-    hole = (_extruded_notch(pp, zb - DUCT_LEN - 1, BP_T + DUCT_LEN + 2, grow=EXIT_MARGIN,
+    em = EXIT_MARGIN + undercut_at_back(pp)     # hole clears the undercut pocket's back outline
+    hole = (_extruded_notch(pp, zb - DUCT_LEN - 1, BP_T + DUCT_LEN + 2, grow=em,
                             outer=R_WALL).rotate((0, 0, 0), (0, 0, 1), EXIT_ANGLE)
             .union(_relief_prism(pp, zb - DUCT_LEN - 1, BP_T + DUCT_LEN + 2)))
-    duct = (_extruded_notch(pp, zb - DUCT_LEN, DUCT_LEN, grow=EXIT_MARGIN + 1.6,
+    duct = (_extruded_notch(pp, zb - DUCT_LEN, DUCT_LEN, grow=em + 1.6,
                             outer=R_WALL + 1.6).rotate((0, 0, 0), (0, 0, 1), EXIT_ANGLE)
             .union(_relief_prism(pp, zb - DUCT_LEN, DUCT_LEN + BP_T, grow=1.6)))
     plate = plate.union(duct).cut(hole)

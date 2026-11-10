@@ -88,7 +88,7 @@ def spec(pill_id: str) -> dict:
 
     corners = [to_world(xx, yy, zz) for xx in (-31, 31) for yy in (-31, 0) for zz in (0, H)]
     xs, ys, zs = zip(*corners)
-    zs = list(zs) + [max(zs) + 450]
+    zs = list(zs) + [max(zs) + 800]   # tall pour column: the lipped opening is narrow
     fills = {"iron": (3, 20), "small": (3, 30), "caplet": (3, 12), "cap0": (3, 12)}
     return dict(
         name="V2 inclined pocket disc",
@@ -101,6 +101,6 @@ def spec(pill_id: str) -> dict:
         fill=fills[pill_id],
         exit=dict(fn=exit_fn),
         loss_z=-45.0,
-        fill_s=3.8, settle_s=0.6,
+        fill_s=5.8, settle_s=0.6,
         site_namer=site_namer,
     )

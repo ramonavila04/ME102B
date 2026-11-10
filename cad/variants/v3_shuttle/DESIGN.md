@@ -1,134 +1,155 @@
 # V3: reciprocating shuttle (scotch-yoke slide)
 
-**Status: blocked by a simulator issue in the slide/crank drive model (see "Simulator issue").**
-The CAD passes `cad/check_printability.py` for all four pills. The sim cannot judge the
-mechanism yet: with the engine as it is, an empty machine (no pills) fails its first stroke.
-No 200-trial campaign was run, because its results would mean nothing.
+**Result: does not pass.** The final revision (r4) jams at the throat edges in roughly half of
+all trials. It also misses often, because the pocket fails to fill within six strokes. The
+200-trial table is in "Final campaign" below.
 
-## Mechanism
+The cause is geometric, explained in "Why a rigid-edge shuttle cannot reach zero here":
+- These domed tablets can stand on edge in any seat or tube with FDM clearance.
+- A pill standing or tilted half out of the pocket is held face-to-face between the moving pocket
+  wall and the fixed stripping edge. No rigid edge profile tried here lifts it out.
 
-- **Hopper**: rectangular funnel. Its ±x walls are 60° from horizontal and its ±y walls 70°,
-  so the corner valleys are about 56°, steep enough for pills to slide at μ = 0.6. A 20 mm
-  vertical extension sits on top. The hopper is one print with the **cover plate**, whose
-  underside runs 0.4 mm above the slide top over the whole stroke.
-- **Throat**: a rectangular opening in the cover plate at x = −R (the fill position). It is
-  exactly where the funnel walls meet the cover underside, so each throat edge is a 60°
-  knife edge whose face rises away from the slide. A pill that sticks out of the pocket
-  meets a surface facing up and toward the hopper, which pushes it back up into the hopper.
-  It never meets a converging wedge.
-- **Slide**: one pocket through the slide, closed underneath by the floor plate.
-  - The pocket is the pill's maximum size plus 0.4 mm per side.
-  - Its depth D puts the largest pill 0.35 mm below the slide top; for caplets, a caplet
-    lying on its side also fits.
+CAD: `build.py` (CadQuery, parametric per pill). Sim spec: `sim/variants/v3_shuttle.py`.
+
+## Mechanism (r4, final)
+
+Frame: the slide top is at z = 0. The underside of the hopper's cover plate is at z = +0.4, the
+running gap. The pocket floor (the fixed floor plate) is at z = −D. The slide is drawn at
+mid-stroke, and its x = R·sin θ. Fill is at θ = −90° (x = −R); drop is at θ = +90° (x = +R).
+
+- **Hopper:**
+  - Rectangular funnel. The ±x walls are 60° from horizontal and the ±y walls 70°, so the corner
+    valleys are about 56°.
+  - A 20 mm vertical extension sits on top.
+  - Printed in one piece with the cover plate, which closes the slide channel over the whole stroke.
+- **Throat:**
+  - The opening in the cover plate at x = −R. It exposes only the pocket's seat: 0.8 mm beyond its
+    trailing edge and 3 mm beyond its leading edge.
+  - Its edges are the bottom of the 60° funnel faces. The cover plate's underside meets each face
+    in a 60° knife edge, 0.4 mm above the slide. Above that edge the face rises away from the slide
+    (relief): there is no converging chamfer.
+- **Pocket** (through the slide, closed underneath by the floor plate):
+  - A seat one pill wide: the pill outline plus 0.4 mm per side, with a vertical leading (+x) wall.
+  - Its trailing half is squared off. From there a 20° ramp rises from the floor to the slide top.
+    The ramp and a vertical pill face meet at 70°, more than the 62° wedge that self-locks at
+    μ = 0.6, so a pill squeezed between them is pushed up.
+  - Depth D = the largest pill's thickness + 0.35 mm. For the caplet it is the caplet's width
+    + 0.35 mm, so a caplet on its side also sits below the slide top.
   - A second pill can't ride along: 2·t_min is greater than D + 0.4 for every pill.
-  - The trailing (−x) half of the pocket rim has a 45° chamfer, deeper than any second pill
-    can dip into the pocket. The chamfer and the 60° throat face form a 75° V that opens
-    upward. That is more than 2·atan(0.6) = 62°, so a pill squeezed between them is pushed
-    up and out instead of wedging.
-- **Floor plate / guide base**: the floor and two side rails. The slide runs with 0.4 mm
-  clearance at the top, bottom and sides. The drop hole at x = +R is the pocket outline
-  grown 1.5 mm all round, and the chute bore is grown a further 1.0 mm, so there is no
-  ledge for a pill to catch on.
-- **Stroke spacing**: the pocket can never be open to the throat and the drop hole at the
-  same time. The margin is at least 3 mm for every pill.
-- **Drive**:
-  - A Pololu 1000:1 micro metal gearmotor with its shaft vertical, under the base at
-    x = −52 mm.
-  - It drives a crank disc with a Ø5 mm pin at R = 14 mm. The pin runs in a yoke slot
-    across the slide, with 0.35 mm clearance per side.
-  - x = R·sin θ, so one revolution from θ = −90° is fill, then drop (θ = +90°), then back
-    to fill.
-  - Sim drive: `index_deg` 360, 30 rpm, `start_deg` −90, `max_steps` 3.
+- **Fill:** on the return stroke, the pills on the slide top are dragged against the entry wall. The
+  seat arrives under that pile at the end of the stroke, the crank slows near θ = −90°, and the
+  pocket dwells there.
+- **Drop:** the floor hole at x = +R is the seat outline grown by 1.5 mm. The chute bore is the hole
+  grown by a further 1 mm, so there is no ledge to catch a pill. The crank also dwells at θ = +90°.
+- **Stroke spacing:** R is sized per pill so the pocket mouth (seat + ramp) is covered by the cover
+  plate at least 3 mm before the seat reaches the drop hole. The pocket is never open to throat and
+  chute at once.
+- **Guide:** the slide runs in a channel with 0.4 mm clearance at the top (cover plate), bottom
+  (floor) and sides (rails).
+- **Drive:**
+  - Pololu 1000:1 micro metal gearmotor (3 mm D-shaft), shaft vertical, under the base at x_crank.
+  - It turns a crank disc with a Ø5 mm pin at radius R, running in a yoke slot across the slide
+    (0.35 mm clearance per side).
+  - Sim drive: `index_deg` 360 (one stroke out and back), 30 rpm, `start_deg` −90, `max_steps` 6
+    (the firmware indexes again if the chute beam saw nothing).
 
-## Parameters per pill (mm)
+### Parameters per pill (mm; generated, see each `<pill>/manifest.json`)
 
-| pill | pocket (x × y) | depth D | slide t | trailing chamfer | throat x-range | throat y | drop hole | slide mass |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| iron | Ø10.45 | 5.50 | 5.10 | 1.25 | −21.28 … −7.98 | 16.45 | Ø13.45 | 25.0 g |
-| small | Ø6.90 | 3.25 | 2.85 | 1.20 | −19.45 … −9.75 | 12.90 | Ø9.90 | 14.1 g |
-| caplet | 9.50 × 20.0 slot | 9.05 | 8.65 | 3.35 | −22.90 … −8.45 | 22.0 | 12.5 × 23.0 | 41.3 g |
-| cap0 | 8.53 × 22.8 slot | 8.08 | 7.68 | 2.50 | −21.57 … −8.94 | 24.8 | 11.53 × 25.8 | 36.7 g |
-
-Every pill uses R = 14 mm, a 0.4 mm running gap, a 44 mm wide slide, a 3 mm floor, a 3 mm
-cover and 2 mm hopper walls.
+| pill | seat (x × y) | depth D | ramp length | slide t | crank R | throat x-range | throat y | slide width | slide mass |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iron | Ø10.45 | 5.50 | 15.11 | 5.10 | 22 | −28.03 … −13.77 | 16.45 | 59.7 | 28.5 g |
+| small | Ø6.90 | 3.25 | 8.93 | 2.85 | 16 | −20.25 … −9.55 | 12.90 | 47.7 | 10.4 g |
+| caplet | 9.50 × 20.0 slot | 9.05 | 24.86 | 8.65 | 26 | −31.55 … −18.25 | 22.0 | 67.7 | 57.4 g |
+| cap0 | 8.53 × 22.8 slot | 8.08 | 22.20 | 7.68 | 24 | −29.07 … −16.73 | 24.8 | 63.7 | 44.6 g |
 
 ## Printability (`python cad/check_printability.py cad/variants/v3_shuttle/*/manifest.json`)
 
 PASS for all four pills:
-- 1st-percentile wall thickness is at least 1.78 mm on every part. The hopper's 60° throat
-  knife edges show up only in the minimum single-ray reading.
-- Overhang is no more than 2.2 mm² on any part.
 - Every part is watertight.
+- 1st-percentile wall thickness is at least 1.30 mm (the cap0 slide is the thinnest, at its
+  feathered ramp tip); all other parts are at least 1.78 mm.
+- Overhang is no more than 2.2 mm² on any part.
 - Clearances: slide–base 0.40, slide–hopper 0.40, pin–yoke 0.35, crank–base 0.60,
-  crank–mount 1.50 mm.
+  crank–mount 1.50, crank–clamp 5.0 mm.
 
 | part | print orientation | notes |
 | --- | --- | --- |
-| slide | flat, underside on the bed | 0.2 mm layers; the top face must be flat (ironing helps) |
+| slide | flat, underside on the bed | the ramp ends in a feathered edge at the slide top; 0.12 mm layers there help |
 | guide_base | floor underside on the bed | rails print as walls |
-| hopper | cover-plate underside on the bed | the funnel walls lean 30° from vertical, so no support is needed |
+| hopper | cover-plate underside on the bed | the funnel walls lean 30° (x) and 20° (y) from vertical, so no support is needed |
 | chute | flange on the bed (rotated 180° about x) | |
-| crank | disc on the bed | D bore 3.1 mm with a 2.55 mm flat; check the press fit |
-| motor_mount | back wall (the −y face) on the bed (rotated 90° about x) | horizontal holes are teardrops |
+| crank | disc on the bed, pin and hub up | D bore Ø3.1 with a flat at 2.55 mm; check the press fit on the shaft |
+| motor_mount | back wall (the −y face) on the bed (rotated 90° about x) | horizontal holes are 55° teardrops |
 | motor_clamp | flat | |
 
 PLA, 0.2 mm layers, 3 perimeters, 30 % infill.
 
 ## Fasteners and assembly
 
-1. Press the crank onto the gearmotor D-shaft. The shaft tip should end 0.3 mm below the
-   top of the hub.
-2. Slide the gearbox into the motor mount's U slot from +y. Clamp it with the motor clamp
-   and 2× M2 × 8 screws, which self-tap into the 1.7 mm pilots.
-3. Screw the motor mount to the underside of the base rails with 2× M3 × 10 (holes at
-   x = −76 and −28, y = ±25.9).
+1. Press the crank onto the gearmotor D-shaft. The shaft tip should end 0.3 mm below the top of
+   the hub.
+2. Slide the gearbox (12 × 10 mm) into the motor mount's U slot from +y. Close it with the motor
+   clamp and **2× M2 × 8** screws, which self-tap into the 1.7 mm pilots.
+3. Screw the motor mount to the underside of the base rails with 2× M3 × 10 (self-tap into the
+   2.5 mm pilots).
 4. Screw the chute under the drop hole with 2× M3 × 8.
 5. Drop the slide into the channel. The crank pin must enter the yoke slot.
-6. Fit the hopper / cover plate on the rails with 6× M3 × 10 screws into the rails' 2.5 mm
-   pilots.
-7. The gearmotor's gearbox length and shaft length are assumed (15 mm and 10 mm).
-   **MEASURE** them before printing the mount.
+6. Fit the hopper / cover plate on the rails with 6× M3 × 10.
+7. The gearbox length (15 mm) and shaft length (10 mm) are assumed. **MEASURE** them before
+   printing the mount; `SHAFT_LEN` and `GEARBOX_*` are in `build.py`.
 
-## Revision history
+## Revision history (dev runs: 10 trials per pill, seeds 1000–1009, 1 worker)
 
-| rev | change | sim result |
-| --- | --- | --- |
-| r0 | First full geometry, as above | Not evaluable. With no pills, one empty stroke overshoots to +25…+34 mm (R = 14). The engine's jam rules fire at θ ≈ +90° on every stroke (see below). The first two iron trials jammed. |
+| rev | change | driven by | sim result |
+| --- | --- | --- | --- |
+| r0 | First geometry. One pill-sized pocket with a 45° trailing chamfer. Throat at the funnel knife edges. R = 14. | — | Not evaluable at first: the engine's old slide drive let the slide run past the dead centres. Reported, and fixed in the engine as a kinematic yoke. Rerun with 3 iron seeds: misses, a jam at the exit edge, and a drive overload. |
+| r1 | 20° trailing ramp from the floor to the slide top, replacing the 45° chamfer. Throat exposes seat + ramp. R sized per pill. | A tablet standing on edge in the pocket was held between the knife edge (on its flat face, horizontal normal) and the 45° chamfer: a 45° wedge, under the 62° lock limit. | Iron dev run: 19 misses, 5 exit-edge jams. **Invalid:** the convex decomposition had closed the drop hole (see "Simulator issues"). |
+| (fix) | Spec: collision crops tiled at 6 mm. | Rays cast against the convex pieces showed a single hull filling the floor's drop hole. | Holes verified open. |
+| r2 | Throat exposes only the seat; at fill the ramp lies under the entry-side cover. | Pills parked on the 20° ramp (they don't slide on it at μ = 0.2–0.6) and never reached the seat. | Pockets now fill: iron 1000 gave ok, ok. Seed 1001 jammed, with a tablet lying flat on the lower ramp: it slipped under the knife edge and was squeezed between the rising ramp and the cover. |
+| r3 | Ramp starts on a vertical step at z = 0.4 − t_min/2 + 0.3, so a pill lying on the ramp meets the knife edge below its mid-height. | r2 seed 1001. | Worse. Jam trials: iron 9/10, small 5/10, caplet 7/10, cap0 6/10. A standing tablet is held face-to-face between the knife edge and the step corner, with both normals on one line (zero torque). Seated tablets that rock about 12° touch the knife edge and stall against the floor. |
+| r4 | Back to the r2 geometry, with `max_steps` raised from 3 to 6. | r3 was worse than r2. In r2 most failures were misses. | Iron: 1/10 passed (9 ok, 7 miss, 5 jam). Cap0 on r4: 0/10 passed (2 ok, 12 miss, 6 jam). Small and caplet were run only on r2 (identical geometry, 3 strokes): small 2/10 passed (10 ok, 7 miss, 5 jam); caplet 0/10 (4 ok, 10 miss, 6 jam: 3 exit edge, 3 entry edge). |
 
-## Simulator issue (not fixed: the engine was not edited)
+## Final campaign (r4, 200 trials × 4 pills, `--workers 3` under the campaign lock)
 
-The engine models the slide (scotch yoke) through the controller only (`Drive.crank_state` and
-`Drive.control`). The yoke constraint x = R·sin θ, |x| ≤ R, is not enforced anywhere:
+See `results/v3_shuttle/*.json`. The summary is added below once the campaign has finished.
 
-1. `crank_state` clips q/R to [−1, 1] and estimates θ from asin, choosing the branch nearest
-   the reference. Past either dead centre (|q| > R) the measured angle sticks at ±90°, so the
-   position loop cannot see the error.
-2. At the dead centres `control` applies force = τ / (max(|cos θ|, 0.05)·R) · sign(cos θ). The
-   sign comes from cos(±90°) ≈ ±6e−17, and the force reaches 1 N·m / (0.05·14 mm) ≈ 1430 N.
-   So when the reference passes +90°, the controller keeps pushing the slide +x past +R
-   instead of reversing it. A real crank pin reverses it geometrically.
-3. Holding at the fill dead centre with a start angle after the ±2° jitter:
+FINAL_TABLE_PLACEHOLDER
 
-   | start angle | behaviour with no pills |
-   | --- | --- |
-   | below −90° | the slide creeps past −R (−14.58 mm after 1 s at −92°; trial iron/1 sat at −17.2 mm) with the torque saturated 100 % of the time |
-   | −89° or −91° | the force chatters at about ±1100 N |
-   | exactly −90° | holds still |
+## Why a rigid-edge shuttle cannot reach zero here
 
-To reproduce with no pills (only the engine and this spec are used):
-`python /tmp/claude-0/-home-user-me102b/b0848cd0-22fc-5180-a96c-adf726b7b474/scratchpad/stroke.py`
+1. **Tablets stand on edge.**
+   - With FDM clearance (0.3–0.4 mm per side), a domed tablet can turn freely from flat to
+     standing in the seat. Rotated about a horizontal axis, its plan outline never exceeds 10.01 mm
+     (iron) or 6.32 mm (small). Preventing the turn would need a seat or tube within 0.17 mm
+     (iron) or 0.11 mm (small) per side.
+   - A standing iron tablet is 9.65 mm tall. Two stacked iron tablets are 9.7–10.3 mm, so the
+     depth cannot hold a standing tablet below the slide while still rejecting a stacked pair.
+     Caplets and capsules on end are worse.
+2. **The edge meets a flat face.** A standing or tilted pill half out of the pocket reaches the
+   stripping edge with its flat face toward it. The edge pushes along the face normal, horizontal
+   or downward. The only escape is to slide up between the two faces, which friction forbids when
+   the faces are held from opposite sides.
+3. **Every trailing-wall profile still pinches something:**
+   - vertical wall or 45° chamfer: wedge below 62° (r0);
+   - shallow ramp from the floor: lifts a standing tablet but gives a flat-on-ramp vise (r2/r4);
+   - step + ramp: face-to-face vise across a standing tablet (r3).
 
-| start angle | hold | stroke travel | max lag | jam fires at |
-| --- | --- | --- | --- | --- |
-| −92° | −14.58 mm, saturated 100 % | −14.62 … +34.03 mm | 178° | 0.14 s (lag), 0.29 s (saturation) |
-| −90° | −14.00 mm, 0 % saturated | −14.00 … +32.97 mm | 180° | 1.13 s (lag) |
-| −88° | −15.43 mm, saturated 100 % | −15.46 … +24.79 mm | 180° | 0.12 s (lag) |
+   A compliant stripper (brush) or gravity stripping on a tilted pocket would avoid this, but both
+   lie outside this variant's brief.
 
-**Suggested fix (for the sim owner):** model the yoke kinematically instead of through the
-controller:
-- a crank body on a hinge (driven by the existing hinge PD and motor line);
-- a yoke block on a y-slide inside the x-slide body;
-- an `<equality connect>` between the crank pin site and the block.
+## Simulator issues found (reported; the engine was not edited)
 
-The encoder then reads θ directly, and the pin carries the constraint force at the dead
-centres.
+1. **Slide drive (fixed upstream in "Model the scotch-yoke drive kinematically").** The old drive
+   clamped q/R to ±1 and took the crank angle by asin. At the dead centres it pushed with up to
+   about 1430 N with a sign from cos(±90°). An empty machine overran to +25…+34 mm with R = 14 and
+   tripped the jam rules on every stroke.
+2. **Convex decomposition can close holes** (`sim/convexify.py`). A piece is accepted when
+   (hull volume − volume) / hull area < tol. For a large thin plate with one hole that ratio is
+   small, so one hull covers the hole. The cropped 75 × 72 × 3 mm floor with a Ø13.45 mm drop
+   hole became one piece. After tiling at 12 mm the hull still bulged several mm into the hole's
+   round edge.
+   - Workaround here: 6 mm crop tiles, checked by casting vertical rays against the pieces and the
+     CAD.
+   - Other variants with holes in large plates may be affected. A per-piece maximum-deviation test,
+     for example hull vertices against the solid's surface distance, would be safer than the area
+     mean.

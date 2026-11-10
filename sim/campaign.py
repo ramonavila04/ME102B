@@ -68,6 +68,8 @@ def main():
     ap.add_argument("--seed0", type=int, default=1000)
     ap.add_argument("--workers", type=int, default=os.cpu_count())
     ap.add_argument("--tag", default="")
+    ap.add_argument("--resume", action="store_true",
+                    help="skip finished pills and continue from <pill>.partial.json")
     a = ap.parse_args()
     outdir = ROOT / "results" / (a.variant + (f"_{a.tag}" if a.tag else ""))
     outdir.mkdir(parents=True, exist_ok=True)
@@ -78,14 +80,23 @@ def main():
             t0 = time.time()
             jobs = [(a.variant, pill, a.seed0 + k, a.cycles) for k in range(a.trials)]
             trials = []
+            if (outdir / f"{pill}.json").exists() and a.resume:
+                print(f"== {a.variant}/{pill}: already complete, skipped", flush=True)
+                continue
+            part = outdir / f"{pill}.partial.json"
+            if a.resume and part.exists():   # continue an interrupted run of the same geometry
+                trials = [t for t in json.load(open(part))["trials"] if "error" not in t]
+                done = {t["seed"] for t in trials}
+                jobs = [j for j in jobs if j[2] not in done]
+                print(f"[{a.variant}/{pill}] resuming with {len(trials)} trials done", flush=True)
             for k, r in enumerate(pool.imap_unordered(_one, jobs)):
                 trials.append(r)
-                if (k + 1) % 25 == 0:
+                if len(trials) % 10 == 0:
                     s = summarize(trials)
                     json.dump(dict(variant=a.variant, pill=pill, partial=True, summary=s,
                                    trials=sorted(trials, key=lambda t: t["seed"])),
                               open(outdir / f"{pill}.partial.json", "w"), indent=1, default=float)
-                    print(f"[{a.variant}/{pill}] {k + 1}/{a.trials} {s['outcomes']} "
+                    print(f"[{a.variant}/{pill}] {len(trials)}/{a.trials} {s['outcomes']} "
                           f"{time.time() - t0:.0f}s", flush=True)
             trials.sort(key=lambda t: t["seed"])
             s = summarize(trials)

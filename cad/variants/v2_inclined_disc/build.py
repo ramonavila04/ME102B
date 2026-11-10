@@ -84,8 +84,9 @@ BASE_FLARE_Z, BASE_FLARE_DEG = 8.0, 10.0
 # wall the push into the wall has a component toward the disc, so it tips into the slot.
 
 
-LIP_H, LIP_DEG = 10.0, 40.0
-# rev 13: the top LIP_H mm of the pool-side wall leans inward LIP_DEG (in the assembled,
+LIP_H, LIP_DEG = 4.0, 40.0
+# rev 13: the top LIP_H mm of the pool-side wall leans inward LIP_DEG (4 mm: a 10 mm lip left
+# only 6 mm² of opening for a tablet centre) (in the assembled,
 # tilted position that is within 10° of vertical). A pill poured just inside the lip then
 # falls clear of the wall below it; before, a pill dropped at the rim clipped the rim's
 # flat top, which slopes outward at the low side, and rolled out (4 lost in 125 trials).

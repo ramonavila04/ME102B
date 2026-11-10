@@ -66,7 +66,13 @@ DEPTH_BELOW_T = 0.3    # pocket depth = min pill thickness − this (2nd pill ca
 RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 3): a pill
                        # standing on edge can't hang by friction between notch end and wall
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
-STANDING_T_OVER_D = 0.5  # rev 8: tablets at least this thick (T/Ø) settle standing on edge
+STANDING_T_OVER_D = 0.5  # tablets at least this thick (T/Ø) settle standing on edge
+                         # against the hopper wall (iron) and get a standing slot
+CONE_DEG, CONE_H = 60.0, 25.0
+# rev 16 (standing-slot discs): inboard of the slots the disc rises as a 60° cone, so the
+# pool is a V-channel between cone and wall. Nothing can lie flat: a tablet at the wall is
+# tipped onto its edge and slides into the slot. (Rev 14: a lone flat tablet bridged the
+# slot, 7 of 16 last-tablet misses; rev 15 flat notch: tilted tablets wedged in the notch.)
                          # against the hopper wall (iron) and get a standing slot
 
 
@@ -77,7 +83,7 @@ def lean_factor(theta: float) -> float:
     return max(0.0, -math.sin(theta))
 
 
-BASE_FLARE_Z, BASE_FLARE_DEG = 8.0, 10.0
+BASE_FLARE_Z, BASE_FLARE_DEG = 8.0, 0.0   # rev 14: flare removed (it wedged flat tablets)
 # rev 12: over the pool half, the bottom BASE_FLARE_Z mm of the wall leans OUTWARD (bore
 # still R_WALL at the disc face). A lone flat tablet pressed against a vertical wall was
 # held up by wall friction while slots passed under it (miss); against an outward-leaning
@@ -91,6 +97,9 @@ LIP_H, LIP_DEG = 4.0, 40.0
 # falls clear of the wall below it; before, a pill dropped at the rim clipped the rim's
 # flat top, which slopes outward at the low side, and rolled out (4 lost in 125 trials).
 HOPPER_TOP = HOPPER_DEPTH + LIP_H
+COVER_Y = 12.0   # the cover closes local y > COVER_Y. Everything poured in falls onto the
+                 # pool-side wall (straight down is 50° off the axis), so the opening can
+                 # reach past the centre line; 12 mm makes it ~31 mm deep for long pills
 
 
 def bore_r(theta: float, z: float, extra: float = 0.0) -> float:
@@ -143,7 +152,7 @@ def pocket_params(pill_id: str) -> dict:
         half_ang = math.atan((length / 2) / r_in)
         shape = "oblong"
         pocket = "standing slot"
-        inner_chamfer = round(d_max + 0.5 - w, 2)   # top opening = Ø + 0.5
+        inner_chamfer = 0.0   # rev 14: removed (rev 13's chamfer let a 2nd tablet sit half-in and jam)
     elif p.kind == "tablet":
         inner_chamfer = 0.0
         d_max = p.length + p.tol
@@ -226,6 +235,10 @@ def make_disc(pp: dict) -> cq.Workplane:
     if boss_h > 0:
         boss = cq.Workplane("XY").circle(7.0).workplane(offset=boss_h).circle(3.5).loft()
         disc = disc.union(boss)
+    if pp.get("pocket") == "standing slot":
+        r_top = pp["r_inner"] - CONE_H / math.tan(math.radians(CONE_DEG))
+        cone = (cq.Workplane("XY").circle(pp["r_inner"]).workplane(offset=CONE_H).circle(r_top).loft())
+        disc = disc.union(cone)
     chamfer = pp.get("chamfer", 0.0)
     for k in range(pp["n"]):
         tool = _extruded_notch(pp, -t - 1, t + 2)
@@ -248,8 +261,8 @@ def make_disc(pp: dict) -> cq.Workplane:
             tool = tool.union(_extruded_notch(dict(pp, r_inner=pp["r_inner"] - g),
                                               -(ic - g), (ic - g) + 1, grow=0))
         disc = disc.cut(tool.rotate((0, 0, 0), (0, 0, 1), k * pp["pitch_deg"]))
-    # D-bore through boss and disc
-    h_tot = t + boss_h
+    # D-bore through boss and disc (through the cone too: no blind ceiling to bridge)
+    h_tot = t + max(boss_h, CONE_H if pp.get("pocket") == "standing slot" else 0.0)
     bore = (cq.Workplane("XY").workplane(offset=-t - 1).circle(SHAFT_D / 2 + 0.05)
             .extrude(h_tot + 2))
     flat_cut = (cq.Workplane("XY").workplane(offset=-t - 1)
@@ -367,13 +380,13 @@ def make_hopper(pp: dict) -> cq.Workplane:
 
 
 def make_cover() -> cq.Workplane:
-    """Half-lid over the upper half of the hopper (y > +1): pills can only be poured into
+    """Half-lid over the upper half of the hopper (y > COVER_Y): pills can only be poured into
     the lower half, so nothing lands on the exit side. A 3 mm lip locates it in the bore."""
     plate = (cq.Workplane("XY").workplane(offset=HOPPER_TOP).circle(R_WALL + WALL).extrude(2.4))
     lip = (cq.Workplane("XY").workplane(offset=HOPPER_TOP - 3).circle(R_WALL - 0.15)
            .circle(R_WALL - 1.75).extrude(3))
     half = (cq.Workplane("XY").workplane(offset=HOPPER_TOP - 4)
-            .center(0, (R_WALL + WALL + 2) / 2 + 1).rect(2 * (R_WALL + WALL) + 2, R_WALL + WALL + 2)
+            .center(0, (R_WALL + WALL + 2) / 2 + COVER_Y).rect(2 * (R_WALL + WALL) + 2, R_WALL + WALL + 2)
             .extrude(8))
     return plate.union(lip).intersect(half)
 

@@ -17,6 +17,11 @@ B = math.radians(build.BETA)
 CB, SB = math.cos(B), math.sin(B)
 
 
+# Disc speed while indexing. Iron runs slow: a tablet lying flat needs ~0.06 s to tip into
+# the standing slot, and at 25 rpm the slot is fully under it for only ~0.03 s (rev 16).
+RPM = {"iron": 10.0}
+
+
 def to_local(x, y, z):
     """World → disc frame (inverse of rotation about x by BETA)."""
     return x, CB * y + SB * z, -SB * y + CB * z
@@ -81,26 +86,40 @@ def spec(pill_id: str) -> dict:
         xl, yl, zl = to_local(x, y, z)
         if zl <= H - r - 1.0:
             r_lim = build.bore_r(math.atan2(yl, xl), zl + r)   # leaning pool-side wall
+            if pp.get("pocket") == "standing slot":            # keep clear of the disc cone
+                cone_z = min(build.CONE_H, max(0.0, pp["r_inner"] - math.hypot(xl, yl) + r + 1)
+                             * math.tan(math.radians(build.CONE_DEG)))
+                if zl < cone_z + r + 1.0:
+                    return False
             return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > r + 1.0)
         s = (zl - H) / CB                       # world-vertical drop to the opening plane
         yp = yl - s * SB
-        return math.hypot(xl, yp) < build.bore_r(math.atan2(yp, xl), H) - r - 1.0 and yp < -3 - r
+        return math.hypot(xl, yp) < build.bore_r(math.atan2(yp, xl), H) - r - 1.0 and yp < build.COVER_Y - 3 - r
 
     corners = [to_world(xx, yy, zz) for xx in (-31, 31) for yy in (-31, 0) for zz in (0, H)]
     xs, ys, zs = zip(*corners)
-    zs = list(zs) + [max(zs) + 800]   # tall pour column: the lipped opening is narrow
+    zs = list(zs) + [max(zs) + 450]
+    # shrink the sampling box to the region accept() actually allows (the pour column is a
+    # thin tilted crescent; a loose box wastes the engine's placement attempts)
+    import numpy as _np
+    _rng = _np.random.default_rng(12345)
+    _pts = _np.c_[_rng.uniform(min(xs), max(xs), 60000), _rng.uniform(min(ys), max(ys), 60000),
+                  _rng.uniform(min(zs), max(zs), 60000)]
+    _ok = _np.array([accept(px, py, pz, pill_r) for px, py, pz in _pts])
+    _a = _pts[_ok]
+    xs, ys = (_a[:, 0].min() - 1, _a[:, 0].max() + 1), (_a[:, 1].min() - 1, _a[:, 1].max() + 1)
     fills = {"iron": (3, 20), "small": (3, 30), "caplet": (3, 12), "cap0": (3, 12)}
     return dict(
         name="V2 inclined pocket disc",
         parts=parts,
         joint=dict(type="hinge", axis=(0.0, -SB, CB), pos=(0, 0, 0)),
         rotor_mass_kg=0.015,
-        drive=dict(index_deg=pp["pitch_deg"], rpm=25.0, dir=1, accel_s=0.12, settle_s=0.6,
+        drive=dict(index_deg=pp["pitch_deg"], rpm=RPM.get(pill_id, 25.0), dir=1, accel_s=0.12, settle_s=0.6,
                    start_deg=0.0, max_steps=2 * pp["n"]),   # up to two revolutions per dispense
         spawn=dict(x=(min(xs), max(xs)), y=(min(ys), max(ys)), z=(min(zs), max(zs)), accept=accept),
         fill=fills[pill_id],
         exit=dict(fn=exit_fn),
         loss_z=-45.0,
-        fill_s=5.8, settle_s=0.6,
+        fill_s=3.8, settle_s=0.6,
         site_namer=site_namer,
     )

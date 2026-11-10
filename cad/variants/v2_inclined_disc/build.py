@@ -38,7 +38,21 @@ RUN = 0.4              # running clearance between moving and fixed printed face
 R_DISC = 30.0          # disc radius
 R_WALL = R_DISC + RUN  # hopper bore
 WALL = 2.4             # hopper wall thickness (≥1.2 mm; 6 perimeters at 0.4 mm)
-HOPPER_DEPTH = 40.0    # hopper wall height in front of the disc (along the axis)
+HOPPER_DEPTH = 70.0    # hopper wall height in front of the disc (along the axis). rev 9: was 40;
+                       # +30 raises the low front lip ~19 mm so a 20-tablet fill can't spill
+FILL_EXT = 0.0
+ANTI_ARCH_Z0, ANTI_ARCH_Z1, ANTI_ARCH_DEG = 12.0, 40.0, 15.0
+# rev 9: over the lower (pool) half of the hopper the wall leans inward ANTI_ARCH_DEG from
+# z0 to z1, then stays at the reduced radius. Pills pressed into a wall parallel to the
+# axis could arch between themselves and the wall (2 misses in 100 iron trials); leaning
+# the wall turns that push into a slide toward the disc. Starts above any carried pill.
+ANTI_ARCH_Y = -5.0     # applies where local y < this (the pool side)
+
+
+def anti_arch_r(z: float) -> float:
+    """Hopper radius in the pool sector at height z above the disc face."""
+    t = math.tan(math.radians(ANTI_ARCH_DEG))
+    return R_WALL - max(0.0, min(z, ANTI_ARCH_Z1) - ANTI_ARCH_Z0) * t
 BP_T = 3.0             # back plate thickness
 EXIT_MARGIN = 1.2      # exit hole larger than the pocket on every side
 DUCT_LEN = 50.0        # exit duct behind the plate; runs parallel to the motor, 25 mm above it,
@@ -285,7 +299,18 @@ def make_hopper(pp: dict) -> cq.Workplane:
     relief = _relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)
     boss = (_relief_prism(pp, z0, HOPPER_DEPTH - z0, grow=WALL)
             .cut(_relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)))
-    return wall.union(flange).union(boss).cut(relief)
+    # anti-arch lining in the pool sector (solid between the bore and a leaning surface)
+    r1 = anti_arch_r(ANTI_ARCH_Z1)
+    lean = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0).circle(R_WALL)
+            .workplane(offset=ANTI_ARCH_Z1 - ANTI_ARCH_Z0).circle(r1).loft())
+    straight = cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z1).circle(r1).extrude(HOPPER_DEPTH - ANTI_ARCH_Z1)
+    bore_top = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0).circle(R_WALL + 0.01)
+                .extrude(HOPPER_DEPTH - ANTI_ARCH_Z0))
+    lining = bore_top.cut(lean.union(straight))
+    sector = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0 - 1)
+              .center(0, ANTI_ARCH_Y - (R_WALL + 5) / 2).rect(2 * R_WALL + 10, R_WALL + 5)
+              .extrude(HOPPER_DEPTH))
+    return wall.union(flange).union(boss).union(lining.intersect(sector)).cut(relief)
 
 
 def make_cover() -> cq.Workplane:

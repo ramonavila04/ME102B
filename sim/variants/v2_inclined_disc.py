@@ -73,18 +73,20 @@ def spec(pill_id: str) -> dict:
     from sim.pills import PILLS
     pill_r = PILLS[pill_id].bounding_radius
 
-    H = build.HOPPER_DEPTH
+    H = build.HOPPER_DEPTH + build.FILL_EXT      # the pour opening (lower half) is at this height
 
     def accept(x, y, z, r):
         """Inside the lower half of the hopper, or above the fill opening so that the
         pill's vertical drop passes through the open lower half (where the user pours)."""
         xl, yl, zl = to_local(x, y, z)
         if zl <= H - r - 1.0:
-            return (math.hypot(xl, yl) < build.R_WALL - r - 0.5 and yl < -2 - r * 0.5
-                    and zl > r + 1.0)
+            r_lim = build.R_WALL
+            if yl < build.ANTI_ARCH_Y + r:          # pool sector: wall leans in above z0
+                r_lim = build.anti_arch_r(zl + r)
+            return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > r + 1.0)
         s = (zl - H) / CB                       # world-vertical drop to the opening plane
         yp = yl - s * SB
-        return math.hypot(xl, yp) < build.R_WALL - r - 1.0 and yp < -3 - r
+        return math.hypot(xl, yp) < build.anti_arch_r(build.ANTI_ARCH_Z1) - r - 1.0 and yp < -3 - r
 
     corners = [to_world(xx, yy, zz) for xx in (-31, 31) for yy in (-31, 0) for zz in (0, H)]
     xs, ys, zs = zip(*corners)

@@ -80,13 +80,11 @@ def spec(pill_id: str) -> dict:
         pill's vertical drop passes through the open lower half (where the user pours)."""
         xl, yl, zl = to_local(x, y, z)
         if zl <= H - r - 1.0:
-            r_lim = build.R_WALL
-            if yl < build.ANTI_ARCH_Y + r:          # pool sector: wall leans in above z0
-                r_lim = build.anti_arch_r(zl + r)
+            r_lim = build.bore_r(math.atan2(yl, xl), zl + r)   # leaning pool-side wall
             return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > r + 1.0)
         s = (zl - H) / CB                       # world-vertical drop to the opening plane
         yp = yl - s * SB
-        return math.hypot(xl, yp) < build.anti_arch_r(build.ANTI_ARCH_Z1) - r - 1.0 and yp < -3 - r
+        return math.hypot(xl, yp) < build.bore_r(math.atan2(yp, xl), H) - r - 1.0 and yp < -3 - r
 
     corners = [to_world(xx, yy, zz) for xx in (-31, 31) for yy in (-31, 0) for zz in (0, H)]
     xs, ys, zs = zip(*corners)

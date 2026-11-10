@@ -41,18 +41,15 @@ WALL = 2.4             # hopper wall thickness (≥1.2 mm; 6 perimeters at 0.4 m
 HOPPER_DEPTH = 70.0    # hopper wall height in front of the disc (along the axis). rev 9: was 40;
                        # +30 raises the low front lip ~19 mm so a 20-tablet fill can't spill
 FILL_EXT = 0.0
-ANTI_ARCH_Z0, ANTI_ARCH_Z1, ANTI_ARCH_DEG = 12.0, 40.0, 15.0
-# rev 9: over the lower (pool) half of the hopper the wall leans inward ANTI_ARCH_DEG from
-# z0 to z1, then stays at the reduced radius. Pills pressed into a wall parallel to the
-# axis could arch between themselves and the wall (2 misses in 100 iron trials); leaning
-# the wall turns that push into a slide toward the disc. Starts above any carried pill.
-ANTI_ARCH_Y = -5.0     # applies where local y < this (the pool side)
-
-
-def anti_arch_r(z: float) -> float:
-    """Hopper radius in the pool sector at height z above the disc face."""
-    t = math.tan(math.radians(ANTI_ARCH_DEG))
-    return R_WALL - max(0.0, min(z, ANTI_ARCH_Z1) - ANTI_ARCH_Z0) * t
+ANTI_ARCH_Z0, ANTI_ARCH_Z1, ANTI_ARCH_DEG = 12.0, 45.0, 15.0
+# rev 11: over the pool (lower) half the hopper wall leans inward going away from the disc,
+# by ANTI_ARCH_DEG at the very bottom fading smoothly to 0 at the sides, between z0 and z1,
+# then runs straight to the top. The whole shell leans (outer surface too), so the rim
+# stays 2.4 mm wide with no ledge, and the bore only ever widens toward the disc: flow to
+# the pool diverges and can't arch. History: rev 8 vertical wall, 2 arching misses / 100
+# trials; rev 9 inner lining left a rim shelf pills slid off; rev 10 flare made a waist
+# that arched all 20 tablets.
+RIM_CHAMFER = WALL - 1.2   # inner rim chamfer (rev 10); leaves a 1.2 mm land
 BP_T = 3.0             # back plate thickness
 EXIT_MARGIN = 1.2      # exit hole larger than the pocket on every side
 DUCT_LEN = 50.0        # exit duct behind the plate; runs parallel to the motor, 25 mm above it,
@@ -71,6 +68,40 @@ RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
 STANDING_T_OVER_D = 0.5  # rev 8: tablets at least this thick (T/Ø) settle standing on edge
                          # against the hopper wall (iron) and get a standing slot
+
+
+
+
+def lean_factor(theta: float) -> float:
+    """0..1 lean weighting by angle around the disc (1 at the bottom, 0 on the upper half)."""
+    return max(0.0, -math.sin(theta))
+
+
+def bore_r(theta: float, z: float, extra: float = 0.0) -> float:
+    """Hopper bore radius at local angle theta (rad) and height z above the disc face."""
+    dz = max(0.0, min(z, ANTI_ARCH_Z1) - ANTI_ARCH_Z0)
+    return R_WALL + extra - dz * math.tan(math.radians(ANTI_ARCH_DEG)) * lean_factor(theta)
+
+
+def _bore_pts(z: float, extra: float, n: int = 96):
+    out = []
+    for k in range(n):
+        t = 2 * math.pi * k / n
+        r = bore_r(t, z, extra)
+        out.append((r * math.cos(t), r * math.sin(t)))
+    return out
+
+
+def _bore_solid(z_start: float, z_end: float, extra: float) -> cq.Workplane:
+    """Volume inside bore_r(+extra) from z_start to z_end."""
+    low = (cq.Workplane("XY").workplane(offset=z_start).polyline(_bore_pts(ANTI_ARCH_Z0, extra)).close()
+           .extrude(ANTI_ARCH_Z0 - z_start))
+    lean = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0).polyline(_bore_pts(ANTI_ARCH_Z0, extra)).close()
+            .workplane(offset=ANTI_ARCH_Z1 - ANTI_ARCH_Z0).polyline(_bore_pts(ANTI_ARCH_Z1, extra)).close()
+            .loft(ruled=True))
+    top = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z1).polyline(_bore_pts(ANTI_ARCH_Z1, extra)).close()
+           .extrude(z_end - ANTI_ARCH_Z1))
+    return low.union(lean).union(top)
 
 
 def pocket_params(pill_id: str) -> dict:
@@ -287,8 +318,7 @@ def make_backplate(pp: dict) -> cq.Workplane:
 def make_hopper(pp: dict) -> cq.Workplane:
     """Bore + flange; printed flange-down. The upper-half cover is a separate part."""
     z0 = -pp["depth"] - RUN
-    wall = (cq.Workplane("XY").workplane(offset=z0).circle(R_WALL + WALL).circle(R_WALL)
-            .extrude(HOPPER_DEPTH - z0))
+    wall = _bore_solid(z0, HOPPER_DEPTH, WALL).cut(_bore_solid(z0 - 1, HOPPER_DEPTH + 1, 0.0))
     flange = (cq.Workplane("XY").workplane(offset=z0).circle(FLANGE_R).circle(R_WALL)
               .extrude(3.0)
               .cut(cq.Workplane("XY").workplane(offset=z0 - 1)
@@ -299,18 +329,12 @@ def make_hopper(pp: dict) -> cq.Workplane:
     relief = _relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)
     boss = (_relief_prism(pp, z0, HOPPER_DEPTH - z0, grow=WALL)
             .cut(_relief_prism(pp, z0 - 1, HOPPER_DEPTH - z0 + 2)))
-    # anti-arch lining in the pool sector (solid between the bore and a leaning surface)
-    r1 = anti_arch_r(ANTI_ARCH_Z1)
-    lean = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0).circle(R_WALL)
-            .workplane(offset=ANTI_ARCH_Z1 - ANTI_ARCH_Z0).circle(r1).loft())
-    straight = cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z1).circle(r1).extrude(HOPPER_DEPTH - ANTI_ARCH_Z1)
-    bore_top = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0).circle(R_WALL + 0.01)
-                .extrude(HOPPER_DEPTH - ANTI_ARCH_Z0))
-    lining = bore_top.cut(lean.union(straight))
-    sector = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0 - 1)
-              .center(0, ANTI_ARCH_Y - (R_WALL + 5) / 2).rect(2 * R_WALL + 10, R_WALL + 5)
-              .extrude(HOPPER_DEPTH))
-    return wall.union(flange).union(boss).union(lining.intersect(sector)).cut(relief)
+    # rev 10: chamfer the rim's inner top edge so a pill landing on the rim slides inward
+    ch = RIM_CHAMFER
+    rim = (cq.Workplane("XY").workplane(offset=HOPPER_DEPTH - ch).polyline(_bore_pts(HOPPER_DEPTH, 0.0)).close()
+           .workplane(offset=ch + 0.01).polyline(_bore_pts(HOPPER_DEPTH, ch + 0.01)).close()
+           .loft(ruled=True))
+    return wall.union(flange).union(boss).cut(relief).cut(rim)
 
 
 def make_cover() -> cq.Workplane:

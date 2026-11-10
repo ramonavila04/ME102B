@@ -58,4 +58,19 @@ Changing pill type = swap rotor + floor + deck (three prints).
 
 ## Revision history (sim results)
 
-RESULTS_PLACEHOLDER
+Dev runs are 4–5 trials per pill (3 dispense cycles each, seeds 1000+), so the
+rates are rough; each revision was driven by the jam positions and contact dumps
+of the failing trials.
+
+| Rev | Change | Dev result (cycles) | Observed failure that drove the next change |
+| --- | --- | --- | --- |
+| 1 | Pill-specific deep pockets (top of thickest pill 0.25 mm below rotor top), rotor on floor 0.4 mm, deck 0.4 mm, fill opening r ≤ 22 mm, vertical stripping face oblique 25°, cone + ridge baffle, no brush | iron 5/5 jam, small 5/5 jam, caplet 5/5 jam, cap0 3 jam + 4 miss | Every jam at the stripping edge: a pill leaning or standing on edge in a deep pocket (friction holds it, like a ladder) is sheared between the pocket's trailing wall and the deck face |
+| 2 | Stripping face replaced by a 20° feather-edged lifting ramp (below the 28° self-locking angle for μ = 0.6) | iron 4 jam + 1 floor jam, small 5 jam (1 ok) | A pill standing face-on meets only the ramp toe; contact normal is horizontal, so the ramp cannot lift it. Toe also fails the 1.2 mm wall rule |
+| 3 | Shallow pockets (grip ≈ 0.6 × thickness) and a relieved covered sector (roof 0.45 mm above the highest seated pill); collar, upside-down deck print | small 15/15 miss; iron 5 ok, 4 jam; caplet 7 miss, 3 jam; cap0 4 ok, 3 miss, 2 jam | Oblique edge ploughed pills off the track onto the hub and rim, where they rode the rotor forever |
+| 4 | Fill opening reduced to an annular slot over the pocket track (+0.75 mm), hub cone sheds pills onto it | small 15/15 miss (stopped early) | Pills now stay on the track but ride the rotor; a pocket with 0.35 mm clearance never lines up under them |
+| 5 | Pocket clearance 0.9 mm per side, slot exactly the pocket footprint | small 11 ok / 1 jam; iron 4 ok / 3 jam | Iron: pill half in a pocket escapes upward too slowly (encoder lag > 10°); standing iron pressed face-on between the trailing corner and the relief corner 2.6 mm up |
+| 6 | Relief height midway between a seated pill and a pill lying on the rotor top (more leverage to tip a standing pill), capped below a capsule's axis | iron 9 ok / 1 jam; small 9 ok / 1 jam; caplet 4 jam; cap0 1 ok / 4 jam | Long pills: a capsule or caplet held by the pile enters the pocket nose-first, its trailing end rides up onto the trailing corner, and the relief corner presses it down on the far side of that fulcrum, which only makes it steeper |
+| 7 | caplet/cap0: edge 40° oblique (35.5° feasible) and 10 rpm | caplet 4 jam (+1 miss), cap0 4 jam (+1 ok) | No change; reverted |
+| 7b | cap0: relief above the capsule axis (5.35 mm) | cap0 4 jam (+1 ok) | No change; reverted. **Final design = rev 6** |
+
+FINAL_PLACEHOLDER

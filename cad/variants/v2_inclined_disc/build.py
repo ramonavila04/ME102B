@@ -77,10 +77,19 @@ def lean_factor(theta: float) -> float:
     return max(0.0, -math.sin(theta))
 
 
+BASE_FLARE_Z, BASE_FLARE_DEG = 8.0, 10.0
+# rev 12: over the pool half, the bottom BASE_FLARE_Z mm of the wall leans OUTWARD (bore
+# still R_WALL at the disc face). A lone flat tablet pressed against a vertical wall was
+# held up by wall friction while slots passed under it (miss); against an outward-leaning
+# wall the push into the wall has a component toward the disc, so it tips into the slot.
+
+
 def bore_r(theta: float, z: float, extra: float = 0.0) -> float:
     """Hopper bore radius at local angle theta (rad) and height z above the disc face."""
+    f = lean_factor(theta)
+    base = max(0.0, min(z, BASE_FLARE_Z)) * math.tan(math.radians(BASE_FLARE_DEG)) * f
     dz = max(0.0, min(z, ANTI_ARCH_Z1) - ANTI_ARCH_Z0)
-    return R_WALL + extra - dz * math.tan(math.radians(ANTI_ARCH_DEG)) * lean_factor(theta)
+    return R_WALL + extra + base - dz * math.tan(math.radians(ANTI_ARCH_DEG)) * f
 
 
 def _bore_pts(z: float, extra: float, n: int = 96):
@@ -93,15 +102,15 @@ def _bore_pts(z: float, extra: float, n: int = 96):
 
 
 def _bore_solid(z_start: float, z_end: float, extra: float) -> cq.Workplane:
-    """Volume inside bore_r(+extra) from z_start to z_end."""
-    low = (cq.Workplane("XY").workplane(offset=z_start).polyline(_bore_pts(ANTI_ARCH_Z0, extra)).close()
-           .extrude(ANTI_ARCH_Z0 - z_start))
-    lean = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z0).polyline(_bore_pts(ANTI_ARCH_Z0, extra)).close()
-            .workplane(offset=ANTI_ARCH_Z1 - ANTI_ARCH_Z0).polyline(_bore_pts(ANTI_ARCH_Z1, extra)).close()
-            .loft(ruled=True))
-    top = (cq.Workplane("XY").workplane(offset=ANTI_ARCH_Z1).polyline(_bore_pts(ANTI_ARCH_Z1, extra)).close()
-           .extrude(z_end - ANTI_ARCH_Z1))
-    return low.union(lean).union(top)
+    """Volume inside bore_r(+extra) from z_start to z_end (ruled lofts between breakpoints)."""
+    levels = [z_start] + [z for z in (0.0, BASE_FLARE_Z, ANTI_ARCH_Z0, ANTI_ARCH_Z1)
+                          if z_start < z < z_end] + [z_end]
+    solid = None
+    for lo, hi in zip(levels[:-1], levels[1:]):
+        seg = (cq.Workplane("XY").workplane(offset=lo).polyline(_bore_pts(lo, extra)).close()
+               .workplane(offset=hi - lo).polyline(_bore_pts(hi, extra)).close().loft(ruled=True))
+        solid = seg if solid is None else solid.union(seg)
+    return solid
 
 
 def pocket_params(pill_id: str) -> dict:

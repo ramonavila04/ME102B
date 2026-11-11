@@ -85,6 +85,8 @@ def spec(pill_id: str) -> dict:
         xl, yl, zl = to_local(x, y, z)
         if zl <= H - r - 1.0:
             r_lim = build.bore_r(math.atan2(yl, xl), zl + r)   # leaning pool-side wall
+            if pp.get("closed"):
+                r_lim = min(r_lim, build.R_WALL - build.RIB_DEPTH)   # rib liner
             if pp.get("pocket") == "standing slot":            # keep clear of the disc cone
                 cone_z = build.CONE_H if math.hypot(xl, yl) < pp["r_inner"] + r + 1 else 0.0
                 if zl < cone_z + r + 1.0:
@@ -92,7 +94,8 @@ def spec(pill_id: str) -> dict:
             return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > r + 1.0)
         s = (zl - H) / CB                       # world-vertical drop to the opening plane
         yp = yl - s * SB
-        return math.hypot(xl, yp) < build.bore_r(math.atan2(yp, xl), H) - r - 1.0 and yp < build.COVER_Y - 3 - r
+        top_r = build.bore_r(math.atan2(yp, xl), H) - (build.RIB_DEPTH if pp.get("closed") else 0.0)
+        return math.hypot(xl, yp) < top_r - r - 1.0 and yp < build.COVER_Y - 3 - r
 
     corners = [to_world(xx, yy, zz) for xx in (-31, 31) for yy in (-31, 0) for zz in (0, H)]
     xs, ys, zs = zip(*corners)

@@ -470,12 +470,26 @@ def make_hopper(pp: dict) -> cq.Workplane:
     body = wall.union(flange).union(boss)
     if pp.get("closed"):
         k = math.tan(math.radians(RIB_DEG))
+        # 50° underside, then a straight liner parallel to the wall up to the top: a short top
+        # face is level in the tilted assembly (pills sat on it) and a long taper is a slope
+        # shallower than the friction angle (a tablet stuck on it)
         rib = (cq.Workplane("XZ").polyline([(R_WALL + 0.5, RIB_Z0 - 0.5 * k),
                                             (R_WALL - RIB_DEPTH, RIB_Z0 + RIB_DEPTH * k),
-                                            # long taper back to the wall: in the tilted assembly a
-                                            # short top face is level and pills sat on it
-                                            (R_WALL + 0.5, RIB_Z0 + RIB_DEPTH * k + 15.0)]).close()
+                                            (R_WALL - RIB_DEPTH, HOPPER_TOP),
+                                            (R_WALL + 0.5, HOPPER_TOP)]).close()
                .revolve(360, (0, 0, 0), (0, 1, 0)))
+        rib = rib.intersect(_bore_solid(z0, HOPPER_TOP, WALL))   # keep it inside the leaning shell
+        # no liner across the exit relief (it would be left as a thin free-standing skin)
+        half = math.degrees((pp["length"] / 2 + EXIT_MARGIN) / R_WALL) + 1.0
+        ramp = math.degrees((RELIEF / math.tan(math.radians(RELIEF_RAMP))) / R_WALL)
+        a0, a1 = (math.radians(EXIT_ANGLE - half - ramp - 2), math.radians(EXIT_ANGLE + half + ramp + 2))
+        far = 2 * FLANGE_R
+        wedge = (cq.Workplane("XY").workplane(offset=z0 - 1)
+                 .polyline([(0, 0), (far * math.cos(a0), far * math.sin(a0)),
+                            (far * math.cos((a0 + a1) / 2), far * math.sin((a0 + a1) / 2)),
+                            (far * math.cos(a1), far * math.sin(a1))]).close()
+                 .extrude(HOPPER_TOP - z0 + 2))
+        rib = rib.cut(wedge)
         body = body.union(rib)
     return body.cut(relief)
 

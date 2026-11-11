@@ -27,9 +27,9 @@ Why it resists the original design's failures:
 
 ## Pocket per pill (from `pocket_params`)
 
-| Pill | Pocket | Size (mm) | Depth | Pockets | Index |
+| Pill | Pocket | Size at the face (mm) | Depth | Pockets | Index |
 | --- | --- | --- | --- | --- | --- |
-| iron Ø9.5 × 5.0 | standing slot, open to the wall, inner wall chamfered 2.7 | 7.45 radial × 11.64 along the rim | 4.55 | 8 | 45° |
+| iron Ø9.5 × 5.0 | standing slot, open to the wall; 4.5 mm ramp ring inboard of the slots | 7.45 radial × 11.64 along the rim | 4.55 | 8 | 45° at 6 rpm |
 | small Ø6.0 × 2.8 | flat notch, open to the wall | Ø6.8 | 2.4 | 8 | 45° |
 | caplet 19 × 8.5 × 6.5 | flat notch, 2.1 lead-in chamfer | 21.0 × 11.7 | 6.0 | 4 | 90° |
 | size-0 capsule 21.7 × Ø7.65 | flat notch, 2.5 lead-in chamfer | 22.7 × 8.4 | 7.27 | 4 | 90° |
@@ -37,16 +37,22 @@ Why it resists the original design's failures:
 Thick tablets (thickness ≥ half the diameter, i.e. iron) settle standing on edge against
 the hopper wall, so their pocket is built for that pose: one standing tablet fits
 radially (two would need 9.7 mm), and the slot is longer than the tablet's tilted
-diagonal so it cannot wedge between the slot's end walls.
+diagonal so it cannot wedge between the slot's end walls. A 60° ramp ring, 4.5 mm high,
+runs round the disc just inboard of the slots: a lone tablet cannot lie flat against the
+wall, so it tips onto its edge and drops in. The iron disc indexes at 6 rpm so a standing
+tablet has time to fall when a slot passes under it.
+
+Every pocket wall is undercut 12° below a 1.2 mm straight land (pocket wider at the back
+plate than at the face). At the exit the pill is pressed against the pocket's inner wall
+harder than it is pulled out of the back, and the undercut lets it slide out.
 
 ## Hopper
 
-- 74 mm tall bore, Ø60.8 at the disc. Upper half closed by the cover; the lower half
-  is the pour opening.
+- 74 mm tall bore, Ø60.8 at the disc. The cover closes the part above local y = +12;
+  the rest is the pour opening (about 31 mm deep).
 - Exit relief: a 4 mm deep groove over the exit, full height, with 20° ramps. A pill
   at the exit has no wall to lean on.
 - Pool side (lower half), fading smoothly to nothing at the sides:
-  - 0–8 mm above the disc: wall leans outward 10°;
   - 12–45 mm: whole shell leans inward 15°, so the bore only widens toward the pool;
   - top 4 mm: lip leaning inward 40° (near vertical once the assembly is tilted).
 
@@ -80,7 +86,14 @@ Every change answers a failure seen in the simulator. Counts are dispense cycles
 | 10 | Lining flared back to the bore; rim chamfer | The flare made a waist: all 20 tablets arched above it |
 | 11 | Whole pool-side shell leans 15° (no lining, no waist) | Lone flat tablet held up by wall friction (1 miss in 4 problem seeds) |
 | 12 | Bottom 8 mm of the pool-side wall flared outward 10° | 125 iron trials: 0 jams, 0 doubles, 4 misses (flat tablet bridging the slot), 4 tablets lost when poured onto the rim |
-| 13 | Slot inner wall chamfered 2.7 mm; 4 mm inward lip at the top of the pool side; rim chamfer removed | See `results/COMPARISON.md` |
+| 13 | Slot inner wall chamfered 2.7 mm; inward lip at the top of the pool side; rim chamfer removed | 10 iron trials: 2 jams, 2 misses (a second tablet sat half-in on the chamfer and was pinched). Lip kept (4 mm), chamfer reverted |
+| 14 | Chamfer and base flare removed; cover edge moved to y = +12 (wider pour opening) | Last-tablet test (3 loaded): 7 of 16 trials missed, a lone tablet lies flat and bridges the slot |
+| 15 | Iron in a flat round notch | 13 of 16 last-tablet trials failed: tilted tablets wedge across the notch and ride past the exit |
+| 16 | Standing slot again; disc rises as a 60° cone inboard of the slots; iron at 10 rpm | Last-tablet 16/16 clean, but 1 double in 10 random trials (second tablet cradled in the V above a seated one) |
+| 17 | Cone on a 12 mm straight hub | Doubles in 10 of 16 trials at 14 tablets (the channel conveyed stacked tablets) |
+| 18 | 60° ramp ring only 3 mm high, flat face above | 14 loaded: 16/16 clean. 3 loaded: 13/16 (last tablet seated at the exit but not dropping) |
+| 19 | Every pocket wall undercut 12° below a 1.2 mm land; exit hole enlarged to match | 3 loaded: 15/16 (standing tablet carried past the slot at 10 rpm) |
+| 20 | Iron at 6 rpm; ramp ring 4.5 mm (a tablet bridged from the 3 mm ramp's top edge to the wall) | 3 loaded: 24/24 clean; 14 loaded: 16/16 clean. Full campaign: see `results/COMPARISON.md` |
 
 ## Known limits
 

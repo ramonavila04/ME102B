@@ -68,7 +68,7 @@ RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
 STANDING_T_OVER_D = 0.5  # tablets at least this thick (T/Ø) settle standing on edge
                          # against the hopper wall (iron) and get a standing slot
-CONE_DEG, CONE_H, HUB_H = 60.0, 3.0, 0.0
+CONE_DEG, CONE_H, HUB_H = 60.0, 4.5, 0.0
 # rev 18: only a 3 mm high ramp ring, then a flat raised face. Rev 16's full cone cradled a
 # second tablet in the V above a seated one (1 double in 10 trials); rev 17's 12 mm hub made
 # a channel that conveyed stacked tablets (doubles in 10 of 16). A 3 mm ramp still tilts a

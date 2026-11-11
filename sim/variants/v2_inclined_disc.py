@@ -19,7 +19,7 @@ CB, SB = math.cos(B), math.sin(B)
 
 # Disc speed while indexing. Iron runs slow: a tablet lying flat needs ~0.06 s to tip into
 # the standing slot, and at 25 rpm the slot is fully under it for only ~0.03 s (rev 16).
-RPM = {"iron": 10.0}
+RPM = {"iron": 6.0}
 
 
 def to_local(x, y, z):

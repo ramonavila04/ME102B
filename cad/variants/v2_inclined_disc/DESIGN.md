@@ -29,22 +29,25 @@ Why it resists the original design's failures:
 
 | Pill | Pocket | Size at the face (mm) | Depth | Pockets | Index |
 | --- | --- | --- | --- | --- | --- |
-| iron Ø9.5 × 5.0 | standing slot, open to the wall; 4.5 mm ramp ring inboard of the slots | 7.45 radial × 11.64 along the rim | 4.55 | 8 | 45° at 6 rpm |
-| small Ø6.0 × 2.8 | flat notch, open to the wall | Ø6.8 | 2.4 | 8 | 45° |
+| iron Ø9.5 × 5.0 | flat round notch, open to the wall | Ø10.35 | 4.55 | 8 | 45° |
+| small Ø6.0 × 2.8 | flat round pocket, closed, 1.2 mm inside the rim; rib liner on the hopper wall | Ø6.8 | 2.4 | 8 | 45° |
 | caplet 19 × 8.5 × 6.5 | flat notch, 2.1 lead-in chamfer | 21.0 × 11.7 | 6.0 | 4 | 90° |
 | size-0 capsule 21.7 × Ø7.65 | flat notch, 2.5 lead-in chamfer | 22.7 × 8.4 | 7.27 | 4 | 90° |
 
-Thick tablets (thickness ≥ half the diameter, i.e. iron) settle standing on edge against
-the hopper wall, so their pocket is built for that pose: one standing tablet fits
-radially (two would need 9.7 mm), and the slot is longer than the tablet's tilted
-diagonal so it cannot wedge between the slot's end walls. A 60° ramp ring, 4.5 mm high,
-runs round the disc just inboard of the slots: a lone tablet cannot lie flat against the
-wall, so it tips onto its edge and drops in. The iron disc indexes at 6 rpm so a standing
-tablet has time to fall when a slot passes under it.
+Every pocket holds its pill lying flat, with 0.35 mm clearance per side, and is slightly
+shallower than the pill is thick, so a second pill cannot nest on top. Every pocket wall
+is undercut 12° below a 1.2 mm straight land (pocket wider at the back plate than at the
+face): at the exit the pill is pressed against the pocket's inner wall harder than it is
+pulled out of the back, and the undercut lets it slide out. All discs index at 25 rpm.
 
-Every pocket wall is undercut 12° below a 1.2 mm straight land (pocket wider at the back
-plate than at the face). At the exit the pill is pressed against the pocket's inner wall
-harder than it is pulled out of the back, and the undercut lets it slide out.
+**Thin tablets (small).** A tablet thinner than half the notch width can stand on edge
+beside a second one in an open notch, and both are carried (`pair_prone` in `build.py`
+decides this from the pill's dimensions; iron is thick enough that a pair does not fit).
+For those pills the pocket is a closed circle, and the hopper wall carries a rib liner:
+its 50° underside starts 0.3 mm above the disc at the wall, and it then runs parallel to
+the wall, 2.3 mm inside it, to the top. A tablet lying flat on the disc is stopped by the
+rib exactly over the pocket and drops in; nothing can stand against the wall; in a closed
+circle a second standing tablet has no room.
 
 ## Hopper
 
@@ -53,7 +56,8 @@ harder than it is pulled out of the back, and the undercut lets it slide out.
 - Exit relief: a 4 mm deep groove over the exit, full height, with 20° ramps. A pill
   at the exit has no wall to lean on.
 - Pool side (lower half), fading smoothly to nothing at the sides:
-  - 12–45 mm: whole shell leans inward 15°, so the bore only widens toward the pool;
+  - 12–45 mm above the disc: whole shell leans inward 15°, so the bore only widens toward
+    the pool;
   - top 4 mm: lip leaning inward 40° (near vertical once the assembly is tilted).
 
 ## Parts and print orientation
@@ -93,14 +97,23 @@ Every change answers a failure seen in the simulator. Counts are dispense cycles
 | 17 | Cone on a 12 mm straight hub | Doubles in 10 of 16 trials at 14 tablets (the channel conveyed stacked tablets) |
 | 18 | 60° ramp ring only 3 mm high, flat face above | 14 loaded: 16/16 clean. 3 loaded: 13/16 (last tablet seated at the exit but not dropping) |
 | 19 | Every pocket wall undercut 12° below a 1.2 mm land; exit hole enlarged to match | 3 loaded: 15/16 (standing tablet carried past the slot at 10 rpm) |
-| 20 | Iron at 6 rpm; ramp ring 4.5 mm (a tablet bridged from the 3 mm ramp's top edge to the wall) | 3 loaded: 24/24 clean; 14 loaded: 16/16 clean. Full campaign: see `results/COMPARISON.md` |
+| 20 | Iron at 6 rpm; ramp ring 4.5 mm | 3 loaded: 24/24; 14 loaded: 16/16; but 1 jam in 40 campaign trials: a tablet parked half-way into the exit hole |
+| — | **Simulator fix.** That tablet was held by a collision piece protruding 1.45 mm into the pocket. `sim/convexify.py` bounded only the average overshoot of each convex piece; it now bounds the maximum (≤ 0.15 mm near pills). All earlier campaign results, for every variant, were discarded. Rows 5–20 above were measured on the old collision shapes | Rev 20 re-tested: a lone flat tablet bridged from the ramp ring to the wall (1 miss in 10 trials) |
+| 21 | Flat round notch for every tablet; standing slot, ramp ring and slow speed retired | **Iron: 200/200 trials pass (600 dispenses).** Small: 1 double in 10 trials (two tablets standing side by side in one notch) |
+| 22 | Rib ring above the disc for thin tablets | 19 loaded: 16/16. 3 loaded: 2/24 (the rib stopped lone tablets short of the open notch) |
+| 23 | Closed circular pocket for thin tablets, no rib | Mostly misses: tablets rest against the wall, beyond the pocket |
+| 24 | Closed pocket placed where a rib ring stops a flat tablet | Pills sat on the rib's short top face; with a long taper instead, a tablet stuck to it (7/8) |
+| 25 | Rib as a straight liner parallel to the wall | Small: 3 loaded 24/24, 19 loaded 16/16. Full campaign: see `results/COMPARISON.md` |
 
 ## Known limits
 
 - Pill-specific: each pill needs its own disc, back plate and hopper (the three are a
   matched set because the back plate position depends on disc thickness).
-- The iron dimensions are an estimate (ASSUMPTIONS A2). The standing-slot rule keys on
-  thickness ÷ diameter ≥ 0.5; iron is 0.53, so a measured tablet under 0.5 would switch
-  to a flat notch. Re-run the campaign after measuring.
+- The iron dimensions are an estimate (ASSUMPTIONS A2). Whether a tablet gets the open
+  notch or the closed pocket with rib depends on its thickness-to-diameter ratio; re-run
+  `build.py` and the campaign after measuring.
+- The hopper's lowest wall line is a 40° slope in the assembled position (the disc is at
+  50°). That is 9° steeper than the worst friction tested; a stickier tablet would hang
+  on the wall.
 - The pour opening is the lower half of a Ø60 bore with a lip: pour slowly or use a
   paper funnel.

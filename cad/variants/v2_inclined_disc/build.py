@@ -249,6 +249,25 @@ def undercut_at_back(pp: dict) -> float:
     return max(0.0, pp["depth"] - undercut_land(pp)) * math.tan(math.radians(UNDERCUT_DEG))
 
 
+RIB_DEPTH, RIB_GAP = 1.5, 0.4
+# rev 22: anti-pair rib. A tablet thinner than half the notch width can stand on edge beside
+# a second one in the same notch (small tablets: 2 x 2.8 mm in a 6.8 mm notch, 1 double in 10
+# trials). For those pills the hopper wall carries a continuous ring just above the disc:
+# its underside starts RIB_GAP above a seated flat tablet's top and slopes in at 50° to
+# RIB_DEPTH. A flat seated tablet passes under it; nothing can stand against the wall, so a
+# second standing tablet has no room in the notch. Concentric, so no edge crosses a pocket.
+
+
+def needs_rib(pp: dict) -> bool:
+    p = PILLS[pp["pill"]]
+    return p.kind == "tablet" and 2 * (p.thickness - p.tol) < pp["width"]
+
+
+def rib_z0(pp: dict) -> float:
+    p = PILLS[pp["pill"]]
+    return (p.thickness + p.tol) - pp["depth"] + RIB_GAP
+
+
 def _rot_world(shape: cq.Workplane) -> cq.Workplane:
     return shape.rotate((0, 0, 0), (1, 0, 0), BETA)
 
@@ -423,7 +442,16 @@ def make_hopper(pp: dict) -> cq.Workplane:
     relief = _relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)
     boss = (_relief_prism(pp, z0, HOPPER_TOP - z0, grow=WALL)
             .cut(_relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)))
-    return wall.union(flange).union(boss).cut(relief)
+    body = wall.union(flange).union(boss)
+    if needs_rib(pp):
+        zr = rib_z0(pp)
+        k = math.tan(math.radians(50.0))      # underside 50° from the bed: prints unsupported
+        rib = (cq.Workplane("XZ").polyline([(R_WALL + 0.5, zr - 0.5 * k),
+                                            (R_WALL - RIB_DEPTH, zr + RIB_DEPTH * k),
+                                            (R_WALL + 0.5, zr + RIB_DEPTH * k + 2.0)]).close()
+               .revolve(360, (0, 0, 0), (0, 1, 0)))
+        body = body.union(rib)
+    return body.cut(relief)
 
 
 def make_cover() -> cq.Workplane:

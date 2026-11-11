@@ -66,7 +66,10 @@ DEPTH_BELOW_T = 0.3    # pocket depth = min pill thickness − this (2nd pill ca
 RELIEF = 4.0           # hopper bore widened this much over the exit notch (rev 3): a pill
                        # standing on edge can't hang by friction between notch end and wall
 RELIEF_RAMP = 20.0     # deg, ramp back to the bore on both sides (a cam, never a shear edge)
-STANDING_T_OVER_D = 0.5  # tablets at least this thick (T/Ø) settle standing on edge
+STANDING_T_OVER_D = 9.9  # rev 21: disabled, every tablet uses the flat notch. The standing slot
+                         # (revs 8-20) was adopted because flat notches seemed to wedge tablets; that
+                         # was an artefact of collision pieces protruding into the pockets (fixed in
+                         # sim/convexify.py). Kept in the code for tablets that may need it later.
                          # against the hopper wall (iron) and get a standing slot
 CONE_DEG, CONE_H, HUB_H = 60.0, 4.5, 0.0
 # rev 18: only a 3 mm high ramp ring, then a flat raised face. Rev 16's full cone cradled a

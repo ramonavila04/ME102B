@@ -54,9 +54,12 @@ under the cup).
 | --- | --- | --- |
 | **V0** | Current team CAD, unchanged | Baseline for the sim check (section 5). |
 | **V1** | Minimal fix of the current design | Keep the vertical-axis rotor and canister. One pocket per pill type, sized for exactly one pill (depth ≈ pill thickness, length < 2 pill widths). Canister rim lowered to 0.5 mm above the rotor with a 45° lead-in. A rigid stripper blade replaces the brush. Running clearances raised to FDM values. |
-| **V2** | Horizontal-axis pocket drum | A drum turning on a horizontal shaft under a 50° funnel hopper. One pill-sized pocket on the drum rim fills at the top, and a stripper lip wipes extras back into the hopper. The pocket turns pill-down and drops it into the chute. Gravity only ever pulls pills out of the pinch zone. |
-| **V3** | Reciprocating shuttle (scotch-yoke slide) | The motor drives a pin in a slotted slide. The slide carries one pill-sized hole from under the hopper (fill) to over the chute (drop). The hopper wall acts as the stripper. Pills are sheared only along a straight, chamfered edge. |
-| **V4** | Inclined rotating disc (seed-singulator style), if time allows | A disc tilted 45° with rim pockets lifts one pill per pocket out of a pool and drops it through a hole at the top. |
+| **V2** | Inclined pocket disc (seed-singulator style) | A disc tilted 50° turns over a fixed back plate inside the hopper bore. Rim pockets lift one pill each out of a pool at the low side and drop it through a hole at the top. No fixed edge ever crosses a pocket, and unseated pills slide back by gravity. |
+| **V3** | Reciprocating shuttle (scotch-yoke slide) | The motor drives a pin in a slotted slide. The slide carries one pill-sized hole from under the hopper (fill) to over the chute (drop). The hopper wall acts as the stripper. |
+
+The horizontal-axis pocket drum from the first draft of this plan was dropped in favour
+of the inclined disc: both lift one pill per pocket out of a pool, and the disc needs no
+stripper lip.
 
 Pockets are pill-specific. Each variant gets an interchangeable insert (V1, V3)
 or drum (V2), generated from the pill dimensions. This mirrors the LiviPod
@@ -74,10 +77,10 @@ tablet and a 21.7 mm capsule one at a time.
 
 ### 4.2 Physics simulation (success condition 2)
 - **Engine:** MuJoCo 3. PyBullet has no Python 3.13 wheel on this machine.
-- **Geometry:** each part's exported STL goes through an exact convex
-  decomposition (`sim/convexify.py`). It slices the mesh into cells with an
-  adaptive octree and convex-hulls each piece. Cells split until the hull adds
-  less than 0.05 mm of material, so modelled gaps match the CAD to about 0.05 mm.
+- **Geometry:** each part's exported STL goes through an exact-boundary convex
+  decomposition (`sim/convexify.py`): the solid is cut by axis-aligned planes and each
+  piece is hulled. A piece is split again until its hull adds under 0.05 mm on average
+  **and** no hull point is more than 0.125 mm from the real solid (0.4 mm minimum cell).
   The original team STEP goes through the same path.
 - **Pills:** convex meshes (biconvex tablet, rounded caplet, capsule) with mass
   and inertia from the dimensions.

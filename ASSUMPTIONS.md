@@ -29,6 +29,7 @@ Items marked **MEASURE** need a team member with calipers or a bench supply.
 | S2 | Pill stiffness and crushing. | Pills are rigid; MuJoCo's soft contact gives about 0.05 mm of effective compliance. A real pill can chip instead of stalling, so the sim's jam count is a lower bound on damage events. |
 | S3 | Brush bristles. | Modelled as 12 hinged flaps with torsional springs, tuned so the tip deflects 3 mm under 0.05 N. The real stiffness is unknown. |
 | S4 | Jam definition. | Rotor speed below 10 % of command for more than 0.3 s, or the cycle not finishing within 3× nominal time. Any stall is a jam, even if a reverse-and-retry would clear it. |
+| S6 | Collision shapes. | Each part is collided as convex pieces that never protrude more than 0.15 mm beyond the CAD surface near the pills (0.25 mm on back plates and hoppers, up to 0.6 mm on canister walls far from the mechanism). An earlier version bounded only the average and let slivers protrude up to 1.45 mm; all results from it were discarded. |
 | S5 | Printed clearance. | A clearance in the CAD is the as-modelled gap. The sim uses the as-modelled gap. A real print can be 0.1–0.2 mm tighter on each side. |
 
 ## Electronics

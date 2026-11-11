@@ -167,7 +167,7 @@ def pocket_params(pill_id: str) -> dict:
         w = d_max + 2 * FDM                     # notch diameter
         closed = pair_prone(pill_id, w)
         # open notch: centre of a pill lying against the wall; closed: RIM_WEB inside the rim
-        r_c = (R_DISC - RIM_WEB - w / 2) if closed else (R_WALL - w / 2)
+        r_c = (min(rib_stop_r(pill_id), R_DISC - RIM_WEB) - w / 2) if closed else (R_WALL - w / 2)
         r_in = r_c - w / 2
         half_ang = math.asin((w / 2) / r_c)
         shape = "round"
@@ -253,6 +253,20 @@ def undercut_at_back(pp: dict) -> float:
 
 
 RIM_WEB = 1.2
+RIB_Z0, RIB_DEPTH, RIB_DEG = 0.3, 2.3, 50.0
+# rev 24: the closed pocket works together with a rib ring on the hopper wall. The rib's
+# underside starts RIB_Z0 above the disc at the wall and rises inward at RIB_DEG, so a
+# tablet lying flat on the disc is stopped where the rib is as high as the top of its side
+# band. The closed pocket's outer edge is put exactly there: a flat tablet drops straight
+# in, and nothing can stand against the wall. (A closed pocket alone left tablets resting
+# against the wall beyond it; the rib alone stopped them short of an open notch.)
+
+
+def rib_stop_r(pill_id: str) -> float:
+    """Radius of the outer edge of a flat tablet stopped by the rib."""
+    p = PILLS[pill_id]
+    band_top = (p.thickness + p.band) / 2
+    return R_WALL - (band_top - RIB_Z0) / math.tan(math.radians(RIB_DEG))
 # rev 23: closed pocket for pair-prone tablets. A tablet thinner than half the notch width
 # can stand on edge beside a second one in an open notch (small tablets: 2 x 2.8 mm in
 # 6.8 mm, 1 double in 10 trials). In a closed circular pocket one standing tablet only fits
@@ -453,7 +467,17 @@ def make_hopper(pp: dict) -> cq.Workplane:
     relief = _relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)
     boss = (_relief_prism(pp, z0, HOPPER_TOP - z0, grow=WALL)
             .cut(_relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)))
-    return wall.union(flange).union(boss).cut(relief)
+    body = wall.union(flange).union(boss)
+    if pp.get("closed"):
+        k = math.tan(math.radians(RIB_DEG))
+        rib = (cq.Workplane("XZ").polyline([(R_WALL + 0.5, RIB_Z0 - 0.5 * k),
+                                            (R_WALL - RIB_DEPTH, RIB_Z0 + RIB_DEPTH * k),
+                                            # long taper back to the wall: in the tilted assembly a
+                                            # short top face is level and pills sat on it
+                                            (R_WALL + 0.5, RIB_Z0 + RIB_DEPTH * k + 15.0)]).close()
+               .revolve(360, (0, 0, 0), (0, 1, 0)))
+        body = body.union(rib)
+    return body.cut(relief)
 
 
 def make_cover() -> cq.Workplane:

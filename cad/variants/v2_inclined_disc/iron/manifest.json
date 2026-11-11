@@ -14,6 +14,7 @@
     "chamfer": 0.0,
     "pocket": "flat notch",
     "inner_chamfer": 0.0,
+    "closed": false,
     "beta": 50.0,
     "fdm": 0.35,
     "run": 0.4,

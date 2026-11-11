@@ -164,8 +164,10 @@ def pocket_params(pill_id: str) -> dict:
         inner_chamfer = 0.0
         d_max = p.length + p.tol
         t_min = p.thickness - p.tol
-        w = d_max + 2 * FDM                     # notch diameter (open to the wall)
-        r_c = R_WALL - w / 2                    # centre of the pill when against the wall
+        w = d_max + 2 * FDM                     # notch diameter
+        closed = pair_prone(pill_id, w)
+        # open notch: centre of a pill lying against the wall; closed: RIM_WEB inside the rim
+        r_c = (R_DISC - RIM_WEB - w / 2) if closed else (R_WALL - w / 2)
         r_in = r_c - w / 2
         half_ang = math.asin((w / 2) / r_c)
         shape = "round"
@@ -201,7 +203,8 @@ def pocket_params(pill_id: str) -> dict:
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
-                inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0)
+                inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
+                closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)))
 
 
 # --------------------------------------------------------------- 2-D outlines
@@ -249,23 +252,29 @@ def undercut_at_back(pp: dict) -> float:
     return max(0.0, pp["depth"] - undercut_land(pp)) * math.tan(math.radians(UNDERCUT_DEG))
 
 
-RIB_DEPTH, RIB_GAP = 1.5, 0.4
-# rev 22: anti-pair rib. A tablet thinner than half the notch width can stand on edge beside
-# a second one in the same notch (small tablets: 2 x 2.8 mm in a 6.8 mm notch, 1 double in 10
-# trials). For those pills the hopper wall carries a continuous ring just above the disc:
-# its underside starts RIB_GAP above a seated flat tablet's top and slopes in at 50° to
-# RIB_DEPTH. A flat seated tablet passes under it; nothing can stand against the wall, so a
-# second standing tablet has no room in the notch. Concentric, so no edge crosses a pocket.
+RIM_WEB = 1.2
+# rev 23: closed pocket for pair-prone tablets. A tablet thinner than half the notch width
+# can stand on edge beside a second one in an open notch (small tablets: 2 x 2.8 mm in
+# 6.8 mm, 1 double in 10 trials). In a closed circular pocket one standing tablet only fits
+# centred; a second has no room beside it and stays on the disc face, where it rolls away.
+# (Rev 22's rib ring above the disc stopped pairs but stranded lone tablets: 2 of 24 clean.)
 
 
-def needs_rib(pp: dict) -> bool:
-    p = PILLS[pp["pill"]]
-    return p.kind == "tablet" and 2 * (p.thickness - p.tol) < pp["width"]
-
-
-def rib_z0(pp: dict) -> float:
-    p = PILLS[pp["pill"]]
-    return (p.thickness + p.tol) - pp["depth"] + RIB_GAP
+def pair_prone(pill_id: str, notch_w: float) -> bool:
+    """True when a second tablet standing on edge beside a first (against the wall) would
+    sink far enough into an open notch to be carried. The second tablet sinks until its
+    chord fits the notch outline; it is carried when that sink exceeds about half of
+    R(1 − cos 50°), the height a wheel of radius R needs to stay put on the 50° disc."""
+    p = PILLS[pill_id]
+    if p.kind != "tablet":
+        return False
+    rho, rad = notch_w / 2, (p.length - p.tol) / 2
+    o = 2 * (p.thickness - p.tol) - rho          # inner face of the 2nd tablet, from notch centre
+    if o >= rho:
+        return False
+    half_chord = min(rad, math.sqrt(rho * rho - o * o))
+    sink = rad - math.sqrt(rad * rad - half_chord * half_chord)
+    return sink > 0.5 * rad * (1 - math.cos(math.radians(BETA)))
 
 
 def _rot_world(shape: cq.Workplane) -> cq.Workplane:
@@ -347,6 +356,8 @@ def _tapered_notch(pp: dict, z0: float, h: float, grow: float, taper: float) -> 
         rc = pp["r_center"]
         circ = (cq.Workplane("XY").workplane(offset=z0).center(rc, 0).circle(w / 2)
                 .extrude(h, taper=taper))
+        if pp.get("closed"):
+            return circ
         rect = (cq.Workplane("XY").workplane(offset=z0).center((rc + outer) / 2, 0)
                 .rect(outer - rc, w).extrude(h, taper=taper))
         return circ.union(rect)
@@ -442,16 +453,7 @@ def make_hopper(pp: dict) -> cq.Workplane:
     relief = _relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)
     boss = (_relief_prism(pp, z0, HOPPER_TOP - z0, grow=WALL)
             .cut(_relief_prism(pp, z0 - 1, HOPPER_TOP - z0 + 2)))
-    body = wall.union(flange).union(boss)
-    if needs_rib(pp):
-        zr = rib_z0(pp)
-        k = math.tan(math.radians(50.0))      # underside 50° from the bed: prints unsupported
-        rib = (cq.Workplane("XZ").polyline([(R_WALL + 0.5, zr - 0.5 * k),
-                                            (R_WALL - RIB_DEPTH, zr + RIB_DEPTH * k),
-                                            (R_WALL + 0.5, zr + RIB_DEPTH * k + 2.0)]).close()
-               .revolve(360, (0, 0, 0), (0, 1, 0)))
-        body = body.union(rib)
-    return body.cut(relief)
+    return wall.union(flange).union(boss).cut(relief)
 
 
 def make_cover() -> cq.Workplane:

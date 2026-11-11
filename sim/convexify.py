@@ -8,9 +8,13 @@ more, which would close the 0.3–3 mm gaps this project is about.
 This decomposer only ever cuts the solid with axis-aligned planes and hulls each
 piece. Every hull vertex lies on the original surface or on a cut plane, so a
 hull can only add material inside concave regions. A piece is split again until
-its hull adds less than `tol` mm of material on average over its surface, or
-the cell reaches `min_cell` mm. The worst added thickness per piece is reported,
-so the modelled gaps are known.
+BOTH hold (or the cell reaches `min_cell` mm):
+  * its hull adds less than `tol` mm of material on average over its surface;
+  * no point of the hull is further than `max_prot` (default 2.5 × tol) from the
+    real solid. The average alone is not enough: a thin sliver across a
+    re-entrant corner has almost no volume but can stick out more than a
+    millimetre (found in V2's pockets, where such a ledge held a tablet).
+The worst protrusion per piece is stored, so the modelled gaps are known.
 """
 from __future__ import annotations
 
@@ -31,7 +35,7 @@ CACHE = Path(__file__).resolve().parent / ".cache" / "convex"
 class Piece:
     vertices: np.ndarray  # (n, 3) mm
     faces: np.ndarray
-    excess_mm: float      # hull volume beyond the solid, divided by hull area
+    excess_mm: float      # largest distance from this hull's surface to the real solid (mm)
 
 
 def _to_manifold(mesh: trimesh.Trimesh) -> Manifold:
@@ -56,8 +60,24 @@ def _crop(m: Manifold, lo, hi) -> Manifold:
     return m
 
 
-def decompose(mesh: trimesh.Trimesh, tol: float = 0.05, min_cell: float = 0.8,
-              crop: tuple | None = None, max_pieces: int = 4000) -> list[Piece]:
+def _protrusion(hull: Manifold, m: Manifold) -> float:
+    """Largest distance from the hull's surface to the real solid (mm)."""
+    diff = hull - m
+    if diff.is_empty() or diff.volume() < 1e-6:
+        return 0.0
+    dm, sm = _mesh_of(diff), _mesh_of(m)
+    pts = np.asarray(dm.vertices)
+    if len(dm.faces) > 0:
+        extra, _ = trimesh.sample.sample_surface(dm, 150, seed=0)
+        pts = np.vstack([pts, extra])
+    _, dist, _ = trimesh.proximity.closest_point(sm, pts)
+    return float(dist.max())
+
+
+def decompose(mesh: trimesh.Trimesh, tol: float = 0.05, min_cell: float = 0.4,
+              crop: tuple | None = None, max_pieces: int = 20000,
+              max_prot: float | None = None) -> list[Piece]:
+    max_prot = 2.5 * tol if max_prot is None else max_prot
     root = _to_manifold(mesh)
     if crop is not None:
         root = _crop(root, *crop)
@@ -76,9 +96,15 @@ def decompose(mesh: trimesh.Trimesh, tol: float = 0.05, min_cell: float = 0.8,
         excess = (hull.volume() - m.volume()) / area
         bb = np.array(m.bounding_box()).reshape(2, 3)
         size = bb[1] - bb[0]
-        if excess <= tol or size.max() <= min_cell:
+        small = size.max() <= min_cell
+        prot = 0.0
+        if excess <= tol and not small:
+            prot = _protrusion(hull, m)
+        if small or (excess <= tol and prot <= max_prot):
+            if small:
+                prot = _protrusion(hull, m)
             hm = _mesh_of(hull)
-            pieces.append(Piece(np.asarray(hm.vertices), np.asarray(hm.faces), float(excess)))
+            pieces.append(Piece(np.asarray(hm.vertices), np.asarray(hm.faces), float(prot)))
             if len(pieces) > max_pieces:
                 raise RuntimeError("decomposition exceeded max_pieces; loosen tol or crop")
             continue
@@ -97,12 +123,13 @@ def _best_cut(m: Manifold, bb, axis: int) -> float:
     return lo + (hi - lo) * 0.5 + 1e-3 * (hi - lo)
 
 
-def decompose_file(stl_path: str | Path, tol: float = 0.05, min_cell: float = 0.8,
+def decompose_file(stl_path: str | Path, tol: float = 0.05, min_cell: float = 0.4,
                    crop: tuple | None = None) -> list[Piece]:
     """Cached decomposition of an STL in millimetres."""
     stl_path = Path(stl_path)
     key = hashlib.sha256(stl_path.read_bytes()
-                         + json.dumps([tol, min_cell, crop], default=list).encode()).hexdigest()[:20]
+                         + json.dumps([tol, min_cell, crop, "maxprot-v2"], default=list).encode()
+                         ).hexdigest()[:20]
     CACHE.mkdir(parents=True, exist_ok=True)
     cf = CACHE / f"{stl_path.stem}_{key}.npz"
     if cf.exists():
@@ -125,5 +152,5 @@ if __name__ == "__main__":
     t = time.time()
     ps = decompose_file(sys.argv[1])
     ex = np.array([p.excess_mm for p in ps])
-    print(f"{len(ps)} pieces in {time.time()-t:.1f}s; excess mean {ex.mean():.3f} "
+    print(f"{len(ps)} pieces in {time.time()-t:.1f}s; protrusion mean {ex.mean():.3f} "
           f"max {ex.max():.3f} mm")

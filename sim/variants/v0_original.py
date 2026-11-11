@@ -57,7 +57,7 @@ def spec(pill_id: str) -> dict:
     # Everything within a pill height of the rotor keeps 0.05 mm.
     static = [
         ("Canister_OD67p5_H70", None, 0.25),
-        ("Lower_enclosure_with_integrated_snap_clips", ((-40, -40, -27), (40, 40, -4)), 0.15),
+        ("Lower_enclosure_with_integrated_snap_clips", ((-40, -40, -27), (40, 40, -4)), 0.05),
         ("Lower_enclosure_with_integrated_snap_clips", ((-40, -40, -4), (40, 40, 16)), 0.25),
         ("Stationary_floor", None, 0.05),
         ("Floor_liner_unchanged_depth", None, 0.05),

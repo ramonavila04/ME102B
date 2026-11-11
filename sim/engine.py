@@ -77,7 +77,7 @@ def _mesh_xml(name: str, verts_mm: np.ndarray) -> str:
 
 def _part_geoms(part: dict, assets: list, rgba: str, mu: float) -> str:
     pieces = decompose_file(part["stl"], tol=part.get("tol", 0.05),
-                            min_cell=part.get("min_cell", 0.8), crop=part.get("crop"))
+                            min_cell=part.get("min_cell", 0.4), crop=part.get("crop"))
     out = []
     for i, p in enumerate(pieces):
         mname = f"{part['name']}__{i}"

@@ -205,7 +205,7 @@ def pocket_params(pill_id: str) -> dict:
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
-                cone_h=round(min(20.0, (r_in - 0.2 - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
+                cone_h=round(min(20.0, (r_in - CONE_LEDGE - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
                 if p.kind in ("caplet", "capsule") else 0.0)
 
 
@@ -256,6 +256,9 @@ def undercut_at_back(pp: dict) -> float:
 
 RIM_WEB = 1.2
 LONG_CONE_DEG = 60.0   # cone inboard of long-pill notches (see make_disc)
+CONE_LEDGE = 2.5       # flat ledge between a long-pill notch and the cone. With the cone flush
+                       # at the notch (rev 27) a second caplet was cradled in the V above a seated
+                       # one: doubles in 8 of 24 trials. With a ledge (rev 26) there were none.
 RIB_Z0, RIB_DEPTH, RIB_DEG = 0.3, 2.3, 50.0
 # rev 24: the closed pocket works together with a rib ring on the hopper wall. The rib's
 # underside starts RIB_Z0 above the disc at the wall and rises inward at RIB_DEG, so a
@@ -295,8 +298,8 @@ def pair_prone(pill_id: str, notch_w: float) -> bool:
 
 
 def cone_base_r(pp: dict) -> float:
-    """Long-pill cone starts at the notch's inner wall (no lead-in chamfer on that wall)."""
-    return pp["r_inner"] - 0.2
+    """Long-pill cone starts CONE_LEDGE inboard of the notch's inner wall."""
+    return pp["r_inner"] - CONE_LEDGE
 
 
 def _rot_world(shape: cq.Workplane) -> cq.Workplane:

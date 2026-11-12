@@ -204,7 +204,9 @@ def pocket_params(pill_id: str) -> dict:
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
-                closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)))
+                closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
+                cone_h=round(min(20.0, (r_in - chamfer - 0.2 - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
+                if p.kind in ("caplet", "capsule") else 0.0)
 
 
 # --------------------------------------------------------------- 2-D outlines
@@ -253,6 +255,7 @@ def undercut_at_back(pp: dict) -> float:
 
 
 RIM_WEB = 1.2
+LONG_CONE_DEG = 60.0   # cone inboard of long-pill notches (see make_disc)
 RIB_Z0, RIB_DEPTH, RIB_DEG = 0.3, 2.3, 50.0
 # rev 24: the closed pocket works together with a rib ring on the hopper wall. The rib's
 # underside starts RIB_Z0 above the disc at the wall and rises inward at RIB_DEG, so a
@@ -291,6 +294,11 @@ def pair_prone(pill_id: str, notch_w: float) -> bool:
     return sink > 0.5 * rad * (1 - math.cos(math.radians(BETA)))
 
 
+def cone_base_r(pp: dict) -> float:
+    """Long-pill cone starts just inboard of the notch's lead-in chamfer."""
+    return pp["r_inner"] - pp.get("chamfer", 0.0) - 0.2
+
+
 def _rot_world(shape: cq.Workplane) -> cq.Workplane:
     return shape.rotate((0, 0, 0), (1, 0, 0), BETA)
 
@@ -308,6 +316,16 @@ def make_disc(pp: dict) -> cq.Workplane:
         r_top = pp["r_inner"] - CONE_H / math.tan(math.radians(CONE_DEG))
         ramp = (cq.Workplane("XY").circle(pp["r_inner"]).workplane(offset=CONE_H).circle(r_top).loft())
         disc = disc.union(ramp)
+    if pp.get("cone_h", 0.0) > 0:
+        # rev 26 (long pills): steep cone inboard of the notches. The pool becomes a channel
+        # between cone and wall, as wide as the notch, so a caplet or capsule can only lie
+        # along the rim (the notch direction). Without it, the last few pills lay pointing
+        # down the slope, end-on to the wall, and never dropped in (1 miss in 80 trials).
+        ch = pp["cone_h"]
+        r_base = cone_base_r(pp)
+        r_top = r_base - ch / math.tan(math.radians(LONG_CONE_DEG))
+        disc = disc.union(cq.Workplane("XY").circle(r_base).workplane(offset=ch)
+                          .circle(r_top).loft())
     chamfer = pp.get("chamfer", 0.0)
     for k in range(pp["n"]):
         tool = _extruded_notch(pp, -t - 1, t + 2)
@@ -333,7 +351,7 @@ def make_disc(pp: dict) -> cq.Workplane:
                                               -(ic - g), (ic - g) + 1, grow=0))
         disc = disc.cut(tool.rotate((0, 0, 0), (0, 0, 1), k * pp["pitch_deg"]))
     # D-bore through boss and disc (through the cone too: no blind ceiling to bridge)
-    h_tot = t + boss_h
+    h_tot = t + max(boss_h, pp.get("cone_h", 0.0))
     bore = (cq.Workplane("XY").workplane(offset=-t - 1).circle(SHAFT_D / 2 + 0.05)
             .extrude(h_tot + 2))
     flat_cut = (cq.Workplane("XY").workplane(offset=-t - 1)

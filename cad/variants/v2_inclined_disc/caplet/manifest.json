@@ -13,6 +13,7 @@
     "pitch_deg": 90.0,
     "chamfer": 0.0,
     "pocket": "flat notch",
+    "trail_chamfer": 2.1,
     "inner_chamfer": 0.0,
     "closed": false,
     "cone_h": 0.0,

@@ -207,6 +207,7 @@ def pocket_params(pill_id: str) -> dict:
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
+                trail_chamfer=round(min(2.5, 0.35 * depth), 2) if p.kind in ("caplet", "capsule") else 0.0,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
                 cone_h=round(min(20.0, (r_in - CONE_LEDGE - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
@@ -251,7 +252,7 @@ UNDERCUT_LAND = 1.2   # top of each pocket wall stays straight (no feather edge 
 
 def undercut_land(pp: dict) -> float:
     """Straight part at the top of the pocket wall: below any lead-in chamfer."""
-    return UNDERCUT_LAND + pp.get("chamfer", 0.0)
+    return UNDERCUT_LAND + max(pp.get("chamfer", 0.0), pp.get("trail_chamfer", 0.0))
 
 
 def undercut_at_back(pp: dict) -> float:
@@ -349,6 +350,17 @@ def make_disc(pp: dict) -> cq.Workplane:
         for i in range(1, steps + 1):
             g = chamfer * i / steps
             tool = tool.union(_extruded_notch(pp, -g, g + 1, grow=g))
+        # rev 32 (long pills): 45° lead-in on the TRAILING end wall only (the disc turns toward
+        # +y in the notch frame, so the trailing end is at −y). A pill with one end dipped in
+        # is lifted out by it instead of being pushed against the hopper wall (4 jams in 24
+        # trials without it). The leading end stays square: a chamfer there gives a second
+        # pill's tail a place to sit ahead of the seated pill (doubles).
+        tc = pp.get("trail_chamfer", 0.0)
+        tsteps = int(round(tc / 0.25))
+        for i in range(1, tsteps + 1):
+            g = tc * i / tsteps
+            tool = tool.union(_extruded_notch(dict(pp, length=pp["length"] + g, y_shift=-g / 2),
+                                              -g, g + 1))
         # rev 13 (standing slot): 45° chamfer on the INNER radial wall only, as a stair.
         # The top opening becomes wider than a flat tablet, so a tablet lying flat across
         # the slot slides down the chamfer and stands up in it (before, it bridged the
@@ -386,7 +398,7 @@ def _extruded_notch(pp: dict, z0: float, h: float, grow: float = 0.0,
         return circ.union(rect)
     L = pp["length"] + 2 * grow
     r_in = pp["r_inner"] - grow
-    return (cq.Workplane("XY").workplane(offset=z0).center((r_in + outer) / 2, 0)
+    return (cq.Workplane("XY").workplane(offset=z0).center((r_in + outer) / 2, pp.get("y_shift", 0.0))
             .rect(outer - r_in, L).extrude(h))
 
 

@@ -11,7 +11,7 @@
     "depth": 6.0,
     "n": 4,
     "pitch_deg": 90.0,
-    "chamfer": 2.1,
+    "chamfer": 0.0,
     "pocket": "flat notch",
     "inner_chamfer": 0.0,
     "closed": false,

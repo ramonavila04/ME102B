@@ -199,7 +199,11 @@ def pocket_params(pill_id: str) -> dict:
         web = r_in * (2 * math.pi / cand - 2 * half_ang)
         if web >= WEB_MIN + 2 * EXIT_MARGIN:
             n = cand
-    chamfer = round(min(2.5, 0.35 * depth), 2) if p.kind in ("caplet", "capsule") else 0.0
+    # rev 30: no lead-in chamfer. It widened a long-pill pocket at the face by ~4 mm, and a
+    # second pill rode with its tail dipped into that space, then fell in behind the first
+    # at the exit (1 double in 100 caplet trials). It was added in rev 4 against a wedging
+    # problem that came from the old collision shapes.
+    chamfer = 0.0
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,

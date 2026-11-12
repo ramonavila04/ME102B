@@ -206,7 +206,7 @@ def pocket_params(pill_id: str) -> dict:
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
                 cone_h=round(min(20.0, (r_in - CONE_LEDGE - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
-                if p.kind in ("caplet", "capsule") else 0.0)
+                if (LONG_CONE and p.kind in ("caplet", "capsule")) else 0.0)
 
 
 # --------------------------------------------------------------- 2-D outlines
@@ -255,6 +255,10 @@ def undercut_at_back(pp: dict) -> float:
 
 
 RIM_WEB = 1.2
+LONG_CONE = False      # rev 29: the long-pill cone (revs 26-28) is switched off. It oriented the
+                       # last few pills but cradled second pills (doubles) and pushed pills onto
+                       # the pocket edge at the exit (jams): 21/24 clean at best, against 1 slow
+                       # pickup in 90 campaign trials without it.
 LONG_CONE_DEG = 60.0   # cone inboard of long-pill notches (see make_disc)
 CONE_LEDGE = 2.5       # flat ledge between a long-pill notch and the cone. With the cone flush
                        # at the notch (rev 27) a second caplet was cradled in the V above a seated
@@ -340,13 +344,7 @@ def make_disc(pp: dict) -> cq.Workplane:
         steps = int(round(chamfer / 0.25))
         for i in range(1, steps + 1):
             g = chamfer * i / steps
-            if pp["shape"] == "oblong":
-                # rev 27: lead-in only on the two END walls. On the inner wall it was a ramp
-                # out of the pocket at the exit, where gravity pulls the pill toward the hub
-                # (a caplet slid up it and was pinched when the disc moved on).
-                tool = tool.union(_extruded_notch(dict(pp, length=pp["length"] + 2 * g), -g, g + 1))
-            else:
-                tool = tool.union(_extruded_notch(pp, -g, g + 1, grow=g))
+            tool = tool.union(_extruded_notch(pp, -g, g + 1, grow=g))
         # rev 13 (standing slot): 45° chamfer on the INNER radial wall only, as a stair.
         # The top opening becomes wider than a flat tablet, so a tablet lying flat across
         # the slot slides down the chamfer and stands up in it (before, it bridged the

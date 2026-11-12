@@ -15,7 +15,7 @@
     "pocket": "flat notch",
     "inner_chamfer": 0.0,
     "closed": false,
-    "cone_h": 15.65,
+    "cone_h": 0.0,
     "beta": 50.0,
     "fdm": 0.35,
     "run": 0.4,

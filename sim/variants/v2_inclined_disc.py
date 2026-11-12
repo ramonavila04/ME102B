@@ -121,7 +121,8 @@ def spec(pill_id: str) -> dict:
         joint=dict(type="hinge", axis=(0.0, -SB, CB), pos=(0, 0, 0)),
         rotor_mass_kg=0.015,
         drive=dict(index_deg=pp["pitch_deg"], rpm=RPM.get(pill_id, 25.0), dir=1, accel_s=0.12, settle_s=0.6,
-                   start_deg=0.0, max_steps=2 * pp["n"]),   # up to two revolutions per dispense
+                   start_deg=0.0, max_steps=max(16, 2 * pp["n"])),  # try 16 pockets (at least two
+                   # revolutions) before reporting empty; a 4-pocket long-pill disc needed 13 once
         spawn=dict(x=(min(xs), max(xs)), y=(min(ys), max(ys)), z=(min(zs), max(zs)), accept=accept),
         fill=fills[pill_id],
         exit=dict(fn=exit_fn),

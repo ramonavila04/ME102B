@@ -178,12 +178,12 @@ def pocket_params(pill_id: str) -> dict:
         W = p.width + p.tol
         T = p.thickness + p.tol
         t_min = (p.thickness - p.tol) if p.kind == "caplet" else (p.width - p.tol)
-        if p.kind == "caplet":       # box-like side profile: tilting grows the span
-            length = math.hypot(L, T) + 2 * FDM
-            w = math.hypot(W, T) + 2 * FDM
-        else:                        # capsule: round section and ends, tilt never grows it
-            length = L + 2 * FDM
-            w = W + 2 * FDM
+        # rev 31: snug pocket for caplets too (pill + FDM per side). Rev 2 had enlarged it to
+        # the tilted diagonal (21.0 x 11.7 for a 19 x 8.5 caplet) against wedging that came
+        # from the old collision shapes; the slack let a second caplet partly enter
+        # (doubles, and a jam once the lead-in chamfer was removed).
+        length = L + 2 * FDM
+        w = W + 2 * FDM
         pocket = "flat notch"
         # pill lying tangentially against the curved wall: end-cap centres touch R_WALL
         d_c = math.sqrt((R_WALL - W / 2) ** 2 - ((L - W) / 2) ** 2)

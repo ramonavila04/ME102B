@@ -4,10 +4,10 @@
   "params": {
     "pill": "caplet",
     "shape": "oblong",
-    "width": 11.681,
-    "length": 21.035,
+    "width": 9.4,
+    "length": 19.9,
     "r_center": 25.515,
-    "r_inner": 18.535,
+    "r_inner": 20.815,
     "depth": 6.0,
     "n": 4,
     "pitch_deg": 90.0,

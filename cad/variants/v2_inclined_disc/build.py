@@ -205,7 +205,7 @@ def pocket_params(pill_id: str) -> dict:
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
-                cone_h=round(min(20.0, (r_in - chamfer - 0.2 - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
+                cone_h=round(min(20.0, (r_in - 0.2 - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
                 if p.kind in ("caplet", "capsule") else 0.0)
 
 
@@ -295,8 +295,8 @@ def pair_prone(pill_id: str, notch_w: float) -> bool:
 
 
 def cone_base_r(pp: dict) -> float:
-    """Long-pill cone starts just inboard of the notch's lead-in chamfer."""
-    return pp["r_inner"] - pp.get("chamfer", 0.0) - 0.2
+    """Long-pill cone starts at the notch's inner wall (no lead-in chamfer on that wall)."""
+    return pp["r_inner"] - 0.2
 
 
 def _rot_world(shape: cq.Workplane) -> cq.Workplane:
@@ -337,7 +337,13 @@ def make_disc(pp: dict) -> cq.Workplane:
         steps = int(round(chamfer / 0.25))
         for i in range(1, steps + 1):
             g = chamfer * i / steps
-            tool = tool.union(_extruded_notch(pp, -g, g + 1, grow=g))
+            if pp["shape"] == "oblong":
+                # rev 27: lead-in only on the two END walls. On the inner wall it was a ramp
+                # out of the pocket at the exit, where gravity pulls the pill toward the hub
+                # (a caplet slid up it and was pinched when the disc moved on).
+                tool = tool.union(_extruded_notch(dict(pp, length=pp["length"] + 2 * g), -g, g + 1))
+            else:
+                tool = tool.union(_extruded_notch(pp, -g, g + 1, grow=g))
         # rev 13 (standing slot): 45° chamfer on the INNER radial wall only, as a stair.
         # The top opening becomes wider than a flat tablet, so a tablet lying flat across
         # the slot slides down the chamfer and stands up in it (before, it bridged the

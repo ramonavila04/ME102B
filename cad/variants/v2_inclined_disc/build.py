@@ -231,7 +231,8 @@ def pocket_params(pill_id: str) -> dict:
     return dict(pill=pill_id, shape=shape, width=round(w, 3), length=round(length, 3),
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
-                trail_chamfer=round(min(2.5, 0.35 * depth), 2) if p.kind in ("caplet", "capsule") else 0.0,
+                trail_chamfer=round(min(2.5, 0.35 * depth), 2)
+                if (LONG_TRAIL_CHAMFER and p.kind in ("caplet", "capsule")) else 0.0,
                 hub_r=round(R_WALL - (p.length - p.tol_length) + 2.0, 2) if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
                 hub_h=8.0 if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
@@ -287,7 +288,9 @@ def undercut_at_back(pp: dict) -> float:
 
 RIM_WEB = 1.2
 LONG_DEPTH_FRAC = 0.55
-LONG_RADIAL = True
+LONG_RADIAL = False     # rev 36 radial pockets: 7 of 24 low-fill trials clean, far worse
+LONG_TRAIL_CHAMFER = False  # rev 37: off. It lifted a half-entered crosswise pill straight back
+                            # out, in place, so it never got re-oriented (low-fill misses)
 RADIAL_MIN_R_IN = 10.0   # a radial pocket must end at least this far from the centre, or its
                         # exit hole runs into the motor socket (size-0 capsules: 7.7 mm, so
                         # they keep rim-wise pockets on this 60 mm disc)

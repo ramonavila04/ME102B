@@ -31,14 +31,18 @@ Why it resists the original design's failures:
 | --- | --- | --- | --- | --- | --- |
 | iron Ø9.5 × 5.0 | flat round notch, open to the wall | Ø10.35 | 4.55 | 8 | 45° |
 | small Ø6.0 × 2.8 | flat round pocket, closed, 1.2 mm inside the rim; rib liner on the hopper wall | Ø6.8 | 2.4 | 8 | 45° |
-| caplet 19 × 8.5 × 6.5 | flat notch, 2.1 lead-in chamfer | 21.0 × 11.7 | 6.0 | 4 | 90° |
-| size-0 capsule 21.7 × Ø7.65 | flat notch, 2.5 lead-in chamfer | 22.7 × 8.4 | 7.27 | 4 | 90° |
+| caplet 19 × 8.5 × 6.5 (**experimental**) | rim-wise notch, half-depth; hub 1 mm inboard | 19.9 × 11.7 | 3.47 | 4 | 90° at 5 rpm |
+| size-0 capsule 21.7 × Ø7.65 (**experimental**) | rim-wise notch, half-depth; hub 1 mm inboard | 22.7 × 8.4 | 4.16 | 4 | 90° at 5 rpm |
 
-Every pocket holds its pill lying flat, with 0.35 mm clearance per side, and is slightly
-shallower than the pill is thick, so a second pill cannot nest on top. Every pocket wall
+**Status.** The iron and small-tablet kits passed the full campaign (200 of 200 trials
+each) and are the ones to build. The caplet and capsule kits have not passed it; their
+row above is the latest revision under test.
+
+Every tablet pocket holds its pill lying flat, with 0.35 mm clearance per side, and is
+slightly shallower than the pill is thick, so a second pill cannot nest on top. Every pocket wall
 is undercut 12° below a 1.2 mm straight land (pocket wider at the back plate than at the
 face): at the exit the pill is pressed against the pocket's inner wall harder than it is
-pulled out of the back, and the undercut lets it slide out. All discs index at 25 rpm.
+pulled out of the back, and the undercut lets it slide out. Tablet discs index at 25 rpm.
 
 **Thin tablets (small).** A tablet thinner than half the notch width can stand on edge
 beside a second one in an open notch, and both are carried (`pair_prone` in `build.py`
@@ -104,6 +108,25 @@ Every change answers a failure seen in the simulator. Counts are dispense cycles
 | 23 | Closed circular pocket for thin tablets, no rib | Mostly misses: tablets rest against the wall, beyond the pocket |
 | 24 | Closed pocket placed where a rib ring stops a flat tablet | Pills sat on the rib's short top face; with a long taper instead, a tablet stuck to it (7/8) |
 | 25 | Rib as a straight liner parallel to the wall | Small: 3 loaded 24/24, 19 loaded 16/16. Full campaign: see `results/COMPARISON.md` |
+
+### Long pills (revisions 26–40, not yet passing)
+
+Caplets and capsules fail in ways tablets do not. What was tried, on the corrected
+simulator, with small targeted tests (24 trials at 4 loaded and at 10 loaded):
+
+| Rev | Change | Result |
+| --- | --- | --- |
+| 25/29 | Full-depth notch sized to the tilted pill, lead-in chamfer all round | Caplets: 1 slow pickup in 90 campaign trials; with 16 steps allowed, 1 double in 100 (a second caplet's tail sat in the chamfered front of the pocket) |
+| 26–28 | 60° cone inboard of the notches to turn pills along the rim | Doubles (second pill cradled in the V beside a seated one) and exit jams; 21/24 at best |
+| 30 | No lead-in chamfer | 1 double and 1 jam in 20 trials |
+| 31–32 | Snug notch (pill + 0.35 mm per side) | No doubles, but a caplet standing on end locked diagonally in the 9.4 mm width (jams in 4–7 of 24) |
+| 33 | Snug length, width clear of the section diagonal | No jams; 2 doubles in 24 (two caplets end-down in one pocket) |
+| 34 | Half-depth pockets (0.55 × thickness) | No doubles or jams; 2 low-fill misses in 24 |
+| 35 | Hub sized from the pill's length | A caplet wedged as a strut between hub and wall |
+| 36 | Radial pockets | 7 of 24 low-fill trials clean |
+| 37–38 | No trailing chamfer; 5 rpm (a caplet lying ready on the track was over a passing pocket for only ~0.013 s at 25 rpm) | Caplets: 24/24 at 4 loaded, 23/24 at 10 loaded (the one failure was a test-setup error, since fixed). Capsules: 23/24 at 4 loaded (two capsules locking each other on the open face) |
+| 39 | Speed-bump ribs on the face | Capsule lock unchanged |
+| 40 | Straight hub 1 mm inboard of the pockets, 6 mm tall: the pool is a channel ~1 mm wider than the pocket | Capsules 24/24 at 4 loaded. Remaining targeted tests and the 200-trial campaign not run |
 
 ## Known limits
 

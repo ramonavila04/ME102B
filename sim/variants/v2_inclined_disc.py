@@ -105,6 +105,11 @@ def spec(pill_id: str) -> dict:
                 if zl < cone_z + r + 1.0:
                     return False
             return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > r + 1.0)
+        if zl < H + r + 1.0:
+            # centre within one pill radius of the rim plane: neither test above applies
+            # (projecting such a pill up to the opening once started a caplet 3.7 mm inside
+            # the wall; the solver threw it out and the trial counted it as lost)
+            return False
         s = (zl - H) / CB                       # world-vertical drop to the opening plane
         yp = yl - s * SB
         top_r = build.bore_r(math.atan2(yp, xl), H) - (build.RIB_DEPTH if pp.get("closed") else 0.0)

@@ -104,7 +104,8 @@ def spec(pill_id: str) -> dict:
                 cone_z = build.CONE_H if math.hypot(xl, yl) < pp["r_inner"] + r + 1 else 0.0
                 if zl < cone_z + r + 1.0:
                     return False
-            return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > r + 1.0)
+            floor = build.RIB_BUMP_H if pp.get("ribs", 0) > 0 else 0.0     # clear the agitator ribs
+            return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > floor + r + 1.0)
         if zl < H + r + 1.0:
             # centre within one pill radius of the rim plane: neither test above applies
             # (projecting such a pill up to the opening once started a caplet 3.7 mm inside

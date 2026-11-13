@@ -235,6 +235,7 @@ def pocket_params(pill_id: str) -> dict:
                 if (LONG_TRAIL_CHAMFER and p.kind in ("caplet", "capsule")) else 0.0,
                 hub_r=round(R_WALL - (p.length - p.tol_length) + 2.0, 2) if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
                 hub_h=8.0 if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
+                ribs=n if p.kind in ("caplet", "capsule") else 0,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
                 cone_h=round(min(20.0, (r_in - CONE_LEDGE - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
@@ -288,6 +289,7 @@ def undercut_at_back(pp: dict) -> float:
 
 RIM_WEB = 1.2
 LONG_DEPTH_FRAC = 0.55
+RIB_BUMP_H = 2.0        # height of the long-pill agitator ribs (see make_disc)
 LONG_RADIAL = False     # rev 36 radial pockets: 7 of 24 low-fill trials clean, far worse
 LONG_TRAIL_CHAMFER = False  # rev 37: off. It lifted a half-entered crosswise pill straight back
                             # out, in place, so it never got re-oriented (low-fill misses)
@@ -383,6 +385,18 @@ def make_disc(pp: dict) -> cq.Workplane:
         top = (cq.Workplane("XY").workplane(offset=hh).circle(hr)
                .workplane(offset=(hr - 4.0) * math.tan(math.radians(LONG_CONE_DEG))).circle(4.0).loft())
         disc = disc.union(hub).union(top)
+    if pp.get("ribs", 0) > 0:
+        # rev 39 (long pills): low speed-bump ribs on the face, inboard of the pocket track,
+        # one per web. With a few pills left, two capsules locked each other (one lying
+        # obliquely on the face, the other propped on it over the track) and nothing ever
+        # moved them. The ribs pass under pills lying on the face once per pocket pitch and
+        # nudge them; 45° flanks, so a pill rides over instead of being pushed.
+        r0, r1 = 8.0, pp["r_inner"] - 1.0
+        for k in range(pp["n"]):
+            rib = (cq.Workplane("YZ").workplane(offset=r0)
+                   .polyline([(-RIB_BUMP_H, 0), (0, RIB_BUMP_H), (RIB_BUMP_H, 0)]).close()
+                   .extrude(r1 - r0))
+            disc = disc.union(rib.rotate((0, 0, 0), (0, 0, 1), (k + 0.5) * pp["pitch_deg"]))
     chamfer = pp.get("chamfer", 0.0)
     for k in range(pp["n"]):
         tool = _extruded_notch(pp, -t - 1, t + 2)

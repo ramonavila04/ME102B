@@ -31,31 +31,31 @@ constexpr float MECH_PILL_MASS_G_MIN = 0.08f;     // 80 % of nominal pill mass
 // Large oblong caplet (multivitamin class)
 constexpr const char* MECH_NAME = "V2 inclined pocket disc / caplet";
 constexpr float MECH_INDEX_DEG = 90.0f;          // one notch pitch
-constexpr float MECH_TARGET_RPM = 25.0f;               // output rpm while indexing (sim value)
+constexpr float MECH_TARGET_RPM = 5.0f;               // output rpm while indexing (sim value)
 constexpr uint32_t MECH_ACCEL_MS = 120;             // ramp up / ramp down (sim value)
 constexpr uint32_t MECH_SETTLE_MS = 600;            // dwell per step; pill slides the 50 mm duct
-constexpr uint32_t MECH_DROP_WINDOW_MS = 1600;       // move + settle + margin
+constexpr uint32_t MECH_DROP_WINDOW_MS = 4000;       // move + settle + margin
 constexpr uint32_t MECH_JAM_STALL_MS = 300;         // matches sim JAM_TIME
 constexpr float MECH_JAM_MIN_SPEED_FRAC = 0.10f;  // matches sim JAM_SPEED_FRAC
 constexpr float MECH_REVERSE_DEG = 45.0f;         // back off half a pitch
 constexpr uint8_t MECH_MAX_RETRIES = 2;
 constexpr float MECH_HOME_OFFSET_DEG = 0.0f;      // set during BUILD.md step "home offset"
-constexpr int MECH_MAX_INDEX_STEPS = 8;           // two revolutions (sim value)
+constexpr int MECH_MAX_INDEX_STEPS = 16;           // two revolutions (sim value)
 constexpr float MECH_PILL_MASS_G_MIN = 0.96f;     // 80 % of nominal pill mass
 #elif defined(MECH_PILL_CAP0)
 // Size-0 hard capsule
 constexpr const char* MECH_NAME = "V2 inclined pocket disc / cap0";
 constexpr float MECH_INDEX_DEG = 90.0f;          // one notch pitch
-constexpr float MECH_TARGET_RPM = 25.0f;               // output rpm while indexing (sim value)
+constexpr float MECH_TARGET_RPM = 5.0f;               // output rpm while indexing (sim value)
 constexpr uint32_t MECH_ACCEL_MS = 120;             // ramp up / ramp down (sim value)
 constexpr uint32_t MECH_SETTLE_MS = 600;            // dwell per step; pill slides the 50 mm duct
-constexpr uint32_t MECH_DROP_WINDOW_MS = 1600;       // move + settle + margin
+constexpr uint32_t MECH_DROP_WINDOW_MS = 4000;       // move + settle + margin
 constexpr uint32_t MECH_JAM_STALL_MS = 300;         // matches sim JAM_TIME
 constexpr float MECH_JAM_MIN_SPEED_FRAC = 0.10f;  // matches sim JAM_SPEED_FRAC
 constexpr float MECH_REVERSE_DEG = 45.0f;         // back off half a pitch
 constexpr uint8_t MECH_MAX_RETRIES = 2;
 constexpr float MECH_HOME_OFFSET_DEG = 0.0f;      // set during BUILD.md step "home offset"
-constexpr int MECH_MAX_INDEX_STEPS = 8;           // two revolutions (sim value)
+constexpr int MECH_MAX_INDEX_STEPS = 16;           // two revolutions (sim value)
 constexpr float MECH_PILL_MASS_G_MIN = 0.4f;     // 80 % of nominal pill mass
 #else
 // Nature Made Iron 65 mg (team test pill, ESTIMATED size)

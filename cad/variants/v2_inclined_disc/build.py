@@ -199,6 +199,13 @@ def pocket_params(pill_id: str) -> dict:
         shape = "oblong"
     t_min = p.thickness - p.tol if p.kind != "capsule" else p.width - p.tol
     depth = round(t_min - DEPTH_BELOW_T, 2)
+    if p.kind in ("caplet", "capsule"):
+        # rev 34: long-pill pockets are only LONG_DEPTH_FRAC of the pill's thickness deep.
+        # A pocket long enough for one pill lying flat also takes two standing on end
+        # (2 doubles in 24 caplet trials, both pills tipped ~50° in one pocket). A flat pill
+        # is held by a half-depth wall; a pill standing on its tip in a shallow pocket is
+        # top-heavy and topples out on the way up.
+        depth = round(LONG_DEPTH_FRAC * t_min, 2)
     # number of notches: largest even N leaving WEB_MIN of solid at r_in, multiple of 4
     n = 4
     for cand in range(4, 40, 4):
@@ -266,6 +273,7 @@ def undercut_at_back(pp: dict) -> float:
 
 
 RIM_WEB = 1.2
+LONG_DEPTH_FRAC = 0.55
 LONG_CONE = False      # rev 29: the long-pill cone (revs 26-28) is switched off. It oriented the
                        # last few pills but cradled second pills (doubles) and pushed pills onto
                        # the pocket edge at the exit (jams): 21/24 clean at best, against 1 slow

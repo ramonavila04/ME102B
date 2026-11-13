@@ -233,9 +233,9 @@ def pocket_params(pill_id: str) -> dict:
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
                 trail_chamfer=round(min(2.5, 0.35 * depth), 2)
                 if (LONG_TRAIL_CHAMFER and p.kind in ("caplet", "capsule")) else 0.0,
-                hub_r=round(R_WALL - (p.length - p.tol_length) + 2.0, 2) if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
-                hub_h=8.0 if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
-                ribs=n if p.kind in ("caplet", "capsule") else 0,
+                hub_r=round(r_in - HUB_GAP, 2) if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
+                hub_h=HUB_HEIGHT if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
+                ribs=n if (LONG_RIBS and p.kind in ("caplet", "capsule")) else 0,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
                 cone_h=round(min(20.0, (r_in - CONE_LEDGE - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
@@ -296,7 +296,14 @@ LONG_TRAIL_CHAMFER = False  # rev 37: off. It lifted a half-entered crosswise pi
 RADIAL_MIN_R_IN = 10.0   # a radial pocket must end at least this far from the centre, or its
                         # exit hole runs into the motor socket (size-0 capsules: 7.7 mm, so
                         # they keep rim-wise pockets on this 60 mm disc)
-LONG_HUB = False       # rev 35 straight hub: a caplet wedged as a strut between hub and wall
+LONG_HUB = True
+HUB_GAP, HUB_HEIGHT = 1.0, 6.0
+# rev 40: straight-sided hub HUB_GAP inboard of the long-pill pockets, so the pool is a
+# channel only ~1 mm wider than the pocket. A long pill can then skew ~10° at most: it
+# cannot lie crosswise (the lock that stranded the last capsules) and cannot wedge as a
+# strut (rev 35's hub was sized from the pill's length and left a 17 mm annulus, in which
+# a 19 mm caplet did wedge). Straight walls, so no V to cradle a second pill (revs 26-28).
+LONG_RIBS = False      # rev 39 speed-bump ribs did not break the capsule lock
 LONG_CONE = False      # rev 29: the long-pill cone (revs 26-28) is switched off. It oriented the
                        # last few pills but cradled second pills (doubles) and pushed pills onto
                        # the pocket edge at the exit (jams): 21/24 clean at best, against 1 slow

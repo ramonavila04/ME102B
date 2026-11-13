@@ -623,6 +623,7 @@ def make_clamp() -> cq.Workplane:
             .cut(cq.Workplane("XY").pushPoints([(-ear_x, 0), (ear_x, 0)]).circle(1.1).extrude(4)))
 
 
+BASE_FRONT = 45.0    # extra base length under the hopper
 BASE_Z = -46.0       # world z of the table / base plate top
 SIDE_T = 5.0         # side plate thickness
 
@@ -653,8 +654,11 @@ def make_base(pp_ref: dict) -> cq.Workplane:
     side = make_side(pp_ref)
     bb = side.val().BoundingBox()
     x_in = FLANGE_R - 3 + TAB_W + 0.2
+    # the plate reaches BASE_FRONT further forward than the side plates: the hopper leans
+    # ~56 mm out over the front, and a wider footprint keeps it from tipping when pouring
+    y0, y1 = bb.ymin - 5 - BASE_FRONT, bb.ymax + 5
     base = (cq.Workplane("XY").workplane(offset=BASE_Z - 6)
-            .center(0, (bb.ymin + bb.ymax) / 2).rect(2 * (x_in + SIDE_T + 8), bb.ylen + 10).extrude(6))
+            .center(0, (y0 + y1) / 2).rect(2 * (x_in + SIDE_T + 8), y1 - y0).extrude(6))
     for sx in (-1, 1):
         x_c = sx * (x_in + SIDE_T / 2)
         base = base.cut(cq.Workplane("XY").workplane(offset=BASE_Z - 3)

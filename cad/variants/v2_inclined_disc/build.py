@@ -191,10 +191,21 @@ def pocket_params(pill_id: str) -> dict:
             # trials). The LENGTH stays snug so a second caplet's tail has nowhere to sit.
             w = math.hypot(W, T) + 2 * FDM
         pocket = "flat notch"
-        # pill lying tangentially against the curved wall: end-cap centres touch R_WALL
-        d_c = math.sqrt((R_WALL - W / 2) ** 2 - ((L - W) / 2) ** 2)
-        r_c = d_c
-        r_in = d_c - W / 2 - (w - W) + FDM
+        if LONG_RADIAL and R_WALL - (L + 2 * FDM) >= RADIAL_MIN_R_IN:
+            # rev 36: the pocket points along the radius. Left alone on the 50° disc a long
+            # pill slides down lengthwise and stops end-on to the wall, so that is the pose
+            # the pocket is cut for (rim-wise pockets missed the last few pills; a cone or a
+            # hub to turn them caused doubles or strut jams). `length` stays the tangential
+            # size and `width` the radial size, as everywhere else in this file.
+            cross = (math.hypot(W, T) if p.kind == "caplet" else W) + 2 * FDM
+            length, w = cross, L + 2 * FDM
+            r_in = R_WALL - w
+            r_c = R_WALL - w / 2
+        else:
+            # pill lying tangentially against the curved wall: end-cap centres touch R_WALL
+            d_c = math.sqrt((R_WALL - W / 2) ** 2 - ((L - W) / 2) ** 2)
+            r_c = d_c
+            r_in = d_c - W / 2 - (w - W) + FDM
         half_ang = math.atan((length / 2) / r_in)
         shape = "oblong"
     t_min = p.thickness - p.tol if p.kind != "capsule" else p.width - p.tol
@@ -221,8 +232,8 @@ def pocket_params(pill_id: str) -> dict:
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
                 trail_chamfer=round(min(2.5, 0.35 * depth), 2) if p.kind in ("caplet", "capsule") else 0.0,
-                hub_r=round(R_WALL - (p.length - p.tol_length) + 2.0, 2) if p.kind in ("caplet", "capsule") else 0.0,
-                hub_h=8.0 if p.kind in ("caplet", "capsule") else 0.0,
+                hub_r=round(R_WALL - (p.length - p.tol_length) + 2.0, 2) if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
+                hub_h=8.0 if (LONG_HUB and p.kind in ("caplet", "capsule")) else 0.0,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
                 cone_h=round(min(20.0, (r_in - CONE_LEDGE - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
@@ -276,6 +287,11 @@ def undercut_at_back(pp: dict) -> float:
 
 RIM_WEB = 1.2
 LONG_DEPTH_FRAC = 0.55
+LONG_RADIAL = True
+RADIAL_MIN_R_IN = 10.0   # a radial pocket must end at least this far from the centre, or its
+                        # exit hole runs into the motor socket (size-0 capsules: 7.7 mm, so
+                        # they keep rim-wise pockets on this 60 mm disc)
+LONG_HUB = False       # rev 35 straight hub: a caplet wedged as a strut between hub and wall
 LONG_CONE = False      # rev 29: the long-pill cone (revs 26-28) is switched off. It oriented the
                        # last few pills but cradled second pills (doubles) and pushed pills onto
                        # the pocket edge at the exit (jams): 21/24 clean at best, against 1 slow

@@ -14,6 +14,8 @@
     "chamfer": 0.0,
     "pocket": "flat notch",
     "trail_chamfer": 1.21,
+    "hub_r": 13.6,
+    "hub_h": 8.0,
     "inner_chamfer": 0.0,
     "closed": false,
     "cone_h": 0.0,

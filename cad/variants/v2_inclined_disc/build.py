@@ -221,6 +221,8 @@ def pocket_params(pill_id: str) -> dict:
                 r_center=round(r_c, 3), r_inner=round(r_in, 3), depth=depth, n=n,
                 pitch_deg=360.0 / n, chamfer=chamfer, pocket=pocket,
                 trail_chamfer=round(min(2.5, 0.35 * depth), 2) if p.kind in ("caplet", "capsule") else 0.0,
+                hub_r=round(R_WALL - (p.length - p.tol_length) + 2.0, 2) if p.kind in ("caplet", "capsule") else 0.0,
+                hub_h=8.0 if p.kind in ("caplet", "capsule") else 0.0,
                 inner_chamfer=inner_chamfer if pocket == "standing slot" else 0.0,
                 closed=bool(p.kind == "tablet" and pocket == "flat notch" and pair_prone(pill_id, w)),
                 cone_h=round(min(20.0, (r_in - CONE_LEDGE - 7.0) * math.tan(math.radians(LONG_CONE_DEG))), 2)
@@ -352,6 +354,16 @@ def make_disc(pp: dict) -> cq.Workplane:
         r_top = r_base - ch / math.tan(math.radians(LONG_CONE_DEG))
         disc = disc.union(cq.Workplane("XY").circle(r_base).workplane(offset=ch)
                           .circle(r_top).loft())
+    if pp.get("hub_r", 0.0) > 0:
+        # rev 35 (long pills): straight-sided central hub with a conical top. The annulus
+        # between hub and wall is narrower than the pill is long, so the last few pills
+        # cannot lie pointing down the slope (misses at 4 loaded). Unlike the rev 26-28
+        # cone it stands well inboard of the pockets, so it forms no V beside a seated pill.
+        hr, hh = pp["hub_r"], pp["hub_h"]
+        hub = cq.Workplane("XY").circle(hr).extrude(hh)
+        top = (cq.Workplane("XY").workplane(offset=hh).circle(hr)
+               .workplane(offset=(hr - 4.0) * math.tan(math.radians(LONG_CONE_DEG))).circle(4.0).loft())
+        disc = disc.union(hub).union(top)
     chamfer = pp.get("chamfer", 0.0)
     for k in range(pp["n"]):
         tool = _extruded_notch(pp, -t - 1, t + 2)
@@ -388,7 +400,8 @@ def make_disc(pp: dict) -> cq.Workplane:
                                               -(ic - g), (ic - g) + 1, grow=0))
         disc = disc.cut(tool.rotate((0, 0, 0), (0, 0, 1), k * pp["pitch_deg"]))
     # D-bore through boss and disc (through the cone too: no blind ceiling to bridge)
-    h_tot = t + max(boss_h, pp.get("cone_h", 0.0))
+    hub_top = (pp["hub_h"] + (pp["hub_r"] - 4.0) * math.tan(math.radians(LONG_CONE_DEG))) if pp.get("hub_r", 0.0) > 0 else 0.0
+    h_tot = t + max(boss_h, pp.get("cone_h", 0.0), hub_top)
     bore = (cq.Workplane("XY").workplane(offset=-t - 1).circle(SHAFT_D / 2 + 0.05)
             .extrude(h_tot + 2))
     flat_cut = (cq.Workplane("XY").workplane(offset=-t - 1)

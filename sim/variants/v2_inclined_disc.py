@@ -17,8 +17,10 @@ B = math.radians(build.BETA)
 CB, SB = math.cos(B), math.sin(B)
 
 
-# Per-pill disc speed while indexing (default 25 rpm).
-RPM = {}
+# Per-pill disc speed while indexing (default 25 rpm). Long pills run at 5 rpm: their
+# pockets are snug in length (0.9 mm slack), so at 25 rpm a caplet lying ready on the pocket
+# track is fully over a passing pocket for ~0.013 s and needs ~0.03 s to drop 3.5 mm.
+RPM = {"caplet": 5.0, "cap0": 5.0}
 
 
 def to_local(x, y, z):

@@ -184,6 +184,12 @@ def pocket_params(pill_id: str) -> dict:
         # (doubles, and a jam once the lead-in chamfer was removed).
         length = L + 2 * FDM
         w = W + 2 * FDM
+        if p.kind == "caplet":
+            # rev 33: width clears the diagonal of the caplet's cross-section. A caplet that
+            # enters standing on end twists in the pocket; in a 9.4 mm wide pocket its
+            # 8.5 x 6.5 section locked diagonally against the hopper wall (jams in 7 of 24
+            # trials). The LENGTH stays snug so a second caplet's tail has nowhere to sit.
+            w = math.hypot(W, T) + 2 * FDM
         pocket = "flat notch"
         # pill lying tangentially against the curved wall: end-cap centres touch R_WALL
         d_c = math.sqrt((R_WALL - W / 2) ** 2 - ((L - W) / 2) ** 2)

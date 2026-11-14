@@ -31,6 +31,32 @@
    "errors": 0
   },
   {
+   "variant": "V0 original (team CAD)",
+   "variant_id": "v0_original",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 0,
+   "cycles": 599,
+   "outcomes": {
+    "miss": 70,
+    "double": 393,
+    "ok": 66,
+    "lost": 48,
+    "jam": 16,
+    "empty": 6
+   },
+   "jam_sites": {
+    "F7 2.35 mm gap under rotor wall (floor liner)": 7,
+    "F1 deck stripping edge (chamfered wedge above rotor, drop side)": 4,
+    "F6 floor-hole edge": 2,
+    "drive overload": 3
+   },
+   "jam_rate_per_trial": 0.08,
+   "anomaly_trials": 41,
+   "unstable_trials": 5,
+   "errors": 0
+  },
+  {
    "variant": "V2 inclined pocket disc",
    "variant_id": "v2_inclined_disc",
    "pill": "iron",

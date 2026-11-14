@@ -14,6 +14,7 @@ re-check rows repeat 50 trials per pill on the final test setup, same geometry.
 | Variant | Pill | Trials | Cycles | OK | Jam | Double | Miss | Lost | Leak | Empty | Trials with a jam | Unstable / anomaly trials | Verdict |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | V0 original (team CAD) | iron | 200 | 475 | 63 | 158 | 35 | 165 | 50 | 0 | 4 | 79.0 % | 6 / 50 | fail |
+| V0 original (team CAD) | small | 200 | 599 | 66 | 16 | 393 | 70 | 48 | 0 | 6 | 8.0 % | 5 / 41 | fail |
 | V2 inclined pocket disc | iron | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc | small | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc (re-check, final test setup) | iron | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
@@ -22,3 +23,4 @@ re-check rows repeat 50 trials per pill on the final test setup, same geometry.
 ## Jam sites
 
 - **V0 original (team CAD) / iron**: F1 deck stripping edge (chamfered wedge above rotor, drop side): 92; F6 floor-hole edge: 36; F1 deck edge above rotor (fill-opening rim): 9; pill-pile (pill wedged between rotor and other pills): 5; F4 brush: 5; drive overload: 4; F3 brush holder bar (pill standing proud of pocket): 4; F1 canister rim above rotor: 3
+- **V0 original (team CAD) / small**: F7 2.35 mm gap under rotor wall (floor liner): 7; F1 deck stripping edge (chamfered wedge above rotor, drop side): 4; drive overload: 3; F6 floor-hole edge: 2

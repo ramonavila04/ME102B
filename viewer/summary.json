@@ -1,6 +1,36 @@
 {
  "rows": [
   {
+   "variant": "V0 original (team CAD)",
+   "variant_id": "v0_original",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 0,
+   "cycles": 475,
+   "outcomes": {
+    "miss": 165,
+    "jam": 158,
+    "ok": 63,
+    "lost": 50,
+    "double": 35,
+    "empty": 4
+   },
+   "jam_sites": {
+    "F1 deck stripping edge (chamfered wedge above rotor, drop side)": 92,
+    "F1 deck edge above rotor (fill-opening rim)": 9,
+    "F1 canister rim above rotor": 3,
+    "F6 floor-hole edge": 36,
+    "pill-pile (pill wedged between rotor and other pills)": 5,
+    "drive overload": 4,
+    "F4 brush": 5,
+    "F3 brush holder bar (pill standing proud of pocket)": 4
+   },
+   "jam_rate_per_trial": 0.79,
+   "anomaly_trials": 50,
+   "unstable_trials": 6,
+   "errors": 0
+  },
+  {
    "variant": "V2 inclined pocket disc",
    "variant_id": "v2_inclined_disc",
    "pill": "iron",

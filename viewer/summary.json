@@ -1,0 +1,68 @@
+{
+ "rows": [
+  {
+   "variant": "V2 inclined pocket disc",
+   "variant_id": "v2_inclined_disc",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
+   "outcomes": {
+    "ok": 600
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "variant_id": "v2_inclined_disc",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
+   "outcomes": {
+    "ok": 600
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 inclined pocket disc (re-check, final test setup)",
+   "variant_id": "v2_inclined_disc_recheck",
+   "pill": "iron",
+   "trials": 50,
+   "passed_trials": 50,
+   "cycles": 150,
+   "outcomes": {
+    "ok": 150
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 inclined pocket disc (re-check, final test setup)",
+   "variant_id": "v2_inclined_disc_recheck",
+   "pill": "small",
+   "trials": 50,
+   "passed_trials": 50,
+   "cycles": 150,
+   "outcomes": {
+    "ok": 150
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  }
+ ]
+}

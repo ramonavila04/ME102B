@@ -290,7 +290,7 @@ td.verdict span { font: 500 11px var(--f-mono); padding: 3px 6px; border-radius:
     const allSites = {};
     s.rows.forEach(r => {
       const o = r.outcomes, cell = (v, good) => `<td class="${v ? "bad" : (good ? "zero" : "")}">${v || 0}</td>`;
-      const fail = (o.jam || 0) + (o.double || 0) + (o.miss || 0) + (o.lost || 0) + (o.leak || 0) + (r.errors || 0) + (r.unstable_trials || 0);
+      const fail = (o.jam || 0) + (o.double || 0) + (o.miss || 0) + (o.lost || 0) + (o.leak || 0) + (o.empty || 0) + (r.errors || 0) + (r.unstable_trials || 0);
       const tr = document.createElement("tr");
       tr.innerHTML = `<td>${r.variant}</td><td>${r.pill}</td><td>${r.trials}</td><td>${r.cycles}</td><td>${o.ok || 0}</td>` +
         cell(o.jam, 1) + cell(o.double, 1) + cell(o.miss, 1) + cell(o.lost, 1) +

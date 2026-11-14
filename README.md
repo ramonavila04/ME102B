@@ -66,6 +66,22 @@ The UI uses the pot to scroll, Select to choose and Back to go back. The menu
 offers: Dispense now, Dose 1 to 3 (in 15-minute steps), Set clock, Re-home and
 Exit.
 
+## Mechanism redesign (start here to build)
+
+The dispensing mechanism was redesigned and tested in a physics simulation:
+
+- **[BUILD.md](BUILD.md)**: what to print, parts list, assembly, firmware and the test to
+  run on the real build. Two kits are cleared to build: iron tablets and small tablets.
+- **[results/COMPARISON.md](results/COMPARISON.md)**: jam, double and miss rates for the
+  original design and each new variant.
+- **`viewer/`**: 3-D replays of recorded simulation trials. Serve the folder and open it:
+  `python -m http.server -d viewer 8000`, then http://localhost:8000.
+- **[PLAN.md](PLAN.md)** and **[ASSUMPTIONS.md](ASSUMPTIONS.md)**: the plan, and every gap
+  and guess behind the numbers.
+- `cad/variants/<variant>/build.py`: parametric CadQuery source for each variant;
+  `cad/check_printability.py` checks walls, clearances and overhangs.
+- `sim/`: the MuJoCo simulator (`python -m sim.campaign <variant> --trials 200`).
+
 ## Project layout
 
 - `include/pins.h`: the single system pin map for the original HUZZAH32.

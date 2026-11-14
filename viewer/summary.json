@@ -79,6 +79,26 @@
    "errors": 0
   },
   {
+   "variant": "V1 fixed rotor (minimal fix)",
+   "variant_id": "v1_fixed_rotor",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 136,
+   "cycles": 498,
+   "outcomes": {
+    "jam": 62,
+    "ok": 434,
+    "lost": 2
+   },
+   "jam_sites": {
+    "deck stripping edge (fill -> covered)": 62
+   },
+   "jam_rate_per_trial": 0.31,
+   "anomaly_trials": 1,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
    "variant": "V2 inclined pocket disc",
    "variant_id": "v2_inclined_disc",
    "pill": "iron",

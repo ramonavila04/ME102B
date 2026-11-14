@@ -1,0 +1,8165 @@
+{
+ "variant": "v1_fixed_rotor",
+ "pill": "small",
+ "summary": {
+  "trials": 200,
+  "passed_trials": 136,
+  "cycles": 498,
+  "outcomes": {
+   "jam": 62,
+   "ok": 434,
+   "lost": 2
+  },
+  "jam_sites": {
+   "deck stripping edge (fill -> covered)": 62
+  },
+  "jam_rate_per_trial": 0.31,
+  "anomaly_trials": 1,
+  "unstable_trials": 0,
+  "errors": 0
+ },
+ "trials": [
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1000,
+   "fill": 8,
+   "mu_part": 0.4632754329215391,
+   "mu_pill": 0.4066924087212669,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.38375000000011394,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.91,
+      -5.65,
+      1.18
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.22004246711731,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.686,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1001,
+   "fill": 28,
+   "mu_part": 0.24496612619475144,
+   "mu_pill": 0.3028690032729717,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.518750000001501,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.76,
+      -6.1,
+      1.24
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 53.03206253051758,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.681,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1002,
+   "fill": 19,
+   "mu_part": 0.5849377610748124,
+   "mu_pill": 0.5926252455107484,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 66.27553486824036,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.202,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1003,
+   "fill": 11,
+   "mu_part": 0.4645707621914813,
+   "mu_pill": 0.40257085881802024,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 56.17056465148926,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.247,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1004,
+   "fill": 23,
+   "mu_part": 0.3763824754615019,
+   "mu_pill": 0.4253724257020769,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 43.411343574523926,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.785,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1005,
+   "fill": 15,
+   "mu_part": 0.5882689821234863,
+   "mu_pill": 0.31103482231716095,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3754999999959514,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2503749999986695,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.10687065124512,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.522,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1006,
+   "fill": 17,
+   "mu_part": 0.33578832405473724,
+   "mu_pill": 0.5666719336305641,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.693056344985962,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.24,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1007,
+   "fill": 4,
+   "mu_part": 0.5177761140185708,
+   "mu_pill": 0.5032147590568734,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.4614999999965939,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.7,
+      -5.95,
+      1.23
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.846903324127197,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.386,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1008,
+   "fill": 12,
+   "mu_part": 0.33940934600634237,
+   "mu_pill": 0.20101054843674807,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.28092098236084,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1009,
+   "fill": 23,
+   "mu_part": 0.3480618338290965,
+   "mu_pill": 0.37773585092746287,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 57.897682428359985,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1010,
+   "fill": 22,
+   "mu_part": 0.46093597180138446,
+   "mu_pill": 0.4098199837318869,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22499999999991993,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.84,
+      -8.17,
+      0.83
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.970110893249512,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.408,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1011,
+   "fill": 11,
+   "mu_part": 0.3940005096650784,
+   "mu_pill": 0.4624639836261422,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 35.13031220436096,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.21,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1012,
+   "fill": 23,
+   "mu_part": 0.5027015640935436,
+   "mu_pill": 0.23917935794572728,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.5008749999934246,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 62.90756130218506,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.746,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1013,
+   "fill": 7,
+   "mu_part": 0.4084963511580132,
+   "mu_pill": 0.4034720244613827,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.08414363861084,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.706,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1014,
+   "fill": 19,
+   "mu_part": 0.3470133900193657,
+   "mu_pill": 0.2774733111982409,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500749999993329,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 58.02135252952576,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.48,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1015,
+   "fill": 18,
+   "mu_part": 0.4238147341275922,
+   "mu_pill": 0.3283594812385408,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3751250000120354,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 68.43878746032715,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.307,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1016,
+   "fill": 20,
+   "mu_part": 0.5458304218613983,
+   "mu_pill": 0.47863405369555684,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.523750000000267,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.73,
+      -5.96,
+      1.23
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.248078107833862,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.664,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1017,
+   "fill": 30,
+   "mu_part": 0.3665869813734152,
+   "mu_pill": 0.4946317018022352,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2503749999986695,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000053717,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 100.73389506340027,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.164,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1018,
+   "fill": 27,
+   "mu_part": 0.41445485890238637,
+   "mu_pill": 0.48112279932193946,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500625000001419,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2500000000107434,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 114.35531210899353,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.38,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1019,
+   "fill": 12,
+   "mu_part": 0.21308519755940758,
+   "mu_pill": 0.21739144727393767,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.11879849433899,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1020,
+   "fill": 26,
+   "mu_part": 0.3999205560487087,
+   "mu_pill": 0.40402559552925593,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 52.15672707557678,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.112,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1021,
+   "fill": 7,
+   "mu_part": 0.4106889944424447,
+   "mu_pill": 0.42106741492990485,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.70619511604309,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1022,
+   "fill": 27,
+   "mu_part": 0.4624578672790923,
+   "mu_pill": 0.5622733267811103,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.39375000000012617,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.65,
+      -6.2,
+      1.3
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.849409341812134,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.682,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1023,
+   "fill": 10,
+   "mu_part": 0.251133966824038,
+   "mu_pill": 0.3609510497338165,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.525049686431885,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1024,
+   "fill": 18,
+   "mu_part": 0.4024310403905313,
+   "mu_pill": 0.42686293242632434,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 37.47976493835449,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1025,
+   "fill": 23,
+   "mu_part": 0.5963900714603216,
+   "mu_pill": 0.5749083429068071,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.375624999996047,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000053717,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 73.2738037109375,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.021,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1026,
+   "fill": 20,
+   "mu_part": 0.4970215856302103,
+   "mu_pill": 0.5444984591211128,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3757499999921325,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2501250000066637,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 61.772491216659546,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.269,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1027,
+   "fill": 20,
+   "mu_part": 0.3661829362931589,
+   "mu_pill": 0.4187961673443579,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 48.36174941062927,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.093,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1028,
+   "fill": 19,
+   "mu_part": 0.2065854580053332,
+   "mu_pill": 0.42278348915868613,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.1786847114563,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1029,
+   "fill": 18,
+   "mu_part": 0.3106737404025139,
+   "mu_pill": 0.2988483987504739,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22999999999992604,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.29,
+      -9.01,
+      1.3
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.590978145599365,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.411,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1030,
+   "fill": 13,
+   "mu_part": 0.5602393152338372,
+   "mu_pill": 0.4583511118205919,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.543508529663086,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.115,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1031,
+   "fill": 28,
+   "mu_part": 0.5918091307176385,
+   "mu_pill": 0.3528542616575014,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 66.81837749481201,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.255,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1032,
+   "fill": 14,
+   "mu_part": 0.5446555259643568,
+   "mu_pill": 0.533361288592722,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.650727033615112,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.302,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1033,
+   "fill": 19,
+   "mu_part": 0.2842777128413184,
+   "mu_pill": 0.540020431420237,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 33.06914138793945,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1034,
+   "fill": 19,
+   "mu_part": 0.5703918436087132,
+   "mu_pill": 0.5948393728190309,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2687499999999734,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.95,
+      -7.05,
+      0.17
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.699989795684814,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.724,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1035,
+   "fill": 8,
+   "mu_part": 0.5274422389093287,
+   "mu_pill": 0.2967274278357114,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.40629482269287,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.332,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1036,
+   "fill": 13,
+   "mu_part": 0.3891939499689442,
+   "mu_pill": 0.36059337586812445,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.20249999999989243,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.51,
+      -9.18,
+      1.04
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 7.896516799926758,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.48,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1037,
+   "fill": 14,
+   "mu_part": 0.50870067807746,
+   "mu_pill": 0.2548391730347446,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.749594688415527,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.766,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1038,
+   "fill": 15,
+   "mu_part": 0.5829590697025563,
+   "mu_pill": 0.34742813603168055,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.38500000000011547,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.65,
+      -6.45,
+      1.36
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 8.738109350204468,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.638,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1039,
+   "fill": 17,
+   "mu_part": 0.41172932908791665,
+   "mu_pill": 0.2185401574160647,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.39250000000012464,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.45,
+      -4.82,
+      0.89
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.265398263931274,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.697,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1040,
+   "fill": 11,
+   "mu_part": 0.4996614966147052,
+   "mu_pill": 0.5355803668728533,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.375624999996047,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.499311923980713,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.119,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1041,
+   "fill": 27,
+   "mu_part": 0.21174763450510273,
+   "mu_pill": 0.5194185670530469,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 45.62976026535034,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1042,
+   "fill": 24,
+   "mu_part": 0.283039977260909,
+   "mu_pill": 0.2045127882053946,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 43.656296491622925,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1043,
+   "fill": 21,
+   "mu_part": 0.21034961607696645,
+   "mu_pill": 0.20831023733595028,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 40.79099464416504,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1044,
+   "fill": 10,
+   "mu_part": 0.4826858133495894,
+   "mu_pill": 0.32797441559967083,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.948396682739258,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.277,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1045,
+   "fill": 22,
+   "mu_part": 0.469508793850907,
+   "mu_pill": 0.561691167014975,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 53.33362078666687,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.313,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1046,
+   "fill": 3,
+   "mu_part": 0.44117291639413747,
+   "mu_pill": 0.5549846824808171,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.3412500000012841,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.61,
+      -9.38,
+      1.05
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 6.829909563064575,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.418,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1047,
+   "fill": 6,
+   "mu_part": 0.22220394110132743,
+   "mu_pill": 0.4339067711245851,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.403278350830078,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1048,
+   "fill": 23,
+   "mu_part": 0.5929528305678562,
+   "mu_pill": 0.2132616319580529,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2501250000066637,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 80.69934272766113,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.401,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1049,
+   "fill": 29,
+   "mu_part": 0.39361693119354024,
+   "mu_pill": 0.222415416510224,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.39625000000048427,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.06,
+      -5.55,
+      1.15
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 34.06190085411072,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.681,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1050,
+   "fill": 12,
+   "mu_part": 0.5187294884166074,
+   "mu_pill": 0.3833318260826416,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2501250000066637,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.67577505111694,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.715,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1051,
+   "fill": 5,
+   "mu_part": 0.5854684359326896,
+   "mu_pill": 0.5192917373614994,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500625000001419,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.124407529830933,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.665,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1052,
+   "fill": 20,
+   "mu_part": 0.4128942203454078,
+   "mu_pill": 0.38196926929746094,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3757499999921325,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 53.904916524887085,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1053,
+   "fill": 11,
+   "mu_part": 0.28452489600661546,
+   "mu_pill": 0.39896636867275637,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.195657968521118,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1054,
+   "fill": 11,
+   "mu_part": 0.2412463894642634,
+   "mu_pill": 0.2828839589466408,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.59547734260559,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1055,
+   "fill": 15,
+   "mu_part": 0.2751791385722926,
+   "mu_pill": 0.4911455682975868,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23374999999993062,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.36,
+      -7.57,
+      1.39
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.449817657470703,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.592,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1056,
+   "fill": 21,
+   "mu_part": 0.3863975536122166,
+   "mu_pill": 0.20125054458562378,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.09963774681091,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1057,
+   "fill": 26,
+   "mu_part": 0.4325992298075959,
+   "mu_pill": 0.312217244911755,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 63.94900846481323,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.151,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1058,
+   "fill": 30,
+   "mu_part": 0.41362666081181854,
+   "mu_pill": 0.3863428623969394,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.5150000000014965,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.88,
+      -5.76,
+      1.2
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.72292685508728,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.666,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1059,
+   "fill": 20,
+   "mu_part": 0.3976388615196675,
+   "mu_pill": 0.2329251596043682,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 33.39169502258301,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1060,
+   "fill": 5,
+   "mu_part": 0.39682911058277126,
+   "mu_pill": 0.5814912779185837,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3912500000001231,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.85,
+      -5.81,
+      1.2
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 5.483457088470459,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.667,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1061,
+   "fill": 30,
+   "mu_part": 0.2252371893147892,
+   "mu_pill": 0.5977998788526445,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 51.6158561706543,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1062,
+   "fill": 26,
+   "mu_part": 0.22176687124920919,
+   "mu_pill": 0.4957093253509591,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3754999999959514,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 63.74324655532837,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1063,
+   "fill": 14,
+   "mu_part": 0.5743737449909522,
+   "mu_pill": 0.381541813838119,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.59497046470642,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.853,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1064,
+   "fill": 25,
+   "mu_part": 0.5980727297770517,
+   "mu_pill": 0.3250164141372895,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23124999999992757,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.86,
+      -8.27,
+      1.13
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.013837814331055,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.431,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1065,
+   "fill": 28,
+   "mu_part": 0.3139745498990473,
+   "mu_pill": 0.44126489521575535,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 72.1347119808197,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.243,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1066,
+   "fill": 29,
+   "mu_part": 0.49822876665858745,
+   "mu_pill": 0.42422833811943556,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 48.92319941520691,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1067,
+   "fill": 4,
+   "mu_part": 0.41483757532713017,
+   "mu_pill": 0.29651612797374244,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.01999592781067,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1068,
+   "fill": 5,
+   "mu_part": 0.21467917934377595,
+   "mu_pill": 0.5967722346723834,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23375000000028567,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.56,
+      -9.4,
+      1.15
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 8.390605449676514,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.519,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1069,
+   "fill": 18,
+   "mu_part": 0.5966173556378609,
+   "mu_pill": 0.4405180241217568,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3912500000001231,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.77,
+      -6.01,
+      1.23
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.04108738899231,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.62,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1070,
+   "fill": 6,
+   "mu_part": 0.3103123099592654,
+   "mu_pill": 0.3082099366750636,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.768423080444336,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.195,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1071,
+   "fill": 23,
+   "mu_part": 0.3372475956085396,
+   "mu_pill": 0.5623722296674942,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 45.76316714286804,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.031,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1072,
+   "fill": 24,
+   "mu_part": 0.32698702803538565,
+   "mu_pill": 0.45339958368123995,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 45.51076555252075,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1073,
+   "fill": 15,
+   "mu_part": 0.49333957108463994,
+   "mu_pill": 0.5907471290946815,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.050623655319214,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.232,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1074,
+   "fill": 17,
+   "mu_part": 0.2776226227828644,
+   "mu_pill": 0.5162872782592924,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.38875000000012006,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.77,
+      -5.87,
+      1.21
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.656432867050171,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.634,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1075,
+   "fill": 28,
+   "mu_part": 0.42795394421619815,
+   "mu_pill": 0.2966717777141672,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.5008749999934246,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2500000000107434,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 106.59135508537292,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.786,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1076,
+   "fill": 16,
+   "mu_part": 0.3831228493979527,
+   "mu_pill": 0.2785381521935301,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.40625000000014144,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.92,
+      -5.65,
+      1.19
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.609774351119995,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.69,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1077,
+   "fill": 23,
+   "mu_part": 0.4175460222137337,
+   "mu_pill": 0.4600508084810067,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3875000000001185,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.88,
+      -5.71,
+      1.17
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.131430864334106,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.649,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1078,
+   "fill": 27,
+   "mu_part": 0.5262174546173533,
+   "mu_pill": 0.47156649786189386,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.4137500000001506,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.9,
+      -5.62,
+      1.15
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.301126718521118,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.624,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1079,
+   "fill": 5,
+   "mu_part": 0.35445609782480325,
+   "mu_pill": 0.5887646961082771,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.885637044906616,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.074,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1080,
+   "fill": 20,
+   "mu_part": 0.23019956978227707,
+   "mu_pill": 0.4093557420679476,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.08698868751526,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.062,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1081,
+   "fill": 19,
+   "mu_part": 0.5798800904458858,
+   "mu_pill": 0.38466997032598627,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2503749999986695,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000053717,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 64.74376773834229,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.796,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1082,
+   "fill": 19,
+   "mu_part": 0.4831984126829349,
+   "mu_pill": 0.2292351845979857,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.32205057144165,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.025,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1083,
+   "fill": 17,
+   "mu_part": 0.410674817526954,
+   "mu_pill": 0.34977066276862295,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.026326656341553,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1084,
+   "fill": 9,
+   "mu_part": 0.48026687299439313,
+   "mu_pill": 0.5050801623783561,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.35418701171875,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.085,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1085,
+   "fill": 18,
+   "mu_part": 0.4112775531743549,
+   "mu_pill": 0.21445850719821205,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3754999999959514,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3753750000040412,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 58.584696531295776,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.698,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1086,
+   "fill": 23,
+   "mu_part": 0.5176150071788885,
+   "mu_pill": 0.48023068691512766,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3987500000001323,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.88,
+      -5.82,
+      1.21
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.528813362121582,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.683,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1087,
+   "fill": 16,
+   "mu_part": 0.38011083432456805,
+   "mu_pill": 0.4987679650431681,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 33.08712887763977,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.036,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1088,
+   "fill": 5,
+   "mu_part": 0.5742861387934758,
+   "mu_pill": 0.426929183106502,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.342208623886108,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.361,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1089,
+   "fill": 8,
+   "mu_part": 0.48229802364090557,
+   "mu_pill": 0.330796132099499,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.60506534576416,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.228,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1090,
+   "fill": 11,
+   "mu_part": 0.23453668366006608,
+   "mu_pill": 0.4679244181671664,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.216469049453735,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.022,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1091,
+   "fill": 19,
+   "mu_part": 0.21477606521651738,
+   "mu_pill": 0.2955530921281562,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 43.143534421920776,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.636,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1092,
+   "fill": 30,
+   "mu_part": 0.46996613806534776,
+   "mu_pill": 0.22894020203681398,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.3839999999967745,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.71,
+      -7.11,
+      0.19
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 79.25580835342407,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.659,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1093,
+   "fill": 27,
+   "mu_part": 0.5655409065621044,
+   "mu_pill": 0.2887558170843036,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.62562500000679,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000053717,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 112.92287588119507,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.716,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1094,
+   "fill": 22,
+   "mu_part": 0.4883083207424137,
+   "mu_pill": 0.49299659219339126,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3751250000120354,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 77.17550039291382,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.205,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1095,
+   "fill": 3,
+   "mu_part": 0.32673915781880847,
+   "mu_pill": 0.3832771883345696,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.625874999994621,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000053717,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.495089769363403,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1096,
+   "fill": 18,
+   "mu_part": 0.32088793662831455,
+   "mu_pill": 0.5708675823567153,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.39750000000013075,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.85,
+      -4.17,
+      0.76
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.713152170181274,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.591,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1097,
+   "fill": 5,
+   "mu_part": 0.5102104181835225,
+   "mu_pill": 0.3724637503984357,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.40999999999904446,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      14.06,
+      -3.74,
+      0.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.109272718429565,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.603,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1098,
+   "fill": 17,
+   "mu_part": 0.24788392968200168,
+   "mu_pill": 0.20903128632231394,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.832579612731934,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1099,
+   "fill": 9,
+   "mu_part": 0.35883328370975587,
+   "mu_pill": 0.4066886820768322,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.5050000000014843,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.63,
+      -6.05,
+      1.41
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 10.74378514289856,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.6,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1100,
+   "fill": 16,
+   "mu_part": 0.2503266405732491,
+   "mu_pill": 0.31158499163929165,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.09952139854431,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1101,
+   "fill": 9,
+   "mu_part": 0.4468490716554976,
+   "mu_pill": 0.29146020960711805,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.83768391609192,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.177,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1102,
+   "fill": 13,
+   "mu_part": 0.3193658239631458,
+   "mu_pill": 0.33689908804171925,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.016621828079224,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1103,
+   "fill": 14,
+   "mu_part": 0.22177247414758505,
+   "mu_pill": 0.28999774763389896,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.84202551841736,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1104,
+   "fill": 28,
+   "mu_part": 0.5399078303234395,
+   "mu_pill": 0.5051392882870678,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3754999999959514,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 71.0508062839508,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.094,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1105,
+   "fill": 29,
+   "mu_part": 0.4584859733311357,
+   "mu_pill": 0.5448357304841978,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 50.48312497138977,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.031,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1106,
+   "fill": 11,
+   "mu_part": 0.41805899863105,
+   "mu_pill": 0.21356026607924747,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.39500000000048274,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      14.16,
+      -3.57,
+      0.62
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.351088047027588,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.545,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1107,
+   "fill": 24,
+   "mu_part": 0.30531949789408536,
+   "mu_pill": 0.311361414767774,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.66859030723572,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1108,
+   "fill": 27,
+   "mu_part": 0.47205240619213434,
+   "mu_pill": 0.48023073266300215,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 75.50486350059509,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.257,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1109,
+   "fill": 19,
+   "mu_part": 0.35218875945831457,
+   "mu_pill": 0.5708384635879276,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 44.67629098892212,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.093,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1110,
+   "fill": 23,
+   "mu_part": 0.2534218825279376,
+   "mu_pill": 0.23404026280428078,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 44.98422622680664,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.099,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1111,
+   "fill": 26,
+   "mu_part": 0.2837648557254549,
+   "mu_pill": 0.3330757816824299,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 47.2250599861145,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1112,
+   "fill": 8,
+   "mu_part": 0.5648745682717471,
+   "mu_pill": 0.3794722550264037,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.24749999999994743,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.43,
+      -7.76,
+      1.13
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 5.874504804611206,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.505,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1113,
+   "fill": 25,
+   "mu_part": 0.5304130501914491,
+   "mu_pill": 0.5476048944214782,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 2.653750000001275,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.83,
+      -5.67,
+      1.2
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 33.48167443275452,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.663,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1114,
+   "fill": 8,
+   "mu_part": 0.5778523751371667,
+   "mu_pill": 0.45579687327858043,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22499999999947562,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.49,
+      -7.75,
+      1.19
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.66237473487854,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.607,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1115,
+   "fill": 3,
+   "mu_part": 0.4492675978882782,
+   "mu_pill": 0.393390733104002,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.1389422416687,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.293,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1116,
+   "fill": 8,
+   "mu_part": 0.46544044966678044,
+   "mu_pill": 0.40340530471612923,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2501250000066637,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.93767285346985,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.464,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1117,
+   "fill": 25,
+   "mu_part": 0.5179558892909892,
+   "mu_pill": 0.2872546625679932,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 59.882585287094116,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.72,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1118,
+   "fill": 29,
+   "mu_part": 0.583310325307564,
+   "mu_pill": 0.4674560676859249,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.625874999998796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000053717,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 100.98402810096741,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.832,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1119,
+   "fill": 27,
+   "mu_part": 0.3985749904512527,
+   "mu_pill": 0.30526749430913935,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.535249999996422,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.11,
+      -5.23,
+      1.08
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 48.30517792701721,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.643,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1120,
+   "fill": 20,
+   "mu_part": 0.5563323959342839,
+   "mu_pill": 0.24893285135332005,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3900000000001216,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.72,
+      -6.03,
+      1.24
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.209702730178833,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.638,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1121,
+   "fill": 9,
+   "mu_part": 0.5194201358458487,
+   "mu_pill": 0.37997051208931587,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3812500000001109,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.66,
+      -6.15,
+      1.32
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 6.788996696472168,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.669,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1122,
+   "fill": 25,
+   "mu_part": 0.27947980619610335,
+   "mu_pill": 0.3121958631593039,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 53.226200103759766,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.212,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1123,
+   "fill": 10,
+   "mu_part": 0.22518980163891886,
+   "mu_pill": 0.5988590665514733,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2503749999986695,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000053717,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.109215259552,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.762,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1124,
+   "fill": 27,
+   "mu_part": 0.5786689014462819,
+   "mu_pill": 0.31627124166463544,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 69.56943535804749,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.063,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1125,
+   "fill": 19,
+   "mu_part": 0.4468763783557687,
+   "mu_pill": 0.33497453822528206,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.4037500000001384,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.65,
+      -6.3,
+      1.28
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.713803768157959,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.625,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1126,
+   "fill": 9,
+   "mu_part": 0.3248989264402421,
+   "mu_pill": 0.5258516360494594,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.40750000000014297,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.22,
+      -5.13,
+      1.04
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 7.254094362258911,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.654,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1127,
+   "fill": 6,
+   "mu_part": 0.5809718757222224,
+   "mu_pill": 0.3315148261720126,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.950546979904175,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1128,
+   "fill": 19,
+   "mu_part": 0.4690413243736541,
+   "mu_pill": 0.474134752614182,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3754999999959514,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 43.236109256744385,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.142,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1129,
+   "fill": 26,
+   "mu_part": 0.27118255849536194,
+   "mu_pill": 0.21622015775240322,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 67.04608941078186,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.097,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1130,
+   "fill": 19,
+   "mu_part": 0.42929495480619695,
+   "mu_pill": 0.26499833653472027,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500749999993329,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 54.09995222091675,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.675,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1131,
+   "fill": 13,
+   "mu_part": 0.2679750442212297,
+   "mu_pill": 0.24616082137543926,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.54478693008423,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1132,
+   "fill": 26,
+   "mu_part": 0.5894085448061699,
+   "mu_pill": 0.40871145090393624,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2501250000066637,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 85.3170919418335,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.205,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1133,
+   "fill": 29,
+   "mu_part": 0.3647489290272993,
+   "mu_pill": 0.3284691511487349,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 61.726985692977905,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.327,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1134,
+   "fill": 22,
+   "mu_part": 0.4116837461195263,
+   "mu_pill": 0.44108310234929266,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.87819790840149,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1135,
+   "fill": 27,
+   "mu_part": 0.5251787298478234,
+   "mu_pill": 0.5931364416139444,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 66.13388538360596,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.683,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1136,
+   "fill": 16,
+   "mu_part": 0.4149392132206551,
+   "mu_pill": 0.34483466049406775,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.518415689468384,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1137,
+   "fill": 26,
+   "mu_part": 0.4237081933047488,
+   "mu_pill": 0.30464590153965476,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3754999999959514,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2503749999986695,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 73.63846158981323,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.448,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1138,
+   "fill": 14,
+   "mu_part": 0.21305572856203173,
+   "mu_pill": 0.2167948827851868,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.419508695602417,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1139,
+   "fill": 11,
+   "mu_part": 0.4944844772176698,
+   "mu_pill": 0.5631414552544802,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3753750000040412,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.749359369277954,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.754,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1140,
+   "fill": 26,
+   "mu_part": 0.4453861309575785,
+   "mu_pill": 0.4855412105664945,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.38000000000010936,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.14,
+      -5.24,
+      1.1
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.00084090232849,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.745,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1141,
+   "fill": 23,
+   "mu_part": 0.35684797428809845,
+   "mu_pill": 0.4105475940390594,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 46.6076557636261,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1142,
+   "fill": 9,
+   "mu_part": 0.2340922165673156,
+   "mu_pill": 0.2257753866427882,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.823666095733643,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.73,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1143,
+   "fill": 11,
+   "mu_part": 0.3270297165255081,
+   "mu_pill": 0.5401667441253828,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.591681957244873,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.063,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1144,
+   "fill": 15,
+   "mu_part": 0.506379263337069,
+   "mu_pill": 0.42607577890129034,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.38000000000010936,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.89,
+      -5.66,
+      1.16
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 9.548304557800293,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.657,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1145,
+   "fill": 6,
+   "mu_part": 0.22963957127110543,
+   "mu_pill": 0.3158516912839244,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.703609466552734,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1146,
+   "fill": 7,
+   "mu_part": 0.2443545295592364,
+   "mu_pill": 0.31071043150017463,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.71981406211853,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1147,
+   "fill": 10,
+   "mu_part": 0.5830824705643414,
+   "mu_pill": 0.4212236773777057,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 3.375624999996047,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.857412338256836,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.502,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1148,
+   "fill": 3,
+   "mu_part": 0.5834805643998606,
+   "mu_pill": 0.45191176435077984,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3900000000001216,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      14.19,
+      -3.58,
+      0.59
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 5.115509033203125,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.597,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1149,
+   "fill": 30,
+   "mu_part": 0.3047011905027933,
+   "mu_pill": 0.3399323298396312,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 65.68697881698608,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.023,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1150,
+   "fill": 28,
+   "mu_part": 0.39660128821756824,
+   "mu_pill": 0.4248017512393398,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.21875000000026734,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.55,
+      -8.04,
+      1.18
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.787360429763794,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.471,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1151,
+   "fill": 22,
+   "mu_part": 0.4786022605856557,
+   "mu_pill": 0.5671359499224748,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.535000000001521,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.88,
+      -5.83,
+      1.22
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.62066626548767,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.692,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1152,
+   "fill": 26,
+   "mu_part": 0.5216772503803613,
+   "mu_pill": 0.4916748984664431,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 69.32091951370239,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.107,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1153,
+   "fill": 3,
+   "mu_part": 0.4120273831443816,
+   "mu_pill": 0.4865066860386549,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.5100000000014904,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.17,
+      -5.44,
+      1.1
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 6.841076612472534,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.66,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1154,
+   "fill": 7,
+   "mu_part": 0.4999797016726462,
+   "mu_pill": 0.2756764828948325,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3753750000040412,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.536097288131714,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.819,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1155,
+   "fill": 13,
+   "mu_part": 0.5238684924117805,
+   "mu_pill": 0.3560872501801164,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500749999993329,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.691946506500244,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.359,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1156,
+   "fill": 10,
+   "mu_part": 0.2181595827712145,
+   "mu_pill": 0.304419471649216,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.160369157791138,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1157,
+   "fill": 11,
+   "mu_part": 0.5262740802580621,
+   "mu_pill": 0.2802403424840657,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22499999999991993,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.77,
+      -8.3,
+      1.31
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 8.235503196716309,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.404,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1158,
+   "fill": 21,
+   "mu_part": 0.5378453820917871,
+   "mu_pill": 0.3947180410832849,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.954479455947876,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.13,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1159,
+   "fill": 14,
+   "mu_part": 0.3338340088318326,
+   "mu_pill": 0.29027073492511657,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.01895570755005,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1160,
+   "fill": 13,
+   "mu_part": 0.5378091836925445,
+   "mu_pill": 0.4588177722287717,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.209030628204346,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1161,
+   "fill": 13,
+   "mu_part": 0.5151172313992842,
+   "mu_pill": 0.2525389956144743,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.931801795959473,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.71,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1162,
+   "fill": 30,
+   "mu_part": 0.4525254458441825,
+   "mu_pill": 0.2423965526429452,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 79.2288122177124,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.364,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1163,
+   "fill": 20,
+   "mu_part": 0.29056176515578697,
+   "mu_pill": 0.4374407962167868,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3987500000004873,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.88,
+      -4.35,
+      0.72
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.492942571640015,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.706,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1164,
+   "fill": 10,
+   "mu_part": 0.5610494423691308,
+   "mu_pill": 0.37850167615694663,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.3950000000001277,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.87,
+      -5.8,
+      1.2
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 7.990580797195435,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.645,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1165,
+   "fill": 22,
+   "mu_part": 0.38230647587482236,
+   "mu_pill": 0.29898441217313804,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.4162500000005087,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.8,
+      -5.86,
+      1.18
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.08749771118164,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.592,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1166,
+   "fill": 4,
+   "mu_part": 0.3826556508750828,
+   "mu_pill": 0.3677392055436711,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.4000000000001338,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.73,
+      -6.22,
+      1.28
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 5.716044187545776,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.653,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1167,
+   "fill": 15,
+   "mu_part": 0.3016354425737665,
+   "mu_pill": 0.5670396339802266,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.83550763130188,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.2,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1168,
+   "fill": 13,
+   "mu_part": 0.5384742250616794,
+   "mu_pill": 0.39289802320719835,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.41625000000015366,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.27,
+      -5.18,
+      1.06
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 10.722015857696533,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.67,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1169,
+   "fill": 28,
+   "mu_part": 0.39366512694467815,
+   "mu_pill": 0.2843208021431719,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.38249999999910855,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.72,
+      -5.89,
+      1.3
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 40.398937940597534,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.706,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1170,
+   "fill": 19,
+   "mu_part": 0.4707010736064959,
+   "mu_pill": 0.4831855839377495,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2374999999999352,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.85,
+      -8.39,
+      1.11
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.34743857383728,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.396,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1171,
+   "fill": 28,
+   "mu_part": 0.4316061922184091,
+   "mu_pill": 0.5113054340954413,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.4037500000001384,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.71,
+      -6.38,
+      1.31
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.26250958442688,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.684,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1172,
+   "fill": 30,
+   "mu_part": 0.3946526934052921,
+   "mu_pill": 0.21894576723413373,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23124999999992757,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.44,
+      -7.76,
+      1.53
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.33630681037903,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.575,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1173,
+   "fill": 8,
+   "mu_part": 0.24634120713868934,
+   "mu_pill": 0.3576550391940433,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.293084383010864,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1174,
+   "fill": 22,
+   "mu_part": 0.3616688216652225,
+   "mu_pill": 0.2656992687387799,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 57.57414937019348,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.4,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1175,
+   "fill": 18,
+   "mu_part": 0.5349302207074914,
+   "mu_pill": 0.5897616287578646,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.62039303779602,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.468,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1176,
+   "fill": 15,
+   "mu_part": 0.49701262282987707,
+   "mu_pill": 0.47859112163668016,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.176315784454346,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1177,
+   "fill": 20,
+   "mu_part": 0.4925110156014388,
+   "mu_pill": 0.2682297023875687,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 35.667768478393555,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.496,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1178,
+   "fill": 14,
+   "mu_part": 0.30646987365715556,
+   "mu_pill": 0.5064260718906012,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.238039255142212,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.047,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1179,
+   "fill": 15,
+   "mu_part": 0.3175072150162353,
+   "mu_pill": 0.3738927847092305,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.4449462890625,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1180,
+   "fill": 13,
+   "mu_part": 0.4369937900914137,
+   "mu_pill": 0.2696139162712741,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.854617834091187,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1181,
+   "fill": 25,
+   "mu_part": 0.45458902376501203,
+   "mu_pill": 0.41554773386987265,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 2.4562500000017353,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.53,
+      -9.49,
+      1.57
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 37.27245116233826,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.693,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1182,
+   "fill": 16,
+   "mu_part": 0.5698023691875811,
+   "mu_pill": 0.472028556483956,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.4600000000014293,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.66,
+      -6.04,
+      1.36
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.164395809173584,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.542,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1183,
+   "fill": 7,
+   "mu_part": 0.30156411404057115,
+   "mu_pill": 0.3731895546881624,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2174999999994931,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.5,
+      -9.08,
+      1.07
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.403368711471558,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.387,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1184,
+   "fill": 4,
+   "mu_part": 0.5797829966291361,
+   "mu_pill": 0.4924155470706529,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.335249999996888,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.55,
+      -9.37,
+      1.1
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.742696046829224,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.411,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1185,
+   "fill": 23,
+   "mu_part": 0.2725729942949838,
+   "mu_pill": 0.37537251191224397,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 43.9910831451416,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.189,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1186,
+   "fill": 24,
+   "mu_part": 0.3154092362982869,
+   "mu_pill": 0.3698201271343184,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.39125000000047816,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      13.01,
+      -5.61,
+      1.17
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.858054876327515,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.704,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1187,
+   "fill": 6,
+   "mu_part": 0.44126717983574254,
+   "mu_pill": 0.32076877701229833,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.38500000000011547,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.73,
+      -6.11,
+      1.25
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 6.974578857421875,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.628,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1188,
+   "fill": 12,
+   "mu_part": 0.3208967117866209,
+   "mu_pill": 0.5477730812760171,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250499999994755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2503749999986695,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.956361293792725,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.78,
+   "passed": false,
+   "anomalies": 8,
+   "first_anomaly": {
+    "t": 2.2164,
+    "pill": 2,
+    "v": 2.96,
+    "pos": [
+     11.8,
+     -8.7,
+     2.4
+    ],
+    "contacts": [],
+    "rotor_w": 1.758,
+    "tau": 0.153
+   }
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1189,
+   "fill": 16,
+   "mu_part": 0.28323638380020527,
+   "mu_pill": 0.4618661565582074,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.435487031936646,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.239,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1190,
+   "fill": 20,
+   "mu_part": 0.5150542192369474,
+   "mu_pill": 0.483832034384907,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.5275000000015118,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.99,
+      -5.55,
+      1.15
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.74602508544922,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.71,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1191,
+   "fill": 5,
+   "mu_part": 0.28628118126485436,
+   "mu_pill": 0.2915518778030246,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.52309799194336,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1192,
+   "fill": 5,
+   "mu_part": 0.4322095760613024,
+   "mu_pill": 0.37738627504626865,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.3752499999995935,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.503692150115967,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.357,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1193,
+   "fill": 30,
+   "mu_part": 0.3613740943167406,
+   "mu_pill": 0.5784267638357936,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22500000000027498,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.45,
+      -7.76,
+      1.09
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.906693696975708,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.447,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1194,
+   "fill": 29,
+   "mu_part": 0.36702046654746434,
+   "mu_pill": 0.4169008669065547,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250249999998574,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 61.58128809928894,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.653,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1195,
+   "fill": 25,
+   "mu_part": 0.5243983646370858,
+   "mu_pill": 0.47273365143460544,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.6257499999943485,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2501250000066637,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.2500000000107434,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 94.78326630592346,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.739,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1196,
+   "fill": 20,
+   "mu_part": 0.23637715179223684,
+   "mu_pill": 0.2569860922259998,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500499999996971,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.125125000001292,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 64.33389282226562,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1197,
+   "fill": 3,
+   "mu_part": 0.5191981194254379,
+   "mu_pill": 0.369774885036085,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.250000000002216,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.500625000001419,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.198177576065063,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1198,
+   "fill": 18,
+   "mu_part": 0.4797326082028324,
+   "mu_pill": 0.5323320199084093,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000010199,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1250000000011964,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.1252499999973775,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.79788374900818,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.092,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V1 fixed rotor",
+   "pill": "small",
+   "seed": 1199,
+   "fill": 19,
+   "mu_part": 0.5835062622059185,
+   "mu_pill": 0.556592872982359,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 1.3487500000012933,
+     "jam_site": "deck stripping edge (fill -> covered)",
+     "jam_pos_mm": [
+      12.87,
+      -8.44,
+      1.19
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.44057846069336,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.423,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  }
+ ]
+}

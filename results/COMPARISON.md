@@ -21,6 +21,7 @@ re-check rows repeat 50 trials per pill on the final test setup, same geometry.
 | V2 inclined pocket disc | small | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc (re-check, final test setup) | iron | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc (re-check, final test setup) | small | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
+| V3 reciprocating shuttle | iron | 200 | 392 | 103 | 116 | 0 | 169 | 3 | 0 | 1 | 58.0 % | 0 / 1 | fail |
 
 ## Jam sites
 
@@ -28,3 +29,4 @@ re-check rows repeat 50 trials per pill on the final test setup, same geometry.
 - **V0 original (team CAD) / small**: F7 2.35 mm gap under rotor wall (floor liner): 7; F1 deck stripping edge (chamfered wedge above rotor, drop side): 4; drive overload: 3; F6 floor-hole edge: 2
 - **V1 fixed rotor (minimal fix) / iron**: deck stripping edge (fill -> covered): 105; floor under rotor: 1; pill-pile (pill wedged between rotor and other pills): 1
 - **V1 fixed rotor (minimal fix) / small**: deck stripping edge (fill -> covered): 62
+- **V3 reciprocating shuttle / iron**: throat exit edge (stripper): 108; floor: drop-hole edge: 4; throat entry edge: 2; pill-pile (pill wedged between rotor and other pills): 1; floor under pocket: 1

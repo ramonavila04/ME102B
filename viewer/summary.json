@@ -161,6 +161,32 @@
    "anomaly_trials": 0,
    "unstable_trials": 0,
    "errors": 0
+  },
+  {
+   "variant": "V3 reciprocating shuttle",
+   "variant_id": "v3_shuttle",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 10,
+   "cycles": 392,
+   "outcomes": {
+    "jam": 116,
+    "miss": 169,
+    "ok": 103,
+    "lost": 3,
+    "empty": 1
+   },
+   "jam_sites": {
+    "throat exit edge (stripper)": 108,
+    "throat entry edge": 2,
+    "floor: drop-hole edge": 4,
+    "pill-pile (pill wedged between rotor and other pills)": 1,
+    "floor under pocket": 1
+   },
+   "jam_rate_per_trial": 0.58,
+   "anomaly_trials": 1,
+   "unstable_trials": 0,
+   "errors": 0
   }
  ]
 }

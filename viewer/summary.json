@@ -57,6 +57,28 @@
    "errors": 0
   },
   {
+   "variant": "V1 fixed rotor (minimal fix)",
+   "variant_id": "v1_fixed_rotor",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 92,
+   "cycles": 433,
+   "outcomes": {
+    "ok": 325,
+    "jam": 107,
+    "lost": 1
+   },
+   "jam_sites": {
+    "deck stripping edge (fill -> covered)": 105,
+    "floor under rotor": 1,
+    "pill-pile (pill wedged between rotor and other pills)": 1
+   },
+   "jam_rate_per_trial": 0.535,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
    "variant": "V2 inclined pocket disc",
    "variant_id": "v2_inclined_disc",
    "pill": "iron",

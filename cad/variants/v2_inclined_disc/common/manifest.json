@@ -1,0 +1,73 @@
+{
+  "variant": "v2_inclined_disc",
+  "pill": "common",
+  "parts": [
+    {
+      "name": "cover",
+      "stl": "cover.stl",
+      "step": "cover.step",
+      "print_rotation": [
+        130.0,
+        0,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "clamp",
+      "stl": "clamp.stl",
+      "step": "clamp.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "side_right",
+      "stl": "side_right.stl",
+      "step": "side_right.step",
+      "print_rotation": [
+        0,
+        -90,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "side_left",
+      "stl": "side_left.stl",
+      "step": "side_left.step",
+      "print_rotation": [
+        0,
+        90,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "base",
+      "stl": "base.stl",
+      "step": "base.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "cup",
+      "stl": "cup.stl",
+      "step": "cup.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    }
+  ],
+  "clearances": []
+}

@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <stdio.h>
 
-constexpr uint8_t PIN_BUTTON = Pins::BUTTON;  // MI on ORIGINAL HUZZAH32, not Feather V2.
+constexpr uint8_t PIN_BUTTON = Pins::BUTTON;  // GPIO19 (MI) = system Back button on ORIGINAL HUZZAH32.
 constexpr uint8_t PIN_LED = Pins::LED;
 constexpr uint8_t PIN_AIN1 = Pins::AIN1;
 constexpr uint8_t PIN_AIN2 = Pins::AIN2;
@@ -50,6 +50,10 @@ void ARDUINO_ISR_ATTR encoderISR() {
 }
 
 void setMotor(bool turnOn) {
+#if defined(MOTOR_DRIVER_TB6612)
+ // PWMA is now wired to GPIO21 (was tied to 3.3V): full duty = HIGH.
+ digitalWrite(Pins::PWMA, turnOn ? HIGH : LOW);
+#endif
  digitalWrite(Pins::MOTOR_ENABLE, turnOn ? HIGH : LOW);
  digitalWrite(PIN_AIN2, LOW);
  digitalWrite(PIN_AIN1, turnOn ? HIGH : LOW);
@@ -90,6 +94,10 @@ void reportEncoder() {
 void setup() {
  pinMode(Pins::MOTOR_ENABLE, OUTPUT);
  digitalWrite(Pins::MOTOR_ENABLE, LOW);
+#if defined(MOTOR_DRIVER_TB6612)
+ pinMode(Pins::PWMA, OUTPUT);
+ digitalWrite(Pins::PWMA, LOW);
+#endif
  // Carrier input pull-downs keep outputs off during boot. Register GPIO
  // before digitalWrite: required by the installed Arduino-ESP32 3.x core.
  pinMode(PIN_AIN2, OUTPUT);

@@ -3,3 +3,12 @@
 .vscode/
 __pycache__/
 .DS_Store
+sim/.cache/
+results/**/trace_*.json
+MUJOCO_LOG.TXT
+.claude/
+results/*.log
+results/*_dbg/
+results/*_dev/
+results/**/*.partial.json
+cad/variants/*/.build.lock

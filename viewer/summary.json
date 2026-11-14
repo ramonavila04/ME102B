@@ -1,0 +1,216 @@
+{
+ "rows": [
+  {
+   "variant": "V0 original (team CAD)",
+   "variant_id": "v0_original",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 0,
+   "cycles": 475,
+   "outcomes": {
+    "miss": 165,
+    "jam": 158,
+    "ok": 63,
+    "lost": 50,
+    "double": 35,
+    "empty": 4
+   },
+   "jam_sites": {
+    "F1 deck stripping edge (chamfered wedge above rotor, drop side)": 92,
+    "F1 deck edge above rotor (fill-opening rim)": 9,
+    "F1 canister rim above rotor": 3,
+    "F6 floor-hole edge": 36,
+    "pill-pile (pill wedged between rotor and other pills)": 5,
+    "drive overload": 4,
+    "F4 brush": 5,
+    "F3 brush holder bar (pill standing proud of pocket)": 4
+   },
+   "jam_rate_per_trial": 0.79,
+   "anomaly_trials": 50,
+   "unstable_trials": 6,
+   "errors": 0
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "variant_id": "v0_original",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 0,
+   "cycles": 599,
+   "outcomes": {
+    "miss": 70,
+    "double": 393,
+    "ok": 66,
+    "lost": 48,
+    "jam": 16,
+    "empty": 6
+   },
+   "jam_sites": {
+    "F7 2.35 mm gap under rotor wall (floor liner)": 7,
+    "F1 deck stripping edge (chamfered wedge above rotor, drop side)": 4,
+    "F6 floor-hole edge": 2,
+    "drive overload": 3
+   },
+   "jam_rate_per_trial": 0.08,
+   "anomaly_trials": 41,
+   "unstable_trials": 5,
+   "errors": 0
+  },
+  {
+   "variant": "V1 fixed rotor (minimal fix)",
+   "variant_id": "v1_fixed_rotor",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 92,
+   "cycles": 433,
+   "outcomes": {
+    "ok": 325,
+    "jam": 107,
+    "lost": 1
+   },
+   "jam_sites": {
+    "deck stripping edge (fill -> covered)": 105,
+    "floor under rotor": 1,
+    "pill-pile (pill wedged between rotor and other pills)": 1
+   },
+   "jam_rate_per_trial": 0.535,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V1 fixed rotor (minimal fix)",
+   "variant_id": "v1_fixed_rotor",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 136,
+   "cycles": 498,
+   "outcomes": {
+    "jam": 62,
+    "ok": 434,
+    "lost": 2
+   },
+   "jam_sites": {
+    "deck stripping edge (fill -> covered)": 62
+   },
+   "jam_rate_per_trial": 0.31,
+   "anomaly_trials": 1,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "variant_id": "v2_inclined_disc",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
+   "outcomes": {
+    "ok": 600
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "variant_id": "v2_inclined_disc",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
+   "outcomes": {
+    "ok": 600
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 inclined pocket disc (re-check, final test setup)",
+   "variant_id": "v2_inclined_disc_recheck",
+   "pill": "iron",
+   "trials": 50,
+   "passed_trials": 50,
+   "cycles": 150,
+   "outcomes": {
+    "ok": 150
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 inclined pocket disc (re-check, final test setup)",
+   "variant_id": "v2_inclined_disc_recheck",
+   "pill": "small",
+   "trials": 50,
+   "passed_trials": 50,
+   "cycles": 150,
+   "outcomes": {
+    "ok": 150
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V3 reciprocating shuttle",
+   "variant_id": "v3_shuttle",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 10,
+   "cycles": 392,
+   "outcomes": {
+    "jam": 116,
+    "miss": 169,
+    "ok": 103,
+    "lost": 3,
+    "empty": 1
+   },
+   "jam_sites": {
+    "throat exit edge (stripper)": 108,
+    "throat entry edge": 2,
+    "floor: drop-hole edge": 4,
+    "pill-pile (pill wedged between rotor and other pills)": 1,
+    "floor under pocket": 1
+   },
+   "jam_rate_per_trial": 0.58,
+   "anomaly_trials": 1,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V3 reciprocating shuttle",
+   "variant_id": "v3_shuttle",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 21,
+   "cycles": 449,
+   "outcomes": {
+    "jam": 86,
+    "ok": 155,
+    "miss": 204,
+    "lost": 4
+   },
+   "jam_sites": {
+    "throat exit edge (stripper)": 81,
+    "pill-pile (pill wedged between rotor and other pills)": 2,
+    "drive overload": 2,
+    "floor: drop-hole edge": 1
+   },
+   "jam_rate_per_trial": 0.43,
+   "anomaly_trials": 2,
+   "unstable_trials": 0,
+   "errors": 0
+  }
+ ]
+}

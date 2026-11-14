@@ -5,42 +5,32 @@
   "pill": "iron",
   "seed": 1002,
   "outcomes": [
+   "lost",
    "jam"
   ],
   "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)"
  },
  {
-  "file": "v0_original_iron_1003.json",
+  "file": "v0_original_iron_1005.json",
   "variant": "V0 original (team CAD)",
   "pill": "iron",
-  "seed": 1003,
+  "seed": 1005,
   "outcomes": [
    "miss",
-   "jam"
-  ],
-  "jam_site": "F6 floor-hole edge"
- },
- {
-  "file": "v2_inclined_disc_cap0_1000.json",
-  "variant": "V2 inclined pocket disc",
-  "pill": "cap0",
-  "seed": 1000,
-  "outcomes": [
-   "ok",
-   "ok",
+   "double",
    "ok"
   ],
   "jam_site": null
  },
  {
-  "file": "v2_inclined_disc_caplet_1000.json",
-  "variant": "V2 inclined pocket disc",
-  "pill": "caplet",
-  "seed": 1000,
+  "file": "v0_original_small_1001.json",
+  "variant": "V0 original (team CAD)",
+  "pill": "small",
+  "seed": 1001,
   "outcomes": [
-   "ok",
-   "ok",
-   "ok"
+   "double",
+   "lost",
+   "double"
   ],
   "jam_site": null
  },
@@ -57,10 +47,22 @@
   "jam_site": null
  },
  {
-  "file": "v2_inclined_disc_small_1000.json",
+  "file": "v2_inclined_disc_iron_1007.json",
+  "variant": "V2 inclined pocket disc",
+  "pill": "iron",
+  "seed": 1007,
+  "outcomes": [
+   "ok",
+   "ok",
+   "ok"
+  ],
+  "jam_site": null
+ },
+ {
+  "file": "v2_inclined_disc_small_1002.json",
   "variant": "V2 inclined pocket disc",
   "pill": "small",
-  "seed": 1000,
+  "seed": 1002,
   "outcomes": [
    "ok",
    "ok",

@@ -187,6 +187,30 @@
    "anomaly_trials": 1,
    "unstable_trials": 0,
    "errors": 0
+  },
+  {
+   "variant": "V3 reciprocating shuttle",
+   "variant_id": "v3_shuttle",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 21,
+   "cycles": 449,
+   "outcomes": {
+    "jam": 86,
+    "ok": 155,
+    "miss": 204,
+    "lost": 4
+   },
+   "jam_sites": {
+    "throat exit edge (stripper)": 81,
+    "pill-pile (pill wedged between rotor and other pills)": 2,
+    "drive overload": 2,
+    "floor: drop-hole edge": 1
+   },
+   "jam_rate_per_trial": 0.43,
+   "anomaly_trials": 2,
+   "unstable_trials": 0,
+   "errors": 0
   }
  ]
 }

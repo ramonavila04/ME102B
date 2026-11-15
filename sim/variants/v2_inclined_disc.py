@@ -1,0 +1,146 @@
+"""V2: inclined pocket disc (rim-notch singulator). Geometry from cad/variants/v2_inclined_disc."""
+from __future__ import annotations
+
+import importlib.util
+import json
+import math
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+CAD = ROOT / "cad" / "variants" / "v2_inclined_disc"
+
+_spec = importlib.util.spec_from_file_location("v2_build", CAD / "build.py")
+build = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(build)
+
+B = math.radians(build.BETA)
+CB, SB = math.cos(B), math.sin(B)
+
+
+# Per-pill disc speed while indexing (default 25 rpm). Long pills run at 5 rpm: their
+# pockets are snug in length (0.9 mm slack), so at 25 rpm a caplet lying ready on the pocket
+# track is fully over a passing pocket for ~0.013 s and needs ~0.03 s to drop 3.5 mm.
+RPM = {"caplet": 5.0, "cap0": 5.0}
+
+
+def to_local(x, y, z):
+    """World → disc frame (inverse of rotation about x by BETA)."""
+    return x, CB * y + SB * z, -SB * y + CB * z
+
+
+def to_world(x, y, z):
+    return x, CB * y - SB * z, SB * y + CB * z
+
+
+def _ensure(pill_id: str) -> dict:
+    man = CAD / pill_id / "manifest.json"
+    if not man.exists() or not (CAD / "common" / "manifest.json").exists():
+        build.build(pill_id)
+        build.build_common()
+    return json.loads(man.read_text())
+
+
+def site_namer(part: str, pos):
+    xl, yl, zl = to_local(*pos)
+    ang = math.degrees(math.atan2(yl, xl)) % 360
+    if part.startswith("backplate"):
+        return f"exit hole / back plate (pill at {ang:.0f}°)"
+    if part.startswith("hopper"):
+        return f"hopper wall (pill at {ang:.0f}°)"
+    if part.startswith("cover"):
+        return "cover"
+    return part
+
+
+def spec(pill_id: str) -> dict:
+    man = _ensure(pill_id)
+    pp = man["params"]
+    d = CAD / pill_id
+    c = CAD / "common"
+    zb, _ = build.backplate_z(pp)
+    parts = [
+        dict(name="disc", stl=d / "disc.stl", body="rotor", tol=0.05, rgba="0.95 0.75 0.2 1"),
+        dict(name="backplate", stl=d / "backplate.stl", body="static", tol=0.1),
+        dict(name="hopper", stl=d / "hopper.stl", body="static", tol=0.1),
+        dict(name="cover", stl=c / "cover.stl", body="static", tol=0.2),
+    ]
+    r_in, L = pp["r_inner"], pp["length"]
+    ang0 = math.radians(build.EXIT_ANGLE)
+
+    def exit_fn(x, y, z):
+        xl, yl, zl = to_local(x, y, z)
+        # rotate into the exit-notch frame (notch axis along +x)
+        u = math.cos(ang0) * xl + math.sin(ang0) * yl
+        v = -math.sin(ang0) * xl + math.cos(ang0) * yl
+        inside = (r_in - 4 <= u <= build.R_WALL + 3) and abs(v) <= L / 2 + 4
+        # counted only once the pill has slid out of the end of the duct
+        return inside, zl < zb - build.DUCT_LEN - 2.0
+
+    from sim.pills import PILLS
+    pill_r = PILLS[pill_id].bounding_radius
+
+    H = build.HOPPER_TOP                           # the pour opening (lower half) is at this height
+
+    def accept(x, y, z, r):
+        """Inside the lower half of the hopper, or above the fill opening so that the
+        pill's vertical drop passes through the open lower half (where the user pours)."""
+        xl, yl, zl = to_local(x, y, z)
+        if zl <= H - r - 1.0:
+            r_lim = build.bore_r(math.atan2(yl, xl), zl + r)   # leaning pool-side wall
+            if pp.get("closed"):
+                r_lim = min(r_lim, build.R_WALL - build.RIB_DEPTH)   # rib liner
+            if pp.get("hub_r", 0.0) > 0:                           # keep clear of the central hub
+                hyp = math.hypot(xl, yl)
+                if hyp < pp["hub_r"] + r + 1:
+                    hub_z = pp["hub_h"] + max(0.0, pp["hub_r"] - max(hyp - r - 1, 0.0)) * math.tan(math.radians(build.LONG_CONE_DEG))
+                    if zl < hub_z + r + 1.0:
+                        return False
+            if pp.get("cone_h", 0.0) > 0:                          # keep clear of the disc cone
+                inside = build.cone_base_r(pp) - math.hypot(xl, yl) + r + 1
+                cone_z = min(pp["cone_h"], max(0.0, inside) * math.tan(math.radians(build.LONG_CONE_DEG)))
+                if zl < cone_z + r + 1.0:
+                    return False
+            if pp.get("pocket") == "standing slot":            # keep clear of the disc cone
+                cone_z = build.CONE_H if math.hypot(xl, yl) < pp["r_inner"] + r + 1 else 0.0
+                if zl < cone_z + r + 1.0:
+                    return False
+            floor = build.RIB_BUMP_H if pp.get("ribs", 0) > 0 else 0.0     # clear the agitator ribs
+            return (math.hypot(xl, yl) < r_lim - r - 0.5 and yl < -2 - r * 0.5 and zl > floor + r + 1.0)
+        if zl < H + r + 1.0:
+            # centre within one pill radius of the rim plane: neither test above applies
+            # (projecting such a pill up to the opening once started a caplet 3.7 mm inside
+            # the wall; the solver threw it out and the trial counted it as lost)
+            return False
+        s = (zl - H) / CB                       # world-vertical drop to the opening plane
+        yp = yl - s * SB
+        top_r = build.bore_r(math.atan2(yp, xl), H) - (build.RIB_DEPTH if pp.get("closed") else 0.0)
+        return math.hypot(xl, yp) < top_r - r - 1.0 and yp < build.COVER_Y - 3 - r
+
+    corners = [to_world(xx, yy, zz) for xx in (-31, 31) for yy in (-31, 0) for zz in (0, H)]
+    xs, ys, zs = zip(*corners)
+    zs = list(zs) + [max(zs) + 450]
+    # shrink the sampling box to the region accept() actually allows (the pour column is a
+    # thin tilted crescent; a loose box wastes the engine's placement attempts)
+    import numpy as _np
+    _rng = _np.random.default_rng(12345)
+    _pts = _np.c_[_rng.uniform(min(xs), max(xs), 60000), _rng.uniform(min(ys), max(ys), 60000),
+                  _rng.uniform(min(zs), max(zs), 60000)]
+    _ok = _np.array([accept(px, py, pz, pill_r) for px, py, pz in _pts])
+    _a = _pts[_ok]
+    xs, ys = (_a[:, 0].min() - 1, _a[:, 0].max() + 1), (_a[:, 1].min() - 1, _a[:, 1].max() + 1)
+    fills = {"iron": (3, 20), "small": (3, 30), "caplet": (3, 12), "cap0": (3, 12)}
+    return dict(
+        name="V2 inclined pocket disc",
+        parts=parts,
+        joint=dict(type="hinge", axis=(0.0, -SB, CB), pos=(0, 0, 0)),
+        rotor_mass_kg=0.015,
+        drive=dict(index_deg=pp["pitch_deg"], rpm=RPM.get(pill_id, 25.0), dir=1, accel_s=0.12, settle_s=0.6,
+                   start_deg=0.0, max_steps=max(16, 2 * pp["n"])),  # try 16 pockets (at least two
+                   # revolutions) before reporting empty; a 4-pocket long-pill disc needed 13 once
+        spawn=dict(x=(min(xs), max(xs)), y=(min(ys), max(ys)), z=(min(zs), max(zs)), accept=accept),
+        fill=fills[pill_id],
+        exit=dict(fn=exit_fn),
+        loss_z=-45.0,
+        fill_s=3.8, settle_s=0.6,
+        site_namer=site_namer,
+    )

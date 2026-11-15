@@ -1,0 +1,2219 @@
+{
+ "variant": "v2_inclined_disc",
+ "pill": "small",
+ "summary": {
+  "trials": 50,
+  "passed_trials": 50,
+  "cycles": 150,
+  "outcomes": {
+   "ok": 150
+  },
+  "jam_sites": {},
+  "jam_rate_per_trial": 0.0,
+  "anomaly_trials": 0,
+  "unstable_trials": 0,
+  "errors": 0
+ },
+ "trials": [
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1000,
+   "fill": 8,
+   "mu_part": 0.4632754329215391,
+   "mu_pill": 0.4066924087212669,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.434388875961304,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1001,
+   "fill": 28,
+   "mu_part": 0.24496612619475144,
+   "mu_pill": 0.3028690032729717,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 110.22463178634644,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1002,
+   "fill": 19,
+   "mu_part": 0.5849377610748124,
+   "mu_pill": 0.5926252455107484,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.1008749999987755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 78.80619502067566,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1003,
+   "fill": 11,
+   "mu_part": 0.4645707621914813,
+   "mu_pill": 0.40257085881802024,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.29579424858093,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1004,
+   "fill": 23,
+   "mu_part": 0.3763824754615019,
+   "mu_pill": 0.4253724257020769,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.0607499999928667,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0201250000010385,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 89.23386263847351,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1005,
+   "fill": 15,
+   "mu_part": 0.5882689821234863,
+   "mu_pill": 0.31103482231716095,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 65.55968928337097,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1006,
+   "fill": 17,
+   "mu_part": 0.33578832405473724,
+   "mu_pill": 0.5666719336305641,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.1008749999987755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 75.15183758735657,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1007,
+   "fill": 4,
+   "mu_part": 0.5177761140185708,
+   "mu_pill": 0.5032147590568734,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.060000000014611,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.67182421684265,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1008,
+   "fill": 12,
+   "mu_part": 0.33940934600634237,
+   "mu_pill": 0.20101054843674807,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 50.69665265083313,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1009,
+   "fill": 23,
+   "mu_part": 0.3480618338290965,
+   "mu_pill": 0.37773585092746287,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.060000000014611,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 108.3673415184021,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1010,
+   "fill": 22,
+   "mu_part": 0.46093597180138446,
+   "mu_pill": 0.4098199837318869,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 77.04685115814209,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1011,
+   "fill": 11,
+   "mu_part": 0.3940005096650784,
+   "mu_pill": 0.4624639836261422,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 46.871867656707764,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1012,
+   "fill": 23,
+   "mu_part": 0.5027015640935436,
+   "mu_pill": 0.23917935794572728,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 82.82157135009766,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1013,
+   "fill": 7,
+   "mu_part": 0.4084963511580132,
+   "mu_pill": 0.4034720244613827,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 37.932615756988525,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1014,
+   "fill": 19,
+   "mu_part": 0.3470133900193657,
+   "mu_pill": 0.2774733111982409,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 73.26647353172302,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1015,
+   "fill": 18,
+   "mu_part": 0.4238147341275922,
+   "mu_pill": 0.3283594812385408,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 68.0157117843628,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1016,
+   "fill": 20,
+   "mu_part": 0.5458304218613983,
+   "mu_pill": 0.47863405369555684,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.060000000014611,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 86.24281930923462,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1017,
+   "fill": 30,
+   "mu_part": 0.3665869813734152,
+   "mu_pill": 0.4946317018022352,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 124.56928014755249,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1018,
+   "fill": 27,
+   "mu_part": 0.41445485890238637,
+   "mu_pill": 0.48112279932193946,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 103.48857426643372,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1019,
+   "fill": 12,
+   "mu_part": 0.21308519755940758,
+   "mu_pill": 0.21739144727393767,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 51.466253995895386,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1020,
+   "fill": 26,
+   "mu_part": 0.3999205560487087,
+   "mu_pill": 0.40402559552925593,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 93.72262239456177,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1021,
+   "fill": 7,
+   "mu_part": 0.4106889944424447,
+   "mu_pill": 0.42106741492990485,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 42.41495227813721,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1022,
+   "fill": 27,
+   "mu_part": 0.4624578672790923,
+   "mu_pill": 0.5622733267811103,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 103.43655323982239,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1023,
+   "fill": 10,
+   "mu_part": 0.251133966824038,
+   "mu_pill": 0.3609510497338165,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 44.27918267250061,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1024,
+   "fill": 18,
+   "mu_part": 0.4024310403905313,
+   "mu_pill": 0.42686293242632434,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.1008749999987755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 73.60645389556885,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1025,
+   "fill": 23,
+   "mu_part": 0.5963900714603216,
+   "mu_pill": 0.5749083429068071,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 84.98554825782776,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1026,
+   "fill": 20,
+   "mu_part": 0.4970215856302103,
+   "mu_pill": 0.5444984591211128,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 66.98298954963684,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1027,
+   "fill": 20,
+   "mu_part": 0.3661829362931589,
+   "mu_pill": 0.4187961673443579,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 80.10534000396729,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1028,
+   "fill": 19,
+   "mu_part": 0.2065854580053332,
+   "mu_pill": 0.42278348915868613,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 82.28622484207153,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1029,
+   "fill": 18,
+   "mu_part": 0.3106737404025139,
+   "mu_pill": 0.2988483987504739,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 75.7228467464447,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1030,
+   "fill": 13,
+   "mu_part": 0.5602393152338372,
+   "mu_pill": 0.4583511118205919,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 50.879310846328735,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1031,
+   "fill": 28,
+   "mu_part": 0.5918091307176385,
+   "mu_pill": 0.3528542616575014,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 111.14892339706421,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1032,
+   "fill": 14,
+   "mu_part": 0.5446555259643568,
+   "mu_pill": 0.533361288592722,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.060000000014611,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.060000000014611,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 77.26141405105591,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1033,
+   "fill": 19,
+   "mu_part": 0.2842777128413184,
+   "mu_pill": 0.540020431420237,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 68.19206023216248,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1034,
+   "fill": 19,
+   "mu_part": 0.5703918436087132,
+   "mu_pill": 0.5948393728190309,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.1008749999987755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 73.92464518547058,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1035,
+   "fill": 8,
+   "mu_part": 0.5274422389093287,
+   "mu_pill": 0.2967274278357114,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080000000019481,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.100000000024352,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 61.415956020355225,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1036,
+   "fill": 13,
+   "mu_part": 0.3891939499689442,
+   "mu_pill": 0.36059337586812445,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.1008749999987755,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 55.44401502609253,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1037,
+   "fill": 14,
+   "mu_part": 0.50870067807746,
+   "mu_pill": 0.2548391730347446,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 55.819103717803955,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1038,
+   "fill": 15,
+   "mu_part": 0.5829590697025563,
+   "mu_pill": 0.34742813603168055,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 52.52867412567139,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1039,
+   "fill": 17,
+   "mu_part": 0.41172932908791665,
+   "mu_pill": 0.2185401574160647,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.060000000014611,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 84.6823034286499,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1040,
+   "fill": 11,
+   "mu_part": 0.4996614966147052,
+   "mu_pill": 0.5355803668728533,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 45.03392195701599,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1041,
+   "fill": 27,
+   "mu_part": 0.21174763450510273,
+   "mu_pill": 0.5194185670530469,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 102.44926738739014,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1042,
+   "fill": 24,
+   "mu_part": 0.283039977260909,
+   "mu_pill": 0.2045127882053946,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.060000000014611,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 116.65139865875244,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1043,
+   "fill": 21,
+   "mu_part": 0.21034961607696645,
+   "mu_pill": 0.20831023733595028,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 91.37900280952454,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1044,
+   "fill": 10,
+   "mu_part": 0.4826858133495894,
+   "mu_pill": 0.32797441559967083,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.0400000000097407,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 47.23798203468323,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1045,
+   "fill": 22,
+   "mu_part": 0.469508793850907,
+   "mu_pill": 0.561691167014975,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 75.67656517028809,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1046,
+   "fill": 3,
+   "mu_part": 0.44117291639413747,
+   "mu_pill": 0.5549846824808171,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 7.140875000008516,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 7
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.376847982406616,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1047,
+   "fill": 6,
+   "mu_part": 0.22220394110132743,
+   "mu_pill": 0.4339067711245851,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.261634349822998,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1048,
+   "fill": 23,
+   "mu_part": 0.5929528305678562,
+   "mu_pill": 0.2132616319580529,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 3.0607499999928667,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0201250000010385,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 73.48772311210632,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V2 inclined pocket disc",
+   "pill": "small",
+   "seed": 1049,
+   "fill": 29,
+   "mu_part": 0.39361693119354024,
+   "mu_pill": 0.222415416510224,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 4.080874999993905,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.0200000000048703,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 112.40872502326965,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  }
+ ]
+}

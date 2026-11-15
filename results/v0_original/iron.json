@@ -1,0 +1,9632 @@
+{
+ "variant": "v0_original",
+ "pill": "iron",
+ "summary": {
+  "trials": 200,
+  "passed_trials": 0,
+  "cycles": 475,
+  "outcomes": {
+   "miss": 165,
+   "jam": 158,
+   "ok": 63,
+   "lost": 50,
+   "double": 35,
+   "empty": 4
+  },
+  "jam_sites": {
+   "F1 deck stripping edge (chamfered wedge above rotor, drop side)": 92,
+   "F1 deck edge above rotor (fill-opening rim)": 9,
+   "F1 canister rim above rotor": 3,
+   "F6 floor-hole edge": 36,
+   "pill-pile (pill wedged between rotor and other pills)": 5,
+   "drive overload": 4,
+   "F4 brush": 5,
+   "F3 brush holder bar (pill standing proud of pocket)": 4
+  },
+  "jam_rate_per_trial": 0.79,
+  "anomaly_trials": 50,
+  "unstable_trials": 6,
+  "errors": 0
+ },
+ "trials": [
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1000,
+   "fill": 6,
+   "mu_part": 0.20115545352453182,
+   "mu_pill": 0.3191030277143893,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.21500000000026276,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.0,
+      15.29,
+      -11.66
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.131141662597656,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.19,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1001,
+   "fill": 19,
+   "mu_part": 0.5307215092656652,
+   "mu_pill": 0.2921769063317611,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2374999999994465,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.16,
+      14.36,
+      -11.71
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.86011075973511,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.314,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1002,
+   "fill": 13,
+   "mu_part": 0.3869195829634199,
+   "mu_pill": 0.547117968697576,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16875000000020624,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.87,
+      12.05,
+      -11.56
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.395899295806885,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.34,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.3089,
+    "pill": 1,
+    "v": 8.41,
+    "pos": [
+     -0.7,
+     25.0,
+     9.4
+    ],
+    "contacts": [],
+    "rotor_w": -3.192,
+    "tau": -0.032
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1003,
+   "fill": 8,
+   "mu_part": 0.3228252866729498,
+   "mu_pill": 0.33184568147814913,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2075000000002536,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      10.45,
+      10.11,
+      -11.89
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.92258620262146,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.7,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1004,
+   "fill": 16,
+   "mu_part": 0.3323902333165792,
+   "mu_pill": 0.4105232848439413,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.74765419960022,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.225,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 1.8376,
+    "pill": 1,
+    "v": 6.57,
+    "pos": [
+     -16.3,
+     2.8,
+     1.8
+    ],
+    "contacts": [],
+    "rotor_w": -0.751,
+    "tau": -0.066
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1005,
+   "fill": 10,
+   "mu_part": 0.24265100685987961,
+   "mu_pill": 0.35540403836875273,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 34.06141209602356,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.194,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1006,
+   "fill": 12,
+   "mu_part": 0.2087235408443161,
+   "mu_pill": 0.5052689857751445,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.46247100830078,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.072,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1007,
+   "fill": 3,
+   "mu_part": 0.23532568459771985,
+   "mu_pill": 0.4472914146366364,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.49500298500061,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1008,
+   "fill": 9,
+   "mu_part": 0.5229694764785999,
+   "mu_pill": 0.2739801322296919,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.6575000000008036,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      1.46,
+      14.49,
+      -7.86
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.661030054092407,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.217,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1009,
+   "fill": 16,
+   "mu_part": 0.446399305104343,
+   "mu_pill": 0.5484905861672722,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.30875000000037733,
+     "jam_site": "F1 canister rim above rotor",
+     "jam_pos_mm": [
+      4.38,
+      -0.03,
+      10.06
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.09654426574707,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.221,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1010,
+   "fill": 15,
+   "mu_part": 0.5895130945296432,
+   "mu_pill": 0.4339996995208397,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23750000000029026,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.1,
+      15.28,
+      -11.7
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.339176416397095,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.295,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1011,
+   "fill": 8,
+   "mu_part": 0.43331848179905585,
+   "mu_pill": 0.42841435236084235,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14250000000017415,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.88,
+      12.0,
+      -11.57
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.60697650909424,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.302,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1012,
+   "fill": 16,
+   "mu_part": 0.4537867064556365,
+   "mu_pill": 0.2651754580148287,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2850000000003483,
+     "jam_site": "pill-pile (pill wedged between rotor and other pills)",
+     "jam_pos_mm": [
+      -13.22,
+      6.29,
+      -6.03
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.269877195358276,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.366,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1013,
+   "fill": 5,
+   "mu_part": 0.49459854969938877,
+   "mu_pill": 0.4879011233439406,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.704156160354614,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.341,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1014,
+   "fill": 13,
+   "mu_part": 0.589666366101149,
+   "mu_pill": 0.4231088623586837,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.25500000000031164,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.65,
+      13.54,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.567156314849854,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.355,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1015,
+   "fill": 13,
+   "mu_part": 0.29158362352358236,
+   "mu_pill": 0.2729198404378312,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14125000000017263,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.28,
+      12.08,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.235132932662964,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.886,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1016,
+   "fill": 14,
+   "mu_part": 0.568632796146995,
+   "mu_pill": 0.5813813677992132,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.7100000000008677,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      0.71,
+      15.85,
+      -4.84
+     ],
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.140695333480835,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.09,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.3019,
+    "pill": 6,
+    "v": 3.42,
+    "pos": [
+     -8.0,
+     -17.3,
+     -1.4
+    ],
+    "contacts": [],
+    "rotor_w": -1.765,
+    "tau": -0.084
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1017,
+   "fill": 20,
+   "mu_part": 0.5573656979644224,
+   "mu_pill": 0.5202886085229412,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 18,
+     "steps": 1
+    },
+    {
+     "outcome": "empty",
+     "count": 0,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 42.6006121635437,
+   "sim_unstable": 1,
+   "max_contact_depth_mm": 0.328,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1018,
+   "fill": 19,
+   "mu_part": 0.5881503741364897,
+   "mu_pill": 0.37000757694444997,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4369999999994327,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 5,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14624999999965915,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      2.45,
+      15.7,
+      -8.77
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 37.95629668235779,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.678,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.9694,
+    "pill": 1,
+    "v": 3.78,
+    "pos": [
+     -7.8,
+     24.6,
+     1.0
+    ],
+    "contacts": [
+     [
+      "pill4",
+      -0.1
+     ],
+     [
+      "pill4",
+      -0.1
+     ],
+     [
+      "pill9",
+      -0.94
+     ]
+    ],
+    "rotor_w": -0.455,
+    "tau": -1.0
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1019,
+   "fill": 9,
+   "mu_part": 0.42719698034224185,
+   "mu_pill": 0.22640463170263037,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1499999999996504,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.97,
+      12.08,
+      -11.59
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.663753032684326,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.742,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.2339,
+    "pill": 4,
+    "v": 45.45,
+    "pos": [
+     -4.4,
+     20.2,
+     33.1
+    ],
+    "contacts": [],
+    "rotor_w": -3.109,
+    "tau": -0.078
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1020,
+   "fill": 18,
+   "mu_part": 0.429842267104676,
+   "mu_pill": 0.3430943684583473,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22499999999947562,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      5.94,
+      15.01,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.825475454330444,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.34,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1021,
+   "fill": 6,
+   "mu_part": 0.2334962883416714,
+   "mu_pill": 0.443786331448917,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.536750000001523,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1312500000001604,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.86,
+      13.62,
+      -11.88
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.020484685897827,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.738,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1022,
+   "fill": 18,
+   "mu_part": 0.43057411018756614,
+   "mu_pill": 0.4178920876007376,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": -4.632750000000538,
+     "jam_site": "drive overload",
+     "jam_pos_mm": null,
+     "lost": 17,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.1360228061676,
+   "sim_unstable": 1,
+   "max_contact_depth_mm": 0.033,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1023,
+   "fill": 7,
+   "mu_part": 0.2941595577765805,
+   "mu_pill": 0.3234752276574304,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1599999999996271,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.78,
+      13.39,
+      -11.77
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.59948706626892,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.447,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1024,
+   "fill": 13,
+   "mu_part": 0.5661866382531535,
+   "mu_pill": 0.25295832620047376,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15750000000019249,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.54,
+      11.83,
+      -11.7
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.438252210617065,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.257,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1025,
+   "fill": 16,
+   "mu_part": 0.5224696419287402,
+   "mu_pill": 0.597967304996266,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.27375000000033456,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.31,
+      13.44,
+      -11.7
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.668580055236816,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.672,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1026,
+   "fill": 14,
+   "mu_part": 0.27560556961280097,
+   "mu_pill": 0.2192427867768394,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 2,
+     "duration_s": 0.680000000000831,
+     "jam_site": "F4 brush",
+     "jam_pos_mm": [
+      3.38,
+      14.11,
+      -11.3
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.674003839492798,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.62,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1027,
+   "fill": 14,
+   "mu_part": 0.556864627038438,
+   "mu_pill": 0.5362324028565438,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1450000000001772,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.88,
+      12.17,
+      -11.57
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.31473660469055,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.341,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1028,
+   "fill": 13,
+   "mu_part": 0.2525128649035698,
+   "mu_pill": 0.4731375860372114,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 4,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1400000000001711,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.61,
+      12.99,
+      -11.61
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.537052869796753,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.63,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.4426,
+    "pill": 1,
+    "v": 4.83,
+    "pos": [
+     -9.2,
+     19.0,
+     2.0
+    ],
+    "contacts": [],
+    "rotor_w": -3.135,
+    "tau": -0.032
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1029,
+   "fill": 13,
+   "mu_part": 0.4428668258968255,
+   "mu_pill": 0.34052135600751215,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7950000000006165,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.68,
+      12.93,
+      -11.63
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.934529781341553,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.425,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1030,
+   "fill": 9,
+   "mu_part": 0.42658030439027794,
+   "mu_pill": 0.30924964398770916,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.317500000000388,
+     "jam_site": "pill-pile (pill wedged between rotor and other pills)",
+     "jam_pos_mm": [
+      -15.88,
+      4.54,
+      -11.4
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.860018730163574,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.298,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1031,
+   "fill": 19,
+   "mu_part": 0.26297655701044,
+   "mu_pill": 0.4713429906406406,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.48500000000059273,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      -10.86,
+      19.3,
+      -11.55
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.15595579147339,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.936,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 3.6631,
+    "pill": 10,
+    "v": 3.54,
+    "pos": [
+     -12.3,
+     16.7,
+     -15.0
+    ],
+    "contacts": [
+     [
+      "Stationary_floor__22",
+      -1.09
+     ],
+     [
+      "Stationary_floor__22",
+      -1.11
+     ],
+     [
+      "Stationary_floor__43",
+      -1.09
+     ],
+     [
+      "Stationary_floor__43",
+      -0.96
+     ],
+     [
+      "Floor_liner_unchanged_depth__9",
+      -3.56
+     ],
+     [
+      "Floor_liner_unchanged_depth__17",
+      -3.58
+     ]
+    ],
+    "rotor_w": -2.976,
+    "tau": -0.125
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1032,
+   "fill": 10,
+   "mu_part": 0.39223529831124404,
+   "mu_pill": 0.2590030014103658,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22750000000027804,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      5.92,
+      15.05,
+      -11.63
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.035473108291626,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.271,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1033,
+   "fill": 13,
+   "mu_part": 0.593623683012181,
+   "mu_pill": 0.23804442900010347,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15624999999963585,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.01,
+      13.6,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.009530782699585,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.43,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1034,
+   "fill": 13,
+   "mu_part": 0.5540176533622216,
+   "mu_pill": 0.3613266912179004,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1424999999996679,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.57,
+      13.0,
+      -11.61
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.411845207214355,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.605,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1035,
+   "fill": 6,
+   "mu_part": 0.3536927344884449,
+   "mu_pill": 0.41155901173976334,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14375000000017568,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.58,
+      13.0,
+      -11.58
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.862056732177734,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.668,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1036,
+   "fill": 9,
+   "mu_part": 0.3854024210432511,
+   "mu_pill": 0.5364638795506222,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.7762500000009487,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.26,
+      13.04,
+      -11.5
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.65414261817932,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.387,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1037,
+   "fill": 10,
+   "mu_part": 0.4250711845680799,
+   "mu_pill": 0.5042522885999442,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1712500000002093,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      8.37,
+      14.0,
+      -11.85
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.109264135360718,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.427,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.4701,
+    "pill": 3,
+    "v": 3.84,
+    "pos": [
+     -8.0,
+     -11.2,
+     -0.2
+    ],
+    "contacts": [],
+    "rotor_w": -2.45,
+    "tau": -0.659
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1038,
+   "fill": 11,
+   "mu_part": 0.27741316111622305,
+   "mu_pill": 0.40943493509451345,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15499999999963876,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.37,
+      11.89,
+      -11.66
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.971462726593018,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.279,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1039,
+   "fill": 12,
+   "mu_part": 0.5430127786179779,
+   "mu_pill": 0.5776089134893121,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14624999999965915,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.62,
+      12.96,
+      -11.6
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.492263793945312,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.636,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1040,
+   "fill": 8,
+   "mu_part": 0.25631041693303286,
+   "mu_pill": 0.3198255903006149,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.681545734405518,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1041,
+   "fill": 18,
+   "mu_part": 0.3873796447908361,
+   "mu_pill": 0.36970533995048965,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7262500000008876,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      4.46,
+      26.52,
+      -12.25
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.78093409538269,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.633,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.0851,
+    "pill": 8,
+    "v": 3.14,
+    "pos": [
+     -11.9,
+     13.1,
+     1.3
+    ],
+    "contacts": [
+     [
+      "pill10",
+      -0.4
+     ]
+    ],
+    "rotor_w": -3.143,
+    "tau": -0.005
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1042,
+   "fill": 16,
+   "mu_part": 0.525930740174809,
+   "mu_pill": 0.5211092085506219,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 2,
+     "duration_s": 0.653750000000799,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      -6.15,
+      15.08,
+      -11.74
+     ],
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.773722171783447,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.76,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 3.3831,
+    "pill": 5,
+    "v": 3.08,
+    "pos": [
+     -15.6,
+     7.6,
+     -3.9
+    ],
+    "contacts": [
+     [
+      "pill6",
+      -0.39
+     ],
+     [
+      "pill6",
+      -0.39
+     ]
+    ],
+    "rotor_w": -3.336,
+    "tau": -0.052
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1043,
+   "fill": 15,
+   "mu_part": 0.5217995610575709,
+   "mu_pill": 0.42732856386942975,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2262500000002765,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      5.85,
+      15.29,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.263760566711426,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.703,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.4151,
+    "pill": 3,
+    "v": 9.14,
+    "pos": [
+     -7.1,
+     14.0,
+     1.5
+    ],
+    "contacts": [],
+    "rotor_w": -3.11,
+    "tau": -0.051
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1044,
+   "fill": 7,
+   "mu_part": 0.5838559541289527,
+   "mu_pill": 0.2365038980531332,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23124999999946105,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.99,
+      14.05,
+      -11.6
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.849579095840454,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.421,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1045,
+   "fill": 15,
+   "mu_part": 0.4572772284691454,
+   "mu_pill": 0.5214816420283965,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.17375000000021235,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      8.25,
+      12.01,
+      -11.66
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.888036966323853,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.05,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1046,
+   "fill": 3,
+   "mu_part": 0.28999032143294107,
+   "mu_pill": 0.21479938616228395,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6362500000004225,
+     "jam_site": "F4 brush",
+     "jam_pos_mm": [
+      -0.12,
+      16.38,
+      -11.4
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 9.232668399810791,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.441,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1047,
+   "fill": 5,
+   "mu_part": 0.3364496231249058,
+   "mu_pill": 0.27387655948383627,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.7450000000009105,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.29,
+      15.04,
+      -11.72
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.408193349838257,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.763,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1048,
+   "fill": 16,
+   "mu_part": 0.2980730226486337,
+   "mu_pill": 0.30680725355255806,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4967500000014742,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 4,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15625000000019096,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      9.0,
+      11.39,
+      -11.71
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.358293533325195,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.234,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.1426,
+    "pill": 15,
+    "v": 23.51,
+    "pos": [
+     -10.5,
+     15.3,
+     1.6
+    ],
+    "contacts": [
+     [
+      "pill2",
+      -0.91
+     ],
+     [
+      "pill12",
+      -0.38
+     ]
+    ],
+    "rotor_w": -3.142,
+    "tau": -0.004
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1049,
+   "fill": 19,
+   "mu_part": 0.25097894162488743,
+   "mu_pill": 0.39974063350549205,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 0.0,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.24500000000029942,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.45,
+      14.98,
+      -11.73
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.428414821624756,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.023,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1050,
+   "fill": 9,
+   "mu_part": 0.2840826559119517,
+   "mu_pill": 0.3230103316827343,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.2374999999994465,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.61,
+      15.07,
+      -11.78
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.650585174560547,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.29,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1051,
+   "fill": 4,
+   "mu_part": 0.580137401808037,
+   "mu_pill": 0.22404501204744434,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.31624999999926295,
+     "jam_site": "pill-pile (pill wedged between rotor and other pills)",
+     "jam_pos_mm": [
+      11.04,
+      11.54,
+      -12.09
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.371596813201904,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.255,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1052,
+   "fill": 14,
+   "mu_part": 0.23533074775519097,
+   "mu_pill": 0.5524881578671765,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.13573908805847,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.606,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 3.8956,
+    "pill": 7,
+    "v": 3.53,
+    "pos": [
+     -2.1,
+     16.6,
+     -10.4
+    ],
+    "contacts": [
+     [
+      "flap1_blade",
+      -0.52
+     ],
+     [
+      "flap2_blade",
+      -0.07
+     ],
+     [
+      "Unchanged_pill_opening_3__47",
+      0.1
+     ],
+     [
+      "Unchanged_pill_opening_3__47",
+      0.09
+     ],
+     [
+      "Unchanged_pill_opening_3__49",
+      0.1
+     ],
+     [
+      "Unchanged_pill_opening_3__78",
+      -0.01
+     ]
+    ],
+    "rotor_w": -3.107,
+    "tau": 0.062
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1053,
+   "fill": 8,
+   "mu_part": 0.44939451523953733,
+   "mu_pill": 0.5829249677754971,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.72367835044861,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.192,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1054,
+   "fill": 8,
+   "mu_part": 0.43100620955607577,
+   "mu_pill": 0.3330863220075809,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4367500000014009,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.18250000000022304,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      2.65,
+      15.41,
+      -7.66
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.329309463500977,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.444,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1055,
+   "fill": 11,
+   "mu_part": 0.4838097931310678,
+   "mu_pill": 0.4502113401015639,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.20125000000024595,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      4.35,
+      15.85,
+      -10.93
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.86880350112915,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.341,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1056,
+   "fill": 15,
+   "mu_part": 0.24046029564550417,
+   "mu_pill": 0.24751636862347934,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 2,
+     "duration_s": 0.7625000000009319,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.67,
+      14.72,
+      -11.78
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.83615493774414,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.416,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.9156,
+    "pill": 13,
+    "v": 4.59,
+    "pos": [
+     -2.3,
+     12.2,
+     1.5
+    ],
+    "contacts": [
+     [
+      "pill0",
+      -0.07
+     ],
+     [
+      "pill0",
+      -0.13
+     ],
+     [
+      "pill12",
+      0.0
+     ],
+     [
+      "pill12",
+      0.01
+     ],
+     [
+      "pill12",
+      -0.06
+     ],
+     [
+      "pill12",
+      -0.03
+     ]
+    ],
+    "rotor_w": -0.178,
+    "tau": -1.0
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1057,
+   "fill": 18,
+   "mu_part": 0.4419729713094753,
+   "mu_pill": 0.5159974567224468,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23625000000028873,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.56,
+      15.1,
+      -11.77
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.843648433685303,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.256,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1058,
+   "fill": 20,
+   "mu_part": 0.5535550372333948,
+   "mu_pill": 0.46664985773353485,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.680000000000476,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      4.21,
+      13.89,
+      -12.33
+     ],
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.134273767471313,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.557,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1059,
+   "fill": 14,
+   "mu_part": 0.4932859386424095,
+   "mu_pill": 0.2649650715803599,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.24750000000030248,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.46,
+      15.13,
+      -11.75
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.0752534866333,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.565,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1060,
+   "fill": 4,
+   "mu_part": 0.2911248535163157,
+   "mu_pill": 0.2977783355278416,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.836193799972534,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1061,
+   "fill": 20,
+   "mu_part": 0.49542507921387097,
+   "mu_pill": 0.43419849149120615,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 43.47568488121033,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.209,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1062,
+   "fill": 18,
+   "mu_part": 0.5627485665684249,
+   "mu_pill": 0.4749139919816904,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2362499999994494,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.34,
+      15.17,
+      -11.74
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 34.45116567611694,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.229,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1063,
+   "fill": 10,
+   "mu_part": 0.2541209370450315,
+   "mu_pill": 0.36508227084344325,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.14363956451416,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1064,
+   "fill": 17,
+   "mu_part": 0.3760734455377074,
+   "mu_pill": 0.4778585548342838,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.26375000000032234,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.36,
+      14.04,
+      -11.69
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.338846921920776,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.382,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1065,
+   "fill": 19,
+   "mu_part": 0.35771797781902287,
+   "mu_pill": 0.5069867479313312,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 5,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.7200000000008799,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.07,
+      15.17,
+      -11.67
+     ],
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.326874017715454,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.343,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.7806,
+    "pill": 10,
+    "v": 2.81,
+    "pos": [
+     0.9,
+     16.6,
+     3.1
+    ],
+    "contacts": [
+     [
+      "Full_width_brush_holder__336",
+      -0.01
+     ],
+     [
+      "Full_width_brush_holder__367",
+      -0.2
+     ],
+     [
+      "Full_width_brush_holder__367",
+      -0.22
+     ],
+     [
+      "Full_width_brush_holder__397",
+      -0.11
+     ],
+     [
+      "Full_width_brush_holder__397",
+      -0.14
+     ],
+     [
+      "flap1",
+      0.09
+     ]
+    ],
+    "rotor_w": 0.008,
+    "tau": -0.022
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1066,
+   "fill": 20,
+   "mu_part": 0.442304153222859,
+   "mu_pill": 0.21993289971272656,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2437500000002979,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.37,
+      15.19,
+      -11.73
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.84497308731079,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.585,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 2.5889,
+    "pill": 1,
+    "v": 17.73,
+    "pos": [
+     2.0,
+     16.9,
+     -13.0
+    ],
+    "contacts": [
+     [
+      "Floor_liner_unchanged_depth__17",
+      -0.13
+     ],
+     [
+      "Floor_liner_unchanged_depth__17",
+      -0.07
+     ],
+     [
+      "Floor_liner_unchanged_depth__68",
+      -1.58
+     ],
+     [
+      "Unchanged_pill_opening_1__0",
+      -0.01
+     ],
+     [
+      "Unchanged_pill_opening_1__10",
+      -1.07
+     ],
+     [
+      "Unchanged_pill_opening_1__11",
+      -0.9
+     ]
+    ],
+    "rotor_w": -1.191,
+    "tau": 0.025
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1067,
+   "fill": 3,
+   "mu_part": 0.5049179882995345,
+   "mu_pill": 0.278064054825199,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2300000000002811,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.43,
+      15.13,
+      -11.75
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.655925035476685,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.229,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1068,
+   "fill": 4,
+   "mu_part": 0.22300174601266265,
+   "mu_pill": 0.5630459393863518,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.23124999999946105,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.25,
+      15.26,
+      -11.71
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.26862645149231,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.294,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1069,
+   "fill": 12,
+   "mu_part": 0.45547521297620813,
+   "mu_pill": 0.38532178196412104,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7050000000005066,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      1.87,
+      13.94,
+      -5.62
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.576596975326538,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.365,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1070,
+   "fill": 5,
+   "mu_part": 0.5798251394189644,
+   "mu_pill": 0.5210842585543116,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15624999999963585,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.69,
+      12.44,
+      -11.67
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.941789865493774,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.67,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1071,
+   "fill": 15,
+   "mu_part": 0.344462158573957,
+   "mu_pill": 0.5433962729517412,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23375000000028567,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.28,
+      15.22,
+      -11.72
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.576780319213867,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.184,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1072,
+   "fill": 17,
+   "mu_part": 0.2548260929045798,
+   "mu_pill": 0.595049402257704,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1524999999996446,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.97,
+      12.09,
+      -11.59
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.83588218688965,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.279,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1073,
+   "fill": 10,
+   "mu_part": 0.5740453169277975,
+   "mu_pill": 0.5600950174637158,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.24250000000029637,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.81,
+      14.87,
+      -11.89
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.52743411064148,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.364,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1074,
+   "fill": 12,
+   "mu_part": 0.5478157271918488,
+   "mu_pill": 0.4926373847791597,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 6,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.6437499999984997,
+     "jam_site": "F4 brush",
+     "jam_pos_mm": [
+      -5.79,
+      15.3,
+      -11.16
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.69543957710266,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.951,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.3481,
+    "pill": 1,
+    "v": 4.04,
+    "pos": [
+     -10.7,
+     23.9,
+     -1.7
+    ],
+    "contacts": [
+     [
+      "Canister_OD67p5_H70__44",
+      -0.05
+     ],
+     [
+      "Canister_OD67p5_H70__44",
+      0.05
+     ],
+     [
+      "Canister_OD67p5_H70__44",
+      0.02
+     ],
+     [
+      "Canister_OD67p5_H70__44",
+      -0.08
+     ],
+     [
+      "Canister_OD67p5_H70__45",
+      -0.07
+     ],
+     [
+      "Canister_OD67p5_H70__45",
+      -0.08
+     ]
+    ],
+    "rotor_w": -2.694,
+    "tau": -0.124
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1075,
+   "fill": 19,
+   "mu_part": 0.39072899473949113,
+   "mu_pill": 0.4187989396304437,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 2,
+     "duration_s": 1.4973749999965102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 44.02875876426697,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.422,
+   "passed": false,
+   "anomalies": 4,
+   "first_anomaly": {
+    "t": 3.7656,
+    "pill": 9,
+    "v": 3.82,
+    "pos": [
+     -4.8,
+     14.2,
+     -3.1
+    ],
+    "contacts": [
+     [
+      "pill4",
+      -0.84
+     ],
+     [
+      "pill4",
+      -0.89
+     ],
+     [
+      "pill12",
+      -2.42
+     ],
+     [
+      "pill12",
+      -2.4
+     ],
+     [
+      "pill13",
+      -0.1
+     ],
+     [
+      "pill17",
+      -0.31
+     ]
+    ],
+    "rotor_w": -3.115,
+    "tau": -0.05
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1076,
+   "fill": 11,
+   "mu_part": 0.3751903578824935,
+   "mu_pill": 0.40760313950567884,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1900000000002322,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      2.4,
+      15.36,
+      -6.53
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.157883405685425,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.228,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 3.2894,
+    "pill": 3,
+    "v": 2.65,
+    "pos": [
+     5.6,
+     13.8,
+     -13.0
+    ],
+    "contacts": [
+     [
+      "Floor_liner_unchanged_depth__68",
+      -0.35
+     ],
+     [
+      "Floor_liner_unchanged_depth__68",
+      -0.31
+     ],
+     [
+      "Floor_liner_unchanged_depth__68",
+      -0.23
+     ],
+     [
+      "Floor_liner_unchanged_depth__68",
+      -0.29
+     ],
+     [
+      "Unchanged_pill_opening_1__28",
+      -0.09
+     ],
+     [
+      "Unchanged_pill_opening_1__29",
+      -0.36
+     ]
+    ],
+    "rotor_w": -0.964,
+    "tau": -1.0
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1077,
+   "fill": 16,
+   "mu_part": 0.4272192439525886,
+   "mu_pill": 0.43903725328818066,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23750000000029026,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.3,
+      15.18,
+      -11.73
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.321851015090942,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.278,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1078,
+   "fill": 19,
+   "mu_part": 0.5882470238816794,
+   "mu_pill": 0.22471120968274413,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7362500000005447,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      2.36,
+      14.39,
+      -6.51
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.528581142425537,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.318,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1079,
+   "fill": 4,
+   "mu_part": 0.21070406545473577,
+   "mu_pill": 0.20930628753505856,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7287500000005356,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.81,
+      14.39,
+      -11.58
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 10.581694841384888,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.303,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1080,
+   "fill": 13,
+   "mu_part": 0.499692619523114,
+   "mu_pill": 0.3711119118838595,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2762500000003376,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.35,
+      13.16,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.578470468521118,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.569,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1081,
+   "fill": 13,
+   "mu_part": 0.2203488582976142,
+   "mu_pill": 0.44616915700836984,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.640119791030884,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.065,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1082,
+   "fill": 13,
+   "mu_part": 0.30351717622450747,
+   "mu_pill": 0.5733997354841385,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.09549307823181,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.147,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1083,
+   "fill": 12,
+   "mu_part": 0.2580111725282793,
+   "mu_pill": 0.4602518202082331,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": -1.7993749999996822,
+     "jam_site": "drive overload",
+     "jam_pos_mm": null,
+     "lost": 12,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.79951286315918,
+   "sim_unstable": 1,
+   "max_contact_depth_mm": 0.006,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1084,
+   "fill": 6,
+   "mu_part": 0.41154561815332,
+   "mu_pill": 0.5098311204488727,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15125000000018485,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.64,
+      11.94,
+      -11.72
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.499947309494019,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.242,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1085,
+   "fill": 13,
+   "mu_part": 0.5377057031627693,
+   "mu_pill": 0.5252954943625083,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.26500000000032387,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.81,
+      13.62,
+      -11.73
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.75593376159668,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.247,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1086,
+   "fill": 16,
+   "mu_part": 0.2985409562695065,
+   "mu_pill": 0.28783601462562886,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16749999999960963,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.73,
+      11.41,
+      -11.64
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 34.66658401489258,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.491,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 4.2036,
+    "pill": 7,
+    "v": 3.7,
+    "pos": [
+     6.2,
+     10.3,
+     -12.0
+    ],
+    "contacts": [
+     [
+      "Lower_enclosure_with_integrated_snap_clips__4177",
+      0.03
+     ],
+     [
+      "Lower_enclosure_with_integrated_snap_clips__4177",
+      0.01
+     ],
+     [
+      "Floor_liner_unchanged_depth__61",
+      -0.56
+     ],
+     [
+      "Floor_liner_unchanged_depth__61",
+      -0.53
+     ],
+     [
+      "Floor_liner_unchanged_depth__62",
+      -0.02
+     ],
+     [
+      "Floor_liner_unchanged_depth__62",
+      -0.04
+     ]
+    ],
+    "rotor_w": 0.109,
+    "tau": -0.508
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1087,
+   "fill": 11,
+   "mu_part": 0.38753388059003074,
+   "mu_pill": 0.21521848557446577,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 33.5509238243103,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.126,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1088,
+   "fill": 4,
+   "mu_part": 0.3703024157059886,
+   "mu_pill": 0.2705115362278861,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.8162500000008794,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.18,
+      13.07,
+      -11.58
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.751003980636597,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.479,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1089,
+   "fill": 6,
+   "mu_part": 0.5033929469384233,
+   "mu_pill": 0.41934878461670716,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1412499999996708,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.02,
+      12.15,
+      -11.59
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.790966510772705,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.019,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 2.4301,
+    "pill": 5,
+    "v": 21.07,
+    "pos": [
+     -5.1,
+     12.9,
+     -12.2
+    ],
+    "contacts": [
+     [
+      "Three_tangential_pocket_rotor__56",
+      -0.07
+     ],
+     [
+      "Three_tangential_pocket_rotor__56",
+      -0.07
+     ],
+     [
+      "Three_tangential_pocket_rotor__57",
+      -0.28
+     ],
+     [
+      "Three_tangential_pocket_rotor__58",
+      -0.79
+     ],
+     [
+      "Three_tangential_pocket_rotor__60",
+      -0.16
+     ],
+     [
+      "Three_tangential_pocket_rotor__61",
+      -0.8
+     ]
+    ],
+    "rotor_w": -2.986,
+    "tau": -0.155
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1090,
+   "fill": 8,
+   "mu_part": 0.31811812658143285,
+   "mu_pill": 0.4912622882689473,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.2300000000002811,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.5,
+      15.15,
+      -11.76
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.20912456512451,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.188,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1091,
+   "fill": 13,
+   "mu_part": 0.29055603330287993,
+   "mu_pill": 0.21886193282677127,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.22875000000027956,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.91,
+      15.34,
+      -11.64
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.144299507141113,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.188,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1092,
+   "fill": 20,
+   "mu_part": 0.26794027259938424,
+   "mu_pill": 0.5259698685070522,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.2350000000002872,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.17,
+      15.25,
+      -11.69
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.36101007461548,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.192,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1093,
+   "fill": 18,
+   "mu_part": 0.5351887630818729,
+   "mu_pill": 0.44159582131286096,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6125000000003935,
+     "jam_site": "F4 brush",
+     "jam_pos_mm": [
+      -5.9,
+      15.39,
+      -10.94
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.023756742477417,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.429,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1094,
+   "fill": 15,
+   "mu_part": 0.334730631347984,
+   "mu_pill": 0.3833642784991604,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.23874999999944357,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.08,
+      14.82,
+      -11.67
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.458984375,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.338,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1095,
+   "fill": 3,
+   "mu_part": 0.4047464606602166,
+   "mu_pill": 0.29169755245993045,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.080403089523315,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1096,
+   "fill": 12,
+   "mu_part": 0.49811419089763853,
+   "mu_pill": 0.5213361666351223,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 34.239545583724976,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.546,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1097,
+   "fill": 4,
+   "mu_part": 0.2602732478429418,
+   "mu_pill": 0.5394619965645107,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.21874999999949019,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.17,
+      15.28,
+      -11.69
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.3446524143219,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.189,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1098,
+   "fill": 12,
+   "mu_part": 0.3670980547526711,
+   "mu_pill": 0.48028871047248756,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23375000000028567,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.87,
+      15.04,
+      -11.56
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.424877643585205,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.318,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1099,
+   "fill": 6,
+   "mu_part": 0.3392565755702093,
+   "mu_pill": 0.2342827844053689,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.463055849075317,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.503,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1100,
+   "fill": 11,
+   "mu_part": 0.21231939993209253,
+   "mu_pill": 0.2711447226331614,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.7287500000008906,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.2,
+      15.11,
+      -11.7
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.24443769454956,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.99,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.2514,
+    "pill": 7,
+    "v": 2.78,
+    "pos": [
+     -3.9,
+     9.4,
+     -0.3
+    ],
+    "contacts": [
+     [
+      "pill10",
+      -0.97
+     ],
+     [
+      "pill10",
+      -0.99
+     ],
+     [
+      "pill10",
+      -0.99
+     ],
+     [
+      "pill10",
+      -0.96
+     ]
+    ],
+    "rotor_w": -2.771,
+    "tau": -0.499
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1101,
+   "fill": 6,
+   "mu_part": 0.3966730313065002,
+   "mu_pill": 0.5607871121769672,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6087500000003889,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      2.24,
+      14.48,
+      -11.93
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.005721807479858,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.253,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1102,
+   "fill": 9,
+   "mu_part": 0.3203039386755343,
+   "mu_pill": 0.3317337343112542,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 5,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.505958557128906,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.913,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.4151,
+    "pill": 1,
+    "v": 3.42,
+    "pos": [
+     -16.8,
+     0.6,
+     -6.5
+    ],
+    "contacts": [
+     [
+      "Unchanged_pill_opening_3__39",
+      0.03
+     ],
+     [
+      "Unchanged_pill_opening_3__40",
+      0.02
+     ],
+     [
+      "Unchanged_pill_opening_3__40",
+      0.02
+     ],
+     [
+      "Unchanged_pill_opening_3__40",
+      0.02
+     ],
+     [
+      "Unchanged_pill_opening_3__40",
+      0.02
+     ],
+     [
+      "pill2",
+      -1.4
+     ]
+    ],
+    "rotor_w": -3.315,
+    "tau": 0.142
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1103,
+   "fill": 10,
+   "mu_part": 0.4333726193069819,
+   "mu_pill": 0.25846525935284054,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16624999999961254,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.61,
+      13.22,
+      -11.61
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.558018445968628,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.678,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1104,
+   "fill": 19,
+   "mu_part": 0.3834654741794684,
+   "mu_pill": 0.2460138455549916,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 6,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.21999999999948727,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.13,
+      15.31,
+      -11.69
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.0347204208374,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.49,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.8531,
+    "pill": 4,
+    "v": 6.56,
+    "pos": [
+     -0.2,
+     16.5,
+     9.6
+    ],
+    "contacts": [],
+    "rotor_w": -3.125,
+    "tau": -0.047
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1105,
+   "fill": 20,
+   "mu_part": 0.3748157604295861,
+   "mu_pill": 0.540052414619446,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 0.0,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 20,
+     "steps": 1
+    },
+    {
+     "outcome": "empty",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "empty",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "empty",
+     "count": 0,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.541982650756836,
+   "sim_unstable": 1,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1106,
+   "fill": 8,
+   "mu_part": 0.3603074059017227,
+   "mu_pill": 0.3834134224356359,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.29500000000036053,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      9.03,
+      13.99,
+      -11.9
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.322831392288208,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 4.092,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.4976,
+    "pill": 1,
+    "v": 9.8,
+    "pos": [
+     -5.3,
+     21.3,
+     -1.7
+    ],
+    "contacts": [
+     [
+      "Lower_enclosure_with_integrated_snap_clips__2369",
+      -0.56
+     ],
+     [
+      "Lower_enclosure_with_integrated_snap_clips__2370",
+      -0.81
+     ],
+     [
+      "Lower_enclosure_with_integrated_snap_clips__2370",
+      -0.65
+     ],
+     [
+      "pill2",
+      -1.49
+     ],
+     [
+      "pill2",
+      -1.5
+     ]
+    ],
+    "rotor_w": -1.553,
+    "tau": -1.0
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1107,
+   "fill": 16,
+   "mu_part": 0.37582567371044096,
+   "mu_pill": 0.32469822726770947,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15125000000018485,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.49,
+      13.07,
+      -11.58
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.925466775894165,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.619,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1108,
+   "fill": 18,
+   "mu_part": 0.30079592111040754,
+   "mu_pill": 0.23434283028125705,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 2,
+     "duration_s": 0.7500000000009166,
+     "jam_site": "pill-pile (pill wedged between rotor and other pills)",
+     "jam_pos_mm": [
+      -2.74,
+      15.82,
+      -11.43
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 35.12656235694885,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.341,
+   "passed": false,
+   "anomalies": 2,
+   "first_anomaly": {
+    "t": 2.5114,
+    "pill": 5,
+    "v": 3.79,
+    "pos": [
+     7.1,
+     14.2,
+     -11.7
+    ],
+    "contacts": [
+     [
+      "Lower_enclosure_with_integrated_snap_clips__4177",
+      -0.17
+     ],
+     [
+      "flap1_blade",
+      -0.21
+     ],
+     [
+      "flap1_blade",
+      -0.23
+     ],
+     [
+      "flap2_blade",
+      -0.04
+     ],
+     [
+      "Three_tangential_pocket_rotor__220",
+      0.08
+     ],
+     [
+      "Unchanged_pill_opening_1__29",
+      -0.45
+     ]
+    ],
+    "rotor_w": 0.176,
+    "tau": -1.0
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1109,
+   "fill": 13,
+   "mu_part": 0.4328562086741352,
+   "mu_pill": 0.3150341918043745,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16375000000020012,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      9.54,
+      11.02,
+      -11.7
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.074994564056396,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.79,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1110,
+   "fill": 16,
+   "mu_part": 0.3131884941736733,
+   "mu_pill": 0.2857848879783862,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 45.82823944091797,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.284,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1111,
+   "fill": 18,
+   "mu_part": 0.4109316351956133,
+   "mu_pill": 0.3679466784505345,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2812500000003437,
+     "jam_site": "F3 brush holder bar (pill standing proud of pocket)",
+     "jam_pos_mm": [
+      0.75,
+      8.07,
+      2.57
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.7988498210907,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.303,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1112,
+   "fill": 6,
+   "mu_part": 0.4328204480942087,
+   "mu_pill": 0.21477589902676486,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7862500000006059,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.62,
+      12.83,
+      -11.62
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.897992372512817,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.585,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1113,
+   "fill": 17,
+   "mu_part": 0.3938921447037387,
+   "mu_pill": 0.2480571234305985,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1537500000001879,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.06,
+      12.09,
+      -11.62
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.33810639381409,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.561,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 2.7156,
+    "pill": 13,
+    "v": 8.25,
+    "pos": [
+     6.4,
+     11.0,
+     -12.7
+    ],
+    "contacts": [
+     [
+      "Floor_liner_unchanged_depth__61",
+      -1.24
+     ],
+     [
+      "Floor_liner_unchanged_depth__62",
+      -0.35
+     ],
+     [
+      "Floor_liner_unchanged_depth__64",
+      -0.5
+     ],
+     [
+      "Floor_liner_unchanged_depth__65",
+      -1.38
+     ],
+     [
+      "Floor_liner_unchanged_depth__66",
+      -0.65
+     ],
+     [
+      "Floor_liner_unchanged_depth__67",
+      -0.79
+     ]
+    ],
+    "rotor_w": -0.121,
+    "tau": -0.04
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1114,
+   "fill": 6,
+   "mu_part": 0.5557960655578342,
+   "mu_pill": 0.24996302991261,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.28625000000034984,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.23,
+      13.08,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.54051923751831,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.641,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1115,
+   "fill": 3,
+   "mu_part": 0.4366782894972817,
+   "mu_pill": 0.5322355163168457,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.21249999999950475,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.89,
+      15.37,
+      -11.64
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.890477180480957,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.178,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1116,
+   "fill": 6,
+   "mu_part": 0.4977183290257646,
+   "mu_pill": 0.3309173277364625,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.951199531555176,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.117,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1117,
+   "fill": 17,
+   "mu_part": 0.3301254219795112,
+   "mu_pill": 0.3443266945402411,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16375000000020012,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      7.6,
+      14.66,
+      -11.88
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.846330642700195,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.356,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1118,
+   "fill": 19,
+   "mu_part": 0.5626704717190945,
+   "mu_pill": 0.4873010464562748,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22750000000027804,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.37,
+      15.23,
+      -11.74
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.437275886535645,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.18,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1119,
+   "fill": 18,
+   "mu_part": 0.4032889364114511,
+   "mu_pill": 0.5499650709580257,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 46.64711260795593,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.05,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1120,
+   "fill": 14,
+   "mu_part": 0.47211686108116485,
+   "mu_pill": 0.3773600780059445,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7350000000005432,
+     "jam_site": "F1 canister rim above rotor",
+     "jam_pos_mm": [
+      5.14,
+      2.75,
+      10.46
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.26209592819214,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.548,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1121,
+   "fill": 6,
+   "mu_part": 0.346416396559207,
+   "mu_pill": 0.38152341409760715,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.2924999999993183,
+     "jam_site": "F1 canister rim above rotor",
+     "jam_pos_mm": [
+      2.47,
+      0.96,
+      9.56
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.669429779052734,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.228,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 4.7888,
+    "pill": 3,
+    "v": 4.09,
+    "pos": [
+     2.2,
+     15.4,
+     -9.8
+    ],
+    "contacts": [
+     [
+      "Lower_enclosure_with_integrated_snap_clips__4177",
+      -0.18
+     ],
+     [
+      "Lower_enclosure_with_integrated_snap_clips__4186",
+      0.03
+     ],
+     [
+      "flap2_blade",
+      -0.07
+     ],
+     [
+      "Three_tangential_pocket_rotor__627",
+      0.08
+     ],
+     [
+      "Three_tangential_pocket_rotor__628",
+      -0.02
+     ],
+     [
+      "Three_tangential_pocket_rotor__631",
+      -0.16
+     ]
+    ],
+    "rotor_w": -2.263,
+    "tau": -0.673
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1122,
+   "fill": 17,
+   "mu_part": 0.2850904050513244,
+   "mu_pill": 0.2781634457841945,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7237500000005295,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.02,
+      15.09,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.522621393203735,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.463,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1123,
+   "fill": 7,
+   "mu_part": 0.34328002550503595,
+   "mu_pill": 0.5429781663262623,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1987499999995368,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      10.59,
+      10.01,
+      -11.91
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.517662286758423,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.651,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1124,
+   "fill": 18,
+   "mu_part": 0.36442797153189604,
+   "mu_pill": 0.3289400186586805,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23750000000029026,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.6,
+      14.71,
+      -11.77
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.236990928649902,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.316,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1125,
+   "fill": 13,
+   "mu_part": 0.2279927745236098,
+   "mu_pill": 0.5939587920076098,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 6,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4973749999965102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.485741138458252,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.949,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.3001,
+    "pill": 4,
+    "v": 7.89,
+    "pos": [
+     -11.4,
+     -7.7,
+     0.9
+    ],
+    "contacts": [],
+    "rotor_w": -1.307,
+    "tau": -1.0
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1126,
+   "fill": 7,
+   "mu_part": 0.5670276669879273,
+   "mu_pill": 0.23284858591933313,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2849999999993358,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.67,
+      13.01,
+      -11.53
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.91030788421631,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.802,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1127,
+   "fill": 5,
+   "mu_part": 0.3075738323465961,
+   "mu_pill": 0.43354697642680956,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.25463581085205,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.089,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1128,
+   "fill": 13,
+   "mu_part": 0.24711018180159142,
+   "mu_pill": 0.21597559411559442,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.23250000000028415,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.94,
+      15.31,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.729121685028076,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.981,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.4926,
+    "pill": 1,
+    "v": 100.95,
+    "pos": [
+     25.7,
+     38.3,
+     -98.5
+    ],
+    "contacts": [],
+    "rotor_w": -2.426,
+    "tau": -0.128
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1129,
+   "fill": 18,
+   "mu_part": 0.5094228043152982,
+   "mu_pill": 0.32668938824813637,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 5,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1812500000002215,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.15,
+      10.92,
+      -11.58
+     ],
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.03427004814148,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.959,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.5239,
+    "pill": 17,
+    "v": 2.86,
+    "pos": [
+     -13.5,
+     -3.8,
+     -6.3
+    ],
+    "contacts": [
+     [
+      "Unchanged_pill_opening_3__51",
+      -0.09
+     ],
+     [
+      "Unchanged_pill_opening_3__51",
+      -0.08
+     ],
+     [
+      "Unchanged_pill_opening_3__51",
+      -0.08
+     ],
+     [
+      "Unchanged_pill_opening_3__51",
+      -0.09
+     ],
+     [
+      "pill0",
+      -0.39
+     ],
+     [
+      "pill0",
+      -0.38
+     ]
+    ],
+    "rotor_w": -1.568,
+    "tau": -0.618
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1130,
+   "fill": 13,
+   "mu_part": 0.3516229839119077,
+   "mu_pill": 0.2705792762485459,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2537500000003101,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.79,
+      14.49,
+      -11.75
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.43603825569153,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.303,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1131,
+   "fill": 9,
+   "mu_part": 0.43300370422887924,
+   "mu_pill": 0.5548389291256117,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1850000000002261,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.71,
+      12.4,
+      -11.66
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.270237922668457,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.5,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1132,
+   "fill": 17,
+   "mu_part": 0.37696603107533644,
+   "mu_pill": 0.21161818919689487,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 43.39822506904602,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.11,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 3.8356,
+    "pill": 11,
+    "v": 2.68,
+    "pos": [
+     5.3,
+     14.7,
+     -11.3
+    ],
+    "contacts": [
+     [
+      "Unchanged_pill_opening_3__37",
+      0.03
+     ],
+     [
+      "Unchanged_pill_opening_3__39",
+      -0.03
+     ],
+     [
+      "Unchanged_pill_opening_3__40",
+      -1.03
+     ],
+     [
+      "Unchanged_pill_opening_3__40",
+      -1.11
+     ],
+     [
+      "Unchanged_pill_opening_3__46",
+      -1.03
+     ],
+     [
+      "Unchanged_pill_opening_3__46",
+      -0.97
+     ]
+    ],
+    "rotor_w": -3.144,
+    "tau": -0.116
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1133,
+   "fill": 20,
+   "mu_part": 0.475517730910875,
+   "mu_pill": 0.42779379433856346,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 2,
+     "duration_s": 0.7387500000009029,
+     "jam_site": "F4 brush",
+     "jam_pos_mm": [
+      -2.45,
+      16.57,
+      -11.55
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 33.43625998497009,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.736,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1134,
+   "fill": 15,
+   "mu_part": 0.33578911532886646,
+   "mu_pill": 0.3027231371189122,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.17499999999959215,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.47,
+      11.9,
+      -11.69
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.422802448272705,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.732,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1135,
+   "fill": 18,
+   "mu_part": 0.5363254701318907,
+   "mu_pill": 0.46162501138285006,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.18624999999956593,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      9.08,
+      13.61,
+      -11.79
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.41674041748047,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.431,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1136,
+   "fill": 11,
+   "mu_part": 0.32269314269366695,
+   "mu_pill": 0.4910339532022807,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4367500000014009,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.20000000000024443,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      10.67,
+      9.98,
+      -11.94
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.64296865463257,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.711,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1137,
+   "fill": 18,
+   "mu_part": 0.24996132088131878,
+   "mu_pill": 0.4059855256280659,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7412500000005509,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.07,
+      15.08,
+      -11.67
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.53406834602356,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.256,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1138,
+   "fill": 10,
+   "mu_part": 0.5268248546034235,
+   "mu_pill": 0.43868860123293985,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2525000000003086,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.27,
+      13.94,
+      -11.74
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.38045072555542,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.429,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1139,
+   "fill": 8,
+   "mu_part": 0.21440569593574185,
+   "mu_pill": 0.5452978688543192,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14499999999966207,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.5,
+      13.04,
+      -11.6
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.34816074371338,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.609,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1140,
+   "fill": 18,
+   "mu_part": 0.5949055334030378,
+   "mu_pill": 0.5733433171808766,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.17000000000020776,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      5.72,
+      14.0,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.83421754837036,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.664,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1141,
+   "fill": 15,
+   "mu_part": 0.37798394448802886,
+   "mu_pill": 0.3402439977350514,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.13000000000015888,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.04,
+      12.27,
+      -11.6
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.388551235198975,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.504,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 1.9976,
+    "pill": 4,
+    "v": 6.5,
+    "pos": [
+     -7.1,
+     10.8,
+     3.1
+    ],
+    "contacts": [],
+    "rotor_w": -3.165,
+    "tau": -0.004
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1142,
+   "fill": 7,
+   "mu_part": 0.22458609675836727,
+   "mu_pill": 0.49456572424226813,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.8112499999981093,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.16,
+      14.78,
+      -11.7
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.381925582885742,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.199,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1143,
+   "fill": 8,
+   "mu_part": 0.3536891982634064,
+   "mu_pill": 0.5538682876246223,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.572770595550537,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.361,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1144,
+   "fill": 11,
+   "mu_part": 0.3784132997079287,
+   "mu_pill": 0.39987339298244334,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.17000000000020776,
+     "jam_site": "F3 brush holder bar (pill standing proud of pocket)",
+     "jam_pos_mm": [
+      1.74,
+      15.4,
+      -5.71
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.830060958862305,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.875,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1145,
+   "fill": 5,
+   "mu_part": 0.547625341228202,
+   "mu_pill": 0.5246812018152119,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.76388931274414,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.092,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1146,
+   "fill": 5,
+   "mu_part": 0.4162908428984493,
+   "mu_pill": 0.30228002910617374,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1712499999996009,
+     "jam_site": "F1 deck edge above rotor (fill-opening rim)",
+     "jam_pos_mm": [
+      2.3,
+      15.3,
+      -7.17
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.77871298789978,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.432,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1147,
+   "fill": 8,
+   "mu_part": 0.25220540093491783,
+   "mu_pill": 0.34243479315628617,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22750000000027804,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.11,
+      15.27,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.49815797805786,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.19,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1148,
+   "fill": 3,
+   "mu_part": 0.5855190798853622,
+   "mu_pill": 0.36459469533010275,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22375000000027345,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.07,
+      15.09,
+      -11.71
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.99371075630188,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.318,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1149,
+   "fill": 20,
+   "mu_part": 0.4961874315424995,
+   "mu_pill": 0.27249504051041706,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 4,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15624999999963585,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.34,
+      11.87,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.82020902633667,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.444,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.8431,
+    "pill": 1,
+    "v": 2.56,
+    "pos": [
+     -1.3,
+     15.4,
+     -2.5
+    ],
+    "contacts": [
+     [
+      "flap3_blade",
+      -0.09
+     ],
+     [
+      "pill8",
+      -0.22
+     ],
+     [
+      "pill11",
+      0.09
+     ]
+    ],
+    "rotor_w": -3.119,
+    "tau": -0.053
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1150,
+   "fill": 19,
+   "mu_part": 0.38054547377176484,
+   "mu_pill": 0.5493528550394033,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1412499999996708,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.62,
+      12.96,
+      -11.58
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 37.50373387336731,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.68,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1151,
+   "fill": 15,
+   "mu_part": 0.23554635926369608,
+   "mu_pill": 0.2055973646769909,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16000000000019554,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.24,
+      13.39,
+      -11.69
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.555527210235596,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.462,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1152,
+   "fill": 17,
+   "mu_part": 0.4527520261877603,
+   "mu_pill": 0.5499823241659927,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.24124999999943775,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.5,
+      14.86,
+      -11.73
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.47969722747803,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.053,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 4.0799,
+    "pill": 3,
+    "v": 6.79,
+    "pos": [
+     -7.4,
+     -7.9,
+     2.6
+    ],
+    "contacts": [],
+    "rotor_w": 0.021,
+    "tau": -0.019
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1153,
+   "fill": 3,
+   "mu_part": 0.35374181486136397,
+   "mu_pill": 0.2351714609947626,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22874999999946688,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.11,
+      15.32,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.600778102874756,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.223,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1154,
+   "fill": 5,
+   "mu_part": 0.346420147433167,
+   "mu_pill": 0.24107006969521658,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16374999999961837,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.22,
+      12.16,
+      -11.64
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.90593719482422,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.22,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1155,
+   "fill": 9,
+   "mu_part": 0.3356443926508129,
+   "mu_pill": 0.48232069513035875,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.09104561805725,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.655,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.7569,
+    "pill": 2,
+    "v": 3.59,
+    "pos": [
+     -4.3,
+     25.2,
+     0.7
+    ],
+    "contacts": [],
+    "rotor_w": -3.119,
+    "tau": -0.028
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1156,
+   "fill": 7,
+   "mu_part": 0.3338224983325305,
+   "mu_pill": 0.37802725088317607,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.5167500000014986,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.18250000000022304,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      9.65,
+      10.84,
+      -11.76
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.30958104133606,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.557,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.8619,
+    "pill": 3,
+    "v": 34.44,
+    "pos": [
+     -32.7,
+     0.2,
+     60.7
+    ],
+    "contacts": [
+     [
+      "Canister_OD67p5_H70__419",
+      -3.22
+     ],
+     [
+      "Canister_OD67p5_H70__419",
+      -3.22
+     ],
+     [
+      "Canister_OD67p5_H70__421",
+      -3.28
+     ],
+     [
+      "Canister_OD67p5_H70__438",
+      -3.12
+     ],
+     [
+      "Canister_OD67p5_H70__440",
+      -3.57
+     ],
+     [
+      "Canister_OD67p5_H70__440",
+      -3.57
+     ]
+    ],
+    "rotor_w": -0.073,
+    "tau": -0.236
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1157,
+   "fill": 8,
+   "mu_part": 0.5238766286907948,
+   "mu_pill": 0.3821507962858224,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.7887500000009435,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      8.12,
+      14.28,
+      -11.9
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.472784996032715,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.552,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 3.8381,
+    "pill": 1,
+    "v": 2.65,
+    "pos": [
+     -9.9,
+     15.9,
+     -3.3
+    ],
+    "contacts": [
+     [
+      "pill6",
+      -0.55
+     ],
+     [
+      "pill6",
+      -0.54
+     ]
+    ],
+    "rotor_w": -2.967,
+    "tau": -0.307
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1158,
+   "fill": 15,
+   "mu_part": 0.2427186685021559,
+   "mu_pill": 0.20921137595514105,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.8025000000006257,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.24,
+      13.08,
+      -11.59
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.7900869846344,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.492,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1159,
+   "fill": 10,
+   "mu_part": 0.2285581047832108,
+   "mu_pill": 0.33058709472390035,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23375000000028567,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.57,
+      15.09,
+      -11.77
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.16172432899475,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.198,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1160,
+   "fill": 9,
+   "mu_part": 0.2730902177007144,
+   "mu_pill": 0.20405023464277938,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 2,
+     "duration_s": 0.7287500000008906,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.91,
+      15.25,
+      -11.64
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.48312735557556,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.401,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1161,
+   "fill": 9,
+   "mu_part": 0.2999831520635504,
+   "mu_pill": 0.3265585416529326,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.22000000000026887,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.12,
+      15.25,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.871126413345337,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.187,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1162,
+   "fill": 20,
+   "mu_part": 0.3123483474251932,
+   "mu_pill": 0.5407709878956501,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.29624999999930957,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      10.35,
+      12.05,
+      -10.0
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 40.43236422538757,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.779,
+   "passed": false,
+   "anomalies": 2,
+   "first_anomaly": {
+    "t": 3.6231,
+    "pill": 6,
+    "v": 4.08,
+    "pos": [
+     -13.6,
+     7.0,
+     -9.5
+    ],
+    "contacts": [
+     [
+      "Three_tangential_pocket_rotor__630",
+      0.05
+     ],
+     [
+      "Three_tangential_pocket_rotor__631",
+      -0.07
+     ],
+     [
+      "Three_tangential_pocket_rotor__631",
+      -0.12
+     ],
+     [
+      "Three_tangential_pocket_rotor__632",
+      -0.15
+     ],
+     [
+      "Three_tangential_pocket_rotor__632",
+      -0.17
+     ],
+     [
+      "Three_tangential_pocket_rotor__633",
+      -0.05
+     ]
+    ],
+    "rotor_w": -3.085,
+    "tau": -0.055
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1163,
+   "fill": 14,
+   "mu_part": 0.43776432510447194,
+   "mu_pill": 0.2160992050627562,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.13875000000016957,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.03,
+      11.98,
+      -11.59
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.025662899017334,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.296,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1164,
+   "fill": 7,
+   "mu_part": 0.2257189464242184,
+   "mu_pill": 0.5860083012921042,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.7075000000008647,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.91,
+      15.26,
+      -11.64
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.618031978607178,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.192,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1165,
+   "fill": 15,
+   "mu_part": 0.21868581923448158,
+   "mu_pill": 0.26488647821044536,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.41379976272583,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1166,
+   "fill": 3,
+   "mu_part": 0.33494656662909666,
+   "mu_pill": 0.41728595986561456,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16874999999960671,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      5.76,
+      13.94,
+      -11.72
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.01522207260132,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.415,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1167,
+   "fill": 10,
+   "mu_part": 0.4555365914646556,
+   "mu_pill": 0.22385555139864627,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23750000000029026,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.19,
+      15.22,
+      -11.71
+     ],
+     "lost": 1,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.11529850959778,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.189,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 3.3044,
+    "pill": 2,
+    "v": 66.56,
+    "pos": [
+     -0.7,
+     4.2,
+     52.4
+    ],
+    "contacts": [],
+    "rotor_w": -1.994,
+    "tau": 0.083
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1168,
+   "fill": 9,
+   "mu_part": 0.24206352636325568,
+   "mu_pill": 0.5503070709356874,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.11837100982666,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.004,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1169,
+   "fill": 19,
+   "mu_part": 0.5930724695430278,
+   "mu_pill": 0.42990057768489287,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14499999999966207,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      5.88,
+      12.13,
+      -11.57
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 35.59644842147827,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.016,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.2351,
+    "pill": 2,
+    "v": 4.06,
+    "pos": [
+     -11.7,
+     9.6,
+     -11.7
+    ],
+    "contacts": [
+     [
+      "Floor_liner_unchanged_depth__9",
+      -0.19
+     ],
+     [
+      "Floor_liner_unchanged_depth__9",
+      -0.16
+     ],
+     [
+      "Floor_liner_unchanged_depth__10",
+      -0.19
+     ],
+     [
+      "Floor_liner_unchanged_depth__10",
+      -0.28
+     ]
+    ],
+    "rotor_w": -3.127,
+    "tau": -0.017
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1170,
+   "fill": 13,
+   "mu_part": 0.4299147167424743,
+   "mu_pill": 0.359824824741361,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 38.02436947822571,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.494,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1171,
+   "fill": 19,
+   "mu_part": 0.3493209855072136,
+   "mu_pill": 0.21489455087852832,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4567500000014253,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 2,
+     "duration_s": 1.4168749999993375,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 9,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 45.721946239471436,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.326,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.3776,
+    "pill": 5,
+    "v": 2.66,
+    "pos": [
+     -8.5,
+     -15.2,
+     -2.1
+    ],
+    "contacts": [
+     [
+      "pill0",
+      -0.02
+     ],
+     [
+      "pill2",
+      0.0
+     ],
+     [
+      "pill2",
+      -0.09
+     ]
+    ],
+    "rotor_w": -3.132,
+    "tau": -0.033
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1172,
+   "fill": 20,
+   "mu_part": 0.24890667562619903,
+   "mu_pill": 0.27042566900262877,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 53.502485275268555,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.014,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1173,
+   "fill": 6,
+   "mu_part": 0.23927365748455914,
+   "mu_pill": 0.38884944286869105,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.15000000000018332,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.39,
+      13.13,
+      -11.57
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.848262786865234,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.579,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1174,
+   "fill": 15,
+   "mu_part": 0.4934091977361479,
+   "mu_pill": 0.34769308591791664,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.98099899291992,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.72,
+   "passed": false,
+   "anomalies": 6,
+   "first_anomaly": {
+    "t": 4.1924,
+    "pill": 12,
+    "v": 6.1,
+    "pos": [
+     6.7,
+     13.6,
+     -13.2
+    ],
+    "contacts": [
+     [
+      "Floor_liner_unchanged_depth__68",
+      -1.4
+     ]
+    ],
+    "rotor_w": 2.929,
+    "tau": -1.0
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1175,
+   "fill": 12,
+   "mu_part": 0.5550469142632508,
+   "mu_pill": 0.31415167929670645,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2887500000003529,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      9.16,
+      13.08,
+      -12.01
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.75286316871643,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.28,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1176,
+   "fill": 11,
+   "mu_part": 0.22737515324338672,
+   "mu_pill": 0.4414798491699483,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23750000000029026,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.57,
+      15.08,
+      -11.77
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 20.258028507232666,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.203,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1177,
+   "fill": 13,
+   "mu_part": 0.2891265797068986,
+   "mu_pill": 0.21807333111329036,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1400000000001711,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.54,
+      13.03,
+      -11.58
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.826518774032593,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.626,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1178,
+   "fill": 10,
+   "mu_part": 0.4056663005912343,
+   "mu_pill": 0.22608585275869314,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.18000000000021998,
+     "jam_site": "F3 brush holder bar (pill standing proud of pocket)",
+     "jam_pos_mm": [
+      2.38,
+      15.66,
+      -5.8
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.46576237678528,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.355,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1179,
+   "fill": 10,
+   "mu_part": 0.2087893898854251,
+   "mu_pill": 0.4176095564012918,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.770750999450684,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.453,
+   "passed": false,
+   "anomalies": 11,
+   "first_anomaly": {
+    "t": 5.0637,
+    "pill": 0,
+    "v": 4.54,
+    "pos": [
+     12.3,
+     27.9,
+     3.9
+    ],
+    "contacts": [
+     [
+      "Canister_OD67p5_H70__225",
+      -0.33
+     ],
+     [
+      "Canister_OD67p5_H70__225",
+      -0.22
+     ],
+     [
+      "Canister_OD67p5_H70__226",
+      -0.44
+     ],
+     [
+      "Canister_OD67p5_H70__226",
+      -0.55
+     ],
+     [
+      "Canister_OD67p5_H70__227",
+      -2.39
+     ],
+     [
+      "Canister_OD67p5_H70__227",
+      -2.36
+     ]
+    ],
+    "rotor_w": -3.172,
+    "tau": 0.026
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1180,
+   "fill": 10,
+   "mu_part": 0.46736928702097774,
+   "mu_pill": 0.5764254833379899,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.8000000000006227,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.35,
+      13.0,
+      -11.62
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.657775640487671,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.465,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1181,
+   "fill": 17,
+   "mu_part": 0.32155395459199154,
+   "mu_pill": 0.24981647201719231,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 46.06101632118225,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.923,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 5.6292,
+    "pill": 3,
+    "v": 2.86,
+    "pos": [
+     -3.3,
+     -9.7,
+     3.5
+    ],
+    "contacts": [
+     [
+      "pill5",
+      0.03
+     ],
+     [
+      "pill5",
+      0.05
+     ]
+    ],
+    "rotor_w": -0.005,
+    "tau": -0.011
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1182,
+   "fill": 11,
+   "mu_part": 0.38090543833135715,
+   "mu_pill": 0.45566153679456295,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": -3.2166250000010588,
+     "jam_site": "drive overload",
+     "jam_pos_mm": null,
+     "lost": 11,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.436031103134155,
+   "sim_unstable": 1,
+   "max_contact_depth_mm": 1.14,
+   "passed": false,
+   "anomalies": 3,
+   "first_anomaly": {
+    "t": 3.7106,
+    "pill": 0,
+    "v": 5.78,
+    "pos": [
+     -10.8,
+     11.9,
+     -12.6
+    ],
+    "contacts": [
+     [
+      "Floor_liner_unchanged_depth__9",
+      -0.81
+     ],
+     [
+      "Floor_liner_unchanged_depth__10",
+      -1.14
+     ],
+     [
+      "Floor_liner_unchanged_depth__10",
+      -1.1
+     ],
+     [
+      "Floor_liner_unchanged_depth__17",
+      -0.35
+     ],
+     [
+      "Floor_liner_unchanged_depth__17",
+      -0.34
+     ],
+     [
+      "Unchanged_pill_opening_3__60",
+      0.06
+     ]
+    ],
+    "rotor_w": -3.126,
+    "tau": -0.012
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1183,
+   "fill": 5,
+   "mu_part": 0.40778784075959185,
+   "mu_pill": 0.23929422145753643,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1625000000001986,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.31,
+      11.99,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.967636346817017,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.255,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1184,
+   "fill": 4,
+   "mu_part": 0.3967222597319513,
+   "mu_pill": 0.2242439881131607,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.936352014541626,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.169,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1185,
+   "fill": 16,
+   "mu_part": 0.3917310780259793,
+   "mu_pill": 0.32175980443597696,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 40.050262451171875,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.433,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1186,
+   "fill": 16,
+   "mu_part": 0.5016465727545629,
+   "mu_pill": 0.20677439838075876,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16499999999961545,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.53,
+      11.79,
+      -11.71
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.85399627685547,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.939,
+   "passed": false,
+   "anomalies": 4,
+   "first_anomaly": {
+    "t": 2.4501,
+    "pill": 10,
+    "v": 4.4,
+    "pos": [
+     2.6,
+     13.1,
+     -10.5
+    ],
+    "contacts": [
+     [
+      "Lower_enclosure_with_integrated_snap_clips__4177",
+      -0.04
+     ],
+     [
+      "Lower_enclosure_with_integrated_snap_clips__4177",
+      -0.05
+     ],
+     [
+      "Unchanged_pill_opening_1__28",
+      -0.02
+     ],
+     [
+      "Unchanged_pill_opening_1__28",
+      0.06
+     ],
+     [
+      "pill2",
+      -2.45
+     ],
+     [
+      "pill2",
+      -2.43
+     ]
+    ],
+    "rotor_w": -3.124,
+    "tau": -0.039
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1187,
+   "fill": 5,
+   "mu_part": 0.560900934925115,
+   "mu_pill": 0.3351431306002128,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.14250000000017415,
+     "jam_site": "F3 brush holder bar (pill standing proud of pocket)",
+     "jam_pos_mm": [
+      -0.9,
+      16.48,
+      -3.76
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.215830326080322,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.235,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1188,
+   "fill": 8,
+   "mu_part": 0.20890409875833243,
+   "mu_pill": 0.5224020671874872,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.477249999999339,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.1424999999996679,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.3,
+      11.96,
+      -11.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.19787311553955,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.43,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1189,
+   "fill": 11,
+   "mu_part": 0.277730427505938,
+   "mu_pill": 0.20008881427753536,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.158750000000194,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.42,
+      11.87,
+      -11.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.010639190673828,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.29,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1190,
+   "fill": 14,
+   "mu_part": 0.24029710364752388,
+   "mu_pill": 0.2745948483185303,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 7,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.16749999999960963,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.22,
+      11.95,
+      -11.63
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.82396101951599,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.586,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.2914,
+    "pill": 0,
+    "v": 4.18,
+    "pos": [
+     -15.4,
+     -5.0,
+     -4.8
+    ],
+    "contacts": [
+     [
+      "pill7",
+      -0.31
+     ],
+     [
+      "pill7",
+      -0.29
+     ]
+    ],
+    "rotor_w": -3.12,
+    "tau": -0.02
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1191,
+   "fill": 4,
+   "mu_part": 0.5537686081941837,
+   "mu_pill": 0.5168579423523987,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7925000000006135,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      6.13,
+      14.19,
+      -11.69
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 10.615676164627075,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.711,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1192,
+   "fill": 4,
+   "mu_part": 0.4738843655025123,
+   "mu_pill": 0.5485055309775585,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.2837500000003468,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      8.65,
+      14.06,
+      -11.88
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.74365234375,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.374,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1193,
+   "fill": 20,
+   "mu_part": 0.4096681098491777,
+   "mu_pill": 0.2133469721941042,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 5,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 3,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.17953562736511,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.336,
+   "passed": false,
+   "anomalies": 20,
+   "first_anomaly": {
+    "t": 2.2989,
+    "pill": 0,
+    "v": 2.57,
+    "pos": [
+     -8.7,
+     2.5,
+     -1.3
+    ],
+    "contacts": [
+     [
+      "pill9",
+      -0.65
+     ],
+     [
+      "pill9",
+      -0.67
+     ]
+    ],
+    "rotor_w": -3.171,
+    "tau": -0.054
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1194,
+   "fill": 19,
+   "mu_part": 0.2336222387130128,
+   "mu_pill": 0.478660012329131,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.23375000000028567,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      6.5,
+      15.1,
+      -11.76
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.414968729019165,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.187,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1195,
+   "fill": 17,
+   "mu_part": 0.31485554341939104,
+   "mu_pill": 0.5320365313108837,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999966979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 44.17710018157959,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1196,
+   "fill": 13,
+   "mu_part": 0.36067495116325105,
+   "mu_pill": 0.45163921372541266,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.21874999999949019,
+     "jam_site": "F6 floor-hole edge",
+     "jam_pos_mm": [
+      5.98,
+      15.38,
+      -11.67
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.71579694747925,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 3.194,
+   "passed": false,
+   "anomalies": 5,
+   "first_anomaly": {
+    "t": 4.68,
+    "pill": 12,
+    "v": 9.49,
+    "pos": [
+     13.9,
+     5.9,
+     -15.7
+    ],
+    "contacts": [
+     [
+      "Three_tangential_pocket_rotor__68",
+      0.04
+     ],
+     [
+      "Unchanged_pill_opening_3__1",
+      -0.46
+     ],
+     [
+      "Unchanged_pill_opening_3__2",
+      -0.29
+     ],
+     [
+      "Unchanged_pill_opening_3__3",
+      -0.7
+     ],
+     [
+      "Unchanged_pill_opening_3__6",
+      0.04
+     ],
+     [
+      "Unchanged_pill_opening_3__22",
+      -0.59
+     ]
+    ],
+    "rotor_w": -0.382,
+    "tau": -0.409
+   }
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1197,
+   "fill": 3,
+   "mu_part": 0.4477651773896808,
+   "mu_pill": 0.47660196360264007,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.17249999999959797,
+     "jam_site": "F1 deck stripping edge (chamfered wedge above rotor, drop side)",
+     "jam_pos_mm": [
+      7.72,
+      12.35,
+      -11.66
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 14.514201402664185,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.492,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1198,
+   "fill": 13,
+   "mu_part": 0.2691076082973738,
+   "mu_pill": 0.30679955391702163,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "double",
+     "count": 2,
+     "duration_s": 1.4168749999994796,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 1,
+     "duration_s": 0.28749999999932996,
+     "jam_site": "pill-pile (pill wedged between rotor and other pills)",
+     "jam_pos_mm": [
+      9.76,
+      12.58,
+      -11.93
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.942084074020386,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.594,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V0 original (team CAD)",
+   "pill": "iron",
+   "seed": 1199,
+   "fill": 13,
+   "mu_part": 0.23993306290515123,
+   "mu_pill": 0.2242852190839075,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 1.4167500000013764,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": -3.2158750000010587,
+     "jam_site": "drive overload",
+     "jam_pos_mm": null,
+     "lost": 13,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.63008403778076,
+   "sim_unstable": 1,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  }
+ ]
+}

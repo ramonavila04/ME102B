@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "ME102B pill dispenser team",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-ili9341", "id": "lcd1", "top": -260, "left": 260, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 260, "left": -240, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btnSel", "top": 260, "left": -120, "attrs": { "color": "green", "label": "Select" } },
+    { "type": "wokwi-pushbutton", "id": "btnBack", "top": 330, "left": -120, "attrs": { "color": "red", "label": "Back" } },
+    { "type": "wokwi-pushbutton", "id": "btnBeam", "top": 400, "left": -120, "attrs": { "color": "yellow", "label": "Beam (pill)" } },
+    { "type": "wokwi-hx711", "id": "cell1", "top": 300, "left": 200, "attrs": { "type": "5kg" } },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 160, "left": 260, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": -120, "left": -220, "attrs": { "volume": "0.1" } },
+    { "type": "wokwi-led", "id": "ledStatus", "top": -120, "left": -120, "attrs": { "color": "blue", "label": "Status" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": -40, "left": -150, "attrs": { "value": "330" } },
+    { "type": "wokwi-led", "id": "ledStby", "top": 120, "left": -260, "attrs": { "color": "white", "label": "STBY" } },
+    { "type": "wokwi-led", "id": "ledAin1", "top": 120, "left": -220, "attrs": { "color": "green", "label": "AIN1" } },
+    { "type": "wokwi-led", "id": "ledAin2", "top": 120, "left": -180, "attrs": { "color": "red", "label": "AIN2" } },
+    { "type": "wokwi-led", "id": "ledPwm", "top": 120, "left": -140, "attrs": { "color": "orange", "label": "PWMA" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "lcd1:VCC", "esp:3V3", "red", [] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [] ],
+    [ "lcd1:SCK", "esp:5", "green", [] ],
+    [ "lcd1:MOSI", "esp:18", "blue", [] ],
+    [ "lcd1:CS", "esp:17", "orange", [] ],
+    [ "lcd1:D/C", "esp:13", "purple", [] ],
+    [ "lcd1:LED", "esp:3V3", "red", [] ],
+
+    [ "pot1:VCC", "esp:3V3", "red", [] ],
+    [ "pot1:GND", "esp:GND.1", "black", [] ],
+    [ "pot1:SIG", "esp:32", "violet", [] ],
+
+    [ "btnSel:1.l", "esp:15", "green", [] ],
+    [ "btnSel:2.l", "esp:GND.1", "black", [] ],
+    [ "btnBack:1.l", "esp:19", "green", [] ],
+    [ "btnBack:2.l", "esp:GND.1", "black", [] ],
+    [ "btnBeam:1.l", "esp:16", "yellow", [] ],
+    [ "btnBeam:2.l", "esp:GND.1", "black", [] ],
+
+    [ "cell1:VCC", "esp:3V3", "red", [] ],
+    [ "cell1:GND", "esp:GND.2", "black", [] ],
+    [ "cell1:DT", "esp:VP", "blue", [] ],
+    [ "cell1:SCK", "esp:4", "green", [] ],
+
+    [ "rtc1:5V", "esp:3V3", "red", [] ],
+    [ "rtc1:GND", "esp:GND.2", "black", [] ],
+    [ "rtc1:SDA", "esp:23", "blue", [] ],
+    [ "rtc1:SCL", "esp:22", "green", [] ],
+
+    [ "bz1:1", "esp:GND.1", "black", [] ],
+    [ "bz1:2", "esp:25", "orange", [] ],
+
+    [ "ledStatus:A", "r1:1", "blue", [] ],
+    [ "r1:2", "esp:12", "blue", [] ],
+    [ "ledStatus:C", "esp:GND.1", "black", [] ],
+
+    [ "ledStby:A", "esp:26", "white", [] ],
+    [ "ledStby:C", "esp:GND.1", "black", [] ],
+    [ "ledAin1:A", "esp:27", "green", [] ],
+    [ "ledAin1:C", "esp:GND.1", "black", [] ],
+    [ "ledAin2:A", "esp:33", "red", [] ],
+    [ "ledAin2:C", "esp:GND.1", "black", [] ],
+    [ "ledPwm:A", "esp:21", "orange", [] ],
+    [ "ledPwm:C", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

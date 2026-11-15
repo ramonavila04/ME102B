@@ -1,0 +1,7874 @@
+{
+ "variant": "v3_shuttle",
+ "pill": "small",
+ "summary": {
+  "trials": 200,
+  "passed_trials": 21,
+  "cycles": 449,
+  "outcomes": {
+   "jam": 86,
+   "ok": 155,
+   "miss": 204,
+   "lost": 4
+  },
+  "jam_sites": {
+   "throat exit edge (stripper)": 81,
+   "pill-pile (pill wedged between rotor and other pills)": 2,
+   "drive overload": 2,
+   "floor: drop-hole edge": 1
+  },
+  "jam_rate_per_trial": 0.43,
+  "anomaly_trials": 2,
+  "unstable_trials": 0,
+  "errors": 0
+ },
+ "trials": [
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1000,
+   "fill": 8,
+   "mu_part": 0.4632754329215391,
+   "mu_pill": 0.4066924087212669,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6950000000008494,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -1.52,
+      -0.38,
+      -0.89
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.464380741119385,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.46,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1001,
+   "fill": 28,
+   "mu_part": 0.24496612619475144,
+   "mu_pill": 0.3028690032729717,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 554.2499914169312,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1002,
+   "fill": 19,
+   "mu_part": 0.5849377610748124,
+   "mu_pill": 0.5926252455107484,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5862500000007165,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.11,
+      0.09,
+      -0.51
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 26.948583364486694,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.676,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1003,
+   "fill": 11,
+   "mu_part": 0.4645707621914813,
+   "mu_pill": 0.40257085881802024,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 6.235374999997086,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      0.42,
+      -0.39,
+      -0.86
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 42.95642852783203,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.426,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1004,
+   "fill": 23,
+   "mu_part": 0.3763824754615019,
+   "mu_pill": 0.4253724257020769,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500125000008855,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 13.750000000065654,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 188.87051105499268,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1005,
+   "fill": 15,
+   "mu_part": 0.5882689821234863,
+   "mu_pill": 0.31103482231716095,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.496499999996114,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      0.9,
+      0.13,
+      -0.91
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.259293794631958,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.373,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1006,
+   "fill": 17,
+   "mu_part": 0.33578832405473724,
+   "mu_pill": 0.5666719336305641,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 13.75037500003297,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250000000039392,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.25025000000953,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 217.81230330467224,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1007,
+   "fill": 4,
+   "mu_part": 0.5177761140185708,
+   "mu_pill": 0.5032147590568734,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.677500000000828,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.45,
+      0.34,
+      -0.79
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 4.700439453125,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.519,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1008,
+   "fill": 12,
+   "mu_part": 0.33940934600634237,
+   "mu_pill": 0.20101054843674807,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 42.49351263046265,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.136,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1009,
+   "fill": 23,
+   "mu_part": 0.3480618338290965,
+   "mu_pill": 0.37773585092746287,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 407.0233643054962,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1010,
+   "fill": 22,
+   "mu_part": 0.46093597180138446,
+   "mu_pill": 0.4098199837318869,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6900000000008433,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.27,
+      0.29,
+      -0.8
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.676696062088013,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.481,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1011,
+   "fill": 11,
+   "mu_part": 0.3940005096650784,
+   "mu_pill": 0.4624639836261422,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 13.750000000065654,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 70.62602353096008,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1012,
+   "fill": 23,
+   "mu_part": 0.5027015640935436,
+   "mu_pill": 0.23917935794572728,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5900000000007211,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.84,
+      -0.38,
+      -0.41
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.959721326828003,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.788,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1013,
+   "fill": 7,
+   "mu_part": 0.4084963511580132,
+   "mu_pill": 0.4034720244613827,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5725000000027336,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.19,
+      -0.46,
+      -0.4
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 44.66100454330444,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.765,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1014,
+   "fill": 19,
+   "mu_part": 0.3470133900193657,
+   "mu_pill": 0.2774733111982409,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.453999999996213,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -1.51,
+      0.34,
+      -0.9
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.18637180328369,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.433,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1015,
+   "fill": 18,
+   "mu_part": 0.4238147341275922,
+   "mu_pill": 0.3283594812385408,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 169.5304024219513,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1016,
+   "fill": 20,
+   "mu_part": 0.5458304218613983,
+   "mu_pill": 0.47863405369555684,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6400000000030559,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -11.37,
+      -0.19,
+      0.8
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 57.132140159606934,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.843,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1017,
+   "fill": 30,
+   "mu_part": 0.3665869813734152,
+   "mu_pill": 0.4946317018022352,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 735.2408692836761,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1018,
+   "fill": 27,
+   "mu_part": 0.41445485890238637,
+   "mu_pill": 0.48112279932193946,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6525000000007974,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.82,
+      -0.42,
+      0.09
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 30.428906440734863,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.003,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1019,
+   "fill": 12,
+   "mu_part": 0.21308519755940758,
+   "mu_pill": 0.21739144727393767,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.762609004974365,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.087,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1020,
+   "fill": 26,
+   "mu_part": 0.3999205560487087,
+   "mu_pill": 0.40402559552925593,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5912500000007226,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.95,
+      0.15,
+      -0.17
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.993111610412598,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.682,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1021,
+   "fill": 7,
+   "mu_part": 0.4106889944424447,
+   "mu_pill": 0.42106741492990485,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 8.938750000042681,
+     "jam_site": "pill-pile (pill wedged between rotor and other pills)",
+     "jam_pos_mm": [
+      -14.21,
+      -1.12,
+      1.56
+     ],
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.515599727630615,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.574,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1022,
+   "fill": 27,
+   "mu_part": 0.4624578672790923,
+   "mu_pill": 0.5622733267811103,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 548.4997925758362,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1023,
+   "fill": 10,
+   "mu_part": 0.251133966824038,
+   "mu_pill": 0.3609510497338165,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250000000039392,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 16.500250000048922,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 117.97044539451599,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1024,
+   "fill": 18,
+   "mu_part": 0.4024310403905313,
+   "mu_pill": 0.42686293242632434,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6875000000008402,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.21,
+      -0.34,
+      -0.84
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.890983819961548,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.459,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1025,
+   "fill": 23,
+   "mu_part": 0.5963900714603216,
+   "mu_pill": 0.5749083429068071,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 11.000375000019838,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.501499999658094,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 383.961377620697,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.039,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1026,
+   "fill": 20,
+   "mu_part": 0.4970215856302103,
+   "mu_pill": 0.5444984591211128,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 313.822762966156,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1027,
+   "fill": 20,
+   "mu_part": 0.3661829362931589,
+   "mu_pill": 0.4187961673443579,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7125000000008708,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -0.42,
+      -0.03,
+      -0.98
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.127211809158325,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.328,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1028,
+   "fill": 19,
+   "mu_part": 0.2065854580053332,
+   "mu_pill": 0.42278348915868613,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 11.00025000002266,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 266.47776794433594,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1029,
+   "fill": 18,
+   "mu_part": 0.3106737404025139,
+   "mu_pill": 0.2988483987504739,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 71.43813633918762,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1030,
+   "fill": 13,
+   "mu_part": 0.5602393152338372,
+   "mu_pill": 0.4583511118205919,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 238.25292134284973,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.04,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1031,
+   "fill": 28,
+   "mu_part": 0.5918091307176385,
+   "mu_pill": 0.3528542616575014,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 663.455109834671,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1032,
+   "fill": 14,
+   "mu_part": 0.5446555259643568,
+   "mu_pill": 0.533361288592722,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250000000039392,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500250000048922,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 153.24982118606567,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1033,
+   "fill": 19,
+   "mu_part": 0.2842777128413184,
+   "mu_pill": 0.540020431420237,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 11.693499999723485,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -0.02,
+      0.28,
+      -0.97
+     ],
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 394.111937046051,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.28,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1034,
+   "fill": 19,
+   "mu_part": 0.5703918436087132,
+   "mu_pill": 0.5948393728190309,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5937500000007256,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.55,
+      -0.11,
+      -0.27
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.725163459777832,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.813,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1035,
+   "fill": 8,
+   "mu_part": 0.5274422389093287,
+   "mu_pill": 0.2967274278357114,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250375000006708,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500000000026262,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 44.35188436508179,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.113,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1036,
+   "fill": 13,
+   "mu_part": 0.3891939499689442,
+   "mu_pill": 0.36059337586812445,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.680000000000831,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.23,
+      -0.39,
+      -0.82
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 13.959376096725464,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.466,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1037,
+   "fill": 14,
+   "mu_part": 0.50870067807746,
+   "mu_pill": 0.2548391730347446,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 223.0692536830902,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1038,
+   "fill": 15,
+   "mu_part": 0.5829590697025563,
+   "mu_pill": 0.34742813603168055,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 324.1423923969269,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1039,
+   "fill": 17,
+   "mu_part": 0.41172932908791665,
+   "mu_pill": 0.2185401574160647,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 308.29876923561096,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1040,
+   "fill": 11,
+   "mu_part": 0.4996614966147052,
+   "mu_pill": 0.5355803668728533,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250125000021985,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 52.53528547286987,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.054,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1041,
+   "fill": 27,
+   "mu_part": 0.21174763450510273,
+   "mu_pill": 0.5194185670530469,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 309.0394513607025,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1042,
+   "fill": 24,
+   "mu_part": 0.283039977260909,
+   "mu_pill": 0.2045127882053946,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250000000039392,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 225.91527104377747,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1043,
+   "fill": 21,
+   "mu_part": 0.21034961607696645,
+   "mu_pill": 0.20831023733595028,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 98.48959803581238,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1044,
+   "fill": 10,
+   "mu_part": 0.4826858133495894,
+   "mu_pill": 0.32797441559967083,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 6.067874999996286,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.44,
+      0.13,
+      -0.4
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.50110363960266,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.699,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1045,
+   "fill": 22,
+   "mu_part": 0.469508793850907,
+   "mu_pill": 0.561691167014975,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 204.75349926948547,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1046,
+   "fill": 3,
+   "mu_part": 0.44117291639413747,
+   "mu_pill": 0.5549846824808171,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7175000000008769,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -0.44,
+      -0.32,
+      -0.88
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 4.607997894287109,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.442,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1047,
+   "fill": 6,
+   "mu_part": 0.22220394110132743,
+   "mu_pill": 0.4339067711245851,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 5.500125000008855,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 2,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.528258085250854,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.002,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1048,
+   "fill": 23,
+   "mu_part": 0.5929528305678562,
+   "mu_pill": 0.2132616319580529,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 595.0095908641815,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1049,
+   "fill": 29,
+   "mu_part": 0.39361693119354024,
+   "mu_pill": 0.222415416510224,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5537500000006768,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.17,
+      0.28,
+      -0.71
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.52669715881348,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.453,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1050,
+   "fill": 12,
+   "mu_part": 0.5187294884166074,
+   "mu_pill": 0.3833318260826416,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 242.69736504554749,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1051,
+   "fill": 5,
+   "mu_part": 0.5854684359326896,
+   "mu_pill": 0.5192917373614994,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 49.045860290527344,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.322,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1052,
+   "fill": 20,
+   "mu_part": 0.4128942203454078,
+   "mu_pill": 0.38196926929746094,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 468.24184799194336,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1053,
+   "fill": 11,
+   "mu_part": 0.28452489600661546,
+   "mu_pill": 0.39896636867275637,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250000000039392,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250499999931364,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 144.83613991737366,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.04,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1054,
+   "fill": 11,
+   "mu_part": 0.2412463894642634,
+   "mu_pill": 0.2828839589466408,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 243.9272494316101,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1055,
+   "fill": 15,
+   "mu_part": 0.2751791385722926,
+   "mu_pill": 0.4911455682975868,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 138.628675699234,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1056,
+   "fill": 21,
+   "mu_part": 0.3863975536122166,
+   "mu_pill": 0.20125054458562378,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 393.1161742210388,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1057,
+   "fill": 26,
+   "mu_part": 0.4325992298075959,
+   "mu_pill": 0.312217244911755,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5550000000006783,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.35,
+      0.32,
+      -0.65
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 35.31232237815857,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.493,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1058,
+   "fill": 30,
+   "mu_part": 0.41362666081181854,
+   "mu_pill": 0.3863428623969394,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 589.9301314353943,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1059,
+   "fill": 20,
+   "mu_part": 0.3976388615196675,
+   "mu_pill": 0.2329251596043682,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5562500000006798,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.91,
+      0.33,
+      -0.68
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.517899751663208,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.498,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1060,
+   "fill": 5,
+   "mu_part": 0.39682911058277126,
+   "mu_pill": 0.5814912779185837,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.63552188873291,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1061,
+   "fill": 30,
+   "mu_part": 0.2252371893147892,
+   "mu_pill": 0.5977998788526445,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250125000021985,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 457.0278968811035,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1062,
+   "fill": 26,
+   "mu_part": 0.22176687124920919,
+   "mu_pill": 0.4957093253509591,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 285.29054713249207,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1063,
+   "fill": 14,
+   "mu_part": 0.5743737449909522,
+   "mu_pill": 0.381541813838119,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250375000006708,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50124999973626,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 230.3409776687622,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 2.271,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 7.6165,
+    "pill": 5,
+    "v": 2.59,
+    "pos": [
+     -15.3,
+     -0.1,
+     0.7
+    ],
+    "contacts": [
+     [
+      "pill0",
+      -0.04
+     ],
+     [
+      "pill0",
+      -0.07
+     ],
+     [
+      "pill3",
+      -0.09
+     ],
+     [
+      "pill3",
+      -0.07
+     ],
+     [
+      "pill6",
+      -0.47
+     ],
+     [
+      "pill6",
+      -0.48
+     ]
+    ],
+    "rotor_w": 1.868,
+    "tau": -0.015
+   }
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1064,
+   "fill": 25,
+   "mu_part": 0.5980727297770517,
+   "mu_pill": 0.3250164141372895,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 749.5920965671539,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1065,
+   "fill": 28,
+   "mu_part": 0.3139745498990473,
+   "mu_pill": 0.44126489521575535,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250000000039392,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 188.78515338897705,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1066,
+   "fill": 29,
+   "mu_part": 0.49822876665858745,
+   "mu_pill": 0.42422833811943556,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 858.48291015625,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1067,
+   "fill": 4,
+   "mu_part": 0.41483757532713017,
+   "mu_pill": 0.29651612797374244,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250125000021985,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 37.43952798843384,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1068,
+   "fill": 5,
+   "mu_part": 0.21467917934377595,
+   "mu_pill": 0.5967722346723834,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 101.63447618484497,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1069,
+   "fill": 18,
+   "mu_part": 0.5966173556378609,
+   "mu_pill": 0.4405180241217568,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 8.816625000009411,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.16,
+      -0.32,
+      -0.51
+     ],
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 75.98776531219482,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.686,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1070,
+   "fill": 6,
+   "mu_part": 0.3103123099592654,
+   "mu_pill": 0.3082099366750636,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 109.40978169441223,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1071,
+   "fill": 23,
+   "mu_part": 0.3372475956085396,
+   "mu_pill": 0.5623722296674942,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 527.0981018543243,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1072,
+   "fill": 24,
+   "mu_part": 0.32698702803538565,
+   "mu_pill": 0.45339958368123995,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 532.2329876422882,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1073,
+   "fill": 15,
+   "mu_part": 0.49333957108463994,
+   "mu_pill": 0.5907471290946815,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.4500000000164732,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.37,
+      -0.38,
+      -0.79
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 58.44551610946655,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.502,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1074,
+   "fill": 17,
+   "mu_part": 0.2776226227828644,
+   "mu_pill": 0.5162872782592924,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 266.23594975471497,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1075,
+   "fill": 28,
+   "mu_part": 0.42795394421619815,
+   "mu_pill": 0.2966717777141672,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 842.4728076457977,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1076,
+   "fill": 16,
+   "mu_part": 0.3831228493979527,
+   "mu_pill": 0.2785381521935301,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 14.514000000017731,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      2.09,
+      0.05,
+      -0.95
+     ],
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 225.45330810546875,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.206,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1077,
+   "fill": 23,
+   "mu_part": 0.4175460222137337,
+   "mu_pill": 0.4600508084810067,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 8.885000000042425,
+     "jam_site": "drive overload",
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 303.381254196167,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.762,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1078,
+   "fill": 27,
+   "mu_part": 0.5262174546173533,
+   "mu_pill": 0.47156649786189386,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 725.1135678291321,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1079,
+   "fill": 5,
+   "mu_part": 0.35445609782480325,
+   "mu_pill": 0.5887646961082771,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 11.000000000052523,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 28.693973541259766,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1080,
+   "fill": 20,
+   "mu_part": 0.23019956978227707,
+   "mu_pill": 0.4093557420679476,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 499.3515338897705,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1081,
+   "fill": 19,
+   "mu_part": 0.5798800904458858,
+   "mu_pill": 0.38466997032598627,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 426.36475348472595,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1082,
+   "fill": 19,
+   "mu_part": 0.4831984126829349,
+   "mu_pill": 0.2292351845979857,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6925000000033066,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.15,
+      0.13,
+      -0.87
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 65.50162029266357,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.458,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1083,
+   "fill": 17,
+   "mu_part": 0.410674817526954,
+   "mu_pill": 0.34977066276862295,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.767500000000938,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      1.58,
+      -0.35,
+      -0.85
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.97516894340515,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.3,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1084,
+   "fill": 9,
+   "mu_part": 0.48026687299439313,
+   "mu_pill": 0.5050801623783561,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6937500000008479,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.37,
+      0.41,
+      -0.85
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 8.48425030708313,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.489,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1085,
+   "fill": 18,
+   "mu_part": 0.4112775531743549,
+   "mu_pill": 0.21445850719821205,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.4889999999961314,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      0.17,
+      0.01,
+      -0.83
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 41.933056116104126,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.331,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1086,
+   "fill": 23,
+   "mu_part": 0.5176150071788885,
+   "mu_pill": 0.48023068691512766,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 354.55459332466125,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1087,
+   "fill": 16,
+   "mu_part": 0.38011083432456805,
+   "mu_pill": 0.4987679650431681,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 143.65865015983582,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1088,
+   "fill": 5,
+   "mu_part": 0.5742861387934758,
+   "mu_pill": 0.426929183106502,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 11.000375000019838,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 6.190000000029556,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.5,
+      -0.37,
+      -0.85
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 33.30599093437195,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.495,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1089,
+   "fill": 8,
+   "mu_part": 0.48229802364090557,
+   "mu_pill": 0.330796132099499,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5687500000006951,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.0,
+      0.13,
+      -0.54
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 8.479523420333862,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.67,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1090,
+   "fill": 11,
+   "mu_part": 0.23453668366006608,
+   "mu_pill": 0.4679244181671664,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 248.401127576828,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1091,
+   "fill": 19,
+   "mu_part": 0.21477606521651738,
+   "mu_pill": 0.2955530921281562,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500125000008855,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 236.37249755859375,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1092,
+   "fill": 30,
+   "mu_part": 0.46996613806534776,
+   "mu_pill": 0.22894020203681398,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.451499999996219,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.14,
+      0.04,
+      -0.8
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 83.90623378753662,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.47,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1093,
+   "fill": 27,
+   "mu_part": 0.5655409065621044,
+   "mu_pill": 0.2887558170843036,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7000000000008555,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.46,
+      0.26,
+      -0.81
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.34572386741638,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.544,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1094,
+   "fill": 22,
+   "mu_part": 0.4883083207424137,
+   "mu_pill": 0.49299659219339126,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6850000000008372,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.43,
+      -0.37,
+      -0.79
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 22.70379900932312,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.479,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1095,
+   "fill": 3,
+   "mu_part": 0.32673915781880847,
+   "mu_pill": 0.3832771883345696,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.466499999996184,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      0.52,
+      -0.33,
+      -1.0
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 7.84124231338501,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.271,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1096,
+   "fill": 18,
+   "mu_part": 0.32088793662831455,
+   "mu_pill": 0.5708675823567153,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500000000026262,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250000000039392,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 146.9548819065094,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1097,
+   "fill": 5,
+   "mu_part": 0.5102104181835225,
+   "mu_pill": 0.3724637503984357,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.3202499999965247,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -7.83,
+      -0.29,
+      -0.89
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 9.815784692764282,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.462,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1098,
+   "fill": 17,
+   "mu_part": 0.24788392968200168,
+   "mu_pill": 0.20903128632231394,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250375000006708,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50124999973626,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 376.21446895599365,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1099,
+   "fill": 9,
+   "mu_part": 0.35883328370975587,
+   "mu_pill": 0.4066886820768322,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 6.227500000029735,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      0.35,
+      -0.3,
+      -0.94
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 39.917267084121704,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.284,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1100,
+   "fill": 16,
+   "mu_part": 0.2503266405732491,
+   "mu_pill": 0.31158499163929165,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250125000021985,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 105.53416895866394,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1101,
+   "fill": 9,
+   "mu_part": 0.4468490716554976,
+   "mu_pill": 0.29146020960711805,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5700000000006966,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -7.82,
+      -0.32,
+      -0.95
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 9.288938522338867,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.405,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1102,
+   "fill": 13,
+   "mu_part": 0.3193658239631458,
+   "mu_pill": 0.33689908804171925,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 176.60758185386658,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1103,
+   "fill": 14,
+   "mu_part": 0.22177247414758505,
+   "mu_pill": 0.28999774763389896,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 188.16191697120667,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.083,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1104,
+   "fill": 28,
+   "mu_part": 0.5399078303234395,
+   "mu_pill": 0.5051392882870678,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.3164999999965334,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -7.75,
+      -0.31,
+      -0.89
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 57.13508319854736,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.417,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1105,
+   "fill": 29,
+   "mu_part": 0.4584859733311357,
+   "mu_pill": 0.5448357304841978,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 693.1429269313812,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1106,
+   "fill": 11,
+   "mu_part": 0.41805899863105,
+   "mu_pill": 0.21356026607924747,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.3152499999965364,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -7.79,
+      0.38,
+      -0.86
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.481479167938232,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.417,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1107,
+   "fill": 24,
+   "mu_part": 0.30531949789408536,
+   "mu_pill": 0.311361414767774,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 695.5534658432007,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1108,
+   "fill": 27,
+   "mu_part": 0.47205240619213434,
+   "mu_pill": 0.48023073266300215,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.4614999999961955,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -0.33,
+      0.35,
+      -0.88
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 60.81158995628357,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.421,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1109,
+   "fill": 19,
+   "mu_part": 0.35218875945831457,
+   "mu_pill": 0.5708384635879276,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 435.1445074081421,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1110,
+   "fill": 23,
+   "mu_part": 0.2534218825279376,
+   "mu_pill": 0.23404026280428078,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 685.4755687713623,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1111,
+   "fill": 26,
+   "mu_part": 0.2837648557254549,
+   "mu_pill": 0.3330757816824299,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 531.3963723182678,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1112,
+   "fill": 8,
+   "mu_part": 0.5648745682717471,
+   "mu_pill": 0.3794722550264037,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 146.26162600517273,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1113,
+   "fill": 25,
+   "mu_part": 0.5304130501914491,
+   "mu_pill": 0.5476048944214782,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 11.000375000019838,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 8.830000000042162,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.33,
+      -0.4,
+      -0.74
+     ],
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 207.60796999931335,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.57,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1114,
+   "fill": 8,
+   "mu_part": 0.5778523751371667,
+   "mu_pill": 0.45579687327858043,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 14.372750000021071,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -10.95,
+      -0.06,
+      0.44
+     ],
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 87.65484118461609,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.782,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1115,
+   "fill": 3,
+   "mu_part": 0.4492675978882782,
+   "mu_pill": 0.393390733104002,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 6.177874999996812,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.48,
+      -0.4,
+      -0.84
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 11.109357357025146,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.484,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1116,
+   "fill": 8,
+   "mu_part": 0.46544044966678044,
+   "mu_pill": 0.40340530471612923,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5900000000007211,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.93,
+      -0.41,
+      -0.46
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 8.045815467834473,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.758,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1117,
+   "fill": 25,
+   "mu_part": 0.5179558892909892,
+   "mu_pill": 0.2872546625679932,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6850000000008372,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.27,
+      -0.26,
+      -0.8
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.104202270507812,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.501,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1118,
+   "fill": 29,
+   "mu_part": 0.583310325307564,
+   "mu_pill": 0.4674560676859249,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 565.8047897815704,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1119,
+   "fill": 27,
+   "mu_part": 0.3985749904512527,
+   "mu_pill": 0.30526749430913935,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5700000000006966,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.26,
+      0.31,
+      -0.87
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.3081271648407,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.449,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1120,
+   "fill": 20,
+   "mu_part": 0.5563323959342839,
+   "mu_pill": 0.24893285135332005,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 326.71954369544983,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.032,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1121,
+   "fill": 9,
+   "mu_part": 0.5194201358458487,
+   "mu_pill": 0.37997051208931587,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 179.3407826423645,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1122,
+   "fill": 25,
+   "mu_part": 0.27947980619610335,
+   "mu_pill": 0.3121958631593039,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250125000021985,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 349.9790403842926,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.045,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1123,
+   "fill": 10,
+   "mu_part": 0.22518980163891886,
+   "mu_pill": 0.5988590665514733,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5562500000006798,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.04,
+      -0.27,
+      -0.61
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 9.23084306716919,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.595,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1124,
+   "fill": 27,
+   "mu_part": 0.5786689014462819,
+   "mu_pill": 0.31627124166463544,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 11.682875000023097,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.28,
+      0.32,
+      -0.82
+     ],
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 158.7340099811554,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.48,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1125,
+   "fill": 19,
+   "mu_part": 0.4468763783557687,
+   "mu_pill": 0.33497453822528206,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.585000000000715,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.31,
+      0.18,
+      -0.4
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.059934854507446,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.708,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1126,
+   "fill": 9,
+   "mu_part": 0.3248989264402421,
+   "mu_pill": 0.5258516360494594,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 11.000000000052523,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 46.649675369262695,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1127,
+   "fill": 6,
+   "mu_part": 0.5809718757222224,
+   "mu_pill": 0.3315148261720126,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5825000000007119,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.77,
+      0.28,
+      -0.61
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 5.96945595741272,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.574,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1128,
+   "fill": 19,
+   "mu_part": 0.4690413243736541,
+   "mu_pill": 0.474134752614182,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.635000000000776,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.75,
+      -0.37,
+      -0.26
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 18.087173223495483,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.984,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1129,
+   "fill": 26,
+   "mu_part": 0.27118255849536194,
+   "mu_pill": 0.21622015775240322,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 302.3905220031738,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1130,
+   "fill": 19,
+   "mu_part": 0.42929495480619695,
+   "mu_pill": 0.26499833653472027,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 11.581375000037891,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.32,
+      -0.44,
+      -0.47
+     ],
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 131.66049790382385,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.693,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1131,
+   "fill": 13,
+   "mu_part": 0.2679750442212297,
+   "mu_pill": 0.24616082137543926,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 11.000375000019838,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 4
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500250000048922,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 171.9197428226471,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.09,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1132,
+   "fill": 26,
+   "mu_part": 0.5894085448061699,
+   "mu_pill": 0.40871145090393624,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 437.4880781173706,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1133,
+   "fill": 29,
+   "mu_part": 0.3647489290272993,
+   "mu_pill": 0.3284691511487349,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.698750000000854,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -1.07,
+      -0.37,
+      -0.87
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 31.24402642250061,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.434,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1134,
+   "fill": 22,
+   "mu_part": 0.4116837461195263,
+   "mu_pill": 0.44108310234929266,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7500000000009166,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      1.77,
+      -0.03,
+      -0.87
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 24.472153425216675,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.234,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1135,
+   "fill": 27,
+   "mu_part": 0.5251787298478234,
+   "mu_pill": 0.5931364416139444,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 540.9039919376373,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1136,
+   "fill": 16,
+   "mu_part": 0.4149392132206551,
+   "mu_pill": 0.34483466049406775,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250125000021985,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 90.38990592956543,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1137,
+   "fill": 26,
+   "mu_part": 0.4237081933047488,
+   "mu_pill": 0.30464590153965476,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6975000000008524,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -1.94,
+      -0.42,
+      -0.83
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.852877378463745,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.444,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1138,
+   "fill": 14,
+   "mu_part": 0.21305572856203173,
+   "mu_pill": 0.2167948827851868,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 134.4210546016693,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1139,
+   "fill": 11,
+   "mu_part": 0.4944844772176698,
+   "mu_pill": 0.5631414552544802,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 5.500000000026262,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 1,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 13.750000000065654,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 79.73078036308289,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.164,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1140,
+   "fill": 26,
+   "mu_part": 0.4453861309575785,
+   "mu_pill": 0.4855412105664945,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 239.93452143669128,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1141,
+   "fill": 23,
+   "mu_part": 0.35684797428809845,
+   "mu_pill": 0.4105475940390594,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 601.6082921028137,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1142,
+   "fill": 9,
+   "mu_part": 0.2340922165673156,
+   "mu_pill": 0.2257753866427882,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 125.78058528900146,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1143,
+   "fill": 11,
+   "mu_part": 0.3270297165255081,
+   "mu_pill": 0.5401667441253828,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500000000026262,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 147.7598569393158,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1144,
+   "fill": 15,
+   "mu_part": 0.506379263337069,
+   "mu_pill": 0.42607577890129034,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 340.4555592536926,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1145,
+   "fill": 6,
+   "mu_part": 0.22963957127110543,
+   "mu_pill": 0.3158516912839244,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.92798399925232,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.07,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1146,
+   "fill": 7,
+   "mu_part": 0.2443545295592364,
+   "mu_pill": 0.31071043150017463,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 21.281317234039307,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.314,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1147,
+   "fill": 10,
+   "mu_part": 0.5830824705643414,
+   "mu_pill": 0.4212236773777057,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 12.38912500002647,
+     "jam_site": "floor: drop-hole edge",
+     "jam_pos_mm": [
+      11.96,
+      -0.01,
+      -2.59
+     ],
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 47.69468665122986,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.51,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1148,
+   "fill": 3,
+   "mu_part": 0.5834805643998606,
+   "mu_pill": 0.45191176435077984,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 6.177874999996812,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.34,
+      0.31,
+      -0.84
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 10.700346231460571,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.49,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1149,
+   "fill": 30,
+   "mu_part": 0.3047011905027933,
+   "mu_pill": 0.3399323298396312,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.335000000015924,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.4,
+      -0.22,
+      -0.61
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 350.21080780029297,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.661,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1150,
+   "fill": 28,
+   "mu_part": 0.39660128821756824,
+   "mu_pill": 0.4248017512393398,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 506.1202986240387,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1151,
+   "fill": 22,
+   "mu_part": 0.4786022605856557,
+   "mu_pill": 0.5671359499224748,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.701250000000857,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.35,
+      0.36,
+      -0.77
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.836084842681885,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.498,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1152,
+   "fill": 26,
+   "mu_part": 0.5216772503803613,
+   "mu_pill": 0.4916748984664431,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 11.686625000023115,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.35,
+      0.18,
+      -0.78
+     ],
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 154.09088397026062,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.497,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1153,
+   "fill": 3,
+   "mu_part": 0.4120273831443816,
+   "mu_pill": 0.4865066860386549,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6762500000008265,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.25,
+      0.24,
+      -0.86
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 3.790964365005493,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.499,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1154,
+   "fill": 7,
+   "mu_part": 0.4999797016726462,
+   "mu_pill": 0.2756764828948325,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 8.85250000004227,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.77,
+      -0.38,
+      -0.41
+     ],
+     "lost": 0,
+     "steps": 4
+    }
+   ],
+   "leak": 0,
+   "wall_s": 69.3975682258606,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.802,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1155,
+   "fill": 13,
+   "mu_part": 0.5238684924117805,
+   "mu_pill": 0.3560872501801164,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 285.62218475341797,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1156,
+   "fill": 10,
+   "mu_part": 0.2181595827712145,
+   "mu_pill": 0.304419471649216,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 139.7862150669098,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1157,
+   "fill": 11,
+   "mu_part": 0.5262740802580621,
+   "mu_pill": 0.2802403424840657,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 167.60811257362366,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1158,
+   "fill": 21,
+   "mu_part": 0.5378453820917871,
+   "mu_pill": 0.3947180410832849,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 14.440375000036264,
+     "jam_site": "drive overload",
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 133.40979027748108,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.561,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1159,
+   "fill": 14,
+   "mu_part": 0.3338340088318326,
+   "mu_pill": 0.29027073492511657,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 333.72710490226746,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1160,
+   "fill": 13,
+   "mu_part": 0.5378091836925445,
+   "mu_pill": 0.4588177722287717,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.352624999998601,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.89,
+      -0.38,
+      -0.3
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 34.71059012413025,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.931,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1161,
+   "fill": 13,
+   "mu_part": 0.5151172313992842,
+   "mu_pill": 0.2525389956144743,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.3202499999965247,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -7.83,
+      -0.35,
+      -0.93
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.347465991973877,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.437,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1162,
+   "fill": 30,
+   "mu_part": 0.4525254458441825,
+   "mu_pill": 0.2423965526429452,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.8012500000009792,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      3.24,
+      0.35,
+      -0.93
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 42.355536460876465,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.228,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1163,
+   "fill": 20,
+   "mu_part": 0.29056176515578697,
+   "mu_pill": 0.4374407962167868,
+   "cycles": [
+    {
+     "outcome": "lost",
+     "count": 1,
+     "duration_s": 8.250375000006708,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 7,
+     "steps": 3
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500000000026262,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500250000048922,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 164.87108707427979,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 1.903,
+   "passed": false,
+   "anomalies": 1,
+   "first_anomaly": {
+    "t": 5.0551,
+    "pill": 19,
+    "v": 3.01,
+    "pos": [
+     -17.0,
+     0.9,
+     3.4
+    ],
+    "contacts": [
+     [
+      "pill5",
+      -0.08
+     ],
+     [
+      "pill7",
+      -0.01
+     ],
+     [
+      "pill7",
+      -0.03
+     ],
+     [
+      "pill13",
+      -0.27
+     ],
+     [
+      "pill13",
+      -0.27
+     ]
+    ],
+    "rotor_w": -0.002,
+    "tau": 0.01
+   }
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1164,
+   "fill": 10,
+   "mu_part": 0.5610494423691308,
+   "mu_pill": 0.37850167615694663,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6962500000008509,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.33,
+      0.34,
+      -0.79
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 9.666666984558105,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.508,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1165,
+   "fill": 22,
+   "mu_part": 0.38230647587482236,
+   "mu_pill": 0.29898441217313804,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.471499999996172,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -0.48,
+      -0.08,
+      -0.91
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 50.53653693199158,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.335,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1166,
+   "fill": 4,
+   "mu_part": 0.3826556508750828,
+   "mu_pill": 0.3677392055436711,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6912500000008448,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.02,
+      0.35,
+      -0.9
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 5.305565357208252,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.448,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1167,
+   "fill": 15,
+   "mu_part": 0.3016354425737665,
+   "mu_pill": 0.5670396339802266,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 13.750125000048246,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 5
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 184.6712999343872,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1168,
+   "fill": 13,
+   "mu_part": 0.5384742250616794,
+   "mu_pill": 0.39289802320719835,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.698750000000854,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.34,
+      0.3,
+      -0.79
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 12.978750944137573,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.497,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1169,
+   "fill": 28,
+   "mu_part": 0.39366512694467815,
+   "mu_pill": 0.2843208021431719,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 14.434125000036234,
+     "jam_site": "pill-pile (pill wedged between rotor and other pills)",
+     "jam_pos_mm": [
+      -11.62,
+      0.35,
+      3.19
+     ],
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 252.35676383972168,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.552,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1170,
+   "fill": 19,
+   "mu_part": 0.4707010736064959,
+   "mu_pill": 0.4831855839377495,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 305.2537956237793,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1171,
+   "fill": 28,
+   "mu_part": 0.4316061922184091,
+   "mu_pill": 0.5113054340954413,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.7050000000008616,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -1.28,
+      -0.4,
+      -0.9
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 29.196680545806885,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.447,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1172,
+   "fill": 30,
+   "mu_part": 0.3946526934052921,
+   "mu_pill": 0.21894576723413373,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 8.250375000006708,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 3
+    },
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 3.495000000016688,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      1.6,
+      -0.0,
+      -0.9
+     ],
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 226.56234002113342,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.238,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1173,
+   "fill": 8,
+   "mu_part": 0.24634120713868934,
+   "mu_pill": 0.3576550391940433,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500125000008855,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 36.0109601020813,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1174,
+   "fill": 22,
+   "mu_part": 0.3616688216652225,
+   "mu_pill": 0.2656992687387799,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500999999814425,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 423.0516812801361,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1175,
+   "fill": 18,
+   "mu_part": 0.5349302207074914,
+   "mu_pill": 0.5897616287578646,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5887500000007195,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.28,
+      0.12,
+      -0.43
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 16.2936053276062,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.705,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1176,
+   "fill": 15,
+   "mu_part": 0.49701262282987707,
+   "mu_pill": 0.47859112163668016,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 286.3761818408966,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.016,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1177,
+   "fill": 20,
+   "mu_part": 0.4925110156014388,
+   "mu_pill": 0.2682297023875687,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.6937500000008479,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.3,
+      0.26,
+      -0.8
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 25.601962566375732,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.527,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1178,
+   "fill": 14,
+   "mu_part": 0.30646987365715556,
+   "mu_pill": 0.5064260718906012,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 350.3955066204071,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1179,
+   "fill": 15,
+   "mu_part": 0.3175072150162353,
+   "mu_pill": 0.3738927847092305,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 243.72787427902222,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.159,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1180,
+   "fill": 13,
+   "mu_part": 0.4369937900914137,
+   "mu_pill": 0.2696139162712741,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 257.2920174598694,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1181,
+   "fill": 25,
+   "mu_part": 0.45458902376501203,
+   "mu_pill": 0.41554773386987265,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 14.42912500003621,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.41,
+      -0.36,
+      -0.82
+     ],
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 159.09644293785095,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.487,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1182,
+   "fill": 16,
+   "mu_part": 0.5698023691875811,
+   "mu_pill": 0.472028556483956,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 318.15731167793274,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.011,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1183,
+   "fill": 7,
+   "mu_part": 0.30156411404057115,
+   "mu_pill": 0.3731895546881624,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 144.2017116546631,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1184,
+   "fill": 4,
+   "mu_part": 0.5797829966291361,
+   "mu_pill": 0.4924155470706529,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.587500000000718,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -10.07,
+      -0.39,
+      -0.07
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 5.676954746246338,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.795,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1185,
+   "fill": 23,
+   "mu_part": 0.2725729942949838,
+   "mu_pill": 0.37537251191224397,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5825000000007119,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -8.99,
+      -0.38,
+      -0.43
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 23.901952505111694,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.772,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1186,
+   "fill": 24,
+   "mu_part": 0.3154092362982869,
+   "mu_pill": 0.3698201271343184,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5612500000006859,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -7.87,
+      0.04,
+      -0.92
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 27.28234076499939,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.437,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1187,
+   "fill": 6,
+   "mu_part": 0.44126717983574254,
+   "mu_pill": 0.32076877701229833,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 66.59288477897644,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1188,
+   "fill": 12,
+   "mu_part": 0.3208967117866209,
+   "mu_pill": 0.5477730812760171,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 94.73688316345215,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.024,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1189,
+   "fill": 16,
+   "mu_part": 0.28323638380020527,
+   "mu_pill": 0.4618661565582074,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 368.93570160865784,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1190,
+   "fill": 20,
+   "mu_part": 0.5150542192369474,
+   "mu_pill": 0.483832034384907,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 484.3586723804474,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1191,
+   "fill": 5,
+   "mu_part": 0.28628118126485436,
+   "mu_pill": 0.2915518778030246,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750124999995724,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750000000013131,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 17.7779803276062,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.263,
+   "passed": true,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1192,
+   "fill": 5,
+   "mu_part": 0.4322095760613024,
+   "mu_pill": 0.37738627504626865,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 58.14120388031006,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1193,
+   "fill": 30,
+   "mu_part": 0.3613740943167406,
+   "mu_pill": 0.5784267638357936,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.563750000000689,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.58,
+      0.23,
+      -0.41
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 32.89633822441101,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.663,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1194,
+   "fill": 29,
+   "mu_part": 0.36702046654746434,
+   "mu_pill": 0.4169008669065547,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500374999993577,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500000000078785,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 5.500000000026262,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 2
+    }
+   ],
+   "leak": 0,
+   "wall_s": 454.3343286514282,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.124,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1195,
+   "fill": 25,
+   "mu_part": 0.5243983646370858,
+   "mu_pill": 0.47273365143460544,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 6.0653749999962745,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -7.81,
+      0.1,
+      -0.89
+     ],
+     "lost": 0,
+     "steps": 3
+    }
+   ],
+   "leak": 0,
+   "wall_s": 78.98081660270691,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.423,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1196,
+   "fill": 20,
+   "mu_part": 0.23637715179223684,
+   "mu_pill": 0.2569860922259998,
+   "cycles": [
+    {
+     "outcome": "ok",
+     "count": 1,
+     "duration_s": 2.750249999997853,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 1
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500125000061377,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50074999989259,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 394.01341128349304,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.191,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1197,
+   "fill": 3,
+   "mu_part": 0.5191981194254379,
+   "mu_pill": 0.369774885036085,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 11.67912500002308,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -2.31,
+      -0.33,
+      -0.86
+     ],
+     "lost": 0,
+     "steps": 5
+    }
+   ],
+   "leak": 0,
+   "wall_s": 15.112939834594727,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.473,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1198,
+   "fill": 18,
+   "mu_part": 0.4797326082028324,
+   "mu_pill": 0.5323320199084093,
+   "cycles": [
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500375000046102,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.500499999970756,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    },
+    {
+     "outcome": "miss",
+     "count": 0,
+     "duration_s": 16.50149999960979,
+     "jam_site": null,
+     "jam_pos_mm": null,
+     "lost": 0,
+     "steps": 6
+    }
+   ],
+   "leak": 0,
+   "wall_s": 360.8850495815277,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.0,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  },
+  {
+   "variant": "V3 shuttle (scotch-yoke slide)",
+   "pill": "small",
+   "seed": 1199,
+   "fill": 19,
+   "mu_part": 0.5835062622059185,
+   "mu_pill": 0.556592872982359,
+   "cycles": [
+    {
+     "outcome": "jam",
+     "count": 0,
+     "duration_s": 0.5837500000007134,
+     "jam_site": "throat exit edge (stripper)",
+     "jam_pos_mm": [
+      -9.76,
+      -0.45,
+      -0.21
+     ],
+     "lost": 0,
+     "steps": 1
+    }
+   ],
+   "leak": 0,
+   "wall_s": 19.829737186431885,
+   "sim_unstable": 0,
+   "max_contact_depth_mm": 0.734,
+   "passed": false,
+   "anomalies": 0,
+   "first_anomaly": null
+  }
+ ]
+}

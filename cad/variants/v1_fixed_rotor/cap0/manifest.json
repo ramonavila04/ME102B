@@ -1,0 +1,154 @@
+{
+ "variant": "v1_fixed_rotor",
+ "pill": "cap0",
+ "parts": [
+  {
+   "name": "rotor",
+   "stl": "rotor.stl",
+   "step": "rotor.step",
+   "print_rotation": [
+    180,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "floor",
+   "stl": "floor.stl",
+   "step": "floor.step",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "deck",
+   "stl": "deck.stl",
+   "step": "deck.step",
+   "print_rotation": [
+    180,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "lower_enclosure",
+   "stl": "lower_enclosure.stl",
+   "step": "lower_enclosure.step",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "canister",
+   "stl": "canister.stl",
+   "step": "canister.step",
+   "print_rotation": [
+    180,
+    0,
+    0
+   ]
+  }
+ ],
+ "clearances": [
+  {
+   "a": "rotor",
+   "b": "floor",
+   "min": 0.3,
+   "what": "rotor on floor / rim in spacer ring / hub in floor hole (0.4 modelled)"
+  },
+  {
+   "a": "rotor",
+   "b": "deck",
+   "min": 0.3,
+   "what": "deck underside over rotor top (0.4; relief over the covered sector)"
+  },
+  {
+   "a": "rotor",
+   "b": "lower_enclosure",
+   "min": 0.3,
+   "what": "hub boss vs chute, post and screw bosses"
+  }
+ ],
+ "params": {
+  "od": 67.5,
+  "rotor_r": 26.0,
+  "run_gap": 0.4,
+  "fdm_clear": 0.9,
+  "seat_margin": 0.25,
+  "track_r": 15.0,
+  "r_open": 21.375,
+  "slot": true,
+  "slot_margin": 0.0,
+  "edge_face": 2.0,
+  "cone_deg": 50.0,
+  "baffle_deg": 50.0,
+  "edge_oblique_deg": 25.0,
+  "strip_style": "relief",
+  "ramp_toe": 0.2,
+  "ramp_deg": 20.0,
+  "ramp_len": 8.0,
+  "grip": 0.6,
+  "min_rotor_t": 1.6,
+  "relief_clear": 0.45,
+  "deck_bore_r": 30.8,
+  "collar_ir": 32.3,
+  "floor_bottom": -12.0,
+  "boss_r": 5.0,
+  "hole_margin": 1.0,
+  "chute_wall": 1.6,
+  "encl_bottom": -64.0,
+  "canister_h": 60.0,
+  "screw_r": 30.0,
+  "screw_angles": [
+   60.0,
+   180.0,
+   300.0
+  ],
+  "rpm": 20.0,
+  "relief_h": 3.585,
+  "pill": "cap0",
+  "kind": "capsule",
+  "pocket_L": 23.8,
+  "pocket_W": 9.53,
+  "rotor_t": 4.19,
+  "pockets": 3,
+  "pitch_deg": 120.0,
+  "pill_tmax": 7.73,
+  "floor_top": -4.59,
+  "deck_z0": 0.4,
+  "deck_z1": 2.4,
+  "r_in": 10.235,
+  "wall_top": 13.63227761020043,
+  "edge_gamma_deg": 25.0,
+  "apex": [
+   6.3152,
+   0.5525
+  ],
+  "e1_q": [
+   7.5,
+   -12.9904
+  ],
+  "e1_n": [
+   -0.996195,
+   -0.087156
+  ],
+  "e2_q": [
+   6.3152,
+   0.5525
+  ],
+  "e2_n": [
+   -0.995493,
+   0.094832
+  ],
+  "rotor_mass_g": 8.58,
+  "chute": {
+   "cx": 15.0,
+   "hx": 6.265,
+   "hy": 13.4
+  }
+ }
+}

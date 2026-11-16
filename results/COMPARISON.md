@@ -10,7 +10,7 @@ Only iron and small tablets are reported: the caplet and size-0 capsule kits hav
 not passed and are experimental (see `cad/variants/v2_inclined_disc/DESIGN.md`).
 The V2 campaign rows were run before a fix to the test's pill-placement check; the
 re-check rows repeat 50 trials per pill on the final test setup, same geometry.
-The shaft-drive rows repeat 50 trials after the disc was moved onto a 1/4-inch shaft
+The shaft-drive rows are the full campaign after the disc was moved onto a 1/4-inch shaft
 (wider centre boss, longer exit duct); pockets and hopper are unchanged.
 
 | Variant | Pill | Trials | Cycles | OK | Jam | Double | Miss | Lost | Leak | Empty | Trials with a jam | Unstable / anomaly trials | Verdict |
@@ -23,8 +23,8 @@ The shaft-drive rows repeat 50 trials after the disc was moved onto a 1/4-inch s
 | V2 inclined pocket disc | small | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc (re-check, final test setup) | iron | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc (re-check, final test setup) | small | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
-| V2 inclined pocket disc (re-check with shaft drive, 96 mm duct) | iron | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
-| V2 inclined pocket disc (re-check with shaft drive, 96 mm duct) | small | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
+| V2 inclined pocket disc (shaft drive, 96 mm duct: current design) | iron | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
+| V2 inclined pocket disc (shaft drive, 96 mm duct: current design) | small | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V3 reciprocating shuttle | iron | 200 | 392 | 103 | 116 | 0 | 169 | 3 | 0 | 1 | 58.0 % | 0 / 1 | fail |
 | V3 reciprocating shuttle | small | 200 | 449 | 155 | 86 | 0 | 204 | 4 | 0 | 0 | 43.0 % | 0 / 2 | fail |
 

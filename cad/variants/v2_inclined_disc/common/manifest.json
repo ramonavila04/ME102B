@@ -25,6 +25,28 @@
       "max_overhang_mm2": 4.0
     },
     {
+      "name": "spacer",
+      "stl": "spacer.stl",
+      "step": "spacer.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "collar",
+      "stl": "collar.stl",
+      "step": "collar.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "max_overhang_mm2": 4.0
+    },
+    {
       "name": "side_right",
       "stl": "side_right.stl",
       "step": "side_right.step",

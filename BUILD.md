@@ -14,8 +14,12 @@ them yet** (see [Status of the long-pill kits](#status-of-the-long-pill-kits)).
 How it works: a disc tilted 50° turns over a fixed back plate, inside the hopper.
 Pockets near its rim each hold one tablet lying flat. Tablets pool at the low side of
 the hopper, one drops into each pocket as it passes, rides up, and falls through a hole in
-the back plate at the top while the disc is stopped. A 50 mm duct carries it past the
-motor into the cup. The firmware turns the disc one pocket (45°) at a time and stops as
+the back plate at the top while the disc is stopped. A 96 mm duct carries it past the
+drive into the cup.
+
+The drive is a transmission in its own right: the disc sits on a 1/4" shaft carried by two
+ball bearings in a tube behind the back plate, and a flexible coupler joins the shaft to
+the gearmotor. The firmware turns the disc one pocket (45°) at a time and stops as
 soon as the beam-break in the duct sees a tablet.
 
 ## 1. Parts list
@@ -28,16 +32,20 @@ matched set per pill: print all three from the same kit folder.
 | Part | File | Qty | Side on the bed | Approx. plastic |
 | --- | --- | --- | --- | --- |
 | Disc | `<kit>/disc.stl` | 1 | flat back face (boss up) | 10 cm³ |
-| Back plate with duct, motor socket and stand tabs | `<kit>/backplate.stl` | 1 | flat front face (duct up) | 25 cm³ |
+| Back plate with duct, bearing tube, motor saddle and stand tabs | `<kit>/backplate.stl` | 1 | flat front face (duct up); 99 mm tall | 45 cm³ |
 | Hopper | `<kit>/hopper.stl` | 1 | flange | 41–54 cm³ |
 | Cover | `common/cover.stl` | 1 | flat outer face | 3 cm³ |
 | Motor clamp strap | `common/clamp.stl` | 1 | flat | 1 cm³ |
+| Thrust spacer (sets the disc gap) | `common/spacer.stl` | 1 | flat | < 1 cm³ |
+| Shaft collar | `common/collar.stl` | 1 | flat end down, boss up | 2 cm³ |
 | Side plate, right and left | `common/side_right.stl`, `common/side_left.stl` | 1 each | flat | 14 cm³ each |
-| Base, 116 × 103 mm | `common/base.stl` | 1 | flat (slots up) | 70 cm³ |
+| Base, 116 × 195 mm | `common/base.stl` | 1 | flat (slots up) | 135 cm³ |
 | Pill cup | `common/cup.stl` | 1 | upright | 6 cm³ |
 
 The STL files are saved in their assembled, tilted position. In the slicer, use "lay on
 face" on the side named above. Matching STEP files sit next to each STL.
+`<kit>/assembly.step` shows every part in place, with the shaft, bearings, coupler and
+motor as reference solids (regenerate with `python cad/variants/v2_inclined_disc/assemble.py`).
 
 ### Print settings
 
@@ -59,6 +67,10 @@ Do not scale parts in the slicer; the running clearances are modelled in the CAD
 | --- | --- | --- | --- |
 | 1000:1 micro metal gearmotor HPCB 12 V with encoder | 1 | Pololu #5229 | Turns the disc |
 | Encoder cable, 6-pin JST SH, 30 cm | 1 | Pololu #4763 | |
+| 1/4" steel shaft, 2-1/4" (57 mm) long, D-profile or round rod with a filed flat | 1 | ServoCity D-shaft, or cut from 1/4" rod | Carries the disc |
+| Ball bearing R4-ZZ, 1/4" × 5/8" × 0.196" | 2 | Any bearing supplier | Shaft bearings |
+| Flexible coupler, 3 mm to 6.35 mm, Ø19 × 25 mm | 1 | Amazon, uxcell B09138PC6R | Shaft to motor |
+| M3 × 6 screw and M3 nut | 1 each | McMaster (BOM) | Collar set screw |
 | ESP32 Feather (HUZZAH32) | 1 | Adafruit #3591 | Controller |
 | TB6612FNG motor driver | 1 | Adafruit | Motor driver |
 | IR break-beam pair, 3 mm LEDs | 1 | Adafruit #2167 | Confirms each dispense, in the duct |
@@ -71,9 +83,8 @@ Do not scale parts in the slicer; the running clearances are modelled in the CAD
 | 5 V regulator | 1 | Pololu #4085 | 5 V rail |
 | 100 µF and 0.1 µF capacitors, 10 kΩ resistors, 2 A slow-blow fuse | — | Lab stock | See `docs/wiring.md` |
 | M3 × 16 screw, M3 nut, M3 washer | 8 screws, 8 nuts, 4 washers | McMaster (BOM) | 4 for hopper to back plate, 4 for back plate to side plates |
-| M2 × 6 screw | 2 | McMaster (BOM) | Motor clamp strap |
+| M2 × 8 screw | 2 | McMaster (BOM) | Motor clamp strap |
 | CA glue | — | Lab stock | Side plates into the base; cover onto the hopper |
-| 0.4 mm feeler gauge, or 4 sheets of printer paper | 1 | Lab | Sets the disc-to-plate gap |
 
 ## 2. Measure before you print
 
@@ -94,37 +105,52 @@ Do not scale parts in the slicer; the running clearances are modelled in the CAD
    python -m sim.campaign v2_inclined_disc --pills iron --trials 200 --workers 4
    ```
 
-2. **Measure the gearmotor.** The motor socket assumes a 12 × 10 mm gearbox, and the
-   D-shaft must stick out at least 9 mm (3 mm plate + 0.4 mm gap + disc). If the gearbox
-   differs, change `GEARBOX` in `build.py`.
+2. **Measure the drive parts.** `build.py` assumes: gearmotor body 12 × 10 mm with a 9 mm
+   shaft (`GEARBOX`, `MOTOR_SHAFT`); bearings 15.875 mm outside diameter and 4.98 mm wide
+   (`BRG_OD`, `BRG_W`); coupler Ø19 × 25 mm (`COUPLER`); shaft 57.15 mm long
+   (`DRIVE_LEN`). If a part differs, change the constant and rebuild.
+3. **Shaft flat.** The disc bore is a D: 6.35 mm round, 5.75 mm across the flat. File a
+   flat 0.6 mm deep on the front 10 mm of the shaft until it measures 5.75 mm, or, for a
+   bought D-shaft, measure across its flat and set `DRIVE_FLAT`. File a second flat near
+   the rear end for the coupler's set screw.
 
 ## 3. Assembly
 
 1. **Disc.** Deburr the pocket edges with a blade. The back face must be flat: if the
    disc rocks on a table, sand it on 400-grit paper on glass.
-2. **Test-fit the disc on the motor shaft.** The D-bore is a light press fit. If it is
-   loose, add one drop of CA on the flat at step 5.
-3. **Motor.** Push the gearbox into the socket on the back of the back plate, shaft
-   through the centre hole. Lay the clamp strap across it and fix it with 2 × M2 × 6 into
-   the two ears (they cut their own thread; stop when snug).
+2. **Test-fit the disc on the 1/4" shaft.** The D-bore is a light press fit on the filed
+   flat. If it is loose, add one drop of CA on the flat at step 5.
+3. **Bearings.** Press one bearing into the pocket in the front of the back plate until it
+   seats (it ends 1.6 mm below the plate face). Press the other into the rear end of the
+   bearing tube until it seats on its step.
 4. **Hopper.** Seat the hopper flange on the front of the back plate with the wide groove
    in its bore over the exit hole, and bolt it with 4 × M3 × 16, washer and nut.
-5. **Disc on the shaft.** Lay the 0.4 mm feeler gauge on the back plate inside the hopper,
-   press the disc onto the shaft until it touches the gauge, then pull the gauge out.
-   Turn the disc by hand: it must spin freely with an even gap to the hopper wall.
-6. **Cover.** Press the cover's lip into the hopper mouth over the exit side (the high
+5. **Shaft and disc.** Press the disc onto the flatted end of the shaft, shaft end flush
+   with the top of the disc's centre boss. Slide the thrust spacer onto the shaft behind
+   the disc, then pass the shaft through both bearings from the front. The spacer rests on
+   the front bearing's inner ring and holds the disc 0.4 mm off the plate.
+6. **Collar.** Drop the M3 nut into the collar's slot and start the M3 × 6 screw. Slide
+   the collar onto the shaft behind the rear bearing, small boss toward the bearing. Push
+   it up to the bearing while holding the disc down, back it off a paper's thickness, and
+   tighten the screw. The disc must spin freely with no end play you can feel.
+7. **Coupler and motor.** Clamp the coupler's 6.35 mm end on the shaft's rear flat, 1.5 mm
+   behind the collar. Lay the gearmotor in the saddle from the open side, shaft into the
+   coupler's 3 mm end, and tighten that set screw on the D-flat. Fix the clamp strap across
+   the motor with 2 × M2 × 8 into the rails (they cut their own thread; stop when snug).
+   Turn the disc by hand: the motor end should not wobble.
+8. **Cover.** Press the cover's lip into the hopper mouth over the exit side (the high
    side once assembled) and fix it with two drops of CA.
-7. **Stand.** Glue the two side plates into the base slots, square to the base. Bolt the
+9. **Stand.** Glue the two side plates into the base slots, square to the base. Bolt the
    back-plate tabs to the side plates with 4 × M3 × 16 and nuts. The disc now sits at 50°
    with the hopper leaning over the long end of the base and the duct pointing down and
    back.
-8. **Cup.** Stand it on the base under the end of the duct.
-9. **Beam-break.** Push the IR emitter and receiver into the two holes across the duct,
+10. **Cup.** Stand it on the base under the end of the duct, behind the motor.
+11. **Beam-break.** Push the IR emitter and receiver into the two holes across the duct,
    8 mm behind the plate, facing each other.
-10. **Home switch.** Mount the roller-lever switch on a side plate so the disc's boss or a
+12. **Home switch.** Mount the roller-lever switch on a side plate so the disc's boss or a
     pocket edge trips it once per revolution. No mount is printed for it yet; use
     double-sided tape for the first build.
-11. **Electronics.** Wire as in `docs/wiring.md` (diagram `docs/wiring.svg`), following
+13. **Electronics.** Wire as in `docs/wiring.md` (diagram `docs/wiring.svg`), following
     its bring-up order: power with no loads first, then each 3.3 V part with its component
     test, motor last.
 
@@ -187,6 +213,9 @@ trials of three dispenses each. Check it on hardware with the same protocol:
 - **Print accuracy.** The simulation uses the designed 0.4 mm gaps. A print can be
   0.1–0.2 mm tighter per side, and a warped disc will rub.
 - **Tablet size.** The iron dimensions are an estimate until section 2 is done.
+- **Drive line fits.** The bearing pockets, coupler length and motor saddle are sized from
+  nominal dimensions, not measured parts. Expect to adjust `BRG_FIT` after the first print.
+  The flexible coupler adds a little twist between the encoder and the disc.
 - **Load cell and home switch** have no printed mounts yet. The firmware treats the load
   cell as a second check; the beam-break alone decides the result.
 - **Firmware on hardware.** It compiles and passes 28 host tests per kit, but has not run

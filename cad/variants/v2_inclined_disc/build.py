@@ -52,13 +52,32 @@ ANTI_ARCH_Z0, ANTI_ARCH_Z1, ANTI_ARCH_DEG = 12.0, 45.0, 15.0
 RIM_CHAMFER = WALL - 1.2   # inner rim chamfer (rev 10); leaves a 1.2 mm land
 BP_T = 3.0             # back plate thickness
 EXIT_MARGIN = 1.2      # exit hole larger than the pocket on every side
-DUCT_LEN = 50.0        # exit duct behind the plate; runs parallel to the motor, 25 mm above it,
-                       # and slopes 40° below horizontal (tan 40° = 0.84 > μmax 0.6)
+DUCT_LEN = 96.0        # exit duct behind the plate; runs parallel to the drive line, above it,
+                       # and slopes 40° below horizontal (tan 40° = 0.84 > μmax 0.6). Was 50 mm
+                       # with the disc on the motor shaft; the shaft drive puts the motor's rear
+                       # end 100 mm behind the plate and a pill must fall clear of it
 BEAM_Z = 8.0           # beam-break pair (Adafruit 2167, 3 mm LEDs) this far into the duct
 WEB_MIN = 4.0          # minimum solid between neighbouring notches at their inner end
 EXIT_ANGLE = 90.0      # exit at the top (12 o'clock), far above the pool at 270°; N is a
                        # multiple of 4 so the top is always a rest position
 SHAFT_D, SHAFT_FLAT = 3.0, 2.5  # Pololu micro-gearmotor D shaft (Ø3, 2.5 across flat)
+# Transmission: the disc sits on a 1/4" shaft carried by two ball bearings in a tube behind
+# the back plate; a flexible coupler joins the shaft to the gearmotor.
+DRIVE_D = 6.35         # 1/4" drive shaft
+DRIVE_FLAT = 5.75      # across the flat filed on the shaft's front 10 mm (0.6 mm deep)
+DRIVE_LEN = 57.15      # 2-1/4" shaft
+BRG_OD, BRG_W = 15.875, 4.98   # R4-ZZ ball bearing, 1/4" × 5/8" × 0.196"
+BRG_FIT = 0.10         # pocket diameter over the bearing (light press in PLA)
+BRG_RECESS = 1.6       # front bearing sits this far below the plate's front face
+BRG_TUBE = 28.0        # bearing tube length from the plate's front face
+BRG_WALL = 2.4
+COLLAR_LEN, COLLAR_BOSS = 9.0, 0.6   # printed set-screw collar behind the rear bearing
+COUPLER = (19.0, 25.0)  # flexible coupler 3 mm to 6.35 mm, Ø19 × 25
+MOTOR_SHAFT = 9.0      # gearmotor shaft length
+MOTOR_LEN = 35.0       # gearbox + motor + encoder
+SADDLE = (5.0, 15.0)   # the saddle grips the gearbox rear and motor can, this far behind the gearbox face
+RAIL_X = (11.5, 15.5)  # the two rails that carry the motor socket behind the bearing tube
+SPINE_Y = (10.5, 12.9)
 GEARBOX = (12.0, 10.0)          # micro-gearmotor gearbox cross-section (w × h)
 FLANGE_R = 40.0        # back plate / hopper flange radius
 BOLT_R = 36.0          # M3 bolt circle for hopper → back plate
@@ -366,7 +385,8 @@ def make_disc(pp: dict) -> cq.Workplane:
     # hub boss on the front: cone so pills slide off; carries the D-bore
     boss_h = max(0.0, 8.0 - t) + (CONE_H if pp.get("pocket") == "standing slot" else 0.0)
     if boss_h > 0:
-        boss = cq.Workplane("XY").circle(7.0).workplane(offset=boss_h).circle(3.5).loft()
+        # r 8 → 5 (was 7 → 3.5 on the 3 mm motor shaft): leaves 1.8 mm round the 1/4" bore
+        boss = cq.Workplane("XY").circle(8.0).workplane(offset=boss_h).circle(5.0).loft()
         disc = disc.union(boss)
     if pp.get("pocket") == "standing slot":
         r_top = pp["r_inner"] - CONE_H / math.tan(math.radians(CONE_DEG))
@@ -442,10 +462,10 @@ def make_disc(pp: dict) -> cq.Workplane:
     # D-bore through boss and disc (through the cone too: no blind ceiling to bridge)
     hub_top = (pp["hub_h"] + (pp["hub_r"] - 4.0) * math.tan(math.radians(LONG_CONE_DEG))) if pp.get("hub_r", 0.0) > 0 else 0.0
     h_tot = t + max(boss_h, pp.get("cone_h", 0.0), hub_top)
-    bore = (cq.Workplane("XY").workplane(offset=-t - 1).circle(SHAFT_D / 2 + 0.05)
+    bore = (cq.Workplane("XY").workplane(offset=-t - 1).circle(DRIVE_D / 2 + 0.05)
             .extrude(h_tot + 2))
     flat_cut = (cq.Workplane("XY").workplane(offset=-t - 1)
-                .center(SHAFT_FLAT - SHAFT_D / 2 + 0.05 + 2, 0).rect(4, 6).extrude(h_tot + 2))
+                .center(DRIVE_FLAT - DRIVE_D / 2 + 0.05 + 2, 0).rect(4, 8).extrude(h_tot + 2))
     disc = disc.cut(bore.cut(flat_cut))
     return disc
 
@@ -515,11 +535,99 @@ def tab_holes_local(pp: dict):
     return [(sx * (FLANGE_R + TAB_W / 2 - 3), y, zc) for sx in (-1, 1) for y in TAB_Y]
 
 
+def drive_layout(z_front: float) -> dict:
+    """Positions along the drive line, as local z. s = distance behind the plate's front."""
+    L = {}
+    L["tube_rear"] = z_front - BRG_TUBE
+    L["collar_rear"] = L["tube_rear"] - COLLAR_BOSS - COLLAR_LEN
+    L["shaft_front"] = z_front + RUN + 8.0            # top of the disc boss
+    L["shaft_rear"] = L["shaft_front"] - DRIVE_LEN
+    L["coupler_front"] = L["collar_rear"] - 1.5
+    L["coupler_rear"] = L["coupler_front"] - COUPLER[1]
+    L["gearbox_front"] = L["coupler_rear"] - 1.0
+    L["socket_rear"] = L["gearbox_front"] - SADDLE[1]
+    L["motor_rear"] = L["gearbox_front"] - MOTOR_LEN
+    return L
+
+
+def _add_drive(plate: cq.Workplane, z_front: float) -> cq.Workplane:
+    """Bearing tube, rails and motor saddle behind the back plate. Everything is an
+    extrusion along the axis (vertical walls when printed front face down); the only
+    roofs are the 50° cone above the front bearing and the 50° gearbox stops."""
+    L = drive_layout(z_front)
+    zb = z_front - BP_T
+    gw, gh = GEARBOX
+    r_p = (BRG_OD + BRG_FIT) / 2
+    r_o = r_p + BRG_WALL
+
+    def box(x0, x1, y0, y1, z0, z1):
+        return (cq.Workplane("XY").workplane(offset=z0).center((x0 + x1) / 2, (y0 + y1) / 2)
+                .rect(x1 - x0, y1 - y0).extrude(z1 - z0))
+
+    add = cq.Workplane("XY").workplane(offset=L["tube_rear"]).circle(r_o).extrude(BRG_TUBE - BP_T)
+    add = add.union(box(-RAIL_X[1], RAIL_X[1], -6, 6, L["tube_rear"], zb))        # tube-to-rail webs
+    for sx in (-1, 1):
+        x0, x1 = sorted((sx * RAIL_X[0], sx * RAIL_X[1]))
+        add = add.union(box(x0, x1, -gh / 2 - RUN + 0.2, SPINE_Y[1], L["socket_rear"], zb))
+    add = add.union(box(-RAIL_X[1], RAIL_X[1], SPINE_Y[0], SPINE_Y[1], L["socket_rear"], zb))
+    # motor saddle: walls at ±x and +y round the gearbox, open toward −y for the clamp strap.
+    # Its front is relieved by a 50° cone, so it widens to the rails without a flat roof and
+    # stays clear of the coupler.
+    y_top = gh / 2 + RUN
+    gf = L["gearbox_front"]
+    sad = box(-RAIL_X[1], RAIL_X[1], -gh / 2 - RUN + 0.2, SPINE_Y[1], L["socket_rear"], gf + 1)
+    sad = sad.cut(box(-gw / 2 - RUN, gw / 2 + RUN, -20, y_top, L["socket_rear"] - 1, gf + 2))
+    sad = sad.cut(cq.Workplane("XY").workplane(offset=gf - SADDLE[0] - 1).circle(5.2)
+                  .workplane(offset=SADDLE[0] + 2).circle(5.2 + (SADDLE[0] + 2) / math.tan(math.radians(50))).loft())
+    # nothing but the rails and spine outside r 11: no flat roof in the corners
+    sad = sad.intersect(cq.Workplane("XY").workplane(offset=L["socket_rear"]).circle(11.0)
+                        .extrude(gf + 1 - L["socket_rear"]))
+    add = add.union(sad)
+    plate = plate.union(add)
+    # front bearing pocket (open to the front, bearing recessed), 50° cone, shaft bore,
+    # rear bearing pocket (open to the rear)
+    z_p = z_front - BRG_RECESS - BRG_W
+    plate = plate.cut(cq.Workplane("XY").workplane(offset=z_p).circle(r_p).extrude(BRG_RECESS + BRG_W + 1))
+    plate = plate.cut(cq.Workplane("XY").workplane(offset=z_p - 3.0).circle(5.5)
+                      .workplane(offset=3.0).circle(r_p).loft())
+    plate = plate.cut(cq.Workplane("XY").workplane(offset=L["tube_rear"] - 1).circle(5.5).extrude(BRG_TUBE))
+    plate = plate.cut(cq.Workplane("XY").workplane(offset=L["tube_rear"] - 1).circle(r_p).extrude(BRG_W + 1))
+    # M2 pilot holes for the clamp strap, along y from the open side
+    zc = (L["socket_rear"] + L["gearbox_front"]) / 2
+    for sx in (-1, 1):
+        plate = plate.cut(cq.Workplane("XZ").workplane(offset=gh / 2 + RUN + 1)
+                          .center(sx * CLAMP_X, zc).circle(0.9).extrude(9))
+    return plate
+
+
+CLAMP_X = 13.5
+
+
+def make_spacer() -> cq.Workplane:
+    """Thrust ring between the disc's back face and the front bearing's inner race. Its
+    thickness sets the disc-to-plate running gap."""
+    return cq.Workplane("XY").circle(4.5).circle(DRIVE_D / 2 + 0.1).extrude(BRG_RECESS + RUN)
+
+
+def make_collar() -> cq.Workplane:
+    """Set-screw collar behind the rear bearing: M3 × 6 screw into a captured M3 nut."""
+    c = cq.Workplane("XY").circle(9.0).extrude(COLLAR_LEN)
+    c = c.union(cq.Workplane("XY").workplane(offset=COLLAR_LEN).circle(4.5).extrude(COLLAR_BOSS))
+    c = c.cut(cq.Workplane("XY").workplane(offset=-1).circle(DRIVE_D / 2 + 0.1).extrude(COLLAR_LEN + 3))
+    # nut slot open to the flat end face, screw hole along +x at mid-length
+    c = c.cut(cq.Workplane("XY").workplane(offset=-1).center(5.9, 0).rect(2.7, 5.8)
+              .extrude(COLLAR_LEN + 2))
+    zc, r = COLLAR_LEN / 2, 1.65          # teardrop hole: prints without support, axis upright
+    c = c.cut(cq.Workplane("YZ").center(0, zc).circle(r).extrude(10))
+    c = c.cut(cq.Workplane("YZ").polyline([(-r * 0.7071, zc + r * 0.7071), (0, zc + r * 1.5),
+                                           (r * 0.7071, zc + r * 0.7071)]).close().extrude(10))
+    return c
+
+
 def make_backplate(pp: dict) -> cq.Workplane:
     zb, z_front = backplate_z(pp)
     pp = dict(pp, closed=False)   # the exit hole is open to the bore even for closed pockets
     plate = cq.Workplane("XY").workplane(offset=zb).circle(FLANGE_R).extrude(BP_T)
-    plate = plate.cut(cq.Workplane("XY").workplane(offset=zb - 1).circle(2.2).extrude(BP_T + 2))
     # exit hole = notch grown by EXIT_MARGIN, bounded by the hopper bore, continued as a
     # duct straight back (perpendicular to the plate: vertical walls when printed)
     em = EXIT_MARGIN + undercut_at_back(pp)     # hole clears the undercut pocket's back outline
@@ -533,19 +641,7 @@ def make_backplate(pp: dict) -> cq.Workplane:
     # beam-break LED holes across the duct (along local x), teardrop roof toward −z
     hw = (pp["length"] if pp["shape"] == "oblong" else pp["width"]) / 2 + EXIT_MARGIN + 1.6
     plate = plate.cut(_teardrop_x(-hw - 2, hw + 2, pp["r_center"], zb - BEAM_Z, 1.6))
-    # gearbox socket behind the plate + clamp ears (2× M2)
-    gw, gh = GEARBOX
-    sock_d = 8.0
-    outer_w, outer_h = gw + 2 * RUN + 4.8, gh + 2 * RUN + 4.8
-    sock = (cq.Workplane("XY").workplane(offset=zb - sock_d).rect(outer_w, outer_h).extrude(sock_d)
-            .cut(cq.Workplane("XY").workplane(offset=zb - sock_d - 1)
-                 .rect(gw + 2 * RUN, gh + 2 * RUN).extrude(sock_d + 1)))
-    ear_x = outer_w / 2 + 3
-    ears = (cq.Workplane("XY").workplane(offset=zb - sock_d)
-            .pushPoints([(-ear_x, 0), (ear_x, 0)]).rect(6, 6).extrude(sock_d)
-            .cut(cq.Workplane("XY").workplane(offset=zb - sock_d - 1)
-                 .pushPoints([(-ear_x, 0), (ear_x, 0)]).circle(1.1).extrude(sock_d + 2)))
-    plate = plate.union(sock).union(ears)
+    plate = _add_drive(plate, z_front)
     # stand tabs: blocks at ±x with M3 teardrop holes along x
     for sx in (-1, 1):
         for y in TAB_Y:
@@ -598,6 +694,9 @@ def make_hopper(pp: dict) -> cq.Workplane:
                             (far * math.cos(a1), far * math.sin(a1))]).close()
                  .extrude(HOPPER_TOP - z0 + 2))
         rib = rib.cut(wedge)
+        # room for the cover's locating lip (the cover closes y > COVER_Y)
+        rib = rib.cut(cq.Workplane("XY").workplane(offset=HOPPER_TOP - 3.3)
+                      .center(0, COVER_Y - 1 + FLANGE_R).rect(4 * FLANGE_R, 2 * FLANGE_R).extrude(5))
         body = body.union(rib)
     return body.cut(relief)
 
@@ -615,16 +714,14 @@ def make_cover() -> cq.Workplane:
 
 
 def make_clamp() -> cq.Workplane:
-    """Strap that holds the gearbox in its socket (2× M2 × 12 + nuts)."""
-    gw, gh = GEARBOX
-    outer_w = gw + 2 * RUN + 4.8
-    ear_x = outer_w / 2 + 3
-    return (cq.Workplane("XY").rect(2 * ear_x + 6, 6).extrude(3.0)
-            .cut(cq.Workplane("XY").pushPoints([(-ear_x, 0), (ear_x, 0)]).circle(1.1).extrude(4)))
+    """Strap across the open side of the motor saddle (2× M2 × 8 self-tapping into the rails)."""
+    return (cq.Workplane("XY").rect(2 * CLAMP_X + 6, 6).extrude(3.0)
+            .cut(cq.Workplane("XY").pushPoints([(-CLAMP_X, 0), (CLAMP_X, 0)]).circle(1.1).extrude(4)))
 
 
 BASE_FRONT = 45.0    # extra base length under the hopper
-BASE_Z = -46.0       # world z of the table / base plate top
+BASE_Z = -78.0       # world z of the table / base plate top (was −46 before the shaft drive:
+                     # the motor's rear end and the longer duct need 32 mm more height)
 SIDE_T = 5.0         # side plate thickness
 
 
@@ -656,7 +753,7 @@ def make_base(pp_ref: dict) -> cq.Workplane:
     x_in = FLANGE_R - 3 + TAB_W + 0.2
     # the plate reaches BASE_FRONT further forward than the side plates: the hopper leans
     # ~56 mm out over the front, and a wider footprint keeps it from tipping when pouring
-    y0, y1 = bb.ymin - 5 - BASE_FRONT, bb.ymax + 5
+    y0, y1 = bb.ymin - 5 - BASE_FRONT, max(bb.ymax + 5, cup_centre(pp_ref)[1] + 26)
     base = (cq.Workplane("XY").workplane(offset=BASE_Z - 6)
             .center(0, (y0 + y1) / 2).rect(2 * (x_in + SIDE_T + 8), y1 - y0).extrude(6))
     for sx in (-1, 1):
@@ -667,11 +764,17 @@ def make_base(pp_ref: dict) -> cq.Workplane:
     return base
 
 
+def cup_centre(pp_ref: dict):
+    """Under the duct mouth, and clear of the motor's rear end."""
+    zb, zf = backplate_z(pp_ref)
+    mouth = _world((0.0, pp_ref["r_center"], zb - DUCT_LEN))
+    motor = _world((0.0, 0.0, drive_layout(zf)["motor_rear"]))
+    return mouth[0], max(mouth[1] + 4, motor[1] + 4 + 22)
+
+
 def make_cup(pp_ref: dict) -> cq.Workplane:
     """Pill cup under the end of the exit duct (world). Ø44 × 18 mm, 1.6 mm walls."""
-    zb, _ = backplate_z(pp_ref)
-    mouth = _world((0.0, pp_ref["r_center"], zb - DUCT_LEN))
-    cx, cy = mouth[0], mouth[1] + 4
+    cx, cy = cup_centre(pp_ref)
     return (cq.Workplane("XY").workplane(offset=BASE_Z).center(cx, cy).circle(22).extrude(18)
             .cut(cq.Workplane("XY").workplane(offset=BASE_Z + 1.6).center(cx, cy).circle(20.4)
                  .extrude(18)))
@@ -706,14 +809,16 @@ def build(pill_id: str) -> dict:
 
 def build_common():
     """Parts shared by every pill: cover, motor clamp, stand (2 sides + base), cup.
-    Sized from the thickest disc (cap0) so they fit every pill's assembly."""
-    ref = pocket_params("cap0")
+    Sized from the thickest disc so they fit every pill's assembly."""
+    ref = max((pocket_params(p) for p in PILLS), key=lambda q: q["depth"])
     common = OUT / "common"
     common.mkdir(parents=True, exist_ok=True)
     side = make_side(ref)
     parts = [
         ("cover", _rot_world(make_cover()), [-BETA + 180, 0, 0], 4.0),
         ("clamp", make_clamp(), [0, 0, 0], 4.0),
+        ("spacer", make_spacer(), [0, 0, 0], 4.0),
+        ("collar", make_collar(), [0, 0, 0], 4.0),
         ("side_right", side, [0, -90, 0], 4.0),
         ("side_left", side.mirror("YZ"), [0, 90, 0], 4.0),
         ("base", make_base(ref), [0, 0, 0], 4.0),

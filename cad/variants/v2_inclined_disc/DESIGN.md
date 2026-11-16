@@ -12,8 +12,26 @@ A disc tilted 50° from horizontal turns over a fixed back plate, inside a fixed
 bore. Pockets in the disc rim hold exactly one pill; the hopper wall closes each
 pocket's outer side and the back plate is its floor. Pills pool at the low side of the
 hopper, drop into a pocket as it passes, ride up, and fall through a hole in the back
-plate at the top (12 o'clock) while the disc is stopped. A 50 mm duct behind the plate
-carries the pill past the motor to the cup; the beam-break sits 8 mm into the duct.
+plate at the top (12 o'clock) while the disc is stopped. A 96 mm duct behind the plate
+carries the pill past the drive to the cup; the beam-break sits 8 mm into the duct.
+
+## Drive (transmission)
+
+The course requires a moving transmission, so the disc is not on the motor shaft.
+
+- The disc presses onto a 1/4" shaft with a filed flat.
+- Two R4-ZZ ball bearings carry the shaft in a tube that is part of the back plate: one
+  in the plate's front face, one 23 mm behind it.
+- A printed thrust spacer between the disc and the front bearing's inner ring sets the
+  0.4 mm running gap. Gravity loads the disc toward the plate, so the spacer always bears.
+- A printed set-screw collar behind the rear bearing stops the shaft moving forward.
+- A flexible coupler (3 mm to 6.35 mm, Ø19 × 25) joins the shaft to the gearmotor, which
+  lies in a saddle on two rails behind the tube, held by a strap and two M2 screws.
+
+The in-line drive puts the motor's rear end 100 mm behind the plate. The duct grew from
+50 to 96 mm so a pill falls clear of the motor, the stand is 32 mm taller, and the cup
+sits behind the motor. The disc's centre boss is 1.5 mm wider for the larger bore; pockets,
+hopper and index timing are unchanged.
 
 Why it resists the original design's failures:
 
@@ -72,9 +90,9 @@ clearances 0.4 mm, unsupported overhang ≤ 4 mm²). Settings are in `BUILD.md`.
 | Part | Per pill | On the bed |
 | --- | --- | --- |
 | `disc` | yes | back face down |
-| `backplate` (with duct, motor socket, stand tabs) | yes | front face down |
+| `backplate` (with duct, bearing tube, motor saddle, stand tabs) | yes | front face down |
 | `hopper` | yes | flange down |
-| `cover`, `clamp`, `side_left`, `side_right`, `base`, `cup` | no (`common/`) | flat |
+| `cover`, `clamp`, `spacer`, `collar`, `side_left`, `side_right`, `base`, `cup` | no (`common/`) | flat |
 
 ## Revision history
 

@@ -15,6 +15,7 @@ NAMES = {
     "v2_inclined_disc": "V2 inclined pocket disc",
     "v2_inclined_disc_recheck": "V2 inclined pocket disc (re-check, final test setup)",
     "v2_inclined_disc_shaftdrive": "V2 inclined pocket disc (shaft drive, 96 mm duct: current design)",
+    "v2_v7_module": "V2 disc as a V7 module (gear drive, 38 mm duct)",
     "v3_shuttle": "V3 reciprocating shuttle",
 }
 PILL_ORDER = ["iron", "small"]

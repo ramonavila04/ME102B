@@ -304,11 +304,21 @@ def make_motor_mount() -> cq.Workplane:
     return blk
 
 
+STRAP_SQUEEZE = 0.6               # clamp interference: the rib stops the strap this far off the ears
+
+
 def make_strap() -> cq.Workplane:
+    """Plate over the open side of the motor mount, modelled with the motor-side face at
+    z=0. A rib on that face reaches RUN + STRAP_SQUEEZE below it, so it presses on the
+    motor before the plate reaches the ears: tightening the two M2 screws clamps the motor
+    against the channel floor and the friction holds it along its axis (the spur gears put
+    no axial load on it; its own weight along the axis is about 0.1 N)."""
     gw, gh = b.GEARBOX
     xe = gw / 2 + b.RUN + SLEEVE_WALL + EAR / 2
-    return (cq.Workplane("XY").rect(2 * xe + 6, 6).extrude(3.0)
-            .cut(cq.Workplane("XY").pushPoints([(-xe, 0), (xe, 0)]).circle(1.1).extrude(4)))
+    plate = (cq.Workplane("XY").rect(2 * xe + 6, 6).extrude(3.0)
+             .cut(cq.Workplane("XY").workplane(offset=-1).pushPoints([(-xe, 0), (xe, 0)]).circle(1.1).extrude(5)))
+    rib = cq.Workplane("XY").rect(gw - 2.0, 6).extrude(-(b.RUN + STRAP_SQUEEZE))
+    return plate.union(rib)
 
 
 # ----------------------------------------------------------------- stand
@@ -422,7 +432,7 @@ def build_common():
         ("shaft_gear", make_shaft_gear(), [180, 0, 0], "gear face down, hub up", 12.0),
         ("rear_spacer", make_rear_spacer(), [0, 0, 0], "flat"),
         ("motor_gear", make_motor_gear(), [0, 0, 0], "flat"),
-        ("strap", make_strap(), [0, 0, 0], "flat"),
+        ("strap", make_strap(), [180, 0, 0], "rib up"),
         ("motor_mount", make_motor_mount(), [180, 0, 0], "front wall down"),
         ("cheek_right", cheek, [0, -90, 0], "flat"),
         ("cheek_left", cheek.mirror("YZ"), [0, 90, 0], "flat"),

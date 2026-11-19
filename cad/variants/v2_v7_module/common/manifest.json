@@ -67,11 +67,11 @@
       "stl": "strap.stl",
       "step": "strap.step",
       "print_rotation": [
-        0,
+        180,
         0,
         0
       ],
-      "bed": "flat",
+      "bed": "rib up",
       "max_overhang_mm2": 4.0
     },
     {

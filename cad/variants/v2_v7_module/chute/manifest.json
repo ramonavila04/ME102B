@@ -1,0 +1,55 @@
+{
+  "variant": "v2_v7_module",
+  "pill": "chute",
+  "parts": [
+    {
+      "name": "chute",
+      "stl": "chute.stl",
+      "step": "chute.step",
+      "print_rotation": [
+        -37.0,
+        0,
+        0
+      ],
+      "bed": "floor down",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "bracket_right",
+      "stl": "bracket_right.stl",
+      "step": "bracket_right.step",
+      "print_rotation": [
+        90,
+        0,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "bracket_left",
+      "stl": "bracket_left.stl",
+      "step": "bracket_left.step",
+      "print_rotation": [
+        90,
+        0,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "bracket_front",
+      "stl": "bracket_front.stl",
+      "step": "bracket_front.step",
+      "print_rotation": [
+        0,
+        90,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    }
+  ],
+  "clearances": []
+}

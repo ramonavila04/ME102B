@@ -7,23 +7,5 @@
     "files": [
       "Pill_Dispenser_Clip_On_Canister_67p5mm.step"
     ]
-  },
-  {
-    "name": "V7_Pill_Dispenser_Heat_Inserts",
-    "url": "https://cad.onshape.com/documents/41530f7d9012395bb330afa3/w/4d6dce3c2010a816443d68be/e/d8f62869abd055a4d51d11c8",
-    "type": "ASSEMBLY",
-    "onshape_element_name": "<V7 element/tab name in Onshape>",
-    "files": [
-      "V7_Pill_Dispenser_Heat_Inserts.step"
-    ]
-  },
-    {
-    "name": "Human_Pill_Dispenser",
-    "url": "https://cad.onshape.com/documents/2e466b508a3e65ba5a838029/w/dde4cec6d45f95aaf72e8ffe/e/c7a3a1ad1890a4bf66b9fbb3",
-    "type": "ASSEMBLY",
-    "onshape_element_name": "<tab name from this document>",
-    "files": [
-      "Human_Pill_Dispenser.step"
-    ]
   }
 ]

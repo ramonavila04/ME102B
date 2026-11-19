@@ -1,0 +1,65 @@
+{
+  "variant": "v2_v7_module",
+  "pill": "small",
+  "params": {
+    "pill": "small",
+    "shape": "round",
+    "width": 6.8,
+    "length": 6.8,
+    "r_center": 25.4,
+    "r_inner": 22.0,
+    "depth": 2.4,
+    "n": 8,
+    "pitch_deg": 45.0,
+    "chamfer": 0.0,
+    "pocket": "flat notch",
+    "trail_chamfer": 0.0,
+    "hub_r": 0.0,
+    "hub_h": 0.0,
+    "ribs": 0,
+    "inner_chamfer": 0.0,
+    "closed": true,
+    "cone_h": 0.0,
+    "y0": 6.0,
+    "z0": 64.0,
+    "duct_len": 38.0,
+    "tube": 18.0,
+    "gear_cd": 21.15
+  },
+  "parts": [
+    {
+      "name": "disc",
+      "stl": "disc.stl",
+      "step": "disc.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "back face down (as saved)"
+    },
+    {
+      "name": "backplate",
+      "stl": "backplate.stl",
+      "step": "backplate.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "front face down (as saved)"
+    },
+    {
+      "name": "hopper",
+      "stl": "hopper.stl",
+      "step": "hopper.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "flange down (as saved)"
+    }
+  ],
+  "clearances": []
+}

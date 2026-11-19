@@ -294,6 +294,18 @@ UNDERCUT_DEG = 12.0
 # it slides out up to friction ~1.3. The entry size at the face is unchanged.
 
 
+# rev 41 (small tablets, closed pocket): 20° undercut. In the V7-module campaign one small
+# tablet rode up the disc tilted ~30° in its closed pocket, wedged between the straight land
+# at the face and the 12° wall at the back, and sat at the exit for 0.45 s with the disc
+# stopped (friction 0.51); the next index then dropped it with the next tablet (a double).
+# The steeper wall frees a tilted tablet as soon as it reaches the exit hole.
+UNDERCUT_DEG_CLOSED = 20.0
+
+
+def undercut_deg(pp: dict) -> float:
+    return UNDERCUT_DEG_CLOSED if pp.get("closed") else UNDERCUT_DEG
+
+
 UNDERCUT_LAND = 1.2   # top of each pocket wall stays straight (no feather edge at the face)
 
 
@@ -303,7 +315,7 @@ def undercut_land(pp: dict) -> float:
 
 
 def undercut_at_back(pp: dict) -> float:
-    return max(0.0, pp["depth"] - undercut_land(pp)) * math.tan(math.radians(UNDERCUT_DEG))
+    return max(0.0, pp["depth"] - undercut_land(pp)) * math.tan(math.radians(undercut_deg(pp)))
 
 
 RIM_WEB = 1.2
@@ -428,7 +440,7 @@ def make_disc(pp: dict) -> cq.Workplane:
     for k in range(pp["n"]):
         tool = _extruded_notch(pp, -t - 1, t + 2)
         if t > undercut_land(pp) + 0.2:
-            tool = tool.union(_tapered_notch(pp, -t, t - undercut_land(pp), undercut_at_back(pp), UNDERCUT_DEG))
+            tool = tool.union(_tapered_notch(pp, -t, t - undercut_land(pp), undercut_at_back(pp), undercut_deg(pp)))
         # rev 4: 45° lead-in on the notch's top edges for long pills (stepped in 0.25 mm
         # layers so it prints as an upward-facing stair) — a misaligned pill is guided in
         # or lifted off instead of being shoved along the wall

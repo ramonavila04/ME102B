@@ -25,6 +25,8 @@ The shaft-drive rows are the full campaign after the disc was moved onto a 1/4-i
 | V2 inclined pocket disc (re-check, final test setup) | small | 50 | 150 | 150 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc (shaft drive, 96 mm duct: current design) | iron | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V2 inclined pocket disc (shaft drive, 96 mm duct: current design) | small | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
+| V2 disc as a V7 module (gear drive, 38 mm duct) | iron | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
+| V2 disc as a V7 module (gear drive, 38 mm duct) | small | 200 | 600 | 600 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 % | 0 / 0 | **pass** |
 | V3 reciprocating shuttle | iron | 200 | 392 | 103 | 116 | 0 | 169 | 3 | 0 | 1 | 58.0 % | 0 / 1 | fail |
 | V3 reciprocating shuttle | small | 200 | 449 | 155 | 86 | 0 | 204 | 4 | 0 | 0 | 43.0 % | 0 / 2 | fail |
 

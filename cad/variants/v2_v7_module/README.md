@@ -17,9 +17,18 @@ weighing station are used unchanged.
 | Hopper flange and back plate | Trimmed to the module's 60° slice of the deck (1.7 mm³ of the iron hopper is removed; nothing pills touch). |
 | Stand | New: a base plate that bolts to the V7 deck exactly where a V7 module does, and two cheeks. |
 
-Because the duct changed, the pill path is re-tested in simulation as variant
-`v2_v7_module`: `python -m sim.campaign v2_v7_module --pills iron small --trials 200`.
-Results go to `results/v2_v7_module/`.
+Because the duct changed, the pill path was re-tested in simulation as variant
+`v2_v7_module` (`python -m sim.campaign v2_v7_module --pills iron small --trials 200`):
+
+| Kit | Trials passed | Dispenses | Failures |
+| --- | --- | --- | --- |
+| iron | 200 / 200 | 600 ok | none |
+| small | 200 / 200 | 600 ok | none (after rev 41, below) |
+
+The first small-tablet run had 1 double in 600 dispenses: a tablet wedged tilted in its pocket
+at the exit and fell late. The disc's closed-pocket undercut went from 12° to 20° (V2 rev 41,
+shared with the stand-alone V2), and both the stand-alone V2 and this module were rerun at
+200/200. Results are in `results/v2_v7_module/`; the superseded run is in `results/old_rev40/`.
 
 ## How it mounts on the V7
 
@@ -123,7 +132,6 @@ firmware) so the disc turns the same way as in the simulation.
 
 ## Not yet proven
 
-- The 200-trial simulation of this module (new duct) is running at the time of writing.
 - Spur gears printed in PLA at module 1.5: the backlash allowance (0.1 mm per gear) and
   the 21.15 mm centre distance are nominal; check the mesh by hand before powering.
 - The motor is held in its mount by the strap only; there is no hard stop on the gear

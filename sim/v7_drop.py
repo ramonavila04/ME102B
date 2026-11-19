@@ -32,6 +32,7 @@ import argparse
 import importlib.util
 import json
 import math
+import os
 import multiprocessing as mp
 import sys
 import time
@@ -63,8 +64,9 @@ T_MAX = 6.0          # s after release
 REST_SPEED = 3.0     # mm/s
 REST_TIME = 0.3      # s below REST_SPEED = at rest
 OUT = ROOT / "results" / "v7_drop"
-CHUTE_DIR = MOD_DIR / "chute"
+CHUTE_DIR = MOD_DIR / os.environ.get("CHUTE_DIR", "chute")
 CHUTE_PARTS = ["chute", "bracket_right", "bracket_left", "bracket_front"]
+USE_CUP = os.environ.get("V7_CUP", "1") == "1"   # with --chute: the pill cup in the tray (weighed)
 USE_CHUTE = False    # --chute: the replacement chute (cad/variants/v2_v7_module/chute.py) instead of the V7 funnel
 
 
@@ -164,6 +166,9 @@ def scene_pieces(kit):
     if USE_CHUTE:
         for n in CHUTE_PARTS:
             out.append((f"Chute_{n}", decompose_file(CHUTE_DIR / f"{n}.stl", tol=0.1, min_cell=1.0), lambda v: v))
+        if USE_CUP:   # named Weighing_*: it sits on the tray and counts as the station
+            out.append(("Weighing_cup", decompose_file(CHUTE_DIR / "pill_cup.stl", tol=0.1, min_cell=1.0),
+                        lambda v: v))
     d = MOD_DIR / kit
     if not (d / "sim_backplate.stl").exists():
         M.build(kit)
@@ -180,11 +185,22 @@ def scene_pieces(kit):
 
 
 def build(kit, pill, mu_part, mu_pill):
+    return build_multi(kit, [pill], mu_part, mu_pill, names=["pill"])
+
+
+def build_multi(kit, pills, mu_part, mu_pill, names=None):
+    names = names or [f"pill{i}" for i in range(len(pills))]
     assets, geoms = [], []
     for prefix, pcs, tf in scene_pieces(kit):
         rgba = "0.6 0.6 0.65 1" if not prefix.startswith("m") else "0.9 0.7 0.3 1"
         geoms += _pieces_xml(prefix, pcs, lambda v: tf(v), assets, mu_part, rgba)
-    assets.append(E._mesh_xml("pillmesh", np.asarray(pill.mesh(16).vertices)))
+    bodies = []
+    for i, (nm, pl) in enumerate(zip(names, pills)):
+        assets.append(E._mesh_xml(f"pillmesh{i}", np.asarray(pl.mesh(16).vertices)))
+        bodies.append(f'''<body name="{nm}" pos="{0.4 + 0.03 * i} 0 0.3"><freejoint name="{nm}"/>
+      <geom name="{nm}" type="mesh" mesh="pillmesh{i}" mass="{pl.mass_g / 1000:.6g}" contype="1"
+            conaffinity="1" friction="{mu_pill} 0.005 0.0001" condim="4" rgba="0.75 0.2 0.15 1"/>
+    </body>''')
     xml = f"""<mujoco model="v7_drop">
   <compiler angle="degree" autolimits="true"/>
   <option timestep="{E.TIMESTEP}" integrator="implicitfast" cone="elliptic" impratio="2"
@@ -193,10 +209,7 @@ def build(kit, pill, mu_part, mu_pill):
   <asset>{"".join(assets)}</asset>
   <worldbody>
     {"".join(geoms)}
-    <body name="pill"><freejoint name="pill"/>
-      <geom name="pill" type="mesh" mesh="pillmesh" mass="{pill.mass_g / 1000:.6g}" contype="1"
-            conaffinity="1" friction="{mu_pill} 0.005 0.0001" condim="4" rgba="0.75 0.2 0.15 1"/>
-    </body>
+    {"".join(bodies)}
   </worldbody>
 </mujoco>"""
     return mujoco.MjModel.from_xml_string(xml)
@@ -219,6 +232,19 @@ def run(kit, seed, record=False):
     model = build(kit, pill, mu_part, mu_pill)
     data = mujoco.MjData(model)
 
+    pos, R_p, v = release_state(kit, k, pill, tilt, spin, az, v_tan)
+    jq = model.jnt_qposadr[model.joint("pill").id]
+    jd = model.jnt_dofadr[model.joint("pill").id]
+    data.qpos[jq:jq + 3] = pos * E.MM
+    data.qpos[jq + 3:jq + 7] = _quat_from_matrix(R_p)
+    data.qvel[jd:jd + 3] = v * E.MM
+    mujoco.mj_forward(model, data)
+    return _follow(model, data, kit, seed, k, pill, mu_part, mu_pill, tilt, v_tan, record)
+
+
+def release_state(kit, k, pill, tilt, spin, az, v_tan):
+    """Pill seated in the pocket over module k's exit, disc stopped: (pos mm, R, v mm/s),
+    enclosure frame."""
     # pocket over the exit: local disc frame, pocket centre at the exit angle; the pill sits on
     # the back plate (disc back face − RUN), lifted 0.2 mm
     pp = b.pocket_params(kit)
@@ -237,13 +263,11 @@ def run(kit, seed, record=False):
     # pocket velocity: the disc turns about local +z (drive dir=1), tangent at the exit angle
     v_loc = np.array([-math.sin(ang), math.cos(ang), 0.0]) * v_tan
     v = R_le @ v_loc
-    jq = model.jnt_qposadr[model.joint("pill").id]
-    jd = model.jnt_dofadr[model.joint("pill").id]
-    data.qpos[jq:jq + 3] = pos * E.MM
-    data.qpos[jq + 3:jq + 7] = _quat_from_matrix(R_p)
-    data.qvel[jd:jd + 3] = v * E.MM
-    mujoco.mj_forward(model, data)
+    return pos, R_p, v
 
+
+def _follow(model, data, kit, seed, k, pill, mu_part, mu_pill, tilt, v_tan, record):
+    jd = model.jnt_dofadr[model.joint("pill").id]
     pid = model.body("pill").id
     rest_since, t_land, frames = None, None, [] if record else None
     outcome, where, max_pen = "moving", None, 0.0
@@ -293,10 +317,85 @@ def run(kit, seed, record=False):
     return res
 
 
+DOSE_GAP_MAX = 4.0    # s allowed per pill before the next is released anyway
+
+
+def run_dose(kit, seed, n):
+    """n pills, one after another, each from a random module, the next released when the last
+    is at rest (as the firmware dispenses a dose). Passes when every pill ends at rest on the
+    station or on other pills, and no pill touches anything but the station and other pills:
+    a pill leaning on the chute would take weight off the load cell."""
+    rng = np.random.default_rng(seed)
+    mu_part, mu_pill = rng.uniform(0.2, 0.6), rng.uniform(0.2, 0.6)
+    draws = []
+    for _ in range(n):
+        draws.append(dict(k=int(rng.integers(0, 6)), pill=PILLS[kit].sample(rng), tilt=rng.uniform(0, 20),
+                          spin=rng.uniform(0, 360), az=rng.uniform(0, 360), v_tan=rng.uniform(0, 65)))
+    model = build_multi(kit, [d["pill"] for d in draws], mu_part, mu_pill)
+    data = mujoco.MjData(model)
+    jq = [model.jnt_qposadr[model.joint(f"pill{i}").id] for i in range(n)]
+    jd = [model.jnt_dofadr[model.joint(f"pill{i}").id] for i in range(n)]
+    pid = [model.body(f"pill{i}").id for i in range(n)]
+    station = {i for i in range(model.ngeom)
+               if (mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_GEOM, i) or "").startswith("Weighing")}
+    pill_geoms = {model.body_geomadr[b_] for b_ in pid}
+
+    def park(i):
+        data.qpos[jq[i]:jq[i] + 3] = [0.4 + 0.03 * i, 0, 0.3]
+        data.qpos[jq[i] + 3:jq[i] + 7] = [1, 0, 0, 0]
+        data.qvel[jd[i]:jd[i] + 6] = 0
+
+    for i in range(n):
+        park(i)
+    released = []
+    outcome, where = "ok", None
+    for i, d in enumerate(draws):
+        pos, R_p, v = release_state(kit, d["k"], d["pill"], d["tilt"], d["spin"], d["az"], d["v_tan"])
+        data.qpos[jq[i]:jq[i] + 3] = pos * E.MM
+        data.qpos[jq[i] + 3:jq[i] + 7] = _quat_from_matrix(R_p)
+        data.qvel[jd[i]:jd[i] + 6] = 0
+        data.qvel[jd[i]:jd[i] + 3] = v * E.MM
+        released.append(i)
+        t0, rest_since = data.time, None
+        while data.time - t0 < DOSE_GAP_MAX:
+            for j in range(i + 1, n):
+                park(j)
+            mujoco.mj_step(model, data)
+            if not np.isfinite(data.qpos).all():
+                return dict(kit=kit, seed=seed, n=n, outcome="unstable", where=None)
+            sp = max(np.linalg.norm(data.qvel[jd[j]:jd[j] + 3]) / E.MM for j in released)
+            if sp < REST_SPEED and data.time - t0 > 0.2:
+                rest_since = rest_since if rest_since is not None else data.time
+                if data.time - rest_since >= REST_TIME:
+                    break
+            else:
+                rest_since = None
+        for j in released:
+            p = data.xpos[pid[j]] / E.MM
+            if p[2] < -170 or abs(p[0]) > 130 or abs(p[1]) > 180:
+                return dict(kit=kit, seed=seed, n=n, outcome="escaped", where=f"pill {j + 1}",
+                            modules=[d_["k"] + 1 for d_ in draws])
+    mujoco.mj_forward(model, data)
+    bad = set()
+    for c in data.contact[:data.ncon]:
+        for a_, b2 in ((c.geom1, c.geom2), (c.geom2, c.geom1)):
+            if model.geom_bodyid[a_] in pid and b2 not in station and b2 not in pill_geoms:
+                bad.add((mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_GEOM, b2) or "?").split("__")[0])
+    moving = max(np.linalg.norm(data.qvel[jd[j]:jd[j] + 3]) / E.MM for j in range(n)) >= REST_SPEED
+    if bad:
+        outcome, where = "touching", ", ".join(sorted(bad))
+    elif moving:
+        outcome = "moving"
+    return dict(kit=kit, seed=seed, n=n, outcome=outcome, where=where, mu_part=round(mu_part, 3),
+                mu_pill=round(mu_pill, 3), modules=[d["k"] + 1 for d in draws],
+                rest_pos=[[round(float(x), 1) for x in data.xpos[b_] / E.MM] for b_ in pid],
+                t_end=round(data.time, 3))
+
+
 def _one(a):
     t = time.time()
     try:
-        r = run(*a)
+        r = run_dose(*a) if len(a) == 3 else run(*a)
     except Exception as e:     # report, don't hide
         r = dict(kit=a[0], seed=a[1], outcome="error", where=repr(e))
     r["wall_s"] = round(time.time() - t, 1)
@@ -310,14 +409,18 @@ def main():
     ap.add_argument("--seed0", type=int, default=5000)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--chute", action="store_true", help="replacement chute instead of the V7 funnel")
+    ap.add_argument("--dose", type=int, default=1,
+                    help="pills per trial, released one after another (a dose); 1 = single pill")
     a = ap.parse_args()
     global USE_CHUTE, OUT
     if a.chute:
         USE_CHUTE, OUT = True, OUT.with_name("v7_drop_chute")
+    if a.dose > 1:
+        OUT = OUT.with_name(OUT.name + f"_dose{a.dose}")
     OUT.mkdir(parents=True, exist_ok=True)
     for kit in a.pills:
         scene_pieces(kit)          # build the decomposition cache once, before forking
-        jobs = [(kit, a.seed0 + i) for i in range(a.trials)]
+        jobs = [(kit, a.seed0 + i) + ((a.dose,) if a.dose > 1 else ()) for i in range(a.trials)]
         res = []
         with mp.get_context("fork").Pool(a.workers) as pool:
             for i, r in enumerate(pool.imap_unordered(_one, jobs), 1):

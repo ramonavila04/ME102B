@@ -31,7 +31,9 @@ from pathlib import Path
 import cadquery as cq
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE / "chute"
+import os
+CATCH = os.environ.get("CHUTE_CATCH", "0") == "1"     # catch box at the lip: tried, off (see catch_box)
+OUT = HERE / ("chute_catchbox" if CATCH else "chute")
 
 FLOOR_DEG = 37.0
 LIP_Y, LIP_Z = -116.0, -119.0      # floor top at the lip (station plate below at about z −131)
@@ -107,7 +109,33 @@ def trough():
     cav = cav.union(cq.Workplane(pl).center(0, -10).rect(W_LIP + 0.01, 20).extrude(H + 1))
     body = body.cut(cav)
     body = body.cut(cq.Workplane(pl).workplane(offset=-T - 1).center(0, -50).rect(400, 100).extrude(H + 10))
-    return body
+    return body.union(catch_box()) if CATCH else body
+
+
+# Catch box at the lip (sim.v7_drop --chute, seed 5074: an iron tablet left the 37° floor at
+# ~1 m/s, slid across the plate and bounced over the tray's front lip). Pills leaving the lip
+# hit BAFFLE_Y's wall and drop onto the plate between two cheeks. Its open bottom is cut at
+# CATCH_TILT (bottom face leans forward, so it prints without support floor-down) and stays
+# 4 mm or more above the plate: nothing touches the weighed tray.
+BAFFLE_Y = -127.0
+CATCH_BOTTOM = (-127.0, -124.0)    # (y, z) a point on the bottom cut
+CATCH_TILT = 15.0
+
+
+def catch_box():
+    xo = W_LIP / 2 + T
+    box = (cq.Workplane("XY").box(2 * xo, LIP_Y - BAFFLE_Y + T, 40, centered=(True, False, False))
+           .translate((0, BAFFLE_Y - T, -135)))
+    inner = (cq.Workplane("XY").box(W_LIP, LIP_Y - BAFFLE_Y + 5, 60, centered=(True, False, False))
+             .translate((0, BAFFLE_Y, -150)))
+    box = box.cut(inner)
+    a = math.radians(CATCH_TILT)
+    cut_pl = cq.Plane(origin=(0, CATCH_BOTTOM[0], CATCH_BOTTOM[1]), xDir=(1, 0, 0),
+                      normal=(0, math.sin(a), math.cos(a)))
+    below = cq.Workplane(cut_pl).rect(200, 200).extrude(-60)
+    # and nothing below the floor's underside plane (the print bed)
+    under_floor = cq.Workplane(plane_at(0)).workplane(offset=-T).rect(400, 600).extrude(-80)
+    return box.cut(below).cut(under_floor)
 
 
 def _teardrop(origin, axis, roof, r, length):
@@ -196,11 +224,37 @@ def bracket(p):
     return plate
 
 
+# Pill cup: sits loose on the weighing tray's flat floor (z −135; flat for y −136.8..−114,
+# |x| < 25.5 clear of the tray's hold-down bumps) and is
+# weighed with it. The V7 tray's own back lip is 5 mm and its front is a low ramp, and in the
+# 4-pill dose test (sim.v7_drop --dose 4) pills landing on earlier pills bounced over them.
+# The cup's back wall stops 1.5 mm under the chute floor; the other walls are 20 mm (top
+# 0.6 mm under enclosure ribs at |x| > 22).
+CUP = dict(y0=-136.3, y1=-114.5, half_x=25.0, z0=-135.0, top=-115.0, back_top=-121.5,
+           wall=2.0, floor=1.6, r=6.0)
+
+
+def pill_cup():
+    c = CUP
+    w, d = 2 * c["half_x"], c["y1"] - c["y0"]
+    yc = (c["y0"] + c["y1"]) / 2
+    outer = (cq.Workplane("XY").workplane(offset=c["z0"]).center(0, yc).rect(w, d).extrude(c["top"] - c["z0"])
+             .edges("|Z").fillet(c["r"]))
+    inner = (cq.Workplane("XY").workplane(offset=c["z0"] + c["floor"]).center(0, yc)
+             .rect(w - 2 * c["wall"], d - 2 * c["wall"]).extrude(50).edges("|Z").fillet(c["r"] - c["wall"]))
+    cup = outer.cut(inner)
+    # low back wall (under the chute lip)
+    notch = (cq.Workplane("XY").workplane(offset=c["back_top"]).center(0, c["y1"] - 4)
+             .rect(w - 2 * c["r"], 10).extrude(30))
+    return cup.cut(notch)
+
+
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
     keep = _keepout()
     body = ribs_and_holes(trough()).cut(keep)
-    parts = {"chute": (body, [-FLOOR_DEG, 0, 0], "floor down")}
+    parts = {"chute": (body, [-FLOOR_DEG, 0, 0], "floor down"),
+             "pill_cup": (pill_cup(), [0, 0, 0], "floor down")}
     for p in POSTS:
         rot = [90, 0, 0] if p["kind"] == "arm" else [0, 90 * p["side"], 0]
         parts[p["name"]] = (bracket(p).cut(keep), rot, "flat")

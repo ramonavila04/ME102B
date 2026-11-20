@@ -34,6 +34,8 @@ MOUTH_Y = 95.8        # duct mouth centre, V2 world y (iron; small 94.3)
 POD_T = 6.0           # pod plate thickness (the V2 base plate's)
 H = POD_T - b.BASE_Z  # V2 world origin above the deck top: pod top = V2 table
 N_MOD = 6
+CENTRE = (0.0, -15.0)  # centre of the duct-mouth ring: 15 mm toward the front, so the chute's
+                       # 37° floor stays under the deck below the rear mouths
 
 
 def mod_rot_deg(k: int) -> float:
@@ -45,7 +47,13 @@ def mod_rot_deg(k: int) -> float:
 
 def mouth_xy(k: int):
     th = math.radians(60 * k)
-    return RP * math.cos(th), RP * math.sin(th)
+    return CENTRE[0] + RP * math.cos(th), CENTRE[1] + RP * math.sin(th)
+
+
+def rotate_k(shape, k: int):
+    """Module 0's copy of a part → module k's (60° steps about the ring centre)."""
+    c = (CENTRE[0], CENTRE[1], 0)
+    return shape.rotate(c, (c[0], c[1], 1), 60 * k)
 
 
 def to_enc(shape, k: int):

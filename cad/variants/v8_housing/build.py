@@ -8,7 +8,8 @@ front-panel bay), the front panel with the screen, the weighing station and its 
 Kept from the V2 stand-alone, unchanged: every module part, side plates included.
 
 New here:
-  deck     the V7 deck with its old module holes filled, a Ø108 opening over the drop ring,
+  deck     the V7 deck with its old module holes filled, an opening over the drop ring that
+           overlaps the chute walls by 1 mm, a 30 mm fence round it (notched round the modules),
            and M3 × 4 heat-set inserts (flush in the 5 mm deck, from the top) for the pods;
            it prints top face up like the V7 deck
   pod      one per module (6 identical): the V2 base's job, cut down to the module and
@@ -44,27 +45,31 @@ ch = importlib.util.module_from_spec(_cs)
 _cs.loader.exec_module(ch)
 
 # ----------------------------------------------------------------- deck and drop ring
-R_OPEN = 54.0          # deck opening: the drop ring (≤ 42 mm) plus the chute walls inside it
 DECK_FILL_R = 95.0     # the old V7 module holes inside this radius are filled
 INSERT_D = 4.0         # M3 × 4 heat-set insert (OD 5), flush with the deck top, from above
+OPEN_OVERLAP = 1.0     # the deck opening is this much inside the chute walls (no gap to fall through)
+OPEN_FRONT_Y = -63.0   # the opening ends here (the drop ring reaches y −60)
+FENCE_Z, FENCE_T = 30.0, 2.4   # fence round the opening on the deck, notched round the modules
+FENCE_CLEAR = 1.5      # notch clearance to a module (swept straight up, so a module lifts off)
 
 # ----------------------------------------------------------------- pod (V2 world, at the table)
-POD_Y0 = None          # set from the side plates (front of their feet − 5)
 POD_Y1 = 60.0          # pod reaches this far along the drive
-POD_SCREWS = [(22.0, 34.0), (22.0, 55.0), (46.0, 46.0)]   # V2 world x, y: over the deck, reachable from above
-WIRE_SLOT = (-26.0, 40.0, 16.0, 8.0)   # x, y centre, length (along y), width: beside the drive
+POD_SCREWS = [(22.0, 34.0), (22.0, 49.0), (40.0, 31.0)]   # V2 world x, y: over the deck, reachable from above
+WIRE_SLOT = (-20.0, 55.0, 16.0, 8.0)   # x, y centre, length (along y), width: inside r 88 of the axis (clear of the shell ledge)
 TRIM_GAP = 1.5
+POD_R_MIN = 61.0       # pods stop this far from the ring centre: clear of the deck fence on every side
 
 # ----------------------------------------------------------------- chute outline
-# inner half-width of the floor against y (enclosure), lip at the front. Covers the drop
-# ring (r ≤ 42 mm + 3) and narrows to the V7 lip; at y −64..−84 it stays inside the front
-# funnel post (x 34) so the V7 front bracket still fits.
-# From the lip to y −64 it is the V7-module chute's taper exactly: that chute's install
-# path passes the components on the back of the front panel (a wider wall here does not).
-CHUTE_HW = [(-116.0, 13.0), (-64.0, 21.9), (-40.0, 30.0), (-20.0, 44.0),
-            (0.0, 47.0), (20.0, 44.0), (32.0, 36.0), (44.0, 20.0)]
-CHUTE_TOP_IN = 8.0     # chute trimmed at this height inside the deck opening
-CHUTE_TOP_OUT = -6.5   # and 1.5 mm under the deck elsewhere
+# Inner half-width of the floor against y (enclosure). The floor is the V7-module chute's
+# plane (37°, lip over the weighing tray); the walls are vertical, so the chute's outline is
+# the same at every height and the deck can overlap it. It covers the drop ring (mouths on
+# r 32 round CENTRE, pills within 42 mm + 3) and stays wholly under the deck (the rear end is
+# at y 30, 2.5 mm under the 1.5 mm deck clearance). From the lip to y −64 it is the
+# V7-module chute's taper exactly: that chute's install path passes the components on the
+# back of the front panel, and the V7 front bracket fits it.
+CHUTE_HW = [(-116.0, 13.0), (-64.0, 21.9), (-48.0, 35.0), (-35.0, 44.0), (-15.0, 47.5),
+            (5.0, 45.0), (15.0, 40.0), (22.0, 31.0), (30.0, 14.0)]
+CHUTE_TOP = -6.5       # everything 1.5 mm under the deck
 
 
 def _hw(y):
@@ -85,44 +90,148 @@ def _s_of_y(y):
     return (y - ch.LIP_Y) / ch.C
 
 
-S_BACK = _s_of_y(CHUTE_HW[-1][0])
-# the V7 chute's bracket and rib code reads width(s) and L; point them at this outline
-ch.width = lambda s: 2 * _hw(_y_of_s(s))
-ch.L = S_BACK
+def _floor_z(y):
+    return ch.LIP_Z + (y - ch.LIP_Y) * ch.S / ch.C
+
+
+def inner_outline():
+    return ([(-_hw(y), y) for y, _ in CHUTE_HW] + [(_hw(y), y) for y, _ in reversed(CHUTE_HW)])
+
+
+def joint_point(post):
+    """Bolt axis point on the (vertical) wall's outer face, h above the floor along N."""
+    h = post["h"]
+    s = ch.slope_of_y(post.get("joint_y", post["y"]), h)
+    p = ch.O + ch.E_B * s + ch.N * h
+    x = post["side"] * (_hw(p.y) + ch.T)
+    return cq.Vector(x, p.y, p.z), s, h
+
+
+ch.joint_point = joint_point      # the V7 chute's bracket() uses it
+# the vertical walls reach 1.5 mm lower at the lip than the V7 chute's: the cup's low back
+# wall (under the lip) is 1.5 mm lower here
+ch.CUP = dict(ch.CUP, back_top=ch.CUP["back_top"] - 1.5)
 
 
 def trough():
+    """Floor slab on the 37° plane plus vertical walls round the outline (open at the lip)."""
+    inner = cq.Workplane("XY").workplane(offset=-200).polyline(inner_outline()).close()
+    ring_outer = inner.offset2D(ch.T, "intersection").extrude(400)
+    walls_and_floor = ring_outer
+    # keep between the floor's underside and the top limit
     pl = ch.plane_at(0)
-    inner = [(-_hw(y), _s_of_y(y)) for y, _ in CHUTE_HW]
-    inner = inner + [(_hw(y), _s_of_y(y)) for y, _ in reversed(CHUTE_HW)]
-    inner_w = cq.Workplane(pl).polyline(inner).close()
-    outer = inner_w.offset2D(ch.T, "intersection")
-    body = outer.extrude(ch.H + ch.T).translate(ch.N * (-ch.T))
-    cav = cq.Workplane(pl).polyline(inner).close().extrude(ch.H + 1)
-    cav = cav.union(cq.Workplane(pl).center(0, -10).rect(2 * CHUTE_HW[0][1] + 0.01, 20).extrude(ch.H + 1))
+    below = cq.Workplane(pl).workplane(offset=-ch.T).rect(1000, 1000).extrude(-300)
+    body = walls_and_floor.cut(below)
+    cav = (cq.Workplane("XY").workplane(offset=-200).polyline(inner_outline()).close().extrude(400)
+           .cut(cq.Workplane(pl).rect(1000, 1000).extrude(-300)))
     body = body.cut(cav)
-    # nothing in front of the lip
-    body = body.cut(cq.Workplane(pl).workplane(offset=-ch.T - 1).center(0, -50).rect(400, 100).extrude(ch.H + 10))
+    # open front: nothing in front of the lip
+    body = body.cut(cq.Workplane("XY").workplane(offset=-300).center(0, ch.LIP_Y - 100).rect(1000, 200).extrude(600))
+    return body
+
+
+def ribs_and_holes(body):
+    """As the V7 chute's, for vertical walls: a rib on the wall's outer face at each post and a
+    countersunk M3 from inside the trough, flush with the wall."""
+    for p in ch.POSTS:
+        q, s, h = joint_point(p)
+        sd = p["side"]
+        wx = abs(q.x)
+        pl = cq.Plane(origin=ch.O + ch.E_B * (s - ch.RIB_W / 2) + cq.Vector(sd * (wx - ch.T - 0.5), 0, 0) + ch.N * (-ch.T),
+                      xDir=cq.Vector(sd, 0, 0), normal=ch.N)
+        ro = p["rib_out"]
+        rib = cq.Workplane(pl).polyline([(0, 0), (ch.T + 0.5 + ro, 0), (ch.T + 0.5 + ro, ch.RIB_W), (0, ch.RIB_W)]
+                                        ).close().extrude(h + 8 + ch.T)
+        body = body.union(rib)
+        x_in = sd * (wx - ch.T)
+        start = cq.Vector(x_in - sd * 1.0, q.y, q.z)
+        body = body.cut(ch._teardrop(start, cq.Vector(sd, 0, 0), ch.N, ch.M3_CLEAR / 2, ch.T + ro + 3))
+        csk = cq.Solid.makeCone(ch.CSK_D / 2, ch.M3_CLEAR / 2, (ch.CSK_D - ch.M3_CLEAR) / 2,
+                                cq.Vector(x_in, q.y, q.z), cq.Vector(sd, 0, 0))
+        body = body.cut(cq.Workplane(obj=csk))
     return body
 
 
 def chute_keepout():
     big = 1000
-    k = (cq.Workplane("XY").workplane(offset=CHUTE_TOP_OUT).rect(big, big).extrude(300)
-         .cut(cq.Workplane("XY").workplane(offset=CHUTE_TOP_OUT - 1).circle(R_OPEN - 1.5).extrude(CHUTE_TOP_IN - CHUTE_TOP_OUT + 1)))
+    k = cq.Workplane("XY").workplane(offset=CHUTE_TOP).rect(big, big).extrude(300)
     for y_max, z_min in ch.KEEPOUT:
         k = k.union(cq.Workplane("XY").workplane(offset=z_min).center(0, y_max - 100).rect(big, 200).extrude(300))
     return k
 
 
 def make_chute():
-    return ch.ribs_and_holes(trough()).cut(chute_keepout())
+    return ribs_and_holes(trough()).cut(chute_keepout())
 
 
 def make_brackets():
     keep = chute_keepout()
     return {p["name"]: (ch.bracket(p).cut(keep), [90, 0, 0] if p["kind"] == "arm" else [0, 90 * p["side"], 0])
             for p in ch.POSTS}
+
+
+def opening_polygon():
+    """Deck opening: the chute's inner outline shrunk by OPEN_OVERLAP, from OPEN_FRONT_Y back."""
+    from shapely.geometry import Polygon, box
+    poly = Polygon(inner_outline()).buffer(-OPEN_OVERLAP, join_style=2)
+    return poly.intersection(box(-200, OPEN_FRONT_Y, 200, 200))
+
+
+def _module_notches():
+    """Each module's parts near the fence, swept straight up (so the module lifts off), as
+    (shapely polygon, bottom z) pieces binned by height."""
+    import numpy as np
+    from shapely.geometry import Polygon
+    from shapely.ops import unary_union
+    sp = importlib.util.spec_from_file_location("v8_assemble", HERE / "assemble.py")
+    A = importlib.util.module_from_spec(sp)
+    sp.loader.exec_module(A)
+    region = opening_polygon().buffer(FENCE_T + FENCE_CLEAR + 4)
+    out = []
+    bodies = Ly.v2_module_bodies("iron") + [(n, c, s) for n, c, s in Ly.v2_module_bodies("small") if n in ("disc", "backplate", "hopper")]
+    for k in range(Ly.N_MOD):
+        bins = {}
+        for n, c, s in bodies:
+            t = A.to_mesh(Ly.to_enc(s, k), 0.3)
+            tri = t.triangles
+            zmin = tri[:, :, 2].min(1)
+            keep = zmin < FENCE_Z + 2
+            for tr, zm in zip(tri[keep], zmin[keep]):
+                pg = Polygon(tr[:, :2])
+                if not pg.is_valid or pg.area < 1e-6:
+                    pg = pg.buffer(0.05)
+                if not pg.intersects(region):
+                    continue
+                key = int(max(zm - FENCE_CLEAR, 0.5) // 2)
+                bins.setdefault(key, []).append(pg)
+        for key, pgs in bins.items():
+            out.append((unary_union(pgs).buffer(FENCE_CLEAR), key * 2.0))
+    return out
+
+
+def _poly_solid(poly, z0, z1):
+    """Extrude a shapely (multi)polygon between z0 and z1."""
+    from shapely.geometry import MultiPolygon
+    poly = poly.simplify(0.15, preserve_topology=True)
+    geoms = poly.geoms if isinstance(poly, MultiPolygon) else [poly]
+
+    def ring(coords):
+        pts = []
+        for p in list(coords)[:-1]:
+            if not pts or (abs(p[0] - pts[-1][0]) + abs(p[1] - pts[-1][1])) > 0.05:
+                pts.append((p[0], p[1]))
+        return pts
+    out = None
+    for g in geoms:
+        if g.area < 0.5:
+            continue
+        w = cq.Workplane("XY").workplane(offset=z0).polyline(ring(g.exterior.coords)).close().extrude(z1 - z0)
+        for hole in g.interiors:
+            if abs(hole.area if hasattr(hole, "area") else 1) < 0.5:
+                continue
+            w = w.cut(cq.Workplane("XY").workplane(offset=z0 - 1).polyline(ring(hole.coords)).close().extrude(z1 - z0 + 2))
+        out = w if out is None else out.union(w)
+    return out
 
 
 # ----------------------------------------------------------------- pod
@@ -160,6 +269,7 @@ def make_pod_enc():
             .center(-(x_in0 + b.SIDE_T / 2), (bb0.ymin + bb0.ymax) / 2)
             .rect(b.SIDE_T + 2 * (TRIM_GAP + 3), bb0.ylen + 2 * (TRIM_GAP + 3)).extrude(Ly.POD_T + 2))
     pod = pod.cut(Ly.to_enc(foot, 1))
+    pod = pod.cut(cq.Workplane("XY").workplane(offset=-1).center(*Ly.CENTRE).circle(POD_R_MIN).extrude(Ly.POD_T + 2))
     try:
         pod = pod.edges("|Z").fillet(3.0)
     except Exception:
@@ -195,7 +305,14 @@ def make_deck():
     deck, _, _, _ = Ly.v7_enclosure_pieces()
     d = cq.Workplane(obj=deck)
     d = d.union(cq.Workplane("XY").workplane(offset=-5.0).circle(DECK_FILL_R).extrude(5.0))
-    d = d.cut(cq.Workplane("XY").workplane(offset=-10).circle(R_OPEN).extrude(20))
+    op = opening_polygon()
+    d = d.cut(_poly_solid(op, -10, 10))
+    fence = _poly_solid(op.buffer(FENCE_T, join_style=2), -0.01, FENCE_Z).cut(_poly_solid(op, -1, FENCE_Z + 1))
+    for poly, z0 in _module_notches():
+        cut = _poly_solid(poly, max(z0, 0.5), 300)
+        if cut is not None:
+            fence = fence.cut(cut)
+    d = d.union(fence)
     for k in range(Ly.N_MOD):
         pts, wire = pod_points_enc(k)
         for (x, y) in pts:

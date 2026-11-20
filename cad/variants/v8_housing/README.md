@@ -18,10 +18,10 @@ designed and simulated.
 | | V7 + geared module | V8 |
 | --- | --- | --- |
 | Module | V2 disc, 38 mm duct, spur-gear drive | **V2 module unchanged** (coupler drive) |
-| Layout | six modules on r 72, pointing at the centre | **pinwheel**: each module's drive 50° off the radial; duct mouths on a 32 mm ring |
+| Layout | six modules on r 72, pointing at the centre | **pinwheel**: each module's drive 50° off the radial; duct mouths on a 32 mm ring, centred 15 mm in front of the axis |
 | Module mount | base plate screwed from under the deck | **pod** screwed from above (3 × M3 × 10): one module comes off without lifting the deck |
-| Funnel | V7 funnel (stalls) → replacement chute | chute re-shaped to catch the 22–42 mm drop ring; same 37° floor and lip |
-| Hopper tops from the axis | 148 mm | 189 mm |
+| Funnel | V7 funnel (stalls) → replacement chute | chute re-shaped to catch the drop ring: same 37° floor and lip, vertical walls, wholly under the deck; a 30 mm fence round the deck opening |
+| Hopper tops from the axis | 148 mm | 204 mm at the front, 172 mm at the back (ring off-centre) |
 | Deck, inner shell, lower body, front panel (screen), weighing station | V7 | deck re-made from the V7 deck; **the rest is the V7's, unchanged** |
 
 The layout came from a packing search on the real module solids (iron and small kits
@@ -30,15 +30,30 @@ together, so any kit fits any pod): skew angles 0–90° and mouth radii 26–50
 centre needs a 35 mm mouth ring and puts the hopper tops 201 mm out; 50° skew with a 32 mm
 ring keeps 4.5 mm between modules and brings them to 189 mm.
 
+### The drop: first design, failure and fix
+
+The first chute rose through a round Ø108 deck opening at the back, with its walls ending
+8 mm above the deck. In the drop simulation 1 of 200 iron tablets (seed 5156) left its duct
+at 0.6 m/s, clipped the top of a chute wall, landed on the deck just outside the opening,
+rolled to a wire slot and fell to the floor (small tablets: SMALL_REV1). Three changes:
+
+- the mouth ring moved 15 mm toward the front, so the 37° floor stays under the deck below
+  the rear mouths (the floor plane and lip are unchanged);
+- the chute walls are vertical, and the deck opening is the chute's inner outline less
+  1 mm, so the deck overlaps the walls and nothing can fall between them;
+- a 30 mm fence stands round the opening on the deck. It is notched only where a module
+  passes over it, by that module's shape swept straight up plus 1.5 mm, so a module still
+  lifts straight off its pod.
+
 ## Parts
 
 New (in `parts/`, all print without supports and fit a 256 × 256 mm bed):
 
 | Part | Qty | Size on the bed (mm) | Plastic | On the bed |
 | --- | --- | --- | --- | --- |
-| Deck: the V7 deck with its module holes filled, a Ø108 drop opening, inserts for the pods | 1 | 226 × 226 × 5 | 148 cm³ | top face up (as the V7 deck) |
+| Deck: the V7 deck with its module holes filled, the drop opening with a 30 mm fence, inserts for the pods | 1 | 226 × 226 × 35 | 175 cm³ | top face up (as the V7 deck) |
 | Pod (one per module; the V2 side plates glue into its slots) | 6 | 138 × 109 × 6 | 45 cm³ each | flat |
-| Chute | 1 | 109 × 203 × 71 | 74 cm³ | floor down |
+| Chute | 1 | 100 × 175 × 70 | 67 cm³ | floor down |
 | Brackets, right / left / front (chute to the V7 funnel posts) | 1 each | ≤ 41 × 52 × 10 | 5 cm³ each | flat |
 | Pill cup (same as the V7 module version) | 1 | 50 × 22 × 20 | 6 cm³ | floor down |
 | Electronics tray, two half-size breadboards (optional) | 1 | 120 × 137 × 7 | 25 cm³ | flat |

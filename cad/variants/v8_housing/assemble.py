@@ -62,7 +62,7 @@ def bodies(kit: str):
     pod = cq.importers.importStep(str(PARTS / "pod.step"))
     mods = [(n, c, s) for n, c, s in Ly.v2_module_bodies(kit)]
     for k in range(Ly.N_MOD):
-        out.append((f"m{k}_pod", f"m{k}", to_mesh(pod.rotate((0, 0, 0), (0, 0, 1), 60 * k))))
+        out.append((f"m{k}_pod", f"m{k}", to_mesh(Ly.rotate_k(pod, k))))
         for n, c, s in mods:
             out.append((f"m{k}_{n}", f"m{k}", to_mesh(Ly.to_enc(s, k))))
     return out
@@ -218,7 +218,7 @@ def export_step(kit: str):
         a.add(cq.importers.importStep(str(PARTS / f"{n}.step")), name=n, color=cq.Color("steelblue"))
     pod = cq.importers.importStep(str(PARTS / "pod.step"))
     for k in range(Ly.N_MOD):
-        a.add(pod.rotate((0, 0, 0), (0, 0, 1), 60 * k), name=f"module_{k + 1}_pod", color=cq.Color("gray30"))
+        a.add(Ly.rotate_k(pod, k), name=f"module_{k + 1}_pod", color=cq.Color("gray30"))
         for n, c, s in Ly.v2_module_bodies(kit):
             a.add(Ly.to_enc(s, k), name=f"module_{k + 1}_{n}", color=cq.Color(c))
     a.save(str(HERE / f"v8_assembly_{kit}.step"))

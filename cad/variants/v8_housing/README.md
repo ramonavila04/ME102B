@@ -80,10 +80,11 @@ The V7 module fasteners and the V7 funnel are not used.
 ## Assembly order
 
 1. Lower body, weighing station, front panel and inner shell as in the V7.
-2. Brackets on the three funnel posts (M3 × 16). Chute in from the top: hold it 40 mm
-   behind its place, lower it, slide it forward onto the brackets (checked, see below),
-   screw it to them from inside. Pill cup on the tray. Optional: tray with the breadboards
-   on the floor.
+2. Take out the V7 funnel and its screws. Front bracket on the front post (M3 × 16). Chute in
+   from the top: hold it 40 mm behind its place, lower it, slide it forward onto the front
+   bracket. Then lower the left and right brackets straight onto their posts (M3 × 16), and
+   screw the chute to all three from inside (checked, see below). Pill cup on the tray.
+   Optional: tray with the breadboards on the floor.
 3. Inserts into the deck (from the top, flush). Deck onto the shell with the V7's screws.
 4. Each module: build the V2 module as in the V2 `BUILD.md` (steps for the drive, hopper and
    side plates), glue its side plates into a pod, feed the motor and beam-break wires through
@@ -97,11 +98,11 @@ The firmware is the V2's (`pio run -e dispenser`): no gear pair, so no reversed 
 | Check | Result |
 | --- | --- |
 | `check_printability.py parts/manifest.json` | Pass (walls ≥ 1.2 mm, no supports, watertight) |
-| `assemble.py iron` / `small`: clashes between every pair of parts (modules, pods, deck, chute, V7 parts) | CLASH_RESULT |
+| `assemble.py iron` / `small`: clashes between every pair of parts (modules, pods, deck, fence, chute, brackets, V7 parts) | None for either kit |
 | Pod screws: material round each in pod and deck; a straight driver reaches each from above past all six modules | Pass (checked by ray casting) |
-| Chute install path (`python sim/v7_chute_install.py cad/variants/v8_housing/parts`) | INSTALL_RESULT |
+| Chute install path (`python sim/v7_chute_install.py cad/variants/v8_housing/parts --after bracket_left,bracket_right`) | Pass: chute lowered 40 mm back and slid forward; side brackets lowered straight onto their posts after it |
 | Pill drop, mouth to weighing station (`python -m sim.v8_drop`) | DROP_RESULT |
-| Tipping (`tipping.py`, estimated masses, full hoppers) | TIP_RESULT |
+| Tipping (`tipping.py`, estimated masses, full hoppers: 2.3 kg, centre of mass on the axis 166 mm up) | Tips at 7.8 N pushed sideways at a hopper top, or 31 N pressed down on a hopper's outer rim |
 
 ## Not done yet / open
 

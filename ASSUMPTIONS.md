@@ -9,7 +9,7 @@ Items marked **MEASURE** need a team member with calipers or a bench supply.
 | --- | --- | --- | --- |
 | A1 | No jam videos or photos. The Drive videos (IMG_4151–4153, IMG_4298/4299, MOTOR_VIDEO and the sensor tests) could not be downloaded here: Drive downloads are blocked by the network proxy, and the files are 9–264 MB. The team also said it has no jam clips. P4 describes clips 1 and 2 as moving "smoothly by hand". | The sim check (PLAN 4.3) is checked against the team's verbal description ("jams in several places, not consistent") and the P3 note that the plate-to-canister gap lets pills wedge. Neither is a measured jam location. | Record 10 cycles per pill on the current prototype and note each jam's location (canister rim, pocket, brush, drop hole or chute). Compare against the V0 jam-site table in `results/`. |
 | A2 | Real pill dimensions are not recorded anywhere. | `iron` (Nature Made Iron 65 mg): Ø 9.5 × 5.0 mm, 0.40 g, round biconvex. This is an estimate for a small coated mineral tablet, not a measurement. "Nature Valley" in chat is taken to mean Nature Made. | **MEASURE** 10 tablets (diameter, thickness, mass); put the mean ± 3σ in `sim/pills.py`, then rerun `make cad sim`. |
-| A3 | Other pills in the envelope. | `small` Ø 6.0 × 2.8, `caplet` 19.0 × 8.5 × 6.5, `cap0` size-0 capsule 21.7 × Ø 7.65. These are typical published values for the class, not specific products. | Replace them with the team's actual products if they are known. |
+| A3 | Other pills in the envelope. | `small` Ø 6.0 × 2.8, `caplet` 19.0 × 8.5 × 6.5, `cap0` size-0 capsule 21.7 × Ø 7.65. These are typical values for the class, not specific products. `docs/PILL_SHAPES.md` compares them with published sizes of everyday products: capsule sizes are standard, but no source gives tablet widths or thicknesses. | Replace them with the team's actual products if they are known. |
 | A4 | Which Onshape tab is current. | The synced assembly `Pill_Dispenser_Clip_On_Canister` (2026-11-09) is the prototype that jams. Parts named `REFERENCE_ONLY_Flexible_Bristles` are modelled as a real compliant brush. | Confirm that the printed prototype matches this tab and has a physical brush. |
 | A5 | Scope. | One canister and one pill type per module, dispensing one pill per command. A six-pill system is six modules (or one motor per module, as in the research doc). | The team confirms the scope. |
 
@@ -40,3 +40,13 @@ Items marked **MEASURE** need a team member with calipers or a bench supply.
 | E2 | Wokwi. | `wokwi.com` is blocked from this machine, so firmware logic is verified with PlatformIO native unit tests instead of a Wokwi run. |
 | E3 | RTC. | Adafruit #3013, a DS3231 on I²C, with a CR1220 cell as listed on BOM Sheet3. |
 | E4 | Display. | Adafruit #1770, a 2.8" ILI9341 TFT on SPI, as in the team sketch. The 3" IPS from the P3 slides is not used. |
+
+## V7 module, chute and pill cup
+
+| # | Gap | Assumption | How to close |
+| --- | --- | --- | --- |
+| V1 | V7 geometry. | Funnel post, weighing tray and front panel positions are read from `cad/onshape/V7_Pill_Dispenser_Heat_Inserts.step`. No V7 part has been measured. | **MEASURE** the three funnel post positions and the tray pocket (51 × 22.8 mm) on the printed V7 before printing the chute. |
+| V2 | Printed spur-gear mesh. | Mesh stiffness 158 N·m/rad (ISO 6336 steel value scaled by E), damping ratio 0.2, efficiency 0.9, backlash 3° (worst case). None is measured. | Turn the disc by hand and read the backlash at the gear pitch circle (3° = 0.55 mm). |
+| V3 | Strap clamp. | The strap's 0.6 mm rib interference holds the gearmotor against gear reaction without a hard stop. PLA creep is not modelled. | Run 200 dispenses and check the motor has not moved along the mount. |
+| V4 | Pill cup on the scale. | The cup (about 7 g of PLA at 100 % infill) sits on the weighing tray and is tared out. With 4 iron pills, the TAL221's load is under 10 g of its 100 g range. | Tare with the empty cup, then check the reading for one pill. |
+| V5 | Drop simulation scope. | Pills are released one at a time from a seated pocket position with random speed (0–65 mm/s), tilt and spin; parts are rigid, and the enclosure is cropped to the region pills can reach. | Drop 20 pills of each kit by hand through the printed chute and count those that miss the cup. |

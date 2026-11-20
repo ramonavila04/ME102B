@@ -1,0 +1,19 @@
+{
+  "variant": "v2_v7_module",
+  "pill": "fit_test",
+  "parts": [
+    {
+      "name": "fit_coupon",
+      "stl": "fit_coupon.stl",
+      "step": "fit_coupon.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    }
+  ],
+  "clearances": []
+}

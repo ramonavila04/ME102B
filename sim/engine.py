@@ -96,10 +96,19 @@ def build_model(spec: dict, pill_samples: list, mu_part: float, mu_pill: float):
         (static_xml if part["body"] == "static" else rotor_xml).append(g)
 
     j = spec["joint"]
+    gear = spec.get("gear")
+    motor_xml = ""
     if j["type"] == "hinge":
+        # With a gear stage the motor is its own body (reflected inertia on its joint) and the
+        # rotor joint carries only the printed disc, shaft and gear (see gear_torque).
+        j_arm = gear["rotor_J"] if gear else MOTOR_REFLECTED_J
         joint = (f'<joint name="drive" type="hinge" axis="{" ".join(map(str, j["axis"]))}" '
-                 f'pos="{" ".join(str(x * MM) for x in j["pos"])}" armature="{MOTOR_REFLECTED_J}" '
+                 f'pos="{" ".join(str(x * MM) for x in j["pos"])}" armature="{j_arm}" '
                  f'damping="0.001"/>')
+        if gear:
+            motor_xml = (f'<body name="motor"><joint name="motor" type="hinge" '
+                         f'axis="{" ".join(map(str, j["axis"]))}" armature="{MOTOR_REFLECTED_J}" damping="0.001"/>'
+                         f'<inertial pos="0 0 0" mass="0.001" diaginertia="1e-8 1e-8 1e-8"/></body>')
     else:
         # Scotch yoke, modelled kinematically: the motor turns a crank (hinge "drive");
         # its pin is pinned (equality connect) to a block that slides along a slot (y)
@@ -169,6 +178,7 @@ def build_model(spec: dict, pill_samples: list, mu_part: float, mu_pill: float):
     {"".join(static_xml)}
     {"".join(flaps_xml)}
     {yoke_xml}
+    {motor_xml}
     <body name="rotor">
       {joint}
       <inertial pos="0 0 0" mass="{rotor_mass}" diaginertia="1e-5 1e-5 1e-5"/>
@@ -178,7 +188,7 @@ def build_model(spec: dict, pill_samples: list, mu_part: float, mu_pill: float):
     {"".join(pill_xml)}
   </worldbody>
   {equality}
-  <actuator><motor name="drive" joint="drive" ctrllimited="false"/></actuator>
+  <actuator><motor name="drive" joint="{"motor" if motor_xml else "drive"}" ctrllimited="false"/></actuator>
 </mujoco>"""
     return mujoco.MjModel.from_xml_string(xml)
 
@@ -280,6 +290,25 @@ class Drive:
         return tau / lever * math.copysign(1, c), theta, w
 
 
+def gear_torque(gear: dict, th_m: float, w_m: float, th_r: float, w_r: float) -> tuple[float, float]:
+    """Spur pair with backlash between the motor (encoder side) and the rotor.
+
+    Tooth contact is a spring (mesh stiffness at the pitch radius) with damping, active only
+    outside the backlash band. The rotor receives `efficiency` of the contact torque and the
+    motor reacts the full torque (mesh losses). Returns (torque on rotor, torque on motor).
+    The pair reverses direction on the real machine (the motor leads are swapped, BUILD.md);
+    both shafts are modelled turning the same way."""
+    half = math.radians(gear["backlash_deg"]) / 2
+    d = th_m - th_r
+    if abs(d) <= half:
+        return 0.0, 0.0
+    pen = d - math.copysign(half, d)
+    t = gear["k_mesh"] * pen + gear["c_mesh"] * (w_m - w_r)
+    if t * pen < 0:          # contact can push, never pull
+        t = 0.0
+    return gear["efficiency"] * t, -t
+
+
 # ------------------------------------------------------------------ the trial
 def _rand_quat(rng):
     u = rng.normal(size=4)
@@ -358,6 +387,19 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
     jid = model.joint("drive").id
     qadr, dadr = model.jnt_qposadr[jid], model.jnt_dofadr[jid]
     data.qpos[qadr] = drive.theta0
+    gear = spec.get("gear")
+    if gear:
+        mj_ = model.joint("motor").id
+        eq, ed = model.jnt_qposadr[mj_], model.jnt_dofadr[mj_]    # encoder = motor shaft
+        data.qpos[eq] = drive.theta0
+    else:
+        eq, ed = qadr, dadr
+
+    def apply_gear():
+        if gear:
+            tr, tm = gear_torque(gear, data.qpos[eq], data.qvel[ed], data.qpos[qadr], data.qvel[dadr])
+            data.qfrc_applied[dadr] = tr
+            data.qfrc_applied[ed] = tm
     if spec["joint"]["type"] == "slide":   # put slide and yoke block where the crank angle says
         r_ = spec["joint"]["crank_r"] * MM
         data.qpos[model.jnt_qposadr[model.joint("slide").id]] = r_ * math.sin(drive.theta0)
@@ -480,8 +522,9 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
         sat_since = None
         k = 0
         while data.time < t_end:
-            tau, theta, w = drive.control(data.time, data.qpos[qadr], data.qvel[dadr])
+            tau, theta, w = drive.control(data.time, data.qpos[eq], data.qvel[ed])
             data.ctrl[0] = tau
+            apply_gear()
             mujoco.mj_step(model, data)
             k += 1
             if k % 10 == 0:
@@ -517,8 +560,9 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
         for dof, m_ in zip(pill_dofs, masses):
             data.qfrc_applied[dof:dof + 3] = -FILL_DAMPING * m_ * data.qvel[dof:dof + 3]
             data.qfrc_applied[dof + 3:dof + 6] = -FILL_DAMPING * 1e-9 * data.qvel[dof + 3:dof + 6]
-        tau, _, _ = drive.control(data.time, data.qpos[qadr], data.qvel[dadr])
+        tau, _, _ = drive.control(data.time, data.qpos[eq], data.qvel[ed])
         data.ctrl[0] = tau
+        apply_gear()
         mujoco.mj_step(model, data)
     data.qfrc_applied[:] = 0
     c, l, _ = step(fill_s + spec.get("settle_s", 0.6), moving=False)
@@ -541,14 +585,14 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
             c1, l1, jam = step(ts + T, moving=True)
             if not jam:
                 deadline = ts + 3 * T
-                while abs(drive.crank_state(data.qpos[qadr], data.qvel[dadr], drive.target)[0] - drive.target) \
+                while abs(drive.crank_state(data.qpos[eq], data.qvel[ed], drive.target)[0] - drive.target) \
                         > math.radians(3) and data.time < deadline:
                     cx, lx, jx = step(data.time + 0.02, moving=True)
                     c1 += cx; l1 += lx
                     if jx:
                         jam = True
                         break
-                if not jam and abs(drive.crank_state(data.qpos[qadr], data.qvel[dadr], drive.target)[0]
+                if not jam and abs(drive.crank_state(data.qpos[eq], data.qvel[ed], drive.target)[0]
                                    - drive.target) > math.radians(3):
                     jam = True
             cnt += c1; lost += l1

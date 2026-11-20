@@ -58,7 +58,7 @@ row above is the latest revision under test.
 
 Every tablet pocket holds its pill lying flat, with 0.35 mm clearance per side, and is
 slightly shallower than the pill is thick, so a second pill cannot nest on top. Every pocket wall
-is undercut 12° below a 1.2 mm straight land (pocket wider at the back plate than at the
+is undercut 12° (20° for the closed small-tablet pocket, rev 41) below a 1.2 mm straight land (pocket wider at the back plate than at the
 face): at the exit the pill is pressed against the pocket's inner wall harder than it is
 pulled out of the back, and the undercut lets it slide out. Tablet discs index at 25 rpm.
 
@@ -145,6 +145,7 @@ simulator, with small targeted tests (24 trials at 4 loaded and at 10 loaded):
 | 37–38 | No trailing chamfer; 5 rpm (a caplet lying ready on the track was over a passing pocket for only ~0.013 s at 25 rpm) | Caplets: 24/24 at 4 loaded, 23/24 at 10 loaded (the one failure was a test-setup error, since fixed). Capsules: 23/24 at 4 loaded (two capsules locking each other on the open face) |
 | 39 | Speed-bump ribs on the face | Capsule lock unchanged |
 | 40 | Straight hub 1 mm inboard of the pockets, 6 mm tall: the pool is a channel ~1 mm wider than the pocket | Capsules 24/24 at 4 loaded. Remaining targeted tests and the 200-trial campaign not run |
+| 41 | Small tablets: closed-pocket undercut 12° → 20° | The V7-module campaign found 1 double in 600 small dispenses (seed 1037): a tablet rode up tilted ~30° in its pocket, wedged between the face land and the back wall, and fell 0.45 s after the disc stopped, after the drop window, so the next index dropped two. With 20° it falls at once. Superseded results in `results/old_rev40/`; both small campaigns rerun |
 
 ## Known limits
 

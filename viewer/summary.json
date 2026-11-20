@@ -163,14 +163,14 @@
    "errors": 0
   },
   {
-   "variant": "V2 inclined pocket disc (re-check with shaft drive, 96 mm duct)",
+   "variant": "V2 inclined pocket disc (shaft drive, 96 mm duct: current design)",
    "variant_id": "v2_inclined_disc_shaftdrive",
    "pill": "iron",
-   "trials": 50,
-   "passed_trials": 50,
-   "cycles": 150,
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
    "outcomes": {
-    "ok": 150
+    "ok": 600
    },
    "jam_sites": {},
    "jam_rate_per_trial": 0.0,
@@ -179,14 +179,46 @@
    "errors": 0
   },
   {
-   "variant": "V2 inclined pocket disc (re-check with shaft drive, 96 mm duct)",
+   "variant": "V2 inclined pocket disc (shaft drive, 96 mm duct: current design)",
    "variant_id": "v2_inclined_disc_shaftdrive",
    "pill": "small",
-   "trials": 50,
-   "passed_trials": 50,
-   "cycles": 150,
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
    "outcomes": {
-    "ok": 150
+    "ok": 600
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 disc as a V7 module (gear drive, 38 mm duct)",
+   "variant_id": "v2_v7_module",
+   "pill": "iron",
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
+   "outcomes": {
+    "ok": 600
+   },
+   "jam_sites": {},
+   "jam_rate_per_trial": 0.0,
+   "anomaly_trials": 0,
+   "unstable_trials": 0,
+   "errors": 0
+  },
+  {
+   "variant": "V2 disc as a V7 module (gear drive, 38 mm duct)",
+   "variant_id": "v2_v7_module",
+   "pill": "small",
+   "trials": 200,
+   "passed_trials": 200,
+   "cycles": 600,
+   "outcomes": {
+    "ok": 600
    },
    "jam_sites": {},
    "jam_rate_per_trial": 0.0,

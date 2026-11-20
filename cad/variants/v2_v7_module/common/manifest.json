@@ -1,0 +1,127 @@
+{
+  "variant": "v2_v7_module",
+  "pill": "common",
+  "parts": [
+    {
+      "name": "cover",
+      "stl": "cover.stl",
+      "step": "cover.step",
+      "print_rotation": [
+        180,
+        0,
+        0
+      ],
+      "bed": "outer face down",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "spacer",
+      "stl": "spacer.stl",
+      "step": "spacer.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "shaft_gear",
+      "stl": "shaft_gear.stl",
+      "step": "shaft_gear.step",
+      "print_rotation": [
+        180,
+        0,
+        0
+      ],
+      "bed": "gear face down, hub up",
+      "max_overhang_mm2": 12.0
+    },
+    {
+      "name": "rear_spacer",
+      "stl": "rear_spacer.stl",
+      "step": "rear_spacer.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "motor_gear",
+      "stl": "motor_gear.stl",
+      "step": "motor_gear.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "strap",
+      "stl": "strap.stl",
+      "step": "strap.step",
+      "print_rotation": [
+        180,
+        0,
+        0
+      ],
+      "bed": "rib up",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "motor_mount",
+      "stl": "motor_mount.stl",
+      "step": "motor_mount.step",
+      "print_rotation": [
+        180,
+        0,
+        0
+      ],
+      "bed": "front wall down",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "cheek_right",
+      "stl": "cheek_right.stl",
+      "step": "cheek_right.step",
+      "print_rotation": [
+        0,
+        -90,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "cheek_left",
+      "stl": "cheek_left.stl",
+      "step": "cheek_left.step",
+      "print_rotation": [
+        0,
+        90,
+        0
+      ],
+      "bed": "flat",
+      "max_overhang_mm2": 4.0
+    },
+    {
+      "name": "base",
+      "stl": "base.stl",
+      "step": "base.step",
+      "print_rotation": [
+        0,
+        0,
+        0
+      ],
+      "bed": "bottom face down",
+      "max_overhang_mm2": 4.0
+    }
+  ],
+  "clearances": []
+}

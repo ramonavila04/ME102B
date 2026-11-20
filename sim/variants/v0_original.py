@@ -7,7 +7,7 @@ from pathlib import Path
 from sim.step_import import export_parts
 
 ROOT = Path(__file__).resolve().parents[2]
-STEP = ROOT / "cad" / "onshape" / "Pill_Dispenser_Clip_On_Canister_67p5mm.step.step"
+STEP = ROOT / "cad" / "onshape" / "Pill_Dispenser_Clip_On_Canister_67p5mm.step"
 if not STEP.exists():
     STEP = ROOT / "cad" / "onshape" / "Pill_Dispenser_Clip_On_Canister_67p5mm.step"
 STL_DIR = ROOT / "sim" / ".cache" / "v0_stl"

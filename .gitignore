@@ -12,3 +12,6 @@ results/*_dbg/
 results/*_dev/
 results/**/*.partial.json
 cad/variants/*/.build.lock
+
+# full V7 assembly with six modules: 50 MB, regenerate with cad/variants/v2_v7_module/assemble.py
+cad/variants/v2_v7_module/*/v7_assembly.*

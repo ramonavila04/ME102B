@@ -14,7 +14,8 @@ NAMES = {
     "v1_fixed_rotor": "V1 fixed rotor (minimal fix)",
     "v2_inclined_disc": "V2 inclined pocket disc",
     "v2_inclined_disc_recheck": "V2 inclined pocket disc (re-check, final test setup)",
-    "v2_inclined_disc_shaftdrive": "V2 inclined pocket disc (re-check with shaft drive, 96 mm duct)",
+    "v2_inclined_disc_shaftdrive": "V2 inclined pocket disc (shaft drive, 96 mm duct: current design)",
+    "v2_v7_module": "V2 disc as a V7 module (gear drive, 38 mm duct)",
     "v3_shuttle": "V3 reciprocating shuttle",
 }
 PILL_ORDER = ["iron", "small"]
@@ -49,7 +50,7 @@ def main():
              "not passed and are experimental (see `cad/variants/v2_inclined_disc/DESIGN.md`).",
              "The V2 campaign rows were run before a fix to the test's pill-placement check; the",
              "re-check rows repeat 50 trials per pill on the final test setup, same geometry.",
-             "The shaft-drive rows repeat 50 trials after the disc was moved onto a 1/4-inch shaft",
+             "The shaft-drive rows are the full campaign after the disc was moved onto a 1/4-inch shaft",
              "(wider centre boss, longer exit duct); pockets and hopper are unchanged.", "",
              "| Variant | Pill | Trials | Cycles | OK | Jam | Double | Miss | Lost | Leak | Empty | Trials with a jam | Unstable / anomaly trials | Verdict |",
              "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |"]

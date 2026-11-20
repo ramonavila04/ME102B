@@ -95,7 +95,9 @@ chute_steps = [(0, OFFSET, dz) for dz in (140, 130, 120, 110, 100, 95, 90, 80, 6
 before = V7 + [(n, D + n + '.stl') for n in BRACKETS if n not in AFTER]
 bad += run_path('chute', D + 'chute.stl', before, chute_steps, (70, 90))
 for n in AFTER:
-    sources = V7 + [(m, D + m + '.stl') for m in BRACKETS if m != n] + [('chute', D + 'chute.stl')]
+    # without the V7 funnel screws: they come out, and the bracket's own M3 × 16 goes in after it
+    sources = [v for v in V7 if v[0] != 'funnel_mounts'] + [(m, D + m + '.stl') for m in BRACKETS if m != n] \
+        + [('chute', D + 'chute.stl')]
     bad += run_path(n, D + n + '.stl', sources, [(0, 0, dz) for dz in (80, 60, 40, 30, 20, 10, 5, 2, 1, 0)], (30, 30))
 print("PASS" if not bad else "FAIL")
 sys.exit(1 if bad else 0)

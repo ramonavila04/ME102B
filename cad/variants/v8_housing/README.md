@@ -35,7 +35,7 @@ ring keeps 4.5 mm between modules and brings them to 189 mm.
 The first chute rose through a round Ø108 deck opening at the back, with its walls ending
 8 mm above the deck. In the drop simulation 1 of 200 iron tablets (seed 5156) left its duct
 at 0.6 m/s, clipped the top of a chute wall, landed on the deck just outside the opening,
-rolled to a wire slot and fell to the floor (small tablets: SMALL_REV1). Three changes:
+rolled to a wire slot and fell to the floor (small tablets: 200/200; results in `results/v8_drop_rev1/`). Three changes:
 
 - the mouth ring moved 15 mm toward the front, so the 37° floor stays under the deck below
   the rear mouths (the floor plane and lip are unchanged);

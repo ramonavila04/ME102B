@@ -27,7 +27,7 @@ NEW = ["deck", "chute", "pill_cup", "tray", "bracket_right", "bracket_left", "br
 # pairs that touch or overlap on purpose (substring match on both names)
 EXPECTED = [("disc", "shaft"), ("gearmotor", "coupler"), ("shaft", "coupler"), ("clamp", "gearmotor"),
             ("shaft", "collar"), ("side_", "pod"), ("v7_small", "lower"), ("v7_small", "shell"),
-            ("Station_fasteners", "lower"), ("Station_fasteners", "Weighing"), ("chute", "bracket"),
+            ("Station_fasteners", "lower"), ("Station_fasteners", "Weighing"),
             ("bracket", "Funnel_mounts"), ("lower", "shell"), ("Weighing", "lower"), ("deck", "shell"),
             ("Front_panel", "shell"), ("Front_panel", "lower"), ("bearing", "shaft"), ("spacer", "shaft")]
 

@@ -54,7 +54,7 @@ FENCE_CLEAR = 1.5      # notch clearance to a module (swept straight up, so a mo
 
 # ----------------------------------------------------------------- pod (V2 world, at the table)
 POD_Y1 = 60.0          # pod reaches this far along the drive
-POD_SCREWS = [(22.0, 34.0), (22.0, 49.0), (40.0, 31.0)]   # V2 world x, y: over the deck, reachable from above
+POD_SCREWS = [(22.0, 34.0), (22.0, 49.0), (40.0, 40.0)]   # V2 world x, y: over the deck, reachable from above
 WIRE_SLOT = (-20.0, 55.0, 16.0, 8.0)   # x, y centre, length (along y), width: inside r 88 of the axis (clear of the shell ledge)
 TRIM_GAP = 1.5
 POD_R_MIN = 61.0       # pods stop this far from the ring centre: clear of the deck fence on every side
@@ -64,10 +64,10 @@ POD_R_MIN = 61.0       # pods stop this far from the ring centre: clear of the d
 # plane (37°, lip over the weighing tray); the walls are vertical, so the chute's outline is
 # the same at every height and the deck can overlap it. It covers the drop ring (mouths on
 # r 32 round CENTRE, pills within 42 mm + 3) and stays wholly under the deck (the rear end is
-# at y 30, 2.5 mm under the 1.5 mm deck clearance). From the lip to y −64 it is the
+# at y 30, 2.5 mm under the 1.5 mm deck clearance). From the lip to y −55 it is the
 # V7-module chute's taper exactly: that chute's install path passes the components on the
-# back of the front panel, and the V7 front bracket fits it.
-CHUTE_HW = [(-116.0, 13.0), (-64.0, 21.9), (-48.0, 35.0), (-35.0, 44.0), (-15.0, 47.5),
+# back of the front panel, and the V7 front bracket (y −81..−57) fits it.
+CHUTE_HW = [(-116.0, 13.0), (-55.0, 23.4), (-48.0, 35.0), (-35.0, 44.0), (-15.0, 47.5),
             (5.0, 45.0), (15.0, 40.0), (22.0, 31.0), (30.0, 14.0)]
 CHUTE_TOP = -6.5       # everything 1.5 mm under the deck
 

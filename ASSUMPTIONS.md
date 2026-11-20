@@ -40,3 +40,13 @@ Items marked **MEASURE** need a team member with calipers or a bench supply.
 | E2 | Wokwi. | `wokwi.com` is blocked from this machine, so firmware logic is verified with PlatformIO native unit tests instead of a Wokwi run. |
 | E3 | RTC. | Adafruit #3013, a DS3231 on I²C, with a CR1220 cell as listed on BOM Sheet3. |
 | E4 | Display. | Adafruit #1770, a 2.8" ILI9341 TFT on SPI, as in the team sketch. The 3" IPS from the P3 slides is not used. |
+
+## V7 module, chute and pill cup
+
+| # | Gap | Assumption | How to close |
+| --- | --- | --- | --- |
+| V1 | V7 geometry. | Funnel post, weighing tray and front panel positions are read from `cad/onshape/V7_Pill_Dispenser_Heat_Inserts.step`. No V7 part has been measured. | **MEASURE** the three funnel post positions and the tray pocket (51 × 22.8 mm) on the printed V7 before printing the chute. |
+| V2 | Printed spur-gear mesh. | Mesh stiffness 158 N·m/rad (ISO 6336 steel value scaled by E), damping ratio 0.2, efficiency 0.9, backlash 3° (worst case). None is measured. | Turn the disc by hand and read the backlash at the gear pitch circle (3° = 0.55 mm). |
+| V3 | Strap clamp. | The strap's 0.6 mm rib interference holds the gearmotor against gear reaction without a hard stop. PLA creep is not modelled. | Run 200 dispenses and check the motor has not moved along the mount. |
+| V4 | Pill cup on the scale. | The cup (about 7 g of PLA at 100 % infill) sits on the weighing tray and is tared out. With 4 iron pills, the TAL221's load is under 10 g of its 100 g range. | Tare with the empty cup, then check the reading for one pill. |
+| V5 | Drop simulation scope. | Pills are released one at a time from a seated pocket position with random speed (0–65 mm/s), tilt and spin; parts are rigid, and the enclosure is cropped to the region pills can reach. | Drop 20 pills of each kit by hand through the printed chute and count those that miss the cup. |

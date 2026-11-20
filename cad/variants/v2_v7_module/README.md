@@ -35,7 +35,7 @@ shared with the stand-alone V2), and both the stand-alone V2 and this module wer
 
 The campaign above drives the disc directly. Variant `v2_v7_module_gear` adds the printed
 spur pair as a separate motor inertia coupled to the disc through a dead-band spring:
-3° of backlash (worst case for 0.1 mm per gear plus print error), 158 N·mm/rad mesh
+3° of backlash (worst case for 0.1 mm per gear plus print error), 158 N·m/rad mesh
 stiffness, 90 % efficiency. The encoder and controller sit on the motor side, as on the
 real module.
 
@@ -72,8 +72,15 @@ passes only if every pill rests in the cup or on the station. Results:
 
 The chute hangs from the V7's three funnel posts on three brackets, using the posts' heat
 inserts. The brackets are 8 mm thick at the feet, so the funnel's screws are too short:
-use M3 × 16. The user takes a dose by lifting the cup out of the window and putting it
-back.
+use M3 × 16.
+
+To take a dose, the user slides the cup about 6 mm forward, lifts it up and forward
+(about 16 mm up over the tray's front ramp, clear of the chute lip), then pulls it out of
+the window. A straight lift does not work: the chute lip sits inside the cup. That path
+keeps at least 1 mm clear of the enclosure, tray, front panel and chute
+(`python sim/v7_cup_removal.py`). Put it back the same way, back wall first. The cup is
+about 7 g of PLA, and with 4 iron pills the 100 g load cell sees under 10 g; tare with the
+empty cup in place.
 
 ## How it mounts on the V7
 
@@ -208,8 +215,8 @@ firmware) so the disc turns the same way as in the simulation.
 - Tipping: with every hopper full, the dispenser stands on its own (the centre of mass
   stays inside the base). A push of about 2 N sideways at the top of a hopper tips it;
   place it away from table edges.
-- The pill cup's fit in the tray, and whether the scale still reads with it, are not
-  tested: tare with the empty cup in place.
+- The pill cup has 0.5 mm per side in the tray pocket as modelled; a tight print may need
+  sanding. Its removal path is checked in CAD only.
 - Chute and drop simulations use rigid pills and parts; real PLA surfaces and pill
   coatings may differ.
 - Shaft, bearing and gearmotor sizes are nominal; measure them as in `BUILD.md` section 2.

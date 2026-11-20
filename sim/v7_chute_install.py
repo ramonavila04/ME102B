@@ -1,4 +1,5 @@
-"""Can the chute be put into the V7 enclosure? (run from the repo root: python sim/v7_chute_install.py)
+"""Can the chute be put into the V7 enclosure? (run from the repo root:
+    python sim/v7_chute_install.py [chute folder, default cad/variants/v2_v7_module/chute])
 
 The chute's lip sits under the enclosure's front window lintel and its sides under ribs, so it
 cannot be lowered straight into place. Checked path, with the deck off and the brackets and
@@ -12,7 +13,7 @@ import numpy as np
 import trimesh
 sys.path.insert(0,'.')
 from sim.convexify import decompose_file
-D='cad/variants/v2_v7_module/chute/'
+D=(sys.argv[1].rstrip('/') + '/') if len(sys.argv) > 1 else 'cad/variants/v2_v7_module/chute/'   # folder with chute.stl and the brackets
 pcs=decompose_file(D+'chute.stl', tol=0.1, min_cell=1.0)
 hulls=[]
 for p in pcs:

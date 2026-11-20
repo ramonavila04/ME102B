@@ -2,8 +2,9 @@
 
 The V2 inclined pocket disc, repackaged so six of them bolt onto the V7 pill dispenser
 (`cad/onshape/V7_Pill_Dispenser_Heat_Inserts.step`) in place of its six vertical canister
-modules. Each module drops its pills into the V7's central opening, so the V7 funnel and
-weighing station are used unchanged.
+modules. Each module drops its pills into the V7's central opening. The V7 funnel is
+replaced by a printed chute (below), and a removable pill cup sits on the weighing
+station; the weighing station itself is unchanged.
 
 ![Six modules on the V7 enclosure](../../../docs/v7_module_assembly.png)
 
@@ -29,6 +30,50 @@ The first small-tablet run had 1 double in 600 dispenses: a tablet wedged tilted
 at the exit and fell late. The disc's closed-pocket undercut went from 12° to 20° (V2 rev 41,
 shared with the stand-alone V2), and both the stand-alone V2 and this module were rerun at
 200/200. Results are in `results/v2_v7_module/`; the superseded run is in `results/old_rev40/`.
+
+## Gear backlash
+
+The campaign above drives the disc directly. Variant `v2_v7_module_gear` adds the printed
+spur pair as a separate motor inertia coupled to the disc through a dead-band spring:
+3° of backlash (worst case for 0.1 mm per gear plus print error), 158 N·mm/rad mesh
+stiffness, 90 % efficiency. The encoder and controller sit on the motor side, as on the
+real module.
+
+| Kit | Trials passed | Dispenses |
+| --- | --- | --- |
+| iron | 200 / 200 | 600 ok |
+| small | 200 / 200 | 600 ok |
+
+Results: `results/v2_v7_module_gear/`.
+
+## From the duct to the scale: chute and pill cup
+
+`python -m sim.v7_drop` drops pills from each module's exit pocket through the V7 parts
+(enclosure, funnel or chute, weighing station) with random module, pill size, friction
+(0.2–0.6), tilt (up to 20°), spin and exit speed (0–65 mm/s), and passes a trial only if
+the pill comes to rest on the weighing station.
+
+| Setup | iron | small |
+| --- | --- | --- |
+| Original V7 funnel | 177 / 200 (20 stuck in the funnel, 3 escaped) | 178 / 200 (22 stuck) |
+| Chute, no cup | 199 / 200 (1 escaped over the tray's back lip) | 200 / 200 |
+| Chute + pill cup, 1 pill | **200 / 200** | **200 / 200** |
+| Chute + pill cup, 4-pill dose | **200 / 200** | **200 / 200** |
+
+The V7 funnel's walls are too shallow for slow pills from the modules: they stop on them.
+The chute replaces it: a 37° floor running from under the six duct ends to a lip over the
+front of the weighing tray, with side walls cut back where they would hit the front panel
+and enclosure ribs. Without the cup, a pill landing on another one in a dose could hop the
+tray's 5 mm back lip; the cup (2 mm walls, sitting inside the tray) holds them. A dose
+passes only if every pill rests in the cup or on the station. Results:
+`results/v7_drop*/`.
+
+![Chute, cup and brackets in section](../../../docs/v7_chute_section.png)
+
+The chute hangs from the V7's three funnel posts on three brackets, using the posts' heat
+inserts. The brackets are 8 mm thick at the feet, so the funnel's screws are too short:
+use M3 × 16. The user takes a dose by lifting the cup out of the window and putting it
+back.
 
 ## How it mounts on the V7
 
@@ -74,8 +119,19 @@ enclosure axis (the enclosure radius is 113 mm). Tallest point 140 mm above the 
 | Shaft gear | `common/shaft_gear.stl` | 1 | gear face down, hub up |
 | Motor gear | `common/motor_gear.stl` | 1 | flat |
 | Motor mount | `common/motor_mount.stl` | 1 | front wall down |
-| Strap | `common/strap.stl` | 1 | flat |
+| Strap | `common/strap.stl` | 1 | rib up |
 | Front spacer, rear spacer | `common/spacer.stl`, `common/rear_spacer.stl` | 1 each | flat |
+
+Once per dispenser (in `chute/`, replacing the V7 funnel):
+
+| Part | File | Qty | On the bed |
+| --- | --- | --- | --- |
+| Chute | `chute/chute.stl` | 1 | as saved (floor tilted 37°) |
+| Pill cup | `chute/pill_cup.stl` | 1 | floor down |
+| Brackets, right and left | `chute/bracket_right.stl`, `chute/bracket_left.stl` | 1 each | as saved (on their side) |
+| Bracket, front | `chute/bracket_front.stl` | 1 | outer face down (as saved) |
+
+All pass `check_printability.py` with no supports.
 
 Print the back plate in an opaque colour (the beam-break looks through the duct). Other
 settings as in `BUILD.md`. `<kit>/module_assembly.step` shows one module put together;
@@ -98,6 +154,14 @@ the whole V7 with six modules (50 MB, not committed).
 | M2 × 8 self-tapping screws, strap | 2 |
 | IR break-beam pair, 3 mm | 1 |
 
+Once per dispenser, for the chute:
+
+| Item | Qty |
+| --- | --- |
+| M3 × 16 screws, brackets to the V7 funnel posts (replace the funnel screws) | 3 |
+| M3 × 6 heat-set inserts, OD 5 mm, in the brackets | 3 |
+| M3 × 12 countersunk screws, chute to brackets (from inside the chute) | 3 |
+
 ## Assembly
 
 1. Press the heat-set inserts: two into the base plate from underneath, four into the
@@ -114,7 +178,8 @@ the whole V7 with six modules (50 MB, not committed).
 5. Bolt the hopper to the front of the back plate (4 × M3 × 10, groove over the exit hole);
    glue the cover into the hopper mouth on the high side.
 6. Push the motor gear onto the gearmotor shaft (one drop of CA on the flat). Lay the motor
-   in the motor mount, gearbox face against the front wall, fit the strap with 2 × M2 × 8,
+   in the motor mount, gearbox face against the front wall, fit the strap with 2 × M2 × 8
+   (its rib presses 0.6 mm into the motor, so it clamps it),
    and screw the mount to the posts with 2 × M3 × 10. The two gears must mesh across their
    full width; turn the disc by hand to check.
 7. Bolt the cheeks to the back-plate tabs (4 × M3 × 12 and nuts) and glue them into the
@@ -122,6 +187,10 @@ the whole V7 with six modules (50 MB, not committed).
 8. Fit the beam-break LEDs into the two holes across the duct, 8 mm behind the plate.
 9. Set the module on the deck, wires through the slot, and screw it down from below with
    the V7's 2 × M3 × 12.
+
+Once per dispenser, before the modules: take out the V7 funnel, press an insert into each
+bracket, screw the brackets to the three funnel posts (M3 × 16), screw the chute to the
+brackets (M3 × 12 countersunk, from inside), and set the pill cup on the weighing tray.
 
 ## Firmware
 
@@ -132,10 +201,15 @@ firmware) so the disc turns the same way as in the simulation.
 
 ## Not yet proven
 
-- Spur gears printed in PLA at module 1.5: the backlash allowance (0.1 mm per gear) and
-  the 21.15 mm centre distance are nominal; check the mesh by hand before powering.
-- The motor is held in its mount by the strap only; there is no hard stop on the gear
+- Spur gears printed in PLA at module 1.5: the 21.15 mm centre distance is nominal. The
+  simulation passes with 3° of backlash, but check the mesh by hand before powering.
+- The motor is held by the strap's 0.6 mm clamp only; there is no hard stop on the gear
   side. Check it does not creep along the mount.
-- The hoppers overhang the enclosure by 35 mm each; check the dispenser does not tip
-  when a hopper is filled.
+- Tipping: with every hopper full, the dispenser stands on its own (the centre of mass
+  stays inside the base). A push of about 2 N sideways at the top of a hopper tips it;
+  place it away from table edges.
+- The pill cup's fit in the tray, and whether the scale still reads with it, are not
+  tested: tare with the empty cup in place.
+- Chute and drop simulations use rigid pills and parts; real PLA surfaces and pill
+  coatings may differ.
 - Shaft, bearing and gearmotor sizes are nominal; measure them as in `BUILD.md` section 2.

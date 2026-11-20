@@ -163,8 +163,17 @@ def chute_keepout():
     return k
 
 
+def _cavity():
+    """The trough's inside: the inner outline above the floor's top surface."""
+    pl = ch.plane_at(0)
+    return (cq.Workplane("XY").workplane(offset=-200).polyline(inner_outline()).close().extrude(400)
+            .cut(cq.Workplane(pl).rect(1000, 1000).extrude(-300)))
+
+
 def make_chute():
-    return ribs_and_holes(trough()).cut(chute_keepout())
+    # the ribs follow the wall at their joint, but the wall opens out along a rib's 14 mm, so
+    # cut the inside clean again: nothing may stand proud of the floor or walls inside
+    return ribs_and_holes(trough()).cut(_cavity()).cut(chute_keepout())
 
 
 def make_brackets():

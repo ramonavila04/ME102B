@@ -1,0 +1,4016 @@
+{
+ "summary": {
+  "trials": 200,
+  "outcomes": {
+   "ok": 200
+  },
+  "failure_sites": {},
+  "t_land_s": {
+   "median": 0.5765,
+   "max": 0.88
+  },
+  "max_pen_mm": 0.173
+ },
+ "trials": [
+  {
+   "kit": "iron",
+   "seed": 5000,
+   "module": 3,
+   "mu_part": 0.208,
+   "mu_pill": 0.271,
+   "tilt": 10.1,
+   "v_tan": 24.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.493,
+   "t_end": 2.088,
+   "rest_pos": [
+    -6.1,
+    -121.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.023,
+   "wall_s": 30.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5001,
+   "module": 1,
+   "mu_part": 0.433,
+   "mu_pill": 0.508,
+   "tilt": 11.9,
+   "v_tan": 8.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.644,
+   "t_end": 1.685,
+   "rest_pos": [
+    -3.3,
+    -125.3,
+    -130.9
+   ],
+   "max_pen_mm": 0.133,
+   "wall_s": 27.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5002,
+   "module": 5,
+   "mu_part": 0.266,
+   "mu_pill": 0.319,
+   "tilt": 5.6,
+   "v_tan": 54.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.58,
+   "t_end": 1.773,
+   "rest_pos": [
+    17.6,
+    -122.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.137,
+   "wall_s": 28.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5003,
+   "module": 2,
+   "mu_part": 0.316,
+   "mu_pill": 0.368,
+   "tilt": 12.8,
+   "v_tan": 49.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.46,
+   "t_end": 1.51,
+   "rest_pos": [
+    16.2,
+    -122.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.005,
+   "wall_s": 26.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5004,
+   "module": 1,
+   "mu_part": 0.455,
+   "mu_pill": 0.226,
+   "tilt": 7.7,
+   "v_tan": 2.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.543,
+   "t_end": 1.707,
+   "rest_pos": [
+    4.2,
+    -129.8,
+    -129.2
+   ],
+   "max_pen_mm": 0.087,
+   "wall_s": 28.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5005,
+   "module": 5,
+   "mu_part": 0.429,
+   "mu_pill": 0.563,
+   "tilt": 10.6,
+   "v_tan": 7.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.632,
+   "t_end": 2.013,
+   "rest_pos": [
+    -5.4,
+    -123.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.04,
+   "wall_s": 31.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5006,
+   "module": 2,
+   "mu_part": 0.378,
+   "mu_pill": 0.388,
+   "tilt": 13.7,
+   "v_tan": 34.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.483,
+   "t_end": 1.392,
+   "rest_pos": [
+    -8.8,
+    -120.7,
+    -129.0
+   ],
+   "max_pen_mm": 0.046,
+   "wall_s": 25.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5007,
+   "module": 4,
+   "mu_part": 0.424,
+   "mu_pill": 0.222,
+   "tilt": 0.5,
+   "v_tan": 45.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.628,
+   "t_end": 2.302,
+   "rest_pos": [
+    19.0,
+    -125.4,
+    -128.7
+   ],
+   "max_pen_mm": 0.114,
+   "wall_s": 32.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5008,
+   "module": 5,
+   "mu_part": 0.469,
+   "mu_pill": 0.201,
+   "tilt": 6.9,
+   "v_tan": 1.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.645,
+   "t_end": 2.176,
+   "rest_pos": [
+    10.9,
+    -127.9,
+    -130.8
+   ],
+   "max_pen_mm": 0.114,
+   "wall_s": 31.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5009,
+   "module": 3,
+   "mu_part": 0.314,
+   "mu_pill": 0.355,
+   "tilt": 2.4,
+   "v_tan": 51.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.549,
+   "t_end": 1.387,
+   "rest_pos": [
+    -17.8,
+    -121.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.015,
+   "wall_s": 24.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5010,
+   "module": 2,
+   "mu_part": 0.224,
+   "mu_pill": 0.559,
+   "tilt": 10.8,
+   "v_tan": 56.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.4,
+   "t_end": 1.342,
+   "rest_pos": [
+    -13.2,
+    -122.9,
+    -130.8
+   ],
+   "max_pen_mm": 0.032,
+   "wall_s": 24.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5011,
+   "module": 1,
+   "mu_part": 0.278,
+   "mu_pill": 0.598,
+   "tilt": 4.5,
+   "v_tan": 11.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.406,
+   "t_end": 1.529,
+   "rest_pos": [
+    9.5,
+    -129.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.03,
+   "wall_s": 26.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5012,
+   "module": 2,
+   "mu_part": 0.379,
+   "mu_pill": 0.373,
+   "tilt": 9.1,
+   "v_tan": 62.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.488,
+   "t_end": 1.29,
+   "rest_pos": [
+    2.9,
+    -121.7,
+    -128.6
+   ],
+   "max_pen_mm": 0.015,
+   "wall_s": 23.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5013,
+   "module": 2,
+   "mu_part": 0.284,
+   "mu_pill": 0.363,
+   "tilt": 2.9,
+   "v_tan": 49.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.427,
+   "t_end": 1.339,
+   "rest_pos": [
+    7.8,
+    -122.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.023,
+   "wall_s": 24.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5014,
+   "module": 3,
+   "mu_part": 0.416,
+   "mu_pill": 0.481,
+   "tilt": 17.5,
+   "v_tan": 54.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.577,
+   "t_end": 1.747,
+   "rest_pos": [
+    -15.8,
+    -123.9,
+    -130.8
+   ],
+   "max_pen_mm": 0.067,
+   "wall_s": 27.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5015,
+   "module": 6,
+   "mu_part": 0.37,
+   "mu_pill": 0.354,
+   "tilt": 15.6,
+   "v_tan": 40.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.551,
+   "t_end": 1.912,
+   "rest_pos": [
+    -7.5,
+    -128.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.065,
+   "wall_s": 29.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5016,
+   "module": 5,
+   "mu_part": 0.472,
+   "mu_pill": 0.422,
+   "tilt": 17.4,
+   "v_tan": 13.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.88,
+   "t_end": 2.311,
+   "rest_pos": [
+    -13.5,
+    -122.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.085,
+   "wall_s": 31.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5017,
+   "module": 1,
+   "mu_part": 0.454,
+   "mu_pill": 0.411,
+   "tilt": 11.9,
+   "v_tan": 44.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.419,
+   "t_end": 1.117,
+   "rest_pos": [
+    7.9,
+    -129.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.001,
+   "wall_s": 22.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5018,
+   "module": 3,
+   "mu_part": 0.339,
+   "mu_pill": 0.281,
+   "tilt": 4.1,
+   "v_tan": 7.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.568,
+   "t_end": 1.685,
+   "rest_pos": [
+    -16.8,
+    -121.6,
+    -130.7
+   ],
+   "max_pen_mm": 0.036,
+   "wall_s": 26.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5019,
+   "module": 2,
+   "mu_part": 0.444,
+   "mu_pill": 0.246,
+   "tilt": 9.2,
+   "v_tan": 48.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.506,
+   "t_end": 1.907,
+   "rest_pos": [
+    7.4,
+    -125.4,
+    -130.8
+   ],
+   "max_pen_mm": 0.017,
+   "wall_s": 28.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5020,
+   "module": 4,
+   "mu_part": 0.381,
+   "mu_pill": 0.388,
+   "tilt": 16.5,
+   "v_tan": 11.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.58,
+   "t_end": 1.394,
+   "rest_pos": [
+    -11.0,
+    -121.4,
+    -130.7
+   ],
+   "max_pen_mm": 0.051,
+   "wall_s": 25.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5021,
+   "module": 3,
+   "mu_part": 0.489,
+   "mu_pill": 0.359,
+   "tilt": 2.6,
+   "v_tan": 48.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.674,
+   "t_end": 2.146,
+   "rest_pos": [
+    -8.7,
+    -126.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.003,
+   "wall_s": 30.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5022,
+   "module": 1,
+   "mu_part": 0.35,
+   "mu_pill": 0.476,
+   "tilt": 14.6,
+   "v_tan": 36.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.403,
+   "t_end": 1.383,
+   "rest_pos": [
+    -2.6,
+    -123.4,
+    -130.8
+   ],
+   "max_pen_mm": 0.011,
+   "wall_s": 25.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5023,
+   "module": 2,
+   "mu_part": 0.362,
+   "mu_pill": 0.458,
+   "tilt": 8.1,
+   "v_tan": 34.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.434,
+   "t_end": 1.445,
+   "rest_pos": [
+    8.7,
+    -122.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.099,
+   "wall_s": 25.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5024,
+   "module": 1,
+   "mu_part": 0.335,
+   "mu_pill": 0.529,
+   "tilt": 6.0,
+   "v_tan": 12.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.443,
+   "t_end": 1.622,
+   "rest_pos": [
+    16.1,
+    -123.1,
+    -130.8
+   ],
+   "max_pen_mm": 0.019,
+   "wall_s": 26.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5025,
+   "module": 6,
+   "mu_part": 0.423,
+   "mu_pill": 0.243,
+   "tilt": 8.5,
+   "v_tan": 39.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.593,
+   "t_end": 2.272,
+   "rest_pos": [
+    -14.3,
+    -126.9,
+    -130.7
+   ],
+   "max_pen_mm": 0.037,
+   "wall_s": 32.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5026,
+   "module": 1,
+   "mu_part": 0.462,
+   "mu_pill": 0.237,
+   "tilt": 16.8,
+   "v_tan": 61.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.435,
+   "t_end": 1.804,
+   "rest_pos": [
+    12.3,
+    -125.1,
+    -130.7
+   ],
+   "max_pen_mm": 0.06,
+   "wall_s": 28.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5027,
+   "module": 4,
+   "mu_part": 0.255,
+   "mu_pill": 0.365,
+   "tilt": 18.5,
+   "v_tan": 53.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.507,
+   "t_end": 1.468,
+   "rest_pos": [
+    11.5,
+    -121.4,
+    -130.9
+   ],
+   "max_pen_mm": 0.111,
+   "wall_s": 25.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5028,
+   "module": 5,
+   "mu_part": 0.441,
+   "mu_pill": 0.274,
+   "tilt": 14.6,
+   "v_tan": 38.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.676,
+   "t_end": 2.082,
+   "rest_pos": [
+    17.1,
+    -122.9,
+    -130.7
+   ],
+   "max_pen_mm": 0.087,
+   "wall_s": 30.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5029,
+   "module": 4,
+   "mu_part": 0.365,
+   "mu_pill": 0.427,
+   "tilt": 15.5,
+   "v_tan": 0.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.625,
+   "t_end": 1.204,
+   "rest_pos": [
+    -19.0,
+    -121.7,
+    -128.8
+   ],
+   "max_pen_mm": 0.118,
+   "wall_s": 23.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5030,
+   "module": 5,
+   "mu_part": 0.509,
+   "mu_pill": 0.369,
+   "tilt": 12.8,
+   "v_tan": 32.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.638,
+   "t_end": 1.071,
+   "rest_pos": [
+    -9.0,
+    -121.2,
+    -128.7
+   ],
+   "max_pen_mm": 0.057,
+   "wall_s": 21.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5031,
+   "module": 6,
+   "mu_part": 0.236,
+   "mu_pill": 0.571,
+   "tilt": 2.6,
+   "v_tan": 62.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.504,
+   "t_end": 1.72,
+   "rest_pos": [
+    7.7,
+    -124.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.091,
+   "wall_s": 26.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5032,
+   "module": 6,
+   "mu_part": 0.479,
+   "mu_pill": 0.348,
+   "tilt": 8.8,
+   "v_tan": 3.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.728,
+   "t_end": 1.997,
+   "rest_pos": [
+    0.9,
+    -124.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.02,
+   "wall_s": 31.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5033,
+   "module": 6,
+   "mu_part": 0.299,
+   "mu_pill": 0.378,
+   "tilt": 9.0,
+   "v_tan": 34.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.572,
+   "t_end": 1.476,
+   "rest_pos": [
+    -19.0,
+    -123.8,
+    -128.6
+   ],
+   "max_pen_mm": 0.068,
+   "wall_s": 26.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5034,
+   "module": 1,
+   "mu_part": 0.354,
+   "mu_pill": 0.462,
+   "tilt": 1.3,
+   "v_tan": 6.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.449,
+   "t_end": 1.733,
+   "rest_pos": [
+    16.2,
+    -123.3,
+    -130.7
+   ],
+   "max_pen_mm": 0.057,
+   "wall_s": 28.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5035,
+   "module": 5,
+   "mu_part": 0.256,
+   "mu_pill": 0.311,
+   "tilt": 3.5,
+   "v_tan": 62.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.553,
+   "t_end": 1.877,
+   "rest_pos": [
+    -6.7,
+    -122.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.04,
+   "wall_s": 29.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5036,
+   "module": 2,
+   "mu_part": 0.496,
+   "mu_pill": 0.382,
+   "tilt": 17.6,
+   "v_tan": 11.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.617,
+   "t_end": 2.012,
+   "rest_pos": [
+    3.0,
+    -120.4,
+    -128.7
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 30.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5037,
+   "module": 3,
+   "mu_part": 0.337,
+   "mu_pill": 0.512,
+   "tilt": 16.2,
+   "v_tan": 63.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.64,
+   "t_end": 1.823,
+   "rest_pos": [
+    -10.7,
+    -127.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.025,
+   "wall_s": 27.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5038,
+   "module": 2,
+   "mu_part": 0.222,
+   "mu_pill": 0.245,
+   "tilt": 11.0,
+   "v_tan": 29.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.409,
+   "t_end": 1.2,
+   "rest_pos": [
+    18.0,
+    -121.8,
+    -130.7
+   ],
+   "max_pen_mm": 0.101,
+   "wall_s": 23.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5039,
+   "module": 6,
+   "mu_part": 0.21,
+   "mu_pill": 0.524,
+   "tilt": 2.2,
+   "v_tan": 42.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.513,
+   "t_end": 1.831,
+   "rest_pos": [
+    17.1,
+    -122.0,
+    -130.9
+   ],
+   "max_pen_mm": 0.141,
+   "wall_s": 30.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5040,
+   "module": 3,
+   "mu_part": 0.449,
+   "mu_pill": 0.511,
+   "tilt": 5.1,
+   "v_tan": 1.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.742,
+   "t_end": 1.911,
+   "rest_pos": [
+    1.2,
+    -127.6,
+    -130.9
+   ],
+   "max_pen_mm": 0.056,
+   "wall_s": 28.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5041,
+   "module": 5,
+   "mu_part": 0.285,
+   "mu_pill": 0.549,
+   "tilt": 12.0,
+   "v_tan": 17.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.604,
+   "t_end": 1.727,
+   "rest_pos": [
+    17.8,
+    -122.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.128,
+   "wall_s": 27.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5042,
+   "module": 2,
+   "mu_part": 0.509,
+   "mu_pill": 0.356,
+   "tilt": 9.0,
+   "v_tan": 47.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.763,
+   "t_end": 2.126,
+   "rest_pos": [
+    1.5,
+    -128.1,
+    -128.6
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 30.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5043,
+   "module": 4,
+   "mu_part": 0.543,
+   "mu_pill": 0.446,
+   "tilt": 5.2,
+   "v_tan": 22.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.644,
+   "t_end": 1.901,
+   "rest_pos": [
+    17.3,
+    -129.8,
+    -128.6
+   ],
+   "max_pen_mm": 0.059,
+   "wall_s": 29.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5044,
+   "module": 1,
+   "mu_part": 0.443,
+   "mu_pill": 0.533,
+   "tilt": 10.3,
+   "v_tan": 45.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.458,
+   "t_end": 1.619,
+   "rest_pos": [
+    -0.6,
+    -121.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.032,
+   "wall_s": 25.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5045,
+   "module": 1,
+   "mu_part": 0.439,
+   "mu_pill": 0.509,
+   "tilt": 19.4,
+   "v_tan": 44.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.426,
+   "t_end": 1.753,
+   "rest_pos": [
+    -16.3,
+    -128.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.042,
+   "wall_s": 28.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5046,
+   "module": 3,
+   "mu_part": 0.272,
+   "mu_pill": 0.415,
+   "tilt": 1.8,
+   "v_tan": 27.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.552,
+   "t_end": 1.935,
+   "rest_pos": [
+    -16.8,
+    -122.1,
+    -130.8
+   ],
+   "max_pen_mm": 0.063,
+   "wall_s": 28.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5047,
+   "module": 2,
+   "mu_part": 0.437,
+   "mu_pill": 0.205,
+   "tilt": 17.1,
+   "v_tan": 49.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.64,
+   "t_end": 2.093,
+   "rest_pos": [
+    2.6,
+    -121.4,
+    -129.9
+   ],
+   "max_pen_mm": 0.033,
+   "wall_s": 29.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5048,
+   "module": 3,
+   "mu_part": 0.491,
+   "mu_pill": 0.236,
+   "tilt": 6.8,
+   "v_tan": 7.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.785,
+   "t_end": 2.205,
+   "rest_pos": [
+    0.3,
+    -123.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 31.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5049,
+   "module": 6,
+   "mu_part": 0.559,
+   "mu_pill": 0.56,
+   "tilt": 9.2,
+   "v_tan": 31.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.691,
+   "t_end": 2.264,
+   "rest_pos": [
+    -3.0,
+    -121.3,
+    -129.7
+   ],
+   "max_pen_mm": 0.025,
+   "wall_s": 32.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5050,
+   "module": 4,
+   "mu_part": 0.566,
+   "mu_pill": 0.257,
+   "tilt": 14.5,
+   "v_tan": 36.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.701,
+   "t_end": 2.221,
+   "rest_pos": [
+    16.4,
+    -125.7,
+    -128.7
+   ],
+   "max_pen_mm": 0.051,
+   "wall_s": 32.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5051,
+   "module": 1,
+   "mu_part": 0.205,
+   "mu_pill": 0.416,
+   "tilt": 2.5,
+   "v_tan": 46.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.395,
+   "t_end": 1.645,
+   "rest_pos": [
+    -9.7,
+    -125.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.038,
+   "wall_s": 27.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5052,
+   "module": 6,
+   "mu_part": 0.443,
+   "mu_pill": 0.471,
+   "tilt": 0.7,
+   "v_tan": 8.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.54,
+   "t_end": 2.021,
+   "rest_pos": [
+    4.3,
+    -123.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.135,
+   "wall_s": 31.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5053,
+   "module": 2,
+   "mu_part": 0.505,
+   "mu_pill": 0.407,
+   "tilt": 11.5,
+   "v_tan": 7.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.495,
+   "t_end": 2.234,
+   "rest_pos": [
+    -9.3,
+    -126.6,
+    -130.7
+   ],
+   "max_pen_mm": 0.082,
+   "wall_s": 31.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5054,
+   "module": 4,
+   "mu_part": 0.344,
+   "mu_pill": 0.323,
+   "tilt": 4.7,
+   "v_tan": 6.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.576,
+   "t_end": 1.654,
+   "rest_pos": [
+    -17.1,
+    -121.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.03,
+   "wall_s": 27.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5055,
+   "module": 4,
+   "mu_part": 0.344,
+   "mu_pill": 0.239,
+   "tilt": 0.8,
+   "v_tan": 21.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.622,
+   "t_end": 1.725,
+   "rest_pos": [
+    -5.6,
+    -124.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.063,
+   "wall_s": 27.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5056,
+   "module": 4,
+   "mu_part": 0.269,
+   "mu_pill": 0.554,
+   "tilt": 11.7,
+   "v_tan": 43.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.584,
+   "t_end": 1.445,
+   "rest_pos": [
+    -17.4,
+    -127.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.039,
+   "wall_s": 24.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5057,
+   "module": 1,
+   "mu_part": 0.357,
+   "mu_pill": 0.321,
+   "tilt": 14.4,
+   "v_tan": 62.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.411,
+   "t_end": 1.481,
+   "rest_pos": [
+    7.7,
+    -122.3,
+    -130.7
+   ],
+   "max_pen_mm": 0.014,
+   "wall_s": 26.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5058,
+   "module": 5,
+   "mu_part": 0.236,
+   "mu_pill": 0.346,
+   "tilt": 11.4,
+   "v_tan": 29.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.572,
+   "t_end": 1.984,
+   "rest_pos": [
+    19.3,
+    -124.4,
+    -128.6
+   ],
+   "max_pen_mm": 0.102,
+   "wall_s": 30.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5059,
+   "module": 6,
+   "mu_part": 0.502,
+   "mu_pill": 0.421,
+   "tilt": 11.1,
+   "v_tan": 4.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.842,
+   "t_end": 2.245,
+   "rest_pos": [
+    4.5,
+    -123.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.07,
+   "wall_s": 32.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5060,
+   "module": 1,
+   "mu_part": 0.556,
+   "mu_pill": 0.223,
+   "tilt": 12.3,
+   "v_tan": 6.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.577,
+   "t_end": 2.189,
+   "rest_pos": [
+    15.8,
+    -125.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.039,
+   "wall_s": 32.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5061,
+   "module": 2,
+   "mu_part": 0.576,
+   "mu_pill": 0.513,
+   "tilt": 0.6,
+   "v_tan": 0.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.518,
+   "t_end": 1.668,
+   "rest_pos": [
+    -3.1,
+    -122.7,
+    -130.7
+   ],
+   "max_pen_mm": 0.052,
+   "wall_s": 28.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5062,
+   "module": 5,
+   "mu_part": 0.589,
+   "mu_pill": 0.266,
+   "tilt": 15.5,
+   "v_tan": 34.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.781,
+   "t_end": 2.461,
+   "rest_pos": [
+    -14.5,
+    -127.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.127,
+   "wall_s": 35.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5063,
+   "module": 6,
+   "mu_part": 0.314,
+   "mu_pill": 0.472,
+   "tilt": 6.0,
+   "v_tan": 62.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.555,
+   "t_end": 1.65,
+   "rest_pos": [
+    15.1,
+    -126.8,
+    -130.7
+   ],
+   "max_pen_mm": 0.04,
+   "wall_s": 27.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5064,
+   "module": 3,
+   "mu_part": 0.494,
+   "mu_pill": 0.496,
+   "tilt": 10.0,
+   "v_tan": 10.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.623,
+   "t_end": 1.323,
+   "rest_pos": [
+    19.0,
+    -128.8,
+    -128.9
+   ],
+   "max_pen_mm": 0.036,
+   "wall_s": 24.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5065,
+   "module": 3,
+   "mu_part": 0.201,
+   "mu_pill": 0.434,
+   "tilt": 2.2,
+   "v_tan": 38.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.534,
+   "t_end": 1.159,
+   "rest_pos": [
+    17.2,
+    -120.1,
+    -128.7
+   ],
+   "max_pen_mm": 0.008,
+   "wall_s": 22.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5066,
+   "module": 4,
+   "mu_part": 0.236,
+   "mu_pill": 0.445,
+   "tilt": 16.6,
+   "v_tan": 63.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.6,
+   "t_end": 1.977,
+   "rest_pos": [
+    15.2,
+    -125.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.064,
+   "wall_s": 30.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5067,
+   "module": 3,
+   "mu_part": 0.498,
+   "mu_pill": 0.32,
+   "tilt": 17.1,
+   "v_tan": 29.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.581,
+   "t_end": 2.245,
+   "rest_pos": [
+    -6.7,
+    -121.4,
+    -129.8
+   ],
+   "max_pen_mm": 0.024,
+   "wall_s": 32.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5068,
+   "module": 2,
+   "mu_part": 0.46,
+   "mu_pill": 0.217,
+   "tilt": 8.0,
+   "v_tan": 42.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.474,
+   "t_end": 2.041,
+   "rest_pos": [
+    9.0,
+    -128.1,
+    -130.7
+   ],
+   "max_pen_mm": 0.044,
+   "wall_s": 31.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5069,
+   "module": 6,
+   "mu_part": 0.419,
+   "mu_pill": 0.346,
+   "tilt": 11.7,
+   "v_tan": 53.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.614,
+   "t_end": 1.639,
+   "rest_pos": [
+    16.2,
+    -127.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.055,
+   "wall_s": 27.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5070,
+   "module": 5,
+   "mu_part": 0.562,
+   "mu_pill": 0.576,
+   "tilt": 6.5,
+   "v_tan": 7.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.736,
+   "t_end": 2.31,
+   "rest_pos": [
+    8.7,
+    -127.5,
+    -130.9
+   ],
+   "max_pen_mm": 0.082,
+   "wall_s": 32.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5071,
+   "module": 1,
+   "mu_part": 0.467,
+   "mu_pill": 0.303,
+   "tilt": 6.6,
+   "v_tan": 52.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.415,
+   "t_end": 1.6,
+   "rest_pos": [
+    11.5,
+    -128.9,
+    -130.8
+   ],
+   "max_pen_mm": 0.077,
+   "wall_s": 27.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5072,
+   "module": 4,
+   "mu_part": 0.565,
+   "mu_pill": 0.463,
+   "tilt": 4.6,
+   "v_tan": 38.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.68,
+   "t_end": 2.25,
+   "rest_pos": [
+    0.9,
+    -127.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.101,
+   "wall_s": 32.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5073,
+   "module": 4,
+   "mu_part": 0.304,
+   "mu_pill": 0.411,
+   "tilt": 16.6,
+   "v_tan": 53.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.601,
+   "t_end": 1.08,
+   "rest_pos": [
+    -18.0,
+    -121.4,
+    -128.6
+   ],
+   "max_pen_mm": 0.128,
+   "wall_s": 24.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5074,
+   "module": 1,
+   "mu_part": 0.277,
+   "mu_pill": 0.487,
+   "tilt": 0.4,
+   "v_tan": 59.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.394,
+   "t_end": 2.073,
+   "rest_pos": [
+    16.3,
+    -127.5,
+    -128.7
+   ],
+   "max_pen_mm": 0.037,
+   "wall_s": 33.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5075,
+   "module": 4,
+   "mu_part": 0.599,
+   "mu_pill": 0.501,
+   "tilt": 17.3,
+   "v_tan": 59.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.752,
+   "t_end": 2.432,
+   "rest_pos": [
+    17.5,
+    -123.7,
+    -128.6
+   ],
+   "max_pen_mm": 0.017,
+   "wall_s": 34.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5076,
+   "module": 3,
+   "mu_part": 0.442,
+   "mu_pill": 0.35,
+   "tilt": 17.6,
+   "v_tan": 30.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.634,
+   "t_end": 2.136,
+   "rest_pos": [
+    -4.5,
+    -125.1,
+    -130.7
+   ],
+   "max_pen_mm": 0.063,
+   "wall_s": 32.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5077,
+   "module": 1,
+   "mu_part": 0.43,
+   "mu_pill": 0.551,
+   "tilt": 6.3,
+   "v_tan": 26.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.472,
+   "t_end": 1.465,
+   "rest_pos": [
+    18.0,
+    -125.6,
+    -130.9
+   ],
+   "max_pen_mm": 0.045,
+   "wall_s": 27.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5078,
+   "module": 1,
+   "mu_part": 0.339,
+   "mu_pill": 0.221,
+   "tilt": 12.1,
+   "v_tan": 57.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.489,
+   "t_end": 1.621,
+   "rest_pos": [
+    16.8,
+    -121.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.006,
+   "wall_s": 27.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5079,
+   "module": 3,
+   "mu_part": 0.247,
+   "mu_pill": 0.31,
+   "tilt": 19.0,
+   "v_tan": 14.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.573,
+   "t_end": 1.483,
+   "rest_pos": [
+    14.4,
+    -122.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.057,
+   "wall_s": 26.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5080,
+   "module": 4,
+   "mu_part": 0.464,
+   "mu_pill": 0.22,
+   "tilt": 16.9,
+   "v_tan": 14.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.725,
+   "t_end": 2.038,
+   "rest_pos": [
+    -18.9,
+    -122.7,
+    -128.8
+   ],
+   "max_pen_mm": 0.032,
+   "wall_s": 31.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5081,
+   "module": 6,
+   "mu_part": 0.381,
+   "mu_pill": 0.348,
+   "tilt": 10.7,
+   "v_tan": 63.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.496,
+   "t_end": 1.317,
+   "rest_pos": [
+    -18.9,
+    -129.2,
+    -128.8
+   ],
+   "max_pen_mm": 0.043,
+   "wall_s": 25.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5082,
+   "module": 6,
+   "mu_part": 0.427,
+   "mu_pill": 0.325,
+   "tilt": 10.5,
+   "v_tan": 41.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.614,
+   "t_end": 1.399,
+   "rest_pos": [
+    7.0,
+    -121.4,
+    -130.7
+   ],
+   "max_pen_mm": 0.066,
+   "wall_s": 26.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5083,
+   "module": 2,
+   "mu_part": 0.552,
+   "mu_pill": 0.27,
+   "tilt": 13.4,
+   "v_tan": 64.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.552,
+   "t_end": 1.338,
+   "rest_pos": [
+    -16.1,
+    -121.0,
+    -128.7
+   ],
+   "max_pen_mm": 0.019,
+   "wall_s": 25.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5084,
+   "module": 4,
+   "mu_part": 0.452,
+   "mu_pill": 0.38,
+   "tilt": 17.6,
+   "v_tan": 29.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.712,
+   "t_end": 1.743,
+   "rest_pos": [
+    13.0,
+    -122.1,
+    -128.6
+   ],
+   "max_pen_mm": 0.047,
+   "wall_s": 29.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5085,
+   "module": 5,
+   "mu_part": 0.403,
+   "mu_pill": 0.206,
+   "tilt": 8.6,
+   "v_tan": 40.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.601,
+   "t_end": 2.012,
+   "rest_pos": [
+    16.9,
+    -125.2,
+    -128.7
+   ],
+   "max_pen_mm": 0.158,
+   "wall_s": 32.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5086,
+   "module": 2,
+   "mu_part": 0.556,
+   "mu_pill": 0.504,
+   "tilt": 14.2,
+   "v_tan": 8.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.683,
+   "t_end": 2.449,
+   "rest_pos": [
+    -18.2,
+    -125.5,
+    -129.8
+   ],
+   "max_pen_mm": 0.028,
+   "wall_s": 36.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5087,
+   "module": 2,
+   "mu_part": 0.284,
+   "mu_pill": 0.255,
+   "tilt": 14.3,
+   "v_tan": 11.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.455,
+   "t_end": 1.461,
+   "rest_pos": [
+    -8.1,
+    -126.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.021,
+   "wall_s": 27.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5088,
+   "module": 5,
+   "mu_part": 0.55,
+   "mu_pill": 0.568,
+   "tilt": 12.2,
+   "v_tan": 2.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.637,
+   "t_end": 2.257,
+   "rest_pos": [
+    15.5,
+    -127.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.097,
+   "wall_s": 34.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5089,
+   "module": 1,
+   "mu_part": 0.55,
+   "mu_pill": 0.229,
+   "tilt": 4.0,
+   "v_tan": 38.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.459,
+   "t_end": 1.959,
+   "rest_pos": [
+    5.3,
+    -121.4,
+    -130.2
+   ],
+   "max_pen_mm": 0.024,
+   "wall_s": 32.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5090,
+   "module": 4,
+   "mu_part": 0.252,
+   "mu_pill": 0.313,
+   "tilt": 1.8,
+   "v_tan": 2.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.548,
+   "t_end": 2.268,
+   "rest_pos": [
+    -17.7,
+    -124.7,
+    -128.7
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 34.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5091,
+   "module": 2,
+   "mu_part": 0.386,
+   "mu_pill": 0.44,
+   "tilt": 17.5,
+   "v_tan": 26.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.531,
+   "t_end": 1.519,
+   "rest_pos": [
+    3.2,
+    -121.4,
+    -128.7
+   ],
+   "max_pen_mm": 0.038,
+   "wall_s": 27.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5092,
+   "module": 2,
+   "mu_part": 0.389,
+   "mu_pill": 0.216,
+   "tilt": 17.2,
+   "v_tan": 13.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.561,
+   "t_end": 1.738,
+   "rest_pos": [
+    -3.5,
+    -122.4,
+    -130.7
+   ],
+   "max_pen_mm": 0.064,
+   "wall_s": 28.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5093,
+   "module": 2,
+   "mu_part": 0.499,
+   "mu_pill": 0.479,
+   "tilt": 7.0,
+   "v_tan": 37.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.467,
+   "t_end": 2.127,
+   "rest_pos": [
+    -2.3,
+    -121.0,
+    -129.3
+   ],
+   "max_pen_mm": 0.079,
+   "wall_s": 32.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5094,
+   "module": 6,
+   "mu_part": 0.314,
+   "mu_pill": 0.453,
+   "tilt": 18.3,
+   "v_tan": 33.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.613,
+   "t_end": 1.569,
+   "rest_pos": [
+    -3.9,
+    -121.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.015,
+   "wall_s": 27.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5095,
+   "module": 1,
+   "mu_part": 0.413,
+   "mu_pill": 0.367,
+   "tilt": 2.5,
+   "v_tan": 19.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.582,
+   "t_end": 1.889,
+   "rest_pos": [
+    12.8,
+    -123.9,
+    -130.9
+   ],
+   "max_pen_mm": 0.035,
+   "wall_s": 29.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5096,
+   "module": 6,
+   "mu_part": 0.241,
+   "mu_pill": 0.427,
+   "tilt": 2.3,
+   "v_tan": 5.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.529,
+   "t_end": 1.577,
+   "rest_pos": [
+    3.2,
+    -126.9,
+    -130.9
+   ],
+   "max_pen_mm": 0.142,
+   "wall_s": 27.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5097,
+   "module": 3,
+   "mu_part": 0.208,
+   "mu_pill": 0.573,
+   "tilt": 2.0,
+   "v_tan": 16.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.509,
+   "t_end": 1.548,
+   "rest_pos": [
+    -16.7,
+    -123.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.026,
+   "wall_s": 27.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5098,
+   "module": 6,
+   "mu_part": 0.394,
+   "mu_pill": 0.339,
+   "tilt": 9.9,
+   "v_tan": 17.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.524,
+   "t_end": 1.735,
+   "rest_pos": [
+    -9.4,
+    -119.5,
+    -128.6
+   ],
+   "max_pen_mm": 0.101,
+   "wall_s": 27.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5099,
+   "module": 4,
+   "mu_part": 0.26,
+   "mu_pill": 0.222,
+   "tilt": 7.2,
+   "v_tan": 57.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.612,
+   "t_end": 2.023,
+   "rest_pos": [
+    -10.2,
+    -127.1,
+    -130.7
+   ],
+   "max_pen_mm": 0.06,
+   "wall_s": 29.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5100,
+   "module": 1,
+   "mu_part": 0.469,
+   "mu_pill": 0.576,
+   "tilt": 18.9,
+   "v_tan": 0.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.652,
+   "t_end": 2.074,
+   "rest_pos": [
+    -15.5,
+    -127.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.032,
+   "wall_s": 31.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5101,
+   "module": 2,
+   "mu_part": 0.526,
+   "mu_pill": 0.384,
+   "tilt": 11.4,
+   "v_tan": 16.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.615,
+   "t_end": 2.593,
+   "rest_pos": [
+    17.9,
+    -125.3,
+    -130.0
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 34.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5102,
+   "module": 5,
+   "mu_part": 0.24,
+   "mu_pill": 0.305,
+   "tilt": 6.5,
+   "v_tan": 28.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.571,
+   "t_end": 1.771,
+   "rest_pos": [
+    13.1,
+    -125.6,
+    -130.7
+   ],
+   "max_pen_mm": 0.173,
+   "wall_s": 28.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5103,
+   "module": 5,
+   "mu_part": 0.243,
+   "mu_pill": 0.493,
+   "tilt": 14.4,
+   "v_tan": 15.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.565,
+   "t_end": 1.834,
+   "rest_pos": [
+    16.6,
+    -127.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.104,
+   "wall_s": 28.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5104,
+   "module": 2,
+   "mu_part": 0.495,
+   "mu_pill": 0.462,
+   "tilt": 17.8,
+   "v_tan": 4.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.591,
+   "t_end": 1.91,
+   "rest_pos": [
+    -7.8,
+    -122.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.098,
+   "wall_s": 28.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5105,
+   "module": 2,
+   "mu_part": 0.57,
+   "mu_pill": 0.36,
+   "tilt": 11.6,
+   "v_tan": 16.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.465,
+   "t_end": 1.887,
+   "rest_pos": [
+    -1.4,
+    -124.4,
+    -130.8
+   ],
+   "max_pen_mm": 0.049,
+   "wall_s": 29.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5106,
+   "module": 1,
+   "mu_part": 0.222,
+   "mu_pill": 0.341,
+   "tilt": 15.8,
+   "v_tan": 54.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.394,
+   "t_end": 1.29,
+   "rest_pos": [
+    16.9,
+    -121.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.034,
+   "wall_s": 25.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5107,
+   "module": 5,
+   "mu_part": 0.319,
+   "mu_pill": 0.562,
+   "tilt": 11.8,
+   "v_tan": 26.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.638,
+   "t_end": 1.773,
+   "rest_pos": [
+    12.2,
+    -121.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.084,
+   "wall_s": 28.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5108,
+   "module": 5,
+   "mu_part": 0.315,
+   "mu_pill": 0.596,
+   "tilt": 14.2,
+   "v_tan": 36.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.633,
+   "t_end": 1.671,
+   "rest_pos": [
+    17.9,
+    -121.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.064,
+   "wall_s": 28.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5109,
+   "module": 1,
+   "mu_part": 0.522,
+   "mu_pill": 0.316,
+   "tilt": 19.6,
+   "v_tan": 52.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.494,
+   "t_end": 2.168,
+   "rest_pos": [
+    -0.7,
+    -123.8,
+    -128.6
+   ],
+   "max_pen_mm": 0.112,
+   "wall_s": 31.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5110,
+   "module": 2,
+   "mu_part": 0.355,
+   "mu_pill": 0.397,
+   "tilt": 19.2,
+   "v_tan": 12.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.527,
+   "t_end": 1.572,
+   "rest_pos": [
+    16.9,
+    -126.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.063,
+   "wall_s": 27.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5111,
+   "module": 2,
+   "mu_part": 0.594,
+   "mu_pill": 0.343,
+   "tilt": 8.2,
+   "v_tan": 61.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.618,
+   "t_end": 2.082,
+   "rest_pos": [
+    -2.7,
+    -120.5,
+    -128.7
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 31.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5112,
+   "module": 3,
+   "mu_part": 0.438,
+   "mu_pill": 0.24,
+   "tilt": 12.7,
+   "v_tan": 40.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.789,
+   "t_end": 2.317,
+   "rest_pos": [
+    14.1,
+    -124.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.06,
+   "wall_s": 32.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5113,
+   "module": 4,
+   "mu_part": 0.374,
+   "mu_pill": 0.393,
+   "tilt": 9.5,
+   "v_tan": 22.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.638,
+   "t_end": 1.94,
+   "rest_pos": [
+    1.5,
+    -123.5,
+    -130.7
+   ],
+   "max_pen_mm": 0.048,
+   "wall_s": 28.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5114,
+   "module": 5,
+   "mu_part": 0.46,
+   "mu_pill": 0.241,
+   "tilt": 5.2,
+   "v_tan": 59.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.675,
+   "t_end": 2.17,
+   "rest_pos": [
+    11.9,
+    -122.9,
+    -130.9
+   ],
+   "max_pen_mm": 0.075,
+   "wall_s": 31.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5115,
+   "module": 6,
+   "mu_part": 0.481,
+   "mu_pill": 0.499,
+   "tilt": 10.7,
+   "v_tan": 15.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.55,
+   "t_end": 1.795,
+   "rest_pos": [
+    6.1,
+    -123.3,
+    -130.9
+   ],
+   "max_pen_mm": 0.065,
+   "wall_s": 28.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5116,
+   "module": 6,
+   "mu_part": 0.246,
+   "mu_pill": 0.221,
+   "tilt": 15.8,
+   "v_tan": 42.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.551,
+   "t_end": 1.056,
+   "rest_pos": [
+    16.8,
+    -130.8,
+    -128.7
+   ],
+   "max_pen_mm": 0.006,
+   "wall_s": 22.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5117,
+   "module": 1,
+   "mu_part": 0.308,
+   "mu_pill": 0.378,
+   "tilt": 14.8,
+   "v_tan": 56.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.414,
+   "t_end": 1.727,
+   "rest_pos": [
+    17.7,
+    -123.3,
+    -130.9
+   ],
+   "max_pen_mm": 0.047,
+   "wall_s": 28.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5118,
+   "module": 4,
+   "mu_part": 0.327,
+   "mu_pill": 0.342,
+   "tilt": 1.0,
+   "v_tan": 10.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.597,
+   "t_end": 1.258,
+   "rest_pos": [
+    -3.2,
+    -120.5,
+    -128.7
+   ],
+   "max_pen_mm": 0.026,
+   "wall_s": 24.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5119,
+   "module": 3,
+   "mu_part": 0.417,
+   "mu_pill": 0.402,
+   "tilt": 4.7,
+   "v_tan": 30.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.626,
+   "t_end": 1.851,
+   "rest_pos": [
+    -14.9,
+    -123.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.039,
+   "wall_s": 29.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5120,
+   "module": 6,
+   "mu_part": 0.248,
+   "mu_pill": 0.573,
+   "tilt": 16.3,
+   "v_tan": 34.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.539,
+   "t_end": 1.374,
+   "rest_pos": [
+    15.6,
+    -121.8,
+    -130.7
+   ],
+   "max_pen_mm": 0.081,
+   "wall_s": 25.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5121,
+   "module": 5,
+   "mu_part": 0.387,
+   "mu_pill": 0.447,
+   "tilt": 16.7,
+   "v_tan": 17.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.62,
+   "t_end": 1.918,
+   "rest_pos": [
+    13.1,
+    -122.3,
+    -130.7
+   ],
+   "max_pen_mm": 0.115,
+   "wall_s": 28.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5122,
+   "module": 1,
+   "mu_part": 0.288,
+   "mu_pill": 0.279,
+   "tilt": 5.4,
+   "v_tan": 27.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.388,
+   "t_end": 1.339,
+   "rest_pos": [
+    2.5,
+    -125.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.028,
+   "wall_s": 24.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5123,
+   "module": 2,
+   "mu_part": 0.561,
+   "mu_pill": 0.266,
+   "tilt": 19.3,
+   "v_tan": 48.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.552,
+   "t_end": 2.263,
+   "rest_pos": [
+    -17.8,
+    -129.6,
+    -128.6
+   ],
+   "max_pen_mm": 0.082,
+   "wall_s": 33.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5124,
+   "module": 5,
+   "mu_part": 0.241,
+   "mu_pill": 0.533,
+   "tilt": 13.8,
+   "v_tan": 41.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.575,
+   "t_end": 1.474,
+   "rest_pos": [
+    17.5,
+    -126.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.121,
+   "wall_s": 27.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5125,
+   "module": 5,
+   "mu_part": 0.271,
+   "mu_pill": 0.269,
+   "tilt": 12.9,
+   "v_tan": 2.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.616,
+   "t_end": 1.839,
+   "rest_pos": [
+    17.3,
+    -127.3,
+    -130.9
+   ],
+   "max_pen_mm": 0.141,
+   "wall_s": 28.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5126,
+   "module": 4,
+   "mu_part": 0.235,
+   "mu_pill": 0.419,
+   "tilt": 11.9,
+   "v_tan": 31.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.534,
+   "t_end": 1.076,
+   "rest_pos": [
+    5.5,
+    -129.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.088,
+   "wall_s": 21.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5127,
+   "module": 2,
+   "mu_part": 0.228,
+   "mu_pill": 0.591,
+   "tilt": 2.9,
+   "v_tan": 38.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.4,
+   "t_end": 1.536,
+   "rest_pos": [
+    -17.6,
+    -121.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.034,
+   "wall_s": 26.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5128,
+   "module": 3,
+   "mu_part": 0.395,
+   "mu_pill": 0.296,
+   "tilt": 5.9,
+   "v_tan": 49.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.599,
+   "t_end": 1.817,
+   "rest_pos": [
+    -17.3,
+    -127.1,
+    -130.8
+   ],
+   "max_pen_mm": 0.06,
+   "wall_s": 28.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5129,
+   "module": 2,
+   "mu_part": 0.387,
+   "mu_pill": 0.234,
+   "tilt": 15.1,
+   "v_tan": 0.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.469,
+   "t_end": 1.932,
+   "rest_pos": [
+    19.0,
+    -122.7,
+    -128.7
+   ],
+   "max_pen_mm": 0.044,
+   "wall_s": 29.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5130,
+   "module": 4,
+   "mu_part": 0.448,
+   "mu_pill": 0.441,
+   "tilt": 18.7,
+   "v_tan": 1.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.724,
+   "t_end": 1.816,
+   "rest_pos": [
+    1.2,
+    -128.6,
+    -128.6
+   ],
+   "max_pen_mm": 0.116,
+   "wall_s": 28.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5131,
+   "module": 1,
+   "mu_part": 0.484,
+   "mu_pill": 0.48,
+   "tilt": 1.3,
+   "v_tan": 38.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.392,
+   "t_end": 1.212,
+   "rest_pos": [
+    -18.0,
+    -124.4,
+    -128.6
+   ],
+   "max_pen_mm": 0.072,
+   "wall_s": 23.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5132,
+   "module": 5,
+   "mu_part": 0.352,
+   "mu_pill": 0.503,
+   "tilt": 13.3,
+   "v_tan": 25.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.613,
+   "t_end": 2.35,
+   "rest_pos": [
+    17.4,
+    -130.3,
+    -128.8
+   ],
+   "max_pen_mm": 0.111,
+   "wall_s": 33.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5133,
+   "module": 1,
+   "mu_part": 0.33,
+   "mu_pill": 0.367,
+   "tilt": 16.0,
+   "v_tan": 10.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.483,
+   "t_end": 1.343,
+   "rest_pos": [
+    1.8,
+    -123.6,
+    -130.9
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 25.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5134,
+   "module": 3,
+   "mu_part": 0.243,
+   "mu_pill": 0.3,
+   "tilt": 14.6,
+   "v_tan": 42.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.51,
+   "t_end": 1.332,
+   "rest_pos": [
+    -15.1,
+    -119.1,
+    -128.6
+   ],
+   "max_pen_mm": 0.052,
+   "wall_s": 25.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5135,
+   "module": 5,
+   "mu_part": 0.379,
+   "mu_pill": 0.508,
+   "tilt": 19.7,
+   "v_tan": 5.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.721,
+   "t_end": 1.902,
+   "rest_pos": [
+    11.5,
+    -124.1,
+    -130.8
+   ],
+   "max_pen_mm": 0.104,
+   "wall_s": 30.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5136,
+   "module": 4,
+   "mu_part": 0.378,
+   "mu_pill": 0.521,
+   "tilt": 17.8,
+   "v_tan": 60.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.748,
+   "t_end": 1.548,
+   "rest_pos": [
+    -10.8,
+    -129.5,
+    -128.5
+   ],
+   "max_pen_mm": 0.031,
+   "wall_s": 26.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5137,
+   "module": 2,
+   "mu_part": 0.352,
+   "mu_pill": 0.473,
+   "tilt": 19.1,
+   "v_tan": 2.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.447,
+   "t_end": 1.513,
+   "rest_pos": [
+    13.1,
+    -127.4,
+    -130.9
+   ],
+   "max_pen_mm": 0.027,
+   "wall_s": 25.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5138,
+   "module": 5,
+   "mu_part": 0.44,
+   "mu_pill": 0.38,
+   "tilt": 10.0,
+   "v_tan": 47.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.688,
+   "t_end": 1.748,
+   "rest_pos": [
+    17.4,
+    -128.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.164,
+   "wall_s": 28.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5139,
+   "module": 2,
+   "mu_part": 0.427,
+   "mu_pill": 0.31,
+   "tilt": 10.3,
+   "v_tan": 53.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.496,
+   "t_end": 1.135,
+   "rest_pos": [
+    -18.1,
+    -121.4,
+    -129.7
+   ],
+   "max_pen_mm": 0.081,
+   "wall_s": 25.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5140,
+   "module": 5,
+   "mu_part": 0.378,
+   "mu_pill": 0.231,
+   "tilt": 9.6,
+   "v_tan": 32.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.669,
+   "t_end": 1.221,
+   "rest_pos": [
+    18.0,
+    -129.5,
+    -129.7
+   ],
+   "max_pen_mm": 0.073,
+   "wall_s": 26.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5141,
+   "module": 2,
+   "mu_part": 0.482,
+   "mu_pill": 0.482,
+   "tilt": 4.6,
+   "v_tan": 18.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.539,
+   "t_end": 1.219,
+   "rest_pos": [
+    -19.3,
+    -128.2,
+    -128.6
+   ],
+   "max_pen_mm": 0.042,
+   "wall_s": 26.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5142,
+   "module": 6,
+   "mu_part": 0.211,
+   "mu_pill": 0.444,
+   "tilt": 5.3,
+   "v_tan": 57.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.488,
+   "t_end": 1.246,
+   "rest_pos": [
+    10.2,
+    -128.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.087,
+   "wall_s": 25.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5143,
+   "module": 2,
+   "mu_part": 0.336,
+   "mu_pill": 0.446,
+   "tilt": 13.6,
+   "v_tan": 56.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.47,
+   "t_end": 1.456,
+   "rest_pos": [
+    14.0,
+    -124.2,
+    -130.9
+   ],
+   "max_pen_mm": 0.052,
+   "wall_s": 27.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5144,
+   "module": 3,
+   "mu_part": 0.426,
+   "mu_pill": 0.561,
+   "tilt": 10.6,
+   "v_tan": 34.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.633,
+   "t_end": 1.891,
+   "rest_pos": [
+    -13.0,
+    -124.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.053,
+   "wall_s": 30.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5145,
+   "module": 3,
+   "mu_part": 0.573,
+   "mu_pill": 0.322,
+   "tilt": 0.7,
+   "v_tan": 36.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.561,
+   "t_end": 1.898,
+   "rest_pos": [
+    15.9,
+    -123.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.051,
+   "wall_s": 30.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5146,
+   "module": 5,
+   "mu_part": 0.343,
+   "mu_pill": 0.543,
+   "tilt": 3.1,
+   "v_tan": 44.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.678,
+   "t_end": 1.769,
+   "rest_pos": [
+    9.7,
+    -121.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.096,
+   "wall_s": 28.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5147,
+   "module": 3,
+   "mu_part": 0.418,
+   "mu_pill": 0.319,
+   "tilt": 18.3,
+   "v_tan": 20.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.731,
+   "t_end": 2.075,
+   "rest_pos": [
+    17.6,
+    -123.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.061,
+   "wall_s": 32.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5148,
+   "module": 4,
+   "mu_part": 0.263,
+   "mu_pill": 0.204,
+   "tilt": 16.5,
+   "v_tan": 35.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.631,
+   "t_end": 1.682,
+   "rest_pos": [
+    -17.1,
+    -123.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.087,
+   "wall_s": 27.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5149,
+   "module": 3,
+   "mu_part": 0.396,
+   "mu_pill": 0.221,
+   "tilt": 2.8,
+   "v_tan": 1.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.714,
+   "t_end": 2.536,
+   "rest_pos": [
+    -18.8,
+    -124.7,
+    -128.9
+   ],
+   "max_pen_mm": 0.018,
+   "wall_s": 33.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5150,
+   "module": 2,
+   "mu_part": 0.285,
+   "mu_pill": 0.238,
+   "tilt": 4.0,
+   "v_tan": 4.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.486,
+   "t_end": 1.786,
+   "rest_pos": [
+    1.2,
+    -126.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.006,
+   "wall_s": 29.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5151,
+   "module": 3,
+   "mu_part": 0.287,
+   "mu_pill": 0.217,
+   "tilt": 12.5,
+   "v_tan": 43.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.564,
+   "t_end": 1.586,
+   "rest_pos": [
+    1.6,
+    -124.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.057,
+   "wall_s": 26.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5152,
+   "module": 2,
+   "mu_part": 0.584,
+   "mu_pill": 0.385,
+   "tilt": 19.3,
+   "v_tan": 30.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.465,
+   "t_end": 1.902,
+   "rest_pos": [
+    15.7,
+    -122.9,
+    -130.8
+   ],
+   "max_pen_mm": 0.063,
+   "wall_s": 29.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5153,
+   "module": 1,
+   "mu_part": 0.57,
+   "mu_pill": 0.488,
+   "tilt": 2.4,
+   "v_tan": 4.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.444,
+   "t_end": 2.098,
+   "rest_pos": [
+    16.1,
+    -124.9,
+    -130.7
+   ],
+   "max_pen_mm": 0.081,
+   "wall_s": 29.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5154,
+   "module": 3,
+   "mu_part": 0.41,
+   "mu_pill": 0.342,
+   "tilt": 4.3,
+   "v_tan": 51.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.568,
+   "t_end": 2.32,
+   "rest_pos": [
+    -11.9,
+    -127.8,
+    -128.7
+   ],
+   "max_pen_mm": 0.065,
+   "wall_s": 32.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5155,
+   "module": 3,
+   "mu_part": 0.282,
+   "mu_pill": 0.328,
+   "tilt": 4.6,
+   "v_tan": 45.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.56,
+   "t_end": 1.66,
+   "rest_pos": [
+    -8.3,
+    -122.8,
+    -130.8
+   ],
+   "max_pen_mm": 0.009,
+   "wall_s": 26.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5156,
+   "module": 3,
+   "mu_part": 0.521,
+   "mu_pill": 0.515,
+   "tilt": 2.3,
+   "v_tan": 2.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.647,
+   "t_end": 2.135,
+   "rest_pos": [
+    -5.2,
+    -127.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 32.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5157,
+   "module": 5,
+   "mu_part": 0.392,
+   "mu_pill": 0.547,
+   "tilt": 2.0,
+   "v_tan": 20.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.682,
+   "t_end": 2.168,
+   "rest_pos": [
+    -13.1,
+    -126.1,
+    -130.8
+   ],
+   "max_pen_mm": 0.047,
+   "wall_s": 31.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5158,
+   "module": 3,
+   "mu_part": 0.445,
+   "mu_pill": 0.236,
+   "tilt": 19.5,
+   "v_tan": 60.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.612,
+   "t_end": 1.876,
+   "rest_pos": [
+    -17.3,
+    -119.9,
+    -128.6
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 29.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5159,
+   "module": 6,
+   "mu_part": 0.355,
+   "mu_pill": 0.511,
+   "tilt": 4.1,
+   "v_tan": 7.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.597,
+   "t_end": 1.418,
+   "rest_pos": [
+    18.2,
+    -121.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.088,
+   "wall_s": 26.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5160,
+   "module": 6,
+   "mu_part": 0.238,
+   "mu_pill": 0.573,
+   "tilt": 8.3,
+   "v_tan": 64.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.514,
+   "t_end": 1.295,
+   "rest_pos": [
+    9.3,
+    -125.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.046,
+   "wall_s": 25.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5161,
+   "module": 2,
+   "mu_part": 0.355,
+   "mu_pill": 0.414,
+   "tilt": 1.3,
+   "v_tan": 0.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.471,
+   "t_end": 1.682,
+   "rest_pos": [
+    17.2,
+    -121.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.019,
+   "wall_s": 29.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5162,
+   "module": 5,
+   "mu_part": 0.459,
+   "mu_pill": 0.383,
+   "tilt": 0.8,
+   "v_tan": 14.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.718,
+   "t_end": 1.876,
+   "rest_pos": [
+    2.9,
+    -121.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.121,
+   "wall_s": 30.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5163,
+   "module": 6,
+   "mu_part": 0.328,
+   "mu_pill": 0.558,
+   "tilt": 12.6,
+   "v_tan": 58.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.675,
+   "t_end": 1.956,
+   "rest_pos": [
+    5.1,
+    -122.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 30.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5164,
+   "module": 2,
+   "mu_part": 0.591,
+   "mu_pill": 0.203,
+   "tilt": 9.7,
+   "v_tan": 46.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.528,
+   "t_end": 1.93,
+   "rest_pos": [
+    -6.3,
+    -123.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.004,
+   "wall_s": 28.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5165,
+   "module": 5,
+   "mu_part": 0.563,
+   "mu_pill": 0.299,
+   "tilt": 11.3,
+   "v_tan": 61.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.666,
+   "t_end": 2.271,
+   "rest_pos": [
+    16.4,
+    -127.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.093,
+   "wall_s": 31.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5166,
+   "module": 6,
+   "mu_part": 0.36,
+   "mu_pill": 0.259,
+   "tilt": 3.3,
+   "v_tan": 4.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.638,
+   "t_end": 1.75,
+   "rest_pos": [
+    7.5,
+    -123.4,
+    -130.7
+   ],
+   "max_pen_mm": 0.095,
+   "wall_s": 27.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5167,
+   "module": 3,
+   "mu_part": 0.593,
+   "mu_pill": 0.438,
+   "tilt": 1.5,
+   "v_tan": 9.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.696,
+   "t_end": 2.437,
+   "rest_pos": [
+    -11.2,
+    -124.1,
+    -130.8
+   ],
+   "max_pen_mm": 0.066,
+   "wall_s": 32.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5168,
+   "module": 2,
+   "mu_part": 0.336,
+   "mu_pill": 0.544,
+   "tilt": 12.7,
+   "v_tan": 39.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.471,
+   "t_end": 1.453,
+   "rest_pos": [
+    -5.5,
+    -121.7,
+    -130.9
+   ],
+   "max_pen_mm": 0.044,
+   "wall_s": 23.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5169,
+   "module": 3,
+   "mu_part": 0.375,
+   "mu_pill": 0.282,
+   "tilt": 10.5,
+   "v_tan": 43.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.687,
+   "t_end": 1.564,
+   "rest_pos": [
+    -9.3,
+    -129.5,
+    -128.7
+   ],
+   "max_pen_mm": 0.019,
+   "wall_s": 27.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5170,
+   "module": 3,
+   "mu_part": 0.548,
+   "mu_pill": 0.439,
+   "tilt": 5.8,
+   "v_tan": 50.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.682,
+   "t_end": 1.676,
+   "rest_pos": [
+    -17.8,
+    -130.2,
+    -128.6
+   ],
+   "max_pen_mm": 0.056,
+   "wall_s": 27.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5171,
+   "module": 5,
+   "mu_part": 0.378,
+   "mu_pill": 0.407,
+   "tilt": 7.8,
+   "v_tan": 54.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.657,
+   "t_end": 1.181,
+   "rest_pos": [
+    18.0,
+    -121.3,
+    -129.6
+   ],
+   "max_pen_mm": 0.122,
+   "wall_s": 23.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5172,
+   "module": 5,
+   "mu_part": 0.545,
+   "mu_pill": 0.544,
+   "tilt": 5.8,
+   "v_tan": 13.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.635,
+   "t_end": 2.147,
+   "rest_pos": [
+    -9.6,
+    -122.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.106,
+   "wall_s": 31.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5173,
+   "module": 2,
+   "mu_part": 0.546,
+   "mu_pill": 0.463,
+   "tilt": 9.7,
+   "v_tan": 58.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.65,
+   "t_end": 1.287,
+   "rest_pos": [
+    12.6,
+    -121.4,
+    -128.6
+   ],
+   "max_pen_mm": 0.018,
+   "wall_s": 24.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5174,
+   "module": 2,
+   "mu_part": 0.308,
+   "mu_pill": 0.492,
+   "tilt": 12.2,
+   "v_tan": 21.0,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.475,
+   "t_end": 1.552,
+   "rest_pos": [
+    16.4,
+    -125.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.029,
+   "wall_s": 26.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5175,
+   "module": 6,
+   "mu_part": 0.404,
+   "mu_pill": 0.25,
+   "tilt": 9.0,
+   "v_tan": 17.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.565,
+   "t_end": 2.08,
+   "rest_pos": [
+    17.4,
+    -124.9,
+    -130.8
+   ],
+   "max_pen_mm": 0.049,
+   "wall_s": 30.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5176,
+   "module": 6,
+   "mu_part": 0.59,
+   "mu_pill": 0.293,
+   "tilt": 6.2,
+   "v_tan": 41.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.588,
+   "t_end": 2.553,
+   "rest_pos": [
+    17.4,
+    -128.3,
+    -128.6
+   ],
+   "max_pen_mm": 0.043,
+   "wall_s": 33.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5177,
+   "module": 5,
+   "mu_part": 0.504,
+   "mu_pill": 0.586,
+   "tilt": 13.9,
+   "v_tan": 34.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.682,
+   "t_end": 2.434,
+   "rest_pos": [
+    6.1,
+    -124.7,
+    -130.7
+   ],
+   "max_pen_mm": 0.065,
+   "wall_s": 33.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5178,
+   "module": 4,
+   "mu_part": 0.534,
+   "mu_pill": 0.522,
+   "tilt": 1.0,
+   "v_tan": 23.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.771,
+   "t_end": 1.276,
+   "rest_pos": [
+    -17.8,
+    -131.1,
+    -128.3
+   ],
+   "max_pen_mm": 0.022,
+   "wall_s": 25.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5179,
+   "module": 4,
+   "mu_part": 0.334,
+   "mu_pill": 0.517,
+   "tilt": 12.6,
+   "v_tan": 53.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.628,
+   "t_end": 1.576,
+   "rest_pos": [
+    -17.7,
+    -128.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.126,
+   "wall_s": 26.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5180,
+   "module": 3,
+   "mu_part": 0.58,
+   "mu_pill": 0.347,
+   "tilt": 14.1,
+   "v_tan": 13.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.724,
+   "t_end": 2.238,
+   "rest_pos": [
+    -4.3,
+    -127.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 31.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5181,
+   "module": 1,
+   "mu_part": 0.554,
+   "mu_pill": 0.312,
+   "tilt": 18.4,
+   "v_tan": 63.7,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.439,
+   "t_end": 2.387,
+   "rest_pos": [
+    18.1,
+    -125.7,
+    -129.7
+   ],
+   "max_pen_mm": 0.047,
+   "wall_s": 32.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5182,
+   "module": 1,
+   "mu_part": 0.245,
+   "mu_pill": 0.246,
+   "tilt": 16.3,
+   "v_tan": 34.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.384,
+   "t_end": 1.416,
+   "rest_pos": [
+    17.5,
+    -121.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.034,
+   "wall_s": 26.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5183,
+   "module": 4,
+   "mu_part": 0.368,
+   "mu_pill": 0.454,
+   "tilt": 15.2,
+   "v_tan": 30.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.697,
+   "t_end": 1.204,
+   "rest_pos": [
+    -5.8,
+    -121.4,
+    -130.8
+   ],
+   "max_pen_mm": 0.03,
+   "wall_s": 26.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5184,
+   "module": 6,
+   "mu_part": 0.297,
+   "mu_pill": 0.437,
+   "tilt": 9.7,
+   "v_tan": 14.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.581,
+   "t_end": 1.849,
+   "rest_pos": [
+    12.7,
+    -122.3,
+    -130.9
+   ],
+   "max_pen_mm": 0.0,
+   "wall_s": 29.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5185,
+   "module": 1,
+   "mu_part": 0.313,
+   "mu_pill": 0.518,
+   "tilt": 0.4,
+   "v_tan": 42.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.43,
+   "t_end": 1.651,
+   "rest_pos": [
+    -7.3,
+    -123.9,
+    -130.8
+   ],
+   "max_pen_mm": 0.004,
+   "wall_s": 27.2
+  },
+  {
+   "kit": "iron",
+   "seed": 5186,
+   "module": 6,
+   "mu_part": 0.235,
+   "mu_pill": 0.439,
+   "tilt": 12.6,
+   "v_tan": 51.2,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.495,
+   "t_end": 1.701,
+   "rest_pos": [
+    1.2,
+    -128.5,
+    -130.8
+   ],
+   "max_pen_mm": 0.077,
+   "wall_s": 28.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5187,
+   "module": 4,
+   "mu_part": 0.353,
+   "mu_pill": 0.347,
+   "tilt": 3.4,
+   "v_tan": 10.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.683,
+   "t_end": 1.852,
+   "rest_pos": [
+    -18.1,
+    -127.4,
+    -129.8
+   ],
+   "max_pen_mm": 0.079,
+   "wall_s": 29.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5188,
+   "module": 4,
+   "mu_part": 0.372,
+   "mu_pill": 0.29,
+   "tilt": 3.6,
+   "v_tan": 13.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.611,
+   "t_end": 2.292,
+   "rest_pos": [
+    12.9,
+    -120.4,
+    -128.6
+   ],
+   "max_pen_mm": 0.108,
+   "wall_s": 32.5
+  },
+  {
+   "kit": "iron",
+   "seed": 5189,
+   "module": 1,
+   "mu_part": 0.379,
+   "mu_pill": 0.263,
+   "tilt": 8.1,
+   "v_tan": 9.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.442,
+   "t_end": 1.618,
+   "rest_pos": [
+    11.8,
+    -123.6,
+    -130.8
+   ],
+   "max_pen_mm": 0.004,
+   "wall_s": 27.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5190,
+   "module": 4,
+   "mu_part": 0.535,
+   "mu_pill": 0.343,
+   "tilt": 16.5,
+   "v_tan": 57.3,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.797,
+   "t_end": 2.493,
+   "rest_pos": [
+    -10.7,
+    -125.7,
+    -130.8
+   ],
+   "max_pen_mm": 0.042,
+   "wall_s": 35.7
+  },
+  {
+   "kit": "iron",
+   "seed": 5191,
+   "module": 5,
+   "mu_part": 0.289,
+   "mu_pill": 0.451,
+   "tilt": 1.2,
+   "v_tan": 27.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.62,
+   "t_end": 1.838,
+   "rest_pos": [
+    14.6,
+    -127.4,
+    -130.8
+   ],
+   "max_pen_mm": 0.073,
+   "wall_s": 29.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5192,
+   "module": 6,
+   "mu_part": 0.26,
+   "mu_pill": 0.338,
+   "tilt": 14.5,
+   "v_tan": 25.1,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.524,
+   "t_end": 1.683,
+   "rest_pos": [
+    -12.5,
+    -123.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.027,
+   "wall_s": 29.1
+  },
+  {
+   "kit": "iron",
+   "seed": 5193,
+   "module": 3,
+   "mu_part": 0.598,
+   "mu_pill": 0.477,
+   "tilt": 16.0,
+   "v_tan": 44.6,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.668,
+   "t_end": 1.691,
+   "rest_pos": [
+    -10.1,
+    -129.1,
+    -130.8
+   ],
+   "max_pen_mm": 0.002,
+   "wall_s": 28.0
+  },
+  {
+   "kit": "iron",
+   "seed": 5194,
+   "module": 6,
+   "mu_part": 0.368,
+   "mu_pill": 0.42,
+   "tilt": 13.3,
+   "v_tan": 7.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.552,
+   "t_end": 1.839,
+   "rest_pos": [
+    13.6,
+    -129.0,
+    -130.8
+   ],
+   "max_pen_mm": 0.076,
+   "wall_s": 30.3
+  },
+  {
+   "kit": "iron",
+   "seed": 5195,
+   "module": 4,
+   "mu_part": 0.598,
+   "mu_pill": 0.427,
+   "tilt": 14.5,
+   "v_tan": 36.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.561,
+   "t_end": 2.421,
+   "rest_pos": [
+    -16.2,
+    -124.3,
+    -130.8
+   ],
+   "max_pen_mm": 0.08,
+   "wall_s": 35.9
+  },
+  {
+   "kit": "iron",
+   "seed": 5196,
+   "module": 1,
+   "mu_part": 0.214,
+   "mu_pill": 0.596,
+   "tilt": 0.5,
+   "v_tan": 46.8,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.377,
+   "t_end": 1.381,
+   "rest_pos": [
+    16.6,
+    -122.2,
+    -130.8
+   ],
+   "max_pen_mm": 0.057,
+   "wall_s": 25.4
+  },
+  {
+   "kit": "iron",
+   "seed": 5197,
+   "module": 2,
+   "mu_part": 0.537,
+   "mu_pill": 0.448,
+   "tilt": 5.3,
+   "v_tan": 14.9,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.693,
+   "t_end": 1.105,
+   "rest_pos": [
+    18.1,
+    -121.2,
+    -128.9
+   ],
+   "max_pen_mm": 0.055,
+   "wall_s": 22.8
+  },
+  {
+   "kit": "iron",
+   "seed": 5198,
+   "module": 5,
+   "mu_part": 0.391,
+   "mu_pill": 0.588,
+   "tilt": 14.5,
+   "v_tan": 33.4,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.678,
+   "t_end": 1.768,
+   "rest_pos": [
+    18.2,
+    -121.5,
+    -128.7
+   ],
+   "max_pen_mm": 0.088,
+   "wall_s": 27.6
+  },
+  {
+   "kit": "iron",
+   "seed": 5199,
+   "module": 6,
+   "mu_part": 0.265,
+   "mu_pill": 0.306,
+   "tilt": 8.4,
+   "v_tan": 24.5,
+   "outcome": "ok",
+   "where": null,
+   "t_land": 0.555,
+   "t_end": 1.808,
+   "rest_pos": [
+    6.0,
+    -119.7,
+    -128.6
+   ],
+   "max_pen_mm": 0.05,
+   "wall_s": 27.2
+  }
+ ]
+}

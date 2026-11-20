@@ -79,7 +79,7 @@ def scene_pieces(kit):
         tol, cell, _ = D.V7_PARTS[n]
         out.append((n, decompose_file(D.V7_CACHE / f"{n}.stl", tol=tol, min_cell=cell), lambda v: v))
     out.append(("Deck", decompose_file(V8 / "parts" / "deck.stl", tol=0.15, min_cell=2.0,
-                                       crop=((-80, -80, -6), (80, 80, 1))), lambda v: v))
+                                       crop=((-90, -90, -6), (90, 90, 36))), lambda v: v))   # with the 30 mm fence
     for n in ("chute", "bracket_right", "bracket_left", "bracket_front"):
         out.append((f"Chute_{n}", decompose_file(V8 / "parts" / f"{n}.stl", tol=0.1, min_cell=1.0), lambda v: v))
     out.append(("Weighing_cup", decompose_file(V8 / "parts" / "pill_cup.stl", tol=0.1, min_cell=1.0), lambda v: v))

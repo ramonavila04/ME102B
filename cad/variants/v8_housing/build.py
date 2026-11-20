@@ -66,9 +66,12 @@ POD_R_MIN = 61.0       # pods stop this far from the ring centre: clear of the d
 # r 32 round CENTRE, pills within 42 mm + 3) and stays wholly under the deck (the rear end is
 # at y 30, 2.5 mm under the 1.5 mm deck clearance). From the lip to y −55 it is the
 # V7-module chute's taper exactly: that chute's install path passes the components on the
-# back of the front panel, and the V7 front bracket (y −81..−57) fits it.
-CHUTE_HW = [(-116.0, 13.0), (-55.0, 23.4), (-48.0, 35.0), (-35.0, 44.0), (-15.0, 47.5),
-            (5.0, 45.0), (15.0, 40.0), (22.0, 31.0), (30.0, 14.0)]
+# back of the front panel, and the V7 front bracket (y −81..−57) fits it. Behind that the walls
+# open out at 25° to the flow, no more: where a converging wall meets the 37° floor the corner
+# slopes at atan(tan 37° · cos 25°) = 34°, steeper than the 31° friction angle of μ 0.6 (the
+# first revision opened out at 59° there; tablets stopped in that 21° corner).
+CHUTE_HW = [(-116.0, 13.0), (-57.0, 23.1), (-5.0, 47.3), (5.0, 45.0), (15.0, 40.0),
+            (22.0, 31.0), (30.0, 14.0)]
 CHUTE_TOP = -6.5       # everything 1.5 mm under the deck
 
 

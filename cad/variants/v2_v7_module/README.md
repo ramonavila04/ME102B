@@ -127,6 +127,7 @@ enclosure axis (the enclosure radius is 113 mm). Tallest point 140 mm above the 
 | Motor gear | `common/motor_gear.stl` | 1 | flat |
 | Motor mount | `common/motor_mount.stl` | 1 | front wall down |
 | Strap | `common/strap.stl` | 1 | rib up |
+| Fit-test coupon (once, before everything else) | `fit_test/fit_coupon.stl` | 1 per printer | flat |
 | Front spacer, rear spacer | `common/spacer.stl`, `common/rear_spacer.stl` | 1 each | flat |
 
 Once per dispenser (in `chute/`, replacing the V7 funnel):
@@ -152,11 +153,9 @@ the whole V7 with six modules (50 MB, not committed).
 | 1/4" steel shaft, cut to 40 mm; file a flat 0.6 mm deep on each end | 1 |
 | R4-ZZ ball bearing, 1/4" × 5/8" × 0.196" | 2 |
 | Pololu micro metal gearmotor with encoder (as in the BOM) | 1 |
-| M3 × 6 heat-set inserts, OD 5 mm | 8 (2 base, 4 hopper, 2 motor posts) |
-| M3 × 12 socket screws from under the deck | 2 (the V7 ones) |
-| M3 × 10 screws, hopper to back plate | 4 |
-| M3 × 10 screws, motor mount to posts | 2 |
-| M3 × 12 screws and nuts, cheeks to back-plate tabs | 4 |
+| M3 × 6 heat-set inserts, OD 5 mm | 8 (2 base, 4 hopper bosses, 2 motor posts) |
+| M3 × 12 socket screws: 2 from under the deck (the V7 ones), 4 hopper to back plate, 2 motor mount to posts, 4 cheeks to back-plate tabs | 12 |
+| M3 nuts, cheeks | 4 |
 | M3 × 6 set screw and M3 nut, shaft gear | 1 each |
 | M2 × 8 self-tapping screws, strap | 2 |
 | IR break-beam pair, 3 mm | 1 |
@@ -167,12 +166,18 @@ Once per dispenser, for the chute:
 | --- | --- |
 | M3 × 16 screws, brackets to the V7 funnel posts (replace the funnel screws) | 3 |
 | M3 × 6 heat-set inserts, OD 5 mm, in the brackets | 3 |
-| M3 × 12 countersunk screws, chute to brackets (from inside the chute) | 3 |
+| M3 × 16 countersunk screws, chute to the left and right brackets (from inside the chute) | 2 |
+| M3 × 12 countersunk screw, chute to the front bracket (from inside the chute) | 1 |
 
 ## Assembly
 
+0. Print `fit_test/fit_coupon.stl` first, on the printer and filament for the real parts,
+   and set the fits from it (see `fit_test.py`): bearing pockets, insert holes, shaft and
+   motor bores. Check each printed back plate and hopper carries the kit name (IRON or
+   SMALL); the disc's pockets also differ visibly.
 1. Press the heat-set inserts: two into the base plate from underneath, four into the
-   back of the back plate (hopper holes), one into the end of each motor post.
+   bosses on the back of the back plate (hopper holes; flush with the boss ends), one into
+   the end of each motor post.
 2. Press one bearing into the pocket in the front of the back plate, the other into the
    rear end of the bearing tube.
 3. Press the disc onto one flatted end of the shaft, shaft end flush with the top of the
@@ -182,29 +187,43 @@ Once per dispenser, for the chute:
    face toward the bearing). Hold the disc down, push the gear up to the spacer, and
    tighten its set screw on the shaft's rear flat. The disc must turn freely with no end
    play you can feel.
-5. Bolt the hopper to the front of the back plate (4 × M3 × 10, groove over the exit hole);
+5. Bolt the hopper to the front of the back plate (4 × M3 × 12, groove over the exit hole);
    glue the cover into the hopper mouth on the high side.
-6. Push the motor gear onto the gearmotor shaft (one drop of CA on the flat). Lay the motor
+6. Push the motor gear onto the gearmotor shaft (one drop of CA on the flat) until its
+   front face is flush with the end of the motor shaft: that leaves the 1 mm gap to the
+   mount and lines it up with the shaft gear. Lay the motor
    in the motor mount, gearbox face against the front wall, fit the strap with 2 × M2 × 8
    (its rib presses 0.6 mm into the motor, so it clamps it),
-   and screw the mount to the posts with 2 × M3 × 10. The two gears must mesh across their
+   and screw the mount to the posts with 2 × M3 × 12. The two gears must mesh across their
    full width; turn the disc by hand to check.
 7. Bolt the cheeks to the back-plate tabs (4 × M3 × 12 and nuts) and glue them into the
    base-plate slots, square to the base.
 8. Fit the beam-break LEDs into the two holes across the duct, 8 mm behind the plate.
-9. Set the module on the deck, wires through the slot, and screw it down from below with
-   the V7's 2 × M3 × 12.
+9. With the deck off the enclosure (the V7 deck is a separate printed plate), set the module
+   on it, wires through the slot, and screw it down from below with the V7's 2 × M3 × 12.
+   Fit all six, then lower the deck onto the enclosure.
 
-Once per dispenser, before the modules: take out the V7 funnel, press an insert into each
-bracket, screw the brackets to the three funnel posts (M3 × 16), screw the chute to the
-brackets (M3 × 12 countersunk, from inside), and set the pill cup on the weighing tray.
+Once per dispenser, with the deck lifted off and before the modules go on:
+
+1. Take out the V7 funnel. Press an insert into each bracket and screw the brackets to the
+   three funnel posts (M3 × 16).
+2. The chute's lip goes under the window's top edge and its sides under ribs, so it cannot
+   be lowered straight into place. Hold it about 40 mm behind its final position (toward the
+   back of the enclosure), lower it straight down to the bottom, then slide it 40 mm forward
+   until its ribs meet the brackets. That path is checked with the brackets and front panel
+   fitted (`python sim/v7_chute_install.py`); at 30 or 50 mm behind, it hits.
+3. Screw the chute to the brackets from inside: M3 × 16 countersunk on the left and right,
+   M3 × 12 countersunk at the front (the side ribs are 4.4 mm thicker). The heads sit flush.
+4. Set the pill cup on the weighing tray, then put the deck (with its modules) back on.
 
 ## Firmware
 
 The gears are 1:1, so encoder counts per disc turn, the 45° index, 25 rpm and timings in
 `include/mechanism.h` are unchanged. A spur pair reverses the direction: the disc turns
-the opposite way to the motor. Swap the two motor leads (or invert the motor direction in
-firmware) so the disc turns the same way as in the simulation.
+the opposite way to the motor, and the encoder (on the motor) reads the motor's direction.
+Build with `pio run -e dispenser-v7` (flag `MECH_DRIVE_REVERSED`), which inverts the motor
+output and the encoder together. Do not swap the motor leads instead: that reverses the
+motor but not the encoder, and the firmware stops with ENCODER DIRECTION.
 
 ## Not yet proven
 

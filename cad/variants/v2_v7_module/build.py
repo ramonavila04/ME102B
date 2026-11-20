@@ -64,7 +64,10 @@ MOTOR_GAP = 1.0                   # motor gear to the motor mount's front wall
 MOUNT_WALL = 1.5                  # motor mount front wall (the gearbox face rests on it)
 MOUNT_L = 12.0                    # motor mount length along the motor
 POST_XY = (17.0, None)            # motor-mount posts at local (±17, −CD)
-POST_R = 3.5
+POST_R = 4.0                      # 2 mm of wall round the Ø4 insert hole (was 3.5: 1.5 mm)
+HOPPER_BOSS_R = 3.75              # bosses behind the plate for the hopper M3 × 6 inserts (1.75 mm wall;
+HOPPER_BOSS_H = 3.5               # R4 would touch the R40 plate edge). 3 + 3.5 mm holds the 6 mm insert
+LABEL_H, LABEL_DEPTH = 3.6, 0.6   # kit name debossed on the back plate and hopper flange
 MOTOR_LEN = 35.0                  # gearbox + motor + encoder
 SLEEVE_L = 24.0                   # motor channel length (grips gearbox and can)
 SLEEVE_WALL = 2.0
@@ -247,8 +250,10 @@ def make_backplate(pp: dict) -> cq.Workplane:
         px, py = sx * POST_XY[0], -CD
         plate = plate.union(cq.Workplane("XY").workplane(offset=L["mount_front"]).center(px, py)
                             .circle(POST_R).extrude(zb - L["mount_front"]))
+        # 9 mm deep: the 6 mm insert sits flush with the post end and the M3 × 10 through the
+        # 4 mm mount ear ends 6 mm in, so the hole runs 3 mm past the screw tip
         plate = plate.cut(cq.Workplane("XY").workplane(offset=L["mount_front"] - 1).center(px, py)
-                          .circle(2.0).extrude(7.0))
+                          .circle(2.0).extrude(10.0))
     # stand tabs
     for sx in (-1, 1):
         for y in TAB_Y:
@@ -263,10 +268,33 @@ def make_backplate(pp: dict) -> cq.Workplane:
                       .workplane(offset=3.0).circle(r_p).loft())
     plate = plate.cut(cq.Workplane("XY").workplane(offset=L["tube_rear"] - 1).circle(5.5).extrude(TUBE))
     plate = plate.cut(cq.Workplane("XY").workplane(offset=L["tube_rear"] - 1).circle(r_p).extrude(b.BRG_W + 1))
-    # hopper bolt holes (heat-set inserts from the back), as V2
-    holes = (cq.Workplane("XY").workplane(offset=zb - 1)
-             .polarArray(b.BOLT_R, 45, 360, 4).circle(2.0).extrude(b.BP_T + 2))
+    # hopper bolt holes: heat-set inserts pressed in from the back, flush with the boss end.
+    # The V2 plate is only 3 mm thick, shorter than the insert, so each hole gets a boss
+    # (kept 0.5 mm inside the cheeks)
+    bosses = (cq.Workplane("XY").workplane(offset=zb - HOPPER_BOSS_H)
+              .polarArray(b.BOLT_R, 45, 360, 4).circle(HOPPER_BOSS_R).extrude(HOPPER_BOSS_H + 1.0))
+    plate = plate.union(bosses.intersect(_box(-CHEEK_X + 0.5, CHEEK_X - 0.5, -60, 60, zb - 10, zb + 1)))
+    holes = (cq.Workplane("XY").workplane(offset=zb - HOPPER_BOSS_H - 1)
+             .polarArray(b.BOLT_R, 45, 360, 4).circle(2.0).extrude(HOPPER_BOSS_H + b.BP_T + 2))
     return plate.cut(holes).intersect(from_module(wedge_module()))
+
+
+def _label(text: str, plane: cq.Plane) -> cq.Workplane:
+    return cq.Workplane(plane).text(text, LABEL_H, -LABEL_DEPTH, combine=False, halign="center", valign="center")
+
+
+def label_backplate(plate: cq.Workplane, pp: dict, kit: str) -> cq.Workplane:
+    """Kit name debossed in the plate's rear face (up when printed), below the gears."""
+    zb = frames(pp)["zb"]
+    pl = cq.Plane(origin=(0, -34.0, zb), xDir=(-1, 0, 0), normal=(0, 0, -1))
+    return plate.cut(_label(kit.upper(), pl))
+
+
+def label_hopper(hop: cq.Workplane, pp: dict, kit: str) -> cq.Workplane:
+    """Kit name debossed in the top of the hopper flange, on the low side."""
+    z0 = -pp["depth"] - b.RUN
+    pl = cq.Plane(origin=(0, -36.0, z0 + 3.0), xDir=(1, 0, 0), normal=(0, 0, 1))
+    return hop.cut(_label(kit.upper(), pl))
 
 
 def make_hopper(pp: dict) -> cq.Workplane:
@@ -402,8 +430,9 @@ def build(kit: str) -> dict:
     # disc back face down, back plate front face down, hopper flange down
     parts = {
         "disc": (b.make_disc(pp), "back face down (as saved)"),
-        "backplate": (make_backplate(pp).rotate((0, 0, 0), (1, 0, 0), 180), "front face down (as saved)"),
-        "hopper": (make_hopper(pp), "flange down (as saved)"),
+        "backplate": (label_backplate(make_backplate(pp), pp, kit).rotate((0, 0, 0), (1, 0, 0), 180),
+                      "front face down (as saved)"),
+        "hopper": (label_hopper(make_hopper(pp), pp, kit), "flange down (as saved)"),
     }
     man = dict(variant="v2_v7_module", pill=kit, params=dict(pp, y0=Y0, z0=Z0, duct_len=DUCT_LEN,
                                                              tube=TUBE, gear_cd=CD), parts=[],

@@ -26,8 +26,18 @@ namespace {
 
 // ---- Polarity: fix in software if the motor or encoder runs backwards
 // (the firmware faults with ENCODER DIRECTION if they disagree).
-constexpr bool kMotorInvert = false;
-constexpr bool kEncoderInvert = false;
+constexpr bool kMotorWiringInvert = false;
+constexpr bool kEncoderWiringInvert = false;
+// V7 module (cad/variants/v2_v7_module): the 1:1 spur pair turns the disc opposite to the
+// motor, and the encoder is on the motor. Both signs flip together, so this must not be fixed
+// by swapping the motor leads alone (that raises ENCODER DIRECTION). Build env dispenser-v7.
+#ifdef MECH_DRIVE_REVERSED
+constexpr bool kDriveReversed = true;
+#else
+constexpr bool kDriveReversed = false;
+#endif
+constexpr bool kMotorInvert = kMotorWiringInvert != kDriveReversed;
+constexpr bool kEncoderInvert = kEncoderWiringInvert != kDriveReversed;
 
 constexpr uint8_t kPwmChannel = 0;
 constexpr uint8_t kPwmBits = 10;

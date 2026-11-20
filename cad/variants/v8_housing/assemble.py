@@ -147,6 +147,65 @@ def render(B, path, views=(("iso", 30, -60), ("front", 10, -90), ("top", 89, -90
     fig.savefig(path, dpi=90)
 
 
+def sections(B, path):
+    """Side section at x = 0 and a plan of the deck, pods and duct mouths."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    def col(n, g):
+        if g == "new":
+            return "tab:blue"
+        if g == "v7":
+            return "0.45"
+        if "disc" in n or "backplate" in n:
+            return "tab:orange"
+        if "gearmotor" in n:
+            return "goldenrod"
+        if "pod" in n or "side_" in n:
+            return "0.2"
+        return "lightsteelblue"
+    fig, ax = plt.subplots(1, 2, figsize=(18, 8.5))
+    for n, g, t in B:
+        if "small" in n or n == "Station_fasteners":
+            continue
+        s = t.section(plane_origin=[0.01, 0, 0], plane_normal=[1, 0, 0])
+        if s is not None:
+            for e in s.discrete:
+                ax[0].plot(e[:, 1], e[:, 2], color=col(n, g), lw=0.8)
+    ax[0].set_title("Section x = 0, front at the left: chute (blue) from the drop ring to the cup "
+                    "on the weighing station, under the front panel", fontsize=9)
+    for n, g, t in B:
+        z = {"deck": -2.5, "chute": None}.get(n, 3.0 if "pod" in n else None)
+        if n == "chute":
+            # floor outline: section just above the floor plane is awkward; use the plan hull
+            v = t.vertices
+            from scipy.spatial import ConvexHull
+            hpts = v[ConvexHull(v[:, :2]).vertices][:, :2]
+            ax[1].fill(hpts[:, 0], hpts[:, 1], color="tab:blue", alpha=0.15, lw=0)
+            continue
+        if z is None:
+            continue
+        s = t.section(plane_origin=[0, 0, z], plane_normal=[0, 0, 1])
+        if s is not None:
+            for e in s.discrete:
+                ax[1].plot(e[:, 0], e[:, 1], color=col(n, g), lw=0.8)
+    for k in range(Ly.N_MOD):
+        mx, my = Ly.mouth_xy(k)
+        ax[1].add_patch(plt.Circle((mx, my), 10, color="tab:red", alpha=0.35))
+        d = Ly.pt_enc((0, 0, 0), k)
+        ax[1].plot(d[0], d[1], "k+")
+        ax[1].annotate(f"module {k + 1}", (d[0], d[1]), fontsize=8)
+    ax[1].add_patch(plt.Circle((0, 0), 42, fill=False, ls="--", color="tab:red"))
+    ax[1].set_title("Plan: deck (blue), pods (dark), chute footprint (shaded), duct mouths (red), "
+                    "disc centres (+)", fontsize=9)
+    for a in ax:
+        a.set_aspect("equal")
+        a.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(path, dpi=80)
+
+
 def export_step(kit: str):
     a = cq.Assembly(name=f"v8_housing_{kit}")
     deck, shell, lower, small = Ly.v7_enclosure_pieces()
@@ -172,5 +231,6 @@ if __name__ == "__main__":
     B, hits = check(kit)
     (HERE / "views").mkdir(exist_ok=True)
     render(B, HERE / "views" / f"v8_{kit}.png")
+    sections(B, HERE / "views" / f"v8_sections_{kit}.png")
     if "--step" in sys.argv:
         export_step(kit)

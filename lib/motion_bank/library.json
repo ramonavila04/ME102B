@@ -1,0 +1,11 @@
+{
+  "name": "motion_bank",
+  "version": "0.1.0",
+  "description": "Motion-board logic for the V8 dispenser: six modules driven one at a time (homing, indexing, beam counting, jam recovery) and the framed UART link to the main board. Hardware-independent; unit-tested on the host (pio test -e native).",
+  "frameworks": "*",
+  "platforms": "*",
+  "dependencies": [{"name": "dispenser_core"}],
+  "build": {
+    "flags": "-I$PROJECT_INCLUDE_DIR"
+  }
+}

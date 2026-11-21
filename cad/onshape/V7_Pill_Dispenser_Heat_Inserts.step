@@ -11,12 +11,12 @@ FILE_DESCRIPTION(
 /* implementation_level */ '2;1');
 
 FILE_NAME(
-/* name */ '6afeb8dff6fcf8b61c92e31e',
-/* time_stamp */ '2026-11-19T08:52:52Z',
+/* name */ '6b01d662f6235cb014886f25',
+/* time_stamp */ '2026-11-21T17:35:38Z',
 /* author */ (''),
 /* organization */ (''),
 /* preprocessor_version */ 'ST-DEVELOPER v20',
-/* originating_system */ 'ONSHAPE BY PTC INC, 1.223',
+/* originating_system */ 'ONSHAPE BY PTC INC, 1.224',
 /* authorisation */ '  ');
 
 FILE_SCHEMA (('AUTOMOTIVE_DESIGN {1 0 10303 214 3 1 1}'));

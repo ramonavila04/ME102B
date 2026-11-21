@@ -7,6 +7,8 @@ changed; this folder only adds parts and reuses V7 parts as they are.
 
 ![V8 housing with six V2 modules](views/v8_iron.png)
 
+![Section and plan](views/v8_sections_iron.png)
+
 ## What changed from the V7, and why
 
 The V2 drive line is long: about 100 mm behind the disc, sloping down at 40°. On the V7
@@ -30,20 +32,24 @@ together, so any kit fits any pod): skew angles 0–90° and mouth radii 26–50
 centre needs a 35 mm mouth ring and puts the hopper tops 201 mm out; 50° skew with a 32 mm
 ring keeps 4.5 mm between modules and brings them to 189 mm.
 
-### The drop: first design, failure and fix
+### The drop: how the chute got to its final shape
 
-The first chute rose through a round Ø108 deck opening at the back, with its walls ending
-8 mm above the deck. In the drop simulation 1 of 200 iron tablets (seed 5156) left its duct
-at 0.6 m/s, clipped the top of a chute wall, landed on the deck just outside the opening,
-rolled to a wire slot and fell to the floor (small tablets: 200/200; results in `results/v8_drop_rev1/`). Three changes:
+The drop simulation (`python -m sim.v8_drop`, 200 tablets per kit, friction 0.2–0.6) found a
+problem in each version before the last; each was fixed in the design, never by changing the
+test.
 
-- the mouth ring moved 15 mm toward the front, so the 37° floor stays under the deck below
-  the rear mouths (the floor plane and lip are unchanged);
-- the chute walls are vertical, and the deck opening is the chute's inner outline less
-  1 mm, so the deck overlaps the walls and nothing can fall between them;
-- a 30 mm fence stands round the opening on the deck. It is notched only where a module
-  passes over it, by that module's shape swept straight up plus 1.5 mm, so a module still
-  lifts straight off its pod.
+| Version | iron | small | What failed | Change for the next version |
+| --- | --- | --- | --- | --- |
+| 1: chute rising through a round deck opening (`results/v8_drop_rev1/`) | 199 | 200 | a tablet clipped a wall top, landed on the deck and fell through a wire slot | mouth ring 15 mm forward so the chute stays under the deck; vertical walls; deck opening overlaps the walls by 1 mm; 30 mm fence round it |
+| 2 | 197 | not run | 2 tablets stopped where a wall turned in at 59° to the flow (that corner slopes only 21°); 1 escape, because the simulated deck had lost its fence (a crop error in the simulation) | walls open out at 25° or less (corner slope 34°, above the 31° friction angle); simulation crop fixed |
+| 3 (`results/v8_drop_rev2/`) | 200 | 196 | 3 small tablets caught on a bracket rib standing 5 mm proud of the floor; 1 bounced over the low front walls into the screen-panel bay | inside of the chute cut clean after the ribs |
+| 4 (`results/v8_drop_rev3/`) | 200 | 199 | the same bounce into the panel bay | a gate across the chute |
+| 5, final (`results/v8_drop/`) | **200** | **200** | — | — |
+
+The gate stands 20 mm before the screen panel and closes the chute above 14 mm from the floor,
+up to the wall tops: tablets slide under it (an iron tablet on edge is 9.5 mm) but cannot fly
+over the front walls. Two lower gates were tried first: one under the panel touched a panel
+part on the way in, and one trimmed to fit under it gave a bouncing tablet a ledge to land on.
 
 ## Parts
 
@@ -53,7 +59,7 @@ New (in `parts/`, all print without supports and fit a 256 × 256 mm bed):
 | --- | --- | --- | --- | --- |
 | Deck: the V7 deck with its module holes filled, the drop opening with a 30 mm fence, inserts for the pods | 1 | 226 × 226 × 35 | 175 cm³ | top face up (as the V7 deck) |
 | Pod (one per module; the V2 side plates glue into its slots) | 6 | 138 × 109 × 6 | 45 cm³ each | flat |
-| Chute | 1 | 100 × 175 × 70 | 67 cm³ | floor down |
+| Chute (with the gate) | 1 | 100 × 175 × 70 | 66 cm³ | floor down |
 | Brackets, right / left / front (chute to the V7 funnel posts) | 1 each | ≤ 41 × 52 × 10 | 5 cm³ each | flat |
 | Pill cup (same as the V7 module version) | 1 | 50 × 22 × 20 | 6 cm³ | floor down |
 | Electronics tray, two half-size breadboards (optional) | 1 | 120 × 137 × 7 | 25 cm³ | flat |
@@ -101,7 +107,8 @@ The firmware is the V2's (`pio run -e dispenser`): no gear pair, so no reversed 
 | `assemble.py iron` / `small`: clashes between every pair of parts (modules, pods, deck, fence, chute, brackets, V7 parts) | None for either kit |
 | Pod screws: material round each in pod and deck; a straight driver reaches each from above past all six modules | Pass (checked by ray casting) |
 | Chute install path (`python sim/v7_chute_install.py cad/variants/v8_housing/parts --after bracket_left,bracket_right`) | Pass: chute lowered 40 mm back and slid forward; side brackets lowered straight onto their posts after it |
-| Pill drop, mouth to weighing station (`python -m sim.v8_drop`) | DROP_RESULT |
+| Pill drop, mouth to weighing station (`python -m sim.v8_drop`), 200 tablets per kit | iron 200/200, small 200/200 (`results/v8_drop/`) |
+| Doses of 4 tablets, one after another (`python -m sim.v8_drop --dose 4`), 50 per kit | DOSE_RESULT |
 | Tipping (`tipping.py`, estimated masses, full hoppers: 2.3 kg, centre of mass on the axis 166 mm up) | Tips at 7.8 N pushed sideways at a hopper top, or 31 N pressed down on a hopper's outer rim |
 
 ## Not done yet / open
@@ -110,7 +117,7 @@ The firmware is the V2's (`pio run -e dispenser`): no gear pair, so no reversed 
   six motors, encoders and beam-breaks. The floor space is the V7's (the tray shows two
   half-size breadboards fit between the posts); a full-size board fits only diagonally.
 - **Home sensing.** No mount yet (as for every V2 build).
-- **Size.** The hopper tops reach 189 mm from the axis (V7 geared: 148 mm). The pods
-  overhang the deck by up to 43 mm.
+- **Size.** The hopper tops reach 204 mm from the axis at the front and 172 mm at the back
+  (V7 geared: 148 mm). The pods overhang the deck by up to 43 mm.
 - **Glue.** The V2 side plates are glued into the pods, as they were into the V2 base.
 - **Cable routing** below the deck and the power jack position are not designed.

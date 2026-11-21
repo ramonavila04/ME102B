@@ -6,7 +6,7 @@
 
 #include "bank.h"
 #include "dc_config.h"
-#include "link.h"
+#include "boardlink.h"
 #include "mechanism.h"
 #include "sim_motor.h"
 
@@ -14,27 +14,27 @@ using namespace mb;
 
 // ---------------------------------------------------------------- link
 void test_link_roundtrip() {
-  uint8_t buf[link::kMaxFrame];
+  uint8_t buf[boardlink::kMaxFrame];
   const uint8_t pl[5] = {3, 1, 1, 2, 0};
-  const size_t n = link::encode(link::kResult, 42, pl, 5, buf);
+  const size_t n = boardlink::encode(boardlink::kResult, 42, pl, 5, buf);
   TEST_ASSERT_EQUAL(10, n);
-  link::Parser p;
+  boardlink::Parser p;
   bool got = false;
   for (size_t i = 0; i < n; ++i) got = p.feed(buf[i]);
   TEST_ASSERT_TRUE(got);
-  TEST_ASSERT_EQUAL_HEX8(link::kResult, p.frame().type);
+  TEST_ASSERT_EQUAL_HEX8(boardlink::kResult, p.frame().type);
   TEST_ASSERT_EQUAL(42, p.frame().seq);
   TEST_ASSERT_EQUAL(5, p.frame().len);
   TEST_ASSERT_EQUAL_UINT8_ARRAY(pl, p.frame().payload, 5);
 }
 
 void test_link_rejects_corruption_and_resyncs() {
-  uint8_t a[link::kMaxFrame], b[link::kMaxFrame];
+  uint8_t a[boardlink::kMaxFrame], b[boardlink::kMaxFrame];
   const uint8_t m = 4;
-  const size_t na = link::encode(link::kDispense, 1, &m, 1, a);
-  const size_t nb = link::encode(link::kHome, 2, &m, 1, b);
+  const size_t na = boardlink::encode(boardlink::kDispense, 1, &m, 1, a);
+  const size_t nb = boardlink::encode(boardlink::kHome, 2, &m, 1, b);
   a[4] ^= 0x10;  // corrupt the payload
-  link::Parser p;
+  boardlink::Parser p;
   std::vector<uint8_t> stream = {0x00, 0x13, 0xA5};  // garbage, including a stray start byte
   stream.insert(stream.end(), a, a + na);
   stream.insert(stream.end(), b, b + nb);
@@ -46,16 +46,16 @@ void test_link_rejects_corruption_and_resyncs() {
       lastType = p.frame().type;
     }
   TEST_ASSERT_EQUAL(1, frames);  // only the good frame
-  TEST_ASSERT_EQUAL_HEX8(link::kHome, lastType);
+  TEST_ASSERT_EQUAL_HEX8(boardlink::kHome, lastType);
   TEST_ASSERT_TRUE(p.crcErrors() >= 1);
 }
 
 void test_link_rejects_oversize() {
-  uint8_t big[link::kMaxPayload + 1] = {};
+  uint8_t big[boardlink::kMaxPayload + 1] = {};
   uint8_t buf[64];
-  TEST_ASSERT_EQUAL(0, link::encode(link::kPing, 0, big, link::kMaxPayload + 1, buf));
-  link::Parser p;
-  const uint8_t bad[] = {link::kStart, 200, 1, 1};
+  TEST_ASSERT_EQUAL(0, boardlink::encode(boardlink::kPing, 0, big, boardlink::kMaxPayload + 1, buf));
+  boardlink::Parser p;
+  const uint8_t bad[] = {boardlink::kStart, 200, 1, 1};
   for (uint8_t c : bad) TEST_ASSERT_FALSE(p.feed(c));
   TEST_ASSERT_EQUAL(1, p.lengthErrors());
 }

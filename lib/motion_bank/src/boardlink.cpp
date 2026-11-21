@@ -1,8 +1,8 @@
-#include "link.h"
+#include "boardlink.h"
 
 #include <string.h>
 
-namespace link {
+namespace boardlink {
 
 uint8_t crc8(const uint8_t* data, size_t n) {
   uint8_t c = 0;
@@ -69,4 +69,4 @@ bool Parser::feed(uint8_t b) {
   return false;
 }
 
-}  // namespace link
+}  // namespace boardlink

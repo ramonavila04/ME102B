@@ -10,7 +10,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-namespace link {
+namespace boardlink {
 
 constexpr uint8_t kStart = 0xA5;
 constexpr uint8_t kMaxPayload = 16;
@@ -55,4 +55,4 @@ class Parser {
   uint32_t crcErrors_ = 0, lengthErrors_ = 0;
 };
 
-}  // namespace link
+}  // namespace boardlink

@@ -177,7 +177,7 @@ def _cavity():
 # under it (≥ 10.7 mm headroom). Its underside rises 20° toward the front, so it prints without
 # support with the chute floor down.
 GATE_Y = (-99.5, -97.1)       # behind the panel's rear components (y ≤ −104), where the walls are tall
-GATE_Z_TOP = -70.0
+GATE_Z_TOP = -80.5         # 0.5 mm under the screen panel part that reaches back to y −93 at z −80
 GATE_BOTTOM = -94.0        # underside height at its back face (10.8 mm over the floor)
 GATE_BOTTOM_DEG = 20.0
 

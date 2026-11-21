@@ -170,15 +170,15 @@ def _cavity():
             .cut(cq.Workplane(pl).rect(1000, 1000).extrude(-300)))
 
 
-# Gate across the chute in front of the V7 shell's front shelf (the panel bay's floor, z −92.7 at
-# y −112..−108, 20 mm above the chute floor). In the drop simulation a small tablet that landed
-# hard bounced forward above the low front walls and came to rest on that shelf (seed 5131). The
-# gate's plate stops anything flying above the walls there; tablets sliding on the floor pass
-# under it (≥ 10.7 mm headroom). Its underside rises 20° toward the front, so it prints without
-# support with the chute floor down.
-GATE_Y = (-99.5, -97.1)       # behind the panel's rear components (y ≤ −104), where the walls are tall
-GATE_Z_TOP = -80.5         # 0.5 mm under the screen panel part that reaches back to y −93 at z −80
-GATE_BOTTOM = -94.0        # underside height at its back face (10.8 mm over the floor)
+# Gate across the chute, 20 mm before the screen panel. In the drop simulation a small tablet that
+# landed hard bounced forward well above the floor and came to rest in the panel bay: first on
+# the V7 shell's shelf (z −92.7 at y −112..−108), and, with a low gate under the panel, on top of
+# that gate (seed 5131). This gate closes the whole trough above 14 mm from the floor, up to
+# the wall tops, where nothing is overhead; tablets sliding on the floor pass under it. Its
+# underside rises 20° toward the front, so it prints without support with the chute floor down.
+GATE_Y = (-88.9, -86.5)       # clear of the screen panel (it reaches back to y −93); walls here are 40 mm under the deck
+GATE_Z_TOP = -40.5         # up to the wall tops: the whole cross-section above the headroom is closed
+GATE_BOTTOM = -82.8        # underside at its back face: 14 mm over the floor (an iron tablet on edge is 9.5)
 GATE_BOTTOM_DEG = 20.0
 
 

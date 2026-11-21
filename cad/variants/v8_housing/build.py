@@ -170,15 +170,15 @@ def _cavity():
             .cut(cq.Workplane(pl).rect(1000, 1000).extrude(-300)))
 
 
-# Gate across the chute just behind the V7 shell's front shelf (the panel bay's floor, z −92.7 at
+# Gate across the chute in front of the V7 shell's front shelf (the panel bay's floor, z −92.7 at
 # y −112..−108, 20 mm above the chute floor). In the drop simulation a small tablet that landed
 # hard bounced forward above the low front walls and came to rest on that shelf (seed 5131). The
 # gate's plate stops anything flying above the walls there; tablets sliding on the floor pass
 # under it (≥ 10.7 mm headroom). Its underside rises 20° toward the front, so it prints without
 # support with the chute floor down.
-GATE_Y = (-103.4, -101.0)
-GATE_Z_TOP = -80.0
-GATE_BOTTOM = -97.0        # underside height at its back face
+GATE_Y = (-99.5, -97.1)       # behind the panel's rear components (y ≤ −104), where the walls are tall
+GATE_Z_TOP = -70.0
+GATE_BOTTOM = -94.0        # underside height at its back face (10.8 mm over the floor)
 GATE_BOTTOM_DEG = 20.0
 
 

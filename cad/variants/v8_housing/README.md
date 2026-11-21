@@ -108,7 +108,7 @@ The firmware is the V2's (`pio run -e dispenser`): no gear pair, so no reversed 
 | Pod screws: material round each in pod and deck; a straight driver reaches each from above past all six modules | Pass (checked by ray casting) |
 | Chute install path (`python sim/v7_chute_install.py cad/variants/v8_housing/parts --after bracket_left,bracket_right`) | Pass: chute lowered 40 mm back and slid forward; side brackets lowered straight onto their posts after it |
 | Pill drop, mouth to weighing station (`python -m sim.v8_drop`), 200 tablets per kit | iron 200/200, small 200/200 (`results/v8_drop/`) |
-| Doses of 4 tablets, one after another (`python -m sim.v8_drop --dose 4`), 50 per kit | DOSE_RESULT |
+| Doses of 4 tablets, one after another (`python -m sim.v8_drop --dose 4`), 50 per kit | iron 50/50, small 50/50: every tablet in the cup and touching nothing but the cup and other tablets (`results/v8_drop_dose4/`) |
 | Tipping (`tipping.py`, estimated masses, full hoppers: 2.3 kg, centre of mass on the axis 166 mm up) | Tips at 7.8 N pushed sideways at a hopper top, or 31 N pressed down on a hopper's outer rim |
 
 ## Not done yet / open

@@ -170,10 +170,36 @@ def _cavity():
             .cut(cq.Workplane(pl).rect(1000, 1000).extrude(-300)))
 
 
+# Gate across the chute just behind the V7 shell's front shelf (the panel bay's floor, z −92.7 at
+# y −112..−108, 20 mm above the chute floor). In the drop simulation a small tablet that landed
+# hard bounced forward above the low front walls and came to rest on that shelf (seed 5131). The
+# gate's plate stops anything flying above the walls there; tablets sliding on the floor pass
+# under it (≥ 10.7 mm headroom). Its underside rises 20° toward the front, so it prints without
+# support with the chute floor down.
+GATE_Y = (-103.4, -101.0)
+GATE_Z_TOP = -80.0
+GATE_BOTTOM = -97.0        # underside height at its back face
+GATE_BOTTOM_DEG = 20.0
+
+
+def gate():
+    y0, y1 = GATE_Y
+    xo = max(_hw(y0), _hw(y1)) + ch.T
+    slab = cq.Workplane("XY").workplane(offset=-100.0).center(0, (y0 + y1) / 2).rect(2 * xo, y1 - y0).extrude(GATE_Z_TOP + 100.0)
+    # headroom under the plate, inside the trough: below a plane through (y1, GATE_BOTTOM)
+    # rising toward −y at GATE_BOTTOM_DEG
+    t = math.tan(math.radians(GATE_BOTTOM_DEG))
+    pts = [(y1 + 5, GATE_BOTTOM - 5 * t), (y0 - 5, GATE_BOTTOM + (y1 - y0 + 5) * t), (y0 - 5, -200), (y1 + 5, -200)]
+    under = cq.Workplane("YZ").workplane(offset=-_hw(y1)).polyline(pts).close().extrude(2 * _hw(y1))
+    g = slab.cut(under)
+    # and nothing below the chute floor's top surface (it sits on the walls and floor)
+    return g.cut(cq.Workplane(ch.plane_at(0)).rect(1000, 1000).extrude(-300))
+
+
 def make_chute():
     # the ribs follow the wall at their joint, but the wall opens out along a rib's 14 mm, so
     # cut the inside clean again: nothing may stand proud of the floor or walls inside
-    return ribs_and_holes(trough()).cut(_cavity()).cut(chute_keepout())
+    return ribs_and_holes(trough()).cut(_cavity()).cut(chute_keepout()).union(gate())
 
 
 def make_brackets():

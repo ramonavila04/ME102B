@@ -30,7 +30,7 @@ and HX711, TFT screen, buttons, both ESP32 boards, IR beam-breaks):
 | **Housing changes** | — | funnel → chute, 3 brackets, pill cup | new deck, six pods, new chute | funnel → chute, 3 brackets, pill cup (same as B) |
 | **Extra COTS per module** | — | 1/4" shaft, 2 × R4-ZZ bearings | 1/4" shaft, 2 × R4-ZZ, flexible coupler | 1/4" shaft, 2 × R4-ZZ bearings |
 | **Printed parts per module** | V7 module | 13 | V2 module + pod | 13 (B's hopper and cover become a stub and a canister) |
-| **Pill path simulated** | V7 funnel drop: 177/200 iron, 178/200 small (tablets stall on the funnel) | module 200/200 per kit; with gear backlash 200/200; chute + cup 200/200 | module 200/200; drop 200/200 | **see "Simulation" below** |
+| **Pill path simulated** | V7 funnel drop: 177/200 iron, 178/200 small (tablets stall on the funnel) | module 200/200 per kit; with gear backlash 200/200; chute + cup 200/200 | module 200/200; drop 200/200 | **module 200/200 per kit** (with the rock, below); chute + cup as B |
 
 ## What each option fixes
 
@@ -103,11 +103,84 @@ design):
 
 ## Simulation
 
-PENDING
+`python -m sim.campaign v2_v7_vertical --pills iron small --trials 200`. Each trial pours
+3–30 tablets into the canister, with random sizes, random friction (0.2–0.6) and random start
+angle, then dispenses 3 doses. A trial passes only if every dose is exactly one tablet.
+
+| Kit | Trials passed | Dispenses |
+| --- | --- | --- |
+| iron | **200 / 200** | 600 ok |
+| small | **200 / 200** | 600 ok (after the change below) |
+
+**What the first small run found.** It was 199 / 200, with one miss in 600 dispenses
+(`results/v2_v7_vertical/before_rock/`):
+
+- The last tablet left in the pool stood on edge against the hopper's liner rib.
+- The disc then slid under it for all 16 pockets.
+- The firmware would have reported MISS ("refill") with a tablet still inside.
+
+**Why it isn't caused by the canister.** That spot is the V2 hopper bore, unchanged in B,
+C and D, and the same slow pickups show up in the earlier campaigns:
+
+- the stand-alone V2 once needed 15 pockets, and on this same seed needed 13 and then 9;
+- B with gear backlash once needed 10.
+
+D's run happened to go past 16.
+
+**The design change.** After 8 empty pockets the disc rocks once (back one pitch, then
+return) before it indexes on.
+
+- It is in the simulation drive and in both firmwares (`MECH_ROCK_AFTER`), with host tests.
+- Replaying the failing trial: OK on pocket 11.
+- Then the full small campaign was rerun: 200 / 200.
+
+Checks of the change against the other runs:
+
+- **D iron.** Its only trial that needed more than 8 pockets replays identically with the
+  rock (`results/rock_replay.json`), so the iron result stands.
+- **Earlier V2, B and C campaigns.** Their trials that needed more than 8 pockets also pass
+  with the rock. Those runs are older and no longer reproduce exactly, so they were not
+  rerun in full.
+
+The test was not changed.
 
 ## Recommendation
 
-PENDING
+**Build D.** It is the only option that fixes all three problems while keeping the V7
+housing and every COTS part.
+
+- **Shape.** It stays round: the canisters stand where the V7's do, at the same height,
+  inside the body's radius.
+- **Jamming.** The V7 canister mechanism is replaced by the V2 disc, which passed 200 / 200
+  for both kits here.
+- **Space below the deck.** The funnel gives way to B's chute and pill cup, and no motor
+  hangs below the deck. The floor area open all the way to the deck goes from 213 to
+  316 cm² for the two boards and their wiring.
+
+**Cost against the V7 as built:**
+
+- **Extra COTS per module:** a 1/4" shaft and two R4-ZZ bearings.
+- **Printed parts per module:** 13, including the printed 1:1 gears.
+- **Housing:** the chute, cup and three brackets replace the funnel.
+
+The housing changes are the same as B's. D also needs no more than B in any respect: its
+hopper is just reshaped into the stub and canister.
+
+**Order of work:**
+
+1. Print the fit-test coupon.
+2. Build one D module, then dispense by hand with the iron tablets.
+3. Print the chute and cup.
+4. Build the other five modules.
+5. Wire the six modules to the motion board (`docs/electronics_v8.md`) with the funnel out of
+   the way.
+
+**When the others make sense:**
+
+- **B:** only if a taller canister is not wanted at all. B is shorter (140 mm) but leans
+  out to 148 mm.
+- **C:** only if modules must come off from above without lifting the deck. It is the
+  largest (204 mm) and replaces the most parts.
 
 ## Not done / open
 

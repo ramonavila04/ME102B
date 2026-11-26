@@ -57,11 +57,21 @@ rebuilds everything):
 | Canister on stub | No overlap; cap slab 0.2 mm from the bore; key binds before 3° of turn |
 | Clash with the V7 deck, shell, lower body, screen panel, weighing station and the neighbouring modules | None |
 | 12-seed pour (6–28 tablets, friction 0.2–0.6) | 0 lost, 0 held above the pool |
-| Simulation campaign | see below |
+| Simulation campaign | 200 / 200 per kit (below) |
 
 ## Simulation
 
-PENDING
+`python -m sim.campaign v2_v7_vertical --pills iron small --trials 200` (results in
+`results/v2_v7_vertical/`):
+
+| Kit | Trials passed | Dispenses |
+| --- | --- | --- |
+| iron | 200 / 200 | 600 ok |
+| small | 200 / 200 | 600 ok |
+
+The first small run (`before_rock/`) had 1 miss in 600: a lone tablet stood on edge against
+the liner rib for all 16 pockets. The fix is the firmware's rock: after 8 empty pockets the
+disc backs off one pitch and returns (`MECH_ROCK_AFTER`; see `docs/shape_options.md`).
 
 ## Print
 

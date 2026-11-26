@@ -67,7 +67,7 @@ def cover_at_stub(pp):
     return b.make_cover().translate((0, 0, (z0 + STUB_L) - b.HOPPER_TOP))
 
 
-def _rings(pp, z_l, inset, lift, wall):
+def _rings(pp, z_l, inset, lift, wall, chord=None):
     """Matching polygon rings: the stub's actual bore opening at local height z_l (the V2
     bore narrows on the pool side, so it is not a circle), and the upright tube at
     THROAT_Z + lift. Point k of both rings points the same way in plan, so the ruled throat
@@ -78,7 +78,10 @@ def _rings(pp, z_l, inset, lift, wall):
     for k in range(n):
         th = 2 * math.pi * k / n
         r = b.bore_r(th, z_l) + wall - inset   # bore_r takes the height above the disc face
-        lo.append(cq.Vector(*m.pt_module((r * math.cos(th), r * math.sin(th), z_l))))
+        x, y = r * math.cos(th), r * math.sin(th)
+        if chord is not None and y > chord:
+            y = chord                           # D-shaped opening: straight edge along the cover
+        lo.append(cq.Vector(*m.pt_module((x, y, z_l))))
         d = m.pt_module((math.cos(th), math.sin(th), z_l))
         phi = math.atan2(d[1] - c0[1], d[0] - c0[0])
         R = CAN_R + wall
@@ -91,8 +94,11 @@ def throat_and_canister(pp):
     tube. The inner loft runs 1 mm past both ends, so the cut opens them cleanly."""
     z0 = -pp["depth"] - b.RUN
     z_l = z0 + STUB_L - 1.0          # 1 mm inside the stub: the solids overlap
-    outer = cq.Solid.makeLoft(list(_rings(pp, z_l, 0.0, 0.0, b.WALL)), True)
-    inner = cq.Solid.makeLoft(list(_rings(pp, z_l - 1.0, 0.0, 1.0, 0.0)), True)
+    # The throat starts from the bore's lower part only: a D-shaped opening whose straight
+    # edge is the half-cover's edge (local y = COVER_Y). Tablets then never reach the cover's
+    # top, where its 50 deg face met the throat wall in a near-level crease that held them.
+    outer = cq.Solid.makeLoft(list(_rings(pp, z_l, 0.0, 0.0, b.WALL, chord=b.COVER_Y + b.WALL)), True)
+    inner = cq.Solid.makeLoft(list(_rings(pp, z_l - 1.0, 0.0, 1.0, 0.0, chord=b.COVER_Y)), True)
     return cq.Workplane(obj=outer).cut(cq.Workplane(obj=inner))
 
 

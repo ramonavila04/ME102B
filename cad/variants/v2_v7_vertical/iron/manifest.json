@@ -1,0 +1,27 @@
+{
+ "variant": "v2_v7_vertical",
+ "pill": "iron",
+ "parts": [
+  {
+   "name": "stub",
+   "stl": "stub.stl",
+   "print_rotation": [
+    0,
+    0,
+    0
+   ],
+   "bed": "flange down (as saved)"
+  },
+  {
+   "name": "canister",
+   "stl": "canister.stl",
+   "print_rotation": [
+    180,
+    0,
+    0
+   ],
+   "bed": "open top of the tube down"
+  }
+ ],
+ "clearances": []
+}

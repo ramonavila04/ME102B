@@ -28,7 +28,7 @@ site_namer = BASE.site_namer
 
 
 def spec(pill_id: str) -> dict:
-    if not (CAD / pill_id / "sim_hopper.stl").exists():
+    if not (CAD / pill_id / "sim_cap.stl").exists():
         C.export_sim(pill_id, CAD / pill_id)
     s = BASE.spec(pill_id)
     s["parts"] = [p for p in s["parts"] if p["name"] != "cover"]   # the throat caps the bore
@@ -36,7 +36,7 @@ def spec(pill_id: str) -> dict:
         if p["name"] == "hopper":
             p["stl"] = CAD / pill_id / "sim_hopper.stl"
     s["parts"].append(dict(name="hopper_throat", stl=CAD / pill_id / "sim_throat.stl", body="static", tol=0.1))
-    s["parts"].append(dict(name="hopper_canister", stl=CAD / pill_id / "sim_canister.stl", body="static", tol=0.1))
+    s["parts"].append(dict(name="hopper_cap", stl=CAD / pill_id / "sim_cap.stl", body="static", tol=0.1))
     from sim.pills import PILLS
     pill_r = PILLS[pill_id].bounding_radius
     Y0, Z0 = C.m.Y0, C.m.Z0

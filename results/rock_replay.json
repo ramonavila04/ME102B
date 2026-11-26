@@ -1,0 +1,138 @@
+[
+ {
+  "variant": "v2_inclined_disc",
+  "pill": "small",
+  "seed": 1088,
+  "before": [
+   [
+    "ok",
+    15
+   ],
+   [
+    "ok",
+    1
+   ],
+   [
+    "ok",
+    1
+   ]
+  ],
+  "after": [
+   [
+    "ok",
+    4
+   ],
+   [
+    "ok",
+    1
+   ],
+   [
+    "ok",
+    2
+   ]
+  ],
+  "passed": true
+ },
+ {
+  "variant": "v2_inclined_disc",
+  "pill": "small",
+  "seed": 1148,
+  "before": [
+   [
+    "ok",
+    13
+   ],
+   [
+    "ok",
+    9
+   ],
+   [
+    "ok",
+    7
+   ]
+  ],
+  "after": [
+   [
+    "ok",
+    9
+   ],
+   [
+    "ok",
+    2
+   ],
+   [
+    "ok",
+    1
+   ]
+  ],
+  "passed": true
+ },
+ {
+  "variant": "v2_v7_module_gear",
+  "pill": "small",
+  "seed": 1176,
+  "before": [
+   [
+    "ok",
+    4
+   ],
+   [
+    "ok",
+    10
+   ],
+   [
+    "ok",
+    1
+   ]
+  ],
+  "after": [
+   [
+    "ok",
+    4
+   ],
+   [
+    "ok",
+    1
+   ],
+   [
+    "ok",
+    2
+   ]
+  ],
+  "passed": true
+ },
+ {
+  "variant": "v2_v7_vertical",
+  "pill": "iron",
+  "seed": 1052,
+  "before": [
+   [
+    "ok",
+    3
+   ],
+   [
+    "ok",
+    2
+   ],
+   [
+    "ok",
+    9
+   ]
+  ],
+  "after": [
+   [
+    "ok",
+    3
+   ],
+   [
+    "ok",
+    2
+   ],
+   [
+    "ok",
+    9
+   ]
+  ],
+  "passed": true
+ }
+]

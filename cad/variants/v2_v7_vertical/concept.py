@@ -120,6 +120,7 @@ def throat_and_canister(pp):
 
 CAP_T = 2.4          # slab under the throat's cap (local z, into the stub's bore)
 CAP_CLEAR = 0.15     # radial clearance to the bore, as the V2 cover's lip
+KEY_CLEAR = 0.3      # all round the key in the exit-relief groove
 
 
 def cap_slab(pp):
@@ -155,8 +156,17 @@ def cap_slab(pp):
     def ring(z, dr):
         return cq.Wire.makePolygon([cq.Vector((rad(t) - dr) * math.cos(t), (rad(t) - dr) * math.sin(t), z)
                                     for t in ts], close=True)
-    slab = cq.Workplane(obj=cq.Solid.makeLoft([ring(z_top - CAP_T, d), ring(z_top + 0.5, 0.0)], True))
-    return m.to_module(slab)
+    slab = cq.Solid.makeLoft([ring(z_top - CAP_T, d), ring(z_top + 0.5, 0.0)], True)
+    # key: a tab into the stub's exit-relief groove (it runs the bore's full height at the
+    # top), KEY_CLEAR undersize, same draft. The half-round slab alone could turn in the round
+    # bore, and the canister be glued on twisted; with the key it fits one way only.
+    def outline(z, grow):
+        pts = b.relief_outline(pp, grow)
+        r_in = b.R_DISC - 1.0 - liner - 2.0          # inner edge well inside the slab
+        pts = pts[:-3] + [(x * r_in / math.hypot(x, y), y * r_in / math.hypot(x, y)) for x, y in pts[-3:]]
+        return cq.Wire.makePolygon([cq.Vector(x, y, z) for x, y in pts], close=True)
+    key = cq.Solid.makeLoft([outline(z_top - CAP_T, -KEY_CLEAR - d), outline(z_top + 0.5, -KEY_CLEAR)], True)
+    return m.to_module(cq.Workplane(obj=slab.fuse(key).clean()))
 
 
 def module_bodies(kit: str):

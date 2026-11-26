@@ -15,6 +15,7 @@
 // a dispense indexes one pocket (MECH_INDEX_DEG) at a time, settles MECH_SETTLE_MS counting
 // beam edges, stops once a pill is seen and waits out MECH_DROP_WINDOW_MS to catch a
 // double; a stall brakes, reverses MECH_REVERSE_DEG and retries up to MECH_MAX_RETRIES.
+// After MECH_ROCK_AFTER empty pockets it rocks once (back one pitch, return) before going on.
 // Weighing, the schedule and the UI stay on the main board.
 #pragma once
 #include <stdint.h>
@@ -88,10 +89,12 @@ class ModuleBank {
   const Result& result() const { return result_; }
   uint32_t resultSeq() const { return resultSeq_; }
   int32_t position(int module) const { return pos_[module]; }  // absolute counts
+  uint8_t rocks() const { return rocks_; }                       // rocks in the last dispense
   uint32_t stateSeq() const { return stateSeq_; }
 
  private:
-  enum class Phase : uint8_t { Seek, SeekBrake, Offset, Forward, JamBrake, Reverse, ReverseBrake, Settle, DropWait };
+  enum class Phase : uint8_t { Seek, SeekBrake, Offset, Forward, JamBrake, Reverse, ReverseBrake, Settle, DropWait,
+                              RockBack, RockReturn, RockSettle };
   int32_t modPos(const Inputs& in) const { return in.encoder - base_; }
   void select(int module, const Inputs& in);
   void startMove(const Inputs& in, int32_t target, float rpm);
@@ -129,7 +132,7 @@ class ModuleBank {
   int32_t homeEdge_ = 0, homeTarget_ = 0;
   int32_t target_ = 0;
   uint32_t fwdStartMs_ = 0, moveDoneMs_ = 0;
-  uint8_t jamRetries_ = 0, steps_ = 0, jams_ = 0;
+  uint8_t jamRetries_ = 0, steps_ = 0, jams_ = 0, rocks_ = 0;
   uint32_t beamStart_ = 0;
 
   Result result_;

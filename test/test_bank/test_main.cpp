@@ -204,7 +204,33 @@ void test_double_and_miss() {
   const Result m = p.dispense(3);
   TEST_ASSERT_EQUAL_STRING("MISS", outcomeName(m.outcome));
   TEST_ASSERT_EQUAL(MECH_MAX_INDEX_STEPS, m.steps);
+  TEST_ASSERT_EQUAL((MECH_MAX_INDEX_STEPS - 1) / MECH_ROCK_AFTER, p.bank.rocks());
   TEST_ASSERT_EQUAL_STRING("IDLE", bankStateName(p.bank.state()));  // a miss is not a fault
+  // the rocks returned to the pocket each time: the drum ends MAX steps on
+  TEST_ASSERT_INT_WITHIN(dc::degToCounts(dc::cfg::kFinalTolDeg),
+                         p.index0[3] + MECH_MAX_INDEX_STEPS * dc::degToCounts(MECH_INDEX_DEG), p.m[3].count());
+}
+
+void test_rock_after_empty_revolution() {
+  Bank6 p;
+  p.pills[4].assign(MECH_ROCK_AFTER + 4, 0);
+  p.pills[4].push_back(1);  // first pill in pocket MECH_ROCK_AFTER + 5
+  p.homeModule(4);
+  double minPos = 1e18;
+  const uint32_t seq = p.bank.resultSeq();
+  TEST_ASSERT_EQUAL(static_cast<int>(Outcome::None), static_cast<int>(p.bank.command(Command::Dispense, 4, p.in)));
+  while (p.bank.resultSeq() == seq && p.in.nowMs < 400000) {
+    p.step();
+    // track how far back the drum went after the rock started
+    if (p.bank.rocks() > 0 && p.m[4].pos < minPos) minPos = p.m[4].pos;
+  }
+  const Result r = p.bank.result();
+  TEST_ASSERT_EQUAL_STRING("OK", outcomeName(r.outcome));
+  TEST_ASSERT_EQUAL(MECH_ROCK_AFTER + 5, r.steps);
+  TEST_ASSERT_EQUAL(1, p.bank.rocks());
+  // it went back one pitch from the MECH_ROCK_AFTER-th pocket
+  const double back = p.index0[4] + (MECH_ROCK_AFTER - 1) * dc::degToCounts(MECH_INDEX_DEG);
+  TEST_ASSERT_DOUBLE_WITHIN(dc::degToCounts(2.0f), back, minPos);
 }
 
 void test_refusals() {
@@ -284,6 +310,7 @@ int main(int, char**) {
   RUN_TEST(test_dispense_one_pill);
   RUN_TEST(test_empty_pockets_then_pill);
   RUN_TEST(test_double_and_miss);
+  RUN_TEST(test_rock_after_empty_revolution);
   RUN_TEST(test_refusals);
   RUN_TEST(test_positions_kept_across_selection);
   RUN_TEST(test_jam_cleared_by_reverse);

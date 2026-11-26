@@ -5,6 +5,7 @@
 //   repeat up to MECH_MAX_INDEX_STEPS times:
 //     move forward MECH_INDEX_DEG (one pocket pitch) with the ramped profile;
 //     wait MECH_SETTLE_MS counting beam-break edges; if >= 1 pill seen -> stop.
+//     after every MECH_ROCK_AFTER empty steps, move back one pitch and return first;
 //   exactly 1 pill = OK; 2+ = DOUBLE; 0 after all steps = MISS/EMPTY (refill);
 //   stall during a move = JAM: reverse MECH_REVERSE_DEG, retry that move up to
 //   MECH_MAX_RETRIES times, then FAULT. Load cell = secondary confirmation.
@@ -26,6 +27,7 @@ constexpr float MECH_REVERSE_DEG = 22.5f;         // back off half a pitch
 constexpr uint8_t MECH_MAX_RETRIES = 2;
 constexpr float MECH_HOME_OFFSET_DEG = 0.0f;      // set during BUILD.md step "home offset"
 constexpr int MECH_MAX_INDEX_STEPS = 16;           // two revolutions (sim value)
+constexpr int MECH_ROCK_AFTER = 8;               // empty steps before a rock: back one pitch, return (0 = never)
 constexpr float MECH_PILL_MASS_G_MIN = 0.08f;     // 80 % of nominal pill mass
 #elif defined(MECH_PILL_CAPLET)
 // Large oblong caplet (multivitamin class)
@@ -41,6 +43,7 @@ constexpr float MECH_REVERSE_DEG = 45.0f;         // back off half a pitch
 constexpr uint8_t MECH_MAX_RETRIES = 2;
 constexpr float MECH_HOME_OFFSET_DEG = 0.0f;      // set during BUILD.md step "home offset"
 constexpr int MECH_MAX_INDEX_STEPS = 16;           // two revolutions (sim value)
+constexpr int MECH_ROCK_AFTER = 8;               // empty steps before a rock: back one pitch, return (0 = never)
 constexpr float MECH_PILL_MASS_G_MIN = 0.96f;     // 80 % of nominal pill mass
 #elif defined(MECH_PILL_CAP0)
 // Size-0 hard capsule
@@ -56,6 +59,7 @@ constexpr float MECH_REVERSE_DEG = 45.0f;         // back off half a pitch
 constexpr uint8_t MECH_MAX_RETRIES = 2;
 constexpr float MECH_HOME_OFFSET_DEG = 0.0f;      // set during BUILD.md step "home offset"
 constexpr int MECH_MAX_INDEX_STEPS = 16;           // two revolutions (sim value)
+constexpr int MECH_ROCK_AFTER = 8;               // empty steps before a rock: back one pitch, return (0 = never)
 constexpr float MECH_PILL_MASS_G_MIN = 0.4f;     // 80 % of nominal pill mass
 #else
 // Nature Made Iron 65 mg (team test pill, ESTIMATED size)
@@ -71,5 +75,6 @@ constexpr float MECH_REVERSE_DEG = 22.5f;         // back off half a pitch
 constexpr uint8_t MECH_MAX_RETRIES = 2;
 constexpr float MECH_HOME_OFFSET_DEG = 0.0f;      // set during BUILD.md step "home offset"
 constexpr int MECH_MAX_INDEX_STEPS = 16;           // two revolutions (sim value)
+constexpr int MECH_ROCK_AFTER = 8;               // empty steps before a rock: back one pitch, return (0 = never)
 constexpr float MECH_PILL_MASS_G_MIN = 0.32f;     // 80 % of nominal pill mass
 #endif

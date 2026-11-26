@@ -29,6 +29,9 @@ inline float baselineMs() { return dc::cfg::kScaleSamples * kScalePeriodMs; }
 inline float verifyMs() { return dc::cfg::kScaleSamples * kScalePeriodMs; }
 // Empty step: move, then settle (the post-move brake overlaps the settle).
 inline float emptyStepMs() { return indexMoveMs() + MECH_SETTLE_MS; }
+// Rock after MECH_ROCK_AFTER empty steps: back one pitch, return, settle.
+inline float rockMs() { return 2.0f * indexMoveMs() + MECH_SETTLE_MS; }
+inline int rocksBefore(int step) { return MECH_ROCK_AFTER > 0 ? (step - 1) / MECH_ROCK_AFTER : 0; }
 // Step that drops a pill: settle, then wait out the drop window from move start.
 inline float pillStepMs() {
   const float a = indexMoveMs() + MECH_SETTLE_MS;
@@ -37,9 +40,12 @@ inline float pillStepMs() {
 }
 // Dispense command -> VERIFY done, pill found on step `n`.
 inline float dispenseMs(int n) {
-  return baselineMs() + (n - 1) * emptyStepMs() + pillStepMs() + verifyMs();
+  return baselineMs() + (n - 1) * emptyStepMs() + rocksBefore(n) * rockMs() + pillStepMs() + verifyMs();
 }
-inline float missMs() { return baselineMs() + MECH_MAX_INDEX_STEPS * emptyStepMs() + verifyMs(); }
+inline float missMs() {
+  return baselineMs() + MECH_MAX_INDEX_STEPS * emptyStepMs() + rocksBefore(MECH_MAX_INDEX_STEPS) * rockMs() +
+         verifyMs();
+}
 // Generous run limit for runUntil(): 2x the expectation plus 2 s.
 inline uint32_t limit(float ms) { return static_cast<uint32_t>(2.0f * ms + 2000.0f); }
 }  // namespace expect

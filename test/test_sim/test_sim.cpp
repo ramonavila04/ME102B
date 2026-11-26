@@ -139,6 +139,24 @@ void test_pill_found_on_step_3() {
   TEST_ASSERT_EQUAL_INT32(start + 3 * degToCounts(MECH_INDEX_DEG), p.disp.indexPosition());
 }
 
+void test_rock_then_pill_after_empty_revolution() {
+  simt::Plant p;
+  const int n = MECH_ROCK_AFTER + 3;  // pill in pocket n: one rock on the way
+  p.pillsPerPocket.assign(n - 1, 0);
+  p.pillsPerPocket.push_back(1);
+  homeAndIdle(p);
+  const int32_t start = p.disp.indexPosition();
+  const uint32_t t0 = p.nowMs;
+  dispenseNow(p);
+  TEST_ASSERT_TRUE(p.runUntilState(State::WaitPickup, ex::limit(ex::dispenseMs(n))));
+  TEST_ASSERT_EQUAL(n, p.disp.indexSteps());
+  TEST_ASSERT_EQUAL(1, p.disp.rocks());
+  TEST_ASSERT_EQUAL(int(Verdict::Ok), int(p.disp.lastVerdict()));
+  TEST_ASSERT_EQUAL_UINT32(1, p.disp.lastBeamCount());
+  TEST_ASSERT_EQUAL_INT32(start + n * degToCounts(MECH_INDEX_DEG), p.disp.indexPosition());
+  TEST_ASSERT_FLOAT_WITHIN(0.1f * ex::dispenseMs(n) + 150, ex::dispenseMs(n), float(p.nowMs - t0));
+}
+
 void test_stall_mid_loop_recovers() {
   simt::Plant p;
   p.pillsPerPocket = {0, 0, 1};
@@ -259,6 +277,7 @@ int main() {
   RUN_TEST(test_double_on_one_step_faults);
   RUN_TEST(test_none_after_max_steps_is_miss_refill);
   RUN_TEST(test_pill_found_on_step_3);
+  RUN_TEST(test_rock_then_pill_after_empty_revolution);
   RUN_TEST(test_stall_mid_loop_recovers);
   RUN_TEST(test_stall_mid_loop_persistent_faults);
   RUN_TEST(test_beam_only_when_scale_uncalibrated);

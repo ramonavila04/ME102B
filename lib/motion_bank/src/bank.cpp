@@ -140,7 +140,7 @@ Outputs ModuleBank::update(const Inputs& in) {
     const bool home = (in.homeMask >> module_) & 1u;
     homeDeb_.reset(home, now);
     beamStart_ = in.beamEvents;
-    steps_ = jams_ = 0;
+    steps_ = jams_ = rocks_ = 0;
     if (pending_ == Command::Home) {
       setState(BankState::Homing);
       seenRelease_ = !home;
@@ -278,10 +278,44 @@ void ModuleBank::handleDispensing(const Inputs& in) {
       if (in.beamEvents != beamStart_) {
         phase_ = Phase::DropWait;  // keep counting so a trailing second pill reads as DOUBLE
       } else if (steps_ < MECH_MAX_INDEX_STEPS) {
-        startStep(in);
+        if (MECH_ROCK_AFTER > 0 && steps_ % MECH_ROCK_AFTER == 0) {
+          // empty for MECH_ROCK_AFTER pockets: back off one pitch and return, so a tablet
+          // standing on edge in the pool is dragged the other way and falls flat
+          ++rocks_;
+          startMove(in, index_[module_] - degToCounts(MECH_INDEX_DEG), MECH_TARGET_RPM);
+          phase_ = Phase::RockBack;
+        } else {
+          startStep(in);
+        }
       } else {
         finish(Outcome::Miss, in);
       }
+      break;
+    case Phase::RockBack:
+    case Phase::RockReturn:
+      if (move_.active() || !brakeDone(now)) break;
+      if (move_.result() == MoveResult::WrongDirection) {
+        finish(Outcome::EncoderDirection, in);
+        return;
+      }
+      if (move_.result() != MoveResult::Done) {  // a stall while rocking: no retries
+        ++jams_;
+        finish(Outcome::Jam, in);
+        return;
+      }
+      if (phase_ == Phase::RockBack) {
+        fwdStartMs_ = now;
+        startMove(in, index_[module_], MECH_TARGET_RPM);  // back to the same pocket
+        phase_ = Phase::RockReturn;
+      } else {
+        moveDoneMs_ = now;
+        phase_ = Phase::RockSettle;
+      }
+      break;
+    case Phase::RockSettle:
+      if (now - moveDoneMs_ < MECH_SETTLE_MS) break;
+      if (in.beamEvents != beamStart_) phase_ = Phase::DropWait;  // a pill fell during the rock
+      else startStep(in);
       break;
     case Phase::DropWait:
       if (now - fwdStartMs_ >= MECH_DROP_WINDOW_MS) {

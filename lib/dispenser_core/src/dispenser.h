@@ -38,7 +38,7 @@ enum class FaultCode : uint8_t {
   SensorMismatch,    // beam and load cell disagree
   HomingDrop,        // a pill fell while homing
 };
-enum class DispensePhase : uint8_t { Baseline, Forward, JamBrake, Reverse, ReverseBrake, Settle, DropWait };
+enum class DispensePhase : uint8_t { Baseline, Forward, JamBrake, Reverse, ReverseBrake, Settle, DropWait, RockBack, RockReturn, RockSettle };
 enum class HomePhase : uint8_t { Seek, Brake, Offset, Finish };
 enum class MenuPage : uint8_t { Main, EditDose, ClockHour, ClockMinute };
 
@@ -110,6 +110,7 @@ class Dispenser {
   uint32_t jamEvents() const { return jamEvents_; }
   uint32_t reverseMoves() const { return reverseMoves_; }
   int indexSteps() const { return indexSteps_; }  // index steps used by the last dispense
+  int rocks() const { return rocks_; }            // rocks (back one pitch and return) in the last dispense
   uint32_t lastBeamCount() const { return lastBeams_; }
   float lastMassDeltaG() const { return lastDelta_; }
   float speedCpms() const { return vel_; }
@@ -190,6 +191,7 @@ class Dispenser {
   uint32_t fwdStartMs_ = 0, moveDoneMs_ = 0, lastFwdMs_ = 0;
   uint8_t jamRetries_ = 0;
   int indexSteps_ = 0;
+  int rocks_ = 0;
   uint32_t jamEvents_ = 0, reverseMoves_ = 0;
   uint32_t beamStart_ = 0, lastBeams_ = 0;
   Collector collector_;

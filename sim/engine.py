@@ -569,6 +569,7 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
     res.leak = c
     lost_fill = l
     max_steps = int(spec["drive"].get("max_steps", 1))
+    index_fwd = drive.index
     for _ in range(cycles):
         # One dispense command, exactly as the firmware runs it: index one pocket pitch,
         # wait for the drop window, stop as soon as the chute sensor has seen a pill,
@@ -577,7 +578,37 @@ def run_trial(spec_fn, pill_id: str, seed: int, cycles: int = 3, record: bool = 
         cnt = lost = 0
         jam = False
         steps = 0
+        rock_after = int(spec["drive"].get("rock_after", 0))
         while steps < max_steps and cnt == 0 and not jam:
+            if rock_after and steps and steps % rock_after == 0:
+                # rock (firmware MECH_ROCK_AFTER): after rock_after empty indexes, back the disc
+                # off one pitch and return to the same position before indexing on. A lone
+                # tablet standing on edge in the pool is dragged the other way and falls flat.
+                for sgn in (-1, 1):
+                    ts = data.time
+                    drive.index = sgn * index_fwd
+                    drive.start_move(ts)
+                    c1, l1, jam = step(ts + drive.move_time(), moving=True)
+                    if not jam:
+                        deadline = ts + 3 * drive.move_time()
+                        while abs(drive.crank_state(data.qpos[eq], data.qvel[ed], drive.target)[0]
+                                  - drive.target) > math.radians(3) and data.time < deadline:
+                            cx, lx, jx = step(data.time + 0.02, moving=True)
+                            c1 += cx; l1 += lx
+                            if jx:
+                                jam = True
+                                break
+                    cnt += c1; lost += l1
+                    drive.index = index_fwd
+                    if jam:
+                        break
+                    drive.finish()
+                if jam:
+                    break
+                c2, l2, _ = step(data.time + spec["drive"].get("settle_s", 0.6), moving=False)
+                cnt += c2; lost += l2
+                if cnt:
+                    break
             steps += 1
             ts = data.time
             drive.start_move(ts)

@@ -452,6 +452,7 @@ void Dispenser::startDose(const Inputs& in, bool scheduled, uint32_t when) {
     saveLastDose_ = true;  // persisted before the motor moves (baseline phase)
   }
   indexSteps_ = 0;
+  rocks_ = 0;
   enter(State::Dispensing, in);
 }
 
@@ -541,14 +542,53 @@ void Dispenser::handleDispensing(const Inputs& in) {
         // pill is still classified as DOUBLE.
         dispPhase_ = DispensePhase::DropWait;
       } else if (indexSteps_ < MECH_MAX_INDEX_STEPS) {
-        log("step %d: no pill, indexing next pocket", indexSteps_);
-        startStep(in);
+        if (MECH_ROCK_AFTER > 0 && indexSteps_ % MECH_ROCK_AFTER == 0) {
+          // A whole revolution came up empty: back off one pitch and return before going
+          // on, so a tablet standing on edge in the pool is dragged the other way and
+          // falls flat (the sim's rock_after; see include/mechanism.h).
+          log("step %d: no pill for a revolution, rocking", indexSteps_);
+          ++rocks_;
+          startMove(in, indexPos_ - degToCounts(MECH_INDEX_DEG), MECH_TARGET_RPM);
+          dispPhase_ = DispensePhase::RockBack;
+        } else {
+          log("step %d: no pill, indexing next pocket", indexSteps_);
+          startStep(in);
+        }
       } else {
         enter(State::Verify, in);  // 0 pills after all steps -> MISS
       }
       break;
     case DispensePhase::DropWait:
       if (now - fwdStartMs_ >= MECH_DROP_WINDOW_MS) enter(State::Verify, in);
+      break;
+    case DispensePhase::RockBack:
+    case DispensePhase::RockReturn:
+      if (move_.active() || !brakeDone(now)) break;
+      if (move_.result() == MoveResult::WrongDirection) {
+        raise(FaultCode::EncoderDirection, in);
+        return;
+      }
+      if (move_.result() != MoveResult::Done) {  // a stall while rocking: no retries
+        ++jamEvents_;
+        raise(FaultCode::Jam, in);
+        return;
+      }
+      if (dispPhase_ == DispensePhase::RockBack) {
+        fwdStartMs_ = now;
+        startMove(in, indexPos_, MECH_TARGET_RPM);  // back to the same pocket
+        dispPhase_ = DispensePhase::RockReturn;
+      } else {
+        moveDoneMs_ = now;
+        dispPhase_ = DispensePhase::RockSettle;
+      }
+      break;
+    case DispensePhase::RockSettle:
+      if (now - moveDoneMs_ < MECH_SETTLE_MS) break;
+      if (in.beamEvents != beamStart_) {
+        dispPhase_ = DispensePhase::DropWait;  // a pill fell during the rock
+      } else {
+        startStep(in);
+      }
       break;
   }
 }
@@ -732,6 +772,9 @@ void Dispenser::render(const Inputs& in) {
           break;
         case DispensePhase::Settle:
         case DispensePhase::DropWait: L(0, "Waiting for drop"); break;
+        case DispensePhase::RockBack:
+        case DispensePhase::RockReturn:
+        case DispensePhase::RockSettle: L(0, "Stirring the pills"); break;
       }
       L(1, "Pocket %d of %d", indexSteps_, MECH_MAX_INDEX_STEPS);
       break;

@@ -126,6 +126,12 @@ Code and tests: `lib/motion_bank/src/boardlink.*`, `test/test_bank`.
 | `0x82` RESULT | motion → main | module, outcome, beams, steps, jams | when HOME or DISPENSE finishes; seq is the command's |
 | `0x83` STATUS | motion → main | state, module, homed mask, fault | on every state change and on PING |
 
+A dispense indexes up to `MECH_MAX_INDEX_STEPS` (16) pockets. After 8 empty pockets
+(`MECH_ROCK_AFTER`) the disc rocks once: back one pitch, return, then index on. In simulation
+a lone small tablet once stood on edge against the hopper liner for all 16 pockets (a false
+`MISS`, "refill", with a tablet still inside); the rock knocks it flat. A stall during the rock
+is a `JAM`; a pill seen during it is counted like any other.
+
 Outcomes: `OK`, `DOUBLE`, `MISS`, `JAM`, `ENCODER DIRECTION`, `HOME NOT FOUND`,
 `BEAM BLOCKED`, `HOMING DROP`, `ABORTED`, `HOMED` (codes in `lib/motion_bank/src/bank.h`).
 The main board still weighs the cup before and after, as now, and compares the mass
@@ -135,7 +141,7 @@ change with the RESULT's beam count.
 
 | Part | State |
 | --- | --- |
-| Motion logic (`lib/motion_bank`) | Done. 13 host tests (`pio test -e native -f test_bank`): homing all six independently, one pill, empty pockets, double, miss, refusals, positions kept across switches, jam cleared by a reverse, permanent jam, reversed encoder, abort, and the link framing. They pass for all four pill types. |
+| Motion logic (`lib/motion_bank`) | Done. 14 host tests (`pio test -e native -f test_bank`): homing all six independently, one pill, empty pockets, double, miss, refusals, positions kept across switches, jam cleared by a reverse, the rock after 8 empty pockets, permanent jam, reversed encoder, abort, and the link framing. They pass for all four pill types. |
 | Motion firmware (`firmware/motion`, env `motion`) | Written; compiled by CI. Not run on hardware. |
 | Main-board firmware | **Next step**: replace the direct motor/encoder/beam/home code in `firmware/dispenser` with link commands, add a module choice to each dose in the schedule and menu, and move the pins as above. |
 | Home switches and their mounts | Not designed (the V2 module has none). The firmware expects one switch per module, actuated once per disc turn. |

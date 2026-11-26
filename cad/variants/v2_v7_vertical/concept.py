@@ -10,9 +10,10 @@ from, STUB_L along the axis, with the exit relief); above it a throat turns into
 canister standing over the module, as the V7 canisters do. Everything behind the disc
 (back plate, duct, bearings, 1:1 gears, gearmotor, stand) is the v2_v7_module's, unchanged.
 
-The V2 half-cover moves down to the top of the stub: tablets falling down the canister land
-on it (it lies at the disc's 50 deg) and slide into the lower half of the bore, away from
-the exit at the top of the disc, as in the V2.
+The throat opens into the bore through a D-shaped mouth whose straight edge is where the V2
+half-cover's edge was, and the throat's solid closes the upper half of the bore: tablets
+falling down the canister slide down its flat wall into the lower half of the bore, away from
+the exit at the top of the disc, as in the V2. No separate cover.
 
 CONCEPT ONLY: sized and clash-checked, not yet split for printing or simulated.
 """
@@ -61,12 +62,6 @@ def stub(pp):
     return h.intersect(keep).intersect(envelope_local())
 
 
-def cover_at_stub(pp):
-    """The V2 half-cover, moved from the hopper top down to the top of the stub."""
-    z0 = -pp["depth"] - b.RUN
-    return b.make_cover().translate((0, 0, (z0 + STUB_L) - b.HOPPER_TOP))
-
-
 def _rings(pp, z_l, inset, lift, wall, chord=None):
     """Matching polygon rings: the stub's actual bore opening at local height z_l (the V2
     bore narrows on the pool side, so it is not a circle), and the upright tube at
@@ -94,10 +89,12 @@ def throat_and_canister(pp):
     tube. The inner loft runs 1 mm past both ends, so the cut opens them cleanly."""
     z0 = -pp["depth"] - b.RUN
     z_l = z0 + STUB_L - 1.0          # 1 mm inside the stub: the solids overlap
-    # The throat starts from the bore's lower part only: a D-shaped opening whose straight
-    # edge is the half-cover's edge (local y = COVER_Y). Tablets then never reach the cover's
-    # top, where its 50 deg face met the throat wall in a near-level crease that held them.
-    outer = cq.Solid.makeLoft(list(_rings(pp, z_l, 0.0, 0.0, b.WALL, chord=b.COVER_Y + b.WALL)), True)
+    # The throat's outside follows the whole bore, but its opening is D-shaped: the straight
+    # edge is the V2 half-cover's edge (local y = COVER_Y). The solid between them caps the
+    # upper half of the stub, so the throat does the cover's job and there is no separate
+    # cover: with one, its top face and the throat's flat wall made a level V-groove that
+    # held tablets. Now the flat wall runs straight down into the bore.
+    outer = cq.Solid.makeLoft(list(_rings(pp, z_l, 0.0, 0.0, b.WALL)), True)
     inner = cq.Solid.makeLoft(list(_rings(pp, z_l - 1.0, 0.0, 1.0, 0.0, chord=b.COVER_Y)), True)
     return cq.Workplane(obj=outer).cut(cq.Workplane(obj=inner))
 
@@ -115,7 +112,6 @@ def module_bodies(kit: str):
     pp = b.pocket_params(kit)
     out = [(n, s) for n, c, s, bought in a.module_bodies(kit) if n not in ("hopper", "cover")]
     out.append(("stub", m.to_module(stub(pp))))
-    out.append(("cover", m.to_module(cover_at_stub(pp))))
     out.append(("throat", throat_and_canister(pp)))
     out.append(("canister", tube()))
     return out
@@ -129,14 +125,13 @@ def module_to_world(shape):
 
 def export_sim(kit: str, out: Path):
     """Static parts in the V2 world, for the simulator: the bore stub, the throat + upright
-    canister, and the cover. Stub and throat overlap by 1 mm; the simulator collides each
+    canister. Stub and throat overlap by 1 mm; the simulator collides each
     static part on its own, so they are not unioned (OpenCASCADE's boolean of the curved bore
     and the ruled throat fails for some disc depths)."""
     pp = b.pocket_params(kit)
     out.mkdir(parents=True, exist_ok=True)
     for name, shape in (("sim_hopper", m.to_module(stub(pp))), ("sim_throat", throat_and_canister(pp)),
-                        ("sim_canister", tube()),
-                        ("sim_cover", m.to_module(cover_at_stub(pp)))):
+                        ("sim_canister", tube())):
         cq.exporters.export(module_to_world(shape), str(out / f"{name}.stl"), tolerance=0.02, angularTolerance=0.08)
 
 
@@ -145,7 +140,7 @@ if __name__ == "__main__":
     (HERE / "concept").mkdir(exist_ok=True)
     bodies = module_bodies(kit)
     for n, s in bodies:
-        if n in ("stub", "cover", "throat", "canister"):
+        if n in ("stub", "throat", "canister"):
             cq.exporters.export(s, str(HERE / "concept" / f"{n}.stl"), tolerance=0.05)
     allv = [v for _, s in bodies for v in s.vals()[0].Vertices()] if False else None
     comp = cq.Compound.makeCompound([s.val() for _, s in bodies])
